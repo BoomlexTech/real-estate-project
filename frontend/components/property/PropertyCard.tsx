@@ -260,7 +260,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
               >
                 {property.agent.name.charAt(0)}
               </div>
-              <span className="text-xs text-gray-300 truncate max-w-[80px]">{property.agent.name}</span>
+              <span className="text-xs text-gray-300 truncate max-w-20">{property.agent.name}</span>
             </div>
             <div className="flex gap-1.5">
               <a

@@ -53,7 +53,7 @@ export default function DeveloperSpotlight() {
             >
               <Link
                 href={`/developers/${dev.slug}`}
-                className="card-dark p-5 flex flex-col items-center text-center gap-2 hover:border-yellow-500/40 transition-all group block"
+                className="card-dark p-5 flex-col items-center text-center gap-2 hover:border-yellow-500/40 transition-all group block"
               >
                 <div
                   className="w-14 h-14 rounded-full flex items-center justify-center text-lg font-black transition-colors"

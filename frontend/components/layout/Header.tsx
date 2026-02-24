@@ -42,6 +42,7 @@ export default function Header() {
           background: scrolled ? 'rgba(26,31,46,0.98)' : 'rgba(26,31,46,0.85)',
           backdropFilter: 'blur(12px)',
           boxShadow: scrolled ? '0 2px 20px rgba(0,0,0,0.4)' : 'none',
+        borderBottom: '1px solid rgba(201,168,76,0.45)',
         }}
       >
         {/* Top Bar */}
