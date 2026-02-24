@@ -1,5 +1,6 @@
 'use client';
 
+import { useRouter, useSearchParams } from 'next/navigation';
 import PropertyCard from './PropertyCard';
 import { Property } from '@/lib/types';
 import { motion } from 'framer-motion';
@@ -28,6 +29,16 @@ function SkeletonCard() {
 }
 
 export default function PropertyGrid({ properties, loading, page = 1, totalPages = 1, onPageChange }: PropertyGridProps) {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  function goToPage(p: number) {
+    if (onPageChange) { onPageChange(p); return; }
+    const params = new URLSearchParams(searchParams.toString());
+    params.set('page', String(p));
+    router.push(`?${params.toString()}`);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
   if (loading) {
     return (
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
@@ -65,7 +76,7 @@ export default function PropertyGrid({ properties, loading, page = 1, totalPages
       {totalPages > 1 && (
         <div className="flex items-center justify-center gap-2 mt-10">
           <button
-            onClick={() => onPageChange?.(page - 1)}
+            onClick={() => goToPage(page - 1)}
             disabled={page === 1}
             className="px-4 py-2 rounded-lg text-sm font-medium transition-all disabled:opacity-30"
             style={{ background: '#2d3347', color: '#9ca3af', border: '1px solid rgba(201,168,76,0.45)' }}
@@ -77,7 +88,7 @@ export default function PropertyGrid({ properties, loading, page = 1, totalPages
             return (
               <button
                 key={p}
-                onClick={() => onPageChange?.(p)}
+                onClick={() => goToPage(p)}
                 className="w-9 h-9 rounded-lg text-sm font-medium transition-all"
                 style={{
                   background: p === page ? '#c9a84c' : '#2d3347',
@@ -90,7 +101,7 @@ export default function PropertyGrid({ properties, loading, page = 1, totalPages
             );
           })}
           <button
-            onClick={() => onPageChange?.(page + 1)}
+            onClick={() => goToPage(page + 1)}
             disabled={page === totalPages}
             className="px-4 py-2 rounded-lg text-sm font-medium transition-all disabled:opacity-30"
             style={{ background: '#2d3347', color: '#9ca3af', border: '1px solid rgba(201,168,76,0.45)' }}

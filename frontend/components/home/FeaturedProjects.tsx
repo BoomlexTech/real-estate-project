@@ -59,7 +59,7 @@ export default function FeaturedProjects() {
                     </div>
                 </motion.div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
                     {visibleProjects.map((project, i) => (
                         <motion.div
                             key={project.id}
@@ -67,10 +67,11 @@ export default function FeaturedProjects() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: i * 0.1 }}
+                            className="h-full"
                         >
-                            <Link href={`/property/${project.slug}`} className="group block">
-                                <div className="rounded-2xl overflow-hidden" style={{ background: '#232838', border: '1px solid rgba(201,168,76,0.45)' }}>
-                                    <div className="relative h-56 overflow-hidden">
+                            <Link href={`/property/${project.slug}`} className="group block h-full">
+                                <div className="rounded-2xl overflow-hidden h-full flex flex-col" style={{ background: '#232838', border: '1px solid rgba(201,168,76,0.45)' }}>
+                                    <div className="relative h-56 overflow-hidden shrink-0">
                                         <Image
                                             src={project.images[0] || '/placeholder.jpg'}
                                             alt={project.title}
@@ -82,7 +83,7 @@ export default function FeaturedProjects() {
                                             {project.status === 'for-sale' ? 'FOR SALE' : project.status === 'for-rent' ? 'FOR RENT' : project.status.toUpperCase()}
                                         </span>
                                     </div>
-                                    <div className="p-5">
+                                    <div className="p-5 flex flex-col flex-1">
                                         <h3 className="text-white font-bold text-lg group-hover:text-yellow-400 transition-colors">{project.title}</h3>
                                         <p className="text-gray-400 text-sm mt-1">{project.location}, {project.emirate}</p>
                                         <div className="flex items-center gap-4 mt-3 text-gray-400 text-xs">
@@ -90,7 +91,7 @@ export default function FeaturedProjects() {
                                             <span>📐 {project.area.toLocaleString()} sqft</span>
                                             {project.developer && <span>🏗 {project.developer}</span>}
                                         </div>
-                                        <p className="text-lg font-bold mt-3" style={{ color: '#c9a84c' }}>{project.priceLabel}</p>
+                                        <p className="text-lg font-bold mt-auto pt-3" style={{ color: '#c9a84c' }}>{project.priceLabel}</p>
                                     </div>
                                 </div>
                             </Link>

@@ -7,7 +7,17 @@ const Agent = require('../models/Agent');
 const BlogPost = require('../models/BlogPost');
 const User = require('../models/User');
 
-const IMG = 'https://media.istockphoto.com/id/2175808798/photo/houses-on-palm-island-in-dubai.jpg?s=612x612&w=0&k=20&c=IS-sQ8O8luKFilHBfjiJLa4e0Q0vYXopk9YDI4F05Q8=';
+const IMGS = [
+    'https://images.pexels.com/photos/30707660/pexels-photo-30707660.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750',  // Luxury Dubai Apartment Complex with Pool View
+    'https://images.pexels.com/photos/34188580/pexels-photo-34188580.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750',  // Modern Villa in Dubai Residential Area
+    'https://images.pexels.com/photos/31771226/pexels-photo-31771226.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750',  // Modern Residential Villas Dubai Overview
+    'https://images.pexels.com/photos/15994062/pexels-photo-15994062.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750',  // Luxury Apartment with Swimming Pool
+    'https://images.pexels.com/photos/4497544/pexels-photo-4497544.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750',    // Villa with Pool and Garden
+    'https://images.pexels.com/photos/31817155/pexels-photo-31817155.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750',  // Luxury Seaside Villa Modern Interior
+    'https://images.pexels.com/photos/31033420/pexels-photo-31033420.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750',  // Aerial View Dubai Marina Skyline
+    'https://images.pexels.com/photos/10514386/pexels-photo-10514386.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750',  // Villas in front of Dubai Skyscrapers
+];
+const IMG = IMGS[0];
 
 async function seed() {
     await connectDB();
@@ -46,7 +56,7 @@ async function seed() {
     console.log(`${agents.length} agents created`);
 
     // --- Properties (all 26 types, varied prices & statuses) ---
-    const properties = await Property.insertMany([
+    const rawProperties = [
         // ===== APARTMENTS =====
         { title: 'Creek Waters Residence', slug: 'creek-waters-residence', description: 'Stunning waterfront apartment at Dubai Creek Harbour with breathtaking views.', price: 1800000, priceLabel: 'AED 1.8M', location: { area: 'Dubai Creek Harbour', emirate: 'Dubai' }, propertyType: 'apartment', bedrooms: 2, bathrooms: 2, squareFt: 1400, completionYear: '2026', completionStatus: 'off-plan', paymentPlan: { downPayment: 20, onCompletion: 40, description: '20/40/40' }, developer: developers[0]._id, agent: agents[0]._id, images: [IMG], amenities: ['Pool', 'Gym', 'Concierge', 'Parking'], status: 'for-sale', isFeatured: true },
         { title: 'Marina Heights Tower', slug: 'marina-heights-tower', description: 'Premium 3-bed apartment in Dubai Marina with stunning marina and sea views.', price: 3500000, priceLabel: 'AED 3.5M', location: { area: 'Dubai Marina', emirate: 'Dubai' }, propertyType: 'apartment', bedrooms: 3, bathrooms: 3, squareFt: 2100, completionYear: '2024', completionStatus: 'ready-to-move', developer: developers[0]._id, agent: agents[2]._id, images: [IMG], amenities: ['Pool', 'Gym', 'Beach Access', 'Valet'], status: 'for-sale', isFeatured: true },
@@ -149,7 +159,10 @@ async function seed() {
         // ===== COMMERCIAL =====
         { title: 'JLT Retail Shop', slug: 'jlt-retail-shop', description: 'Ground-floor retail space in JLT with high footfall and lake views.', price: 2800000, priceLabel: 'AED 2.8M', location: { area: 'JLT', emirate: 'Dubai' }, propertyType: 'commercial', bedrooms: 0, bathrooms: 1, squareFt: 1200, completionYear: '2016', completionStatus: 'ready-to-move', developer: developers[2]._id, agent: agents[2]._id, images: [IMG], amenities: ['Parking', 'Lake View', 'Metro Access'], status: 'for-sale', isFeatured: false },
         { title: 'Silicon Oasis Warehouse Rental', slug: 'silicon-oasis-warehouse-rental', description: 'Warehouse and office combo for rent in Dubai Silicon Oasis free zone.', price: 180000, priceLabel: 'AED 180K/yr', location: { area: 'Dubai Silicon Oasis', emirate: 'Dubai' }, propertyType: 'commercial', bedrooms: 0, bathrooms: 2, squareFt: 5000, completionYear: '2015', completionStatus: 'ready-to-move', developer: developers[3]._id, agent: agents[0]._id, images: [IMG], amenities: ['Loading Bay', 'Office', 'Parking'], status: 'for-rent', isFeatured: false },
-    ]);
+    ];
+    const properties = await Property.insertMany(
+        rawProperties.map((p, i) => ({ ...p, images: [IMGS[i % 8], IMGS[(i + 1) % 8], IMGS[(i + 2) % 8]] }))
+    );
     console.log(`${properties.length} properties created`);
 
     // --- Blog Posts ---

@@ -1,5 +1,7 @@
 'use client';
 
+import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { MapPin, Bed, Maximize2, Phone } from 'lucide-react';
 import { Property } from '@/lib/types';
@@ -33,8 +35,8 @@ const typeLabels: Record<string, string> = {
   commercial: 'COMM',
 };
 
-// Simple placeholder building image based on type
-function PropertyImage({ type, status }: { type: string; status: string }) {
+// Fallback SVG placeholder when no images available
+function PlaceholderImage({ type, status }: { type: string; status: string }) {
   const colors: Record<string, [string, string]> = {
     apartment: ['#0f1829', '#1a2a4a'],
     villa: ['#0a1a10', '#152a1e'],
@@ -52,7 +54,6 @@ function PropertyImage({ type, status }: { type: string; status: string }) {
       className="w-full h-48 relative overflow-hidden"
       style={{ background: `linear-gradient(135deg, ${c1} 0%, ${c2} 100%)` }}
     >
-      {/* Abstract building */}
       <svg viewBox="0 0 400 200" className="absolute inset-0 w-full h-full opacity-50">
         <rect x="60" y="60" width="50" height="140" fill="rgba(255,255,255,0.06)" />
         <rect x="120" y="30" width="80" height="170" fill="rgba(255,255,255,0.08)" />
@@ -64,24 +65,18 @@ function PropertyImage({ type, status }: { type: string; status: string }) {
           ))
         )}
       </svg>
-      {/* Gradient overlay at bottom */}
       <div
         className="absolute bottom-0 left-0 right-0 h-20"
         style={{ background: 'linear-gradient(to top, rgba(45,51,71,0.9), transparent)' }}
       />
-      {/* Status badge */}
       <div className="absolute top-3 left-3 flex gap-1.5">
         <span
           className="px-2 py-0.5 text-xs font-bold rounded"
-          style={{
-            background: statusColors[status]?.bg || '#c9a84c',
-            color: statusColors[status]?.text || '#1a1f2e',
-          }}
+          style={{ background: statusColors[status]?.bg || '#c9a84c', color: statusColors[status]?.text || '#1a1f2e' }}
         >
           {statusLabels[status] || status.toUpperCase()}
         </span>
       </div>
-      {/* Type badge */}
       <div className="absolute top-3 right-3">
         <span
           className="px-2 py-0.5 text-xs font-medium rounded"
@@ -94,21 +89,107 @@ function PropertyImage({ type, status }: { type: string; status: string }) {
   );
 }
 
-export default function PropertyCard({ property }: PropertyCardProps) {
+// Auto-playing image carousel
+function CardCarousel({ images, type, status }: { images: string[]; type: string; status: string }) {
+  const [current, setCurrent] = useState(0);
+  const [paused, setPaused] = useState(false);
 
+  useEffect(() => {
+    if (paused || images.length <= 1) return;
+    const timer = setInterval(() => {
+      setCurrent(prev => (prev + 1) % images.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [paused, images.length]);
+
+  if (!images || images.length === 0) {
+    return <PlaceholderImage type={type} status={status} />;
+  }
+
+  return (
+    <div
+      className="relative w-full h-48 overflow-hidden bg-[#0f1829]"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
+      {/* Slides */}
+      {images.map((src, i) => (
+        <div
+          key={i}
+          className="absolute inset-0 transition-opacity duration-700"
+          style={{ opacity: i === current ? 1 : 0 }}
+        >
+          <Image
+            src={src}
+            alt=""
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-cover"
+          />
+        </div>
+      ))}
+
+      {/* Bottom gradient */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: 'linear-gradient(to top, rgba(26,31,46,0.65) 0%, transparent 50%)' }}
+      />
+
+      {/* Status badge */}
+      <div className="absolute top-3 left-3 z-10">
+        <span
+          className="px-2 py-0.5 text-xs font-bold rounded"
+          style={{ background: statusColors[status]?.bg || '#c9a84c', color: statusColors[status]?.text || '#1a1f2e' }}
+        >
+          {statusLabels[status] || status.toUpperCase()}
+        </span>
+      </div>
+
+      {/* Type badge */}
+      <div className="absolute top-3 right-3 z-10">
+        <span
+          className="px-2 py-0.5 text-xs font-medium rounded"
+          style={{ background: 'rgba(0,0,0,0.55)', color: '#9ca3af', border: '1px solid rgba(255,255,255,0.15)' }}
+        >
+          {typeLabels[type] || type.toUpperCase()}
+        </span>
+      </div>
+
+      {/* Dot indicators */}
+      {images.length > 1 && (
+        <div className="absolute bottom-2.5 left-0 right-0 flex justify-center gap-1.5 z-10">
+          {images.map((_, i) => (
+            <button
+              key={i}
+              onClick={e => { e.preventDefault(); e.stopPropagation(); setCurrent(i); }}
+              className="rounded-full transition-all duration-300"
+              style={{
+                width: i === current ? '16px' : '6px',
+                height: '6px',
+                background: i === current ? '#c9a84c' : 'rgba(255,255,255,0.45)',
+              }}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default function PropertyCard({ property }: PropertyCardProps) {
   return (
     <div
       className="property-card group rounded-xl overflow-hidden flex flex-col h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
       style={{ background: '#2d3347', border: '1px solid rgba(201,168,76,0.45)' }}
     >
-      {/* Image */}
-      <div className="overflow-hidden">
-        <Link href={`/property/${property.slug}`}>
-          <div className="property-card-img transition-transform duration-500">
-            <PropertyImage type={property.type} status={property.status} />
-          </div>
-        </Link>
-      </div>
+      {/* Carousel */}
+      <Link href={`/property/${property.slug}`} className="block overflow-hidden">
+        <CardCarousel
+          images={property.images ?? []}
+          type={property.type}
+          status={property.status}
+        />
+      </Link>
 
       {/* Content */}
       <div className="flex flex-col flex-1 p-4">
@@ -173,7 +254,6 @@ export default function PropertyCard({ property }: PropertyCardProps) {
         {property.agent && (
           <div className="flex items-center justify-between mt-auto pt-3" style={{ borderTop: '1px solid #3a4058' }}>
             <div className="flex items-center gap-2">
-              {/* Avatar placeholder */}
               <div
                 className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold shrink-0"
                 style={{ background: 'rgba(201,168,76,0.2)', color: '#c9a84c' }}

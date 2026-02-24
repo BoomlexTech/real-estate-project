@@ -8,39 +8,39 @@ const types = [
   // Top row: 3 cards (first wider)
   {
     label: 'APARTMENT',
-    href: '/property/apartment',
-    image: 'https://media.istockphoto.com/id/2175808798/photo/houses-on-palm-island-in-dubai.jpg?s=612x612&w=0&k=20&c=IS-sQ8O8luKFilHBfjiJLa4e0Q0vYXopk9YDI4F05Q8=',
+    href: '/property?type=apartment',
+    image: 'https://images.pexels.com/photos/30707660/pexels-photo-30707660.jpeg?auto=compress&cs=tinysrgb&w=800&h=600',
   },
   {
     label: 'Penthouses',
-    href: '/property/penthouse',
-    image: 'https://media.istockphoto.com/id/2175808798/photo/houses-on-palm-island-in-dubai.jpg?s=612x612&w=0&k=20&c=IS-sQ8O8luKFilHBfjiJLa4e0Q0vYXopk9YDI4F05Q8=',
+    href: '/property?type=penthouse',
+    image: 'https://images.pexels.com/photos/15994062/pexels-photo-15994062.jpeg?auto=compress&cs=tinysrgb&w=800&h=600',
   },
   {
     label: 'Villas',
-    href: '/property/villa',
-    image: 'https://media.istockphoto.com/id/2175808798/photo/houses-on-palm-island-in-dubai.jpg?s=612x612&w=0&k=20&c=IS-sQ8O8luKFilHBfjiJLa4e0Q0vYXopk9YDI4F05Q8=',
+    href: '/property?type=villa',
+    image: 'https://images.pexels.com/photos/4497544/pexels-photo-4497544.jpeg?auto=compress&cs=tinysrgb&w=800&h=600',
   },
   // Bottom row: 4 equal cards
   {
     label: 'Townhouses',
-    href: '/property/townhouse',
-    image: 'https://media.istockphoto.com/id/2175808798/photo/houses-on-palm-island-in-dubai.jpg?s=612x612&w=0&k=20&c=IS-sQ8O8luKFilHBfjiJLa4e0Q0vYXopk9YDI4F05Q8=',
+    href: '/property?type=townhouse',
+    image: 'https://images.pexels.com/photos/31771226/pexels-photo-31771226.jpeg?auto=compress&cs=tinysrgb&w=800&h=600',
   },
   {
     label: 'Studios',
-    href: '/property/studio',
-    image: 'https://media.istockphoto.com/id/2175808798/photo/houses-on-palm-island-in-dubai.jpg?s=612x612&w=0&k=20&c=IS-sQ8O8luKFilHBfjiJLa4e0Q0vYXopk9YDI4F05Q8=',
+    href: '/property?type=studio',
+    image: 'https://images.pexels.com/photos/34188580/pexels-photo-34188580.jpeg?auto=compress&cs=tinysrgb&w=800&h=600',
   },
   {
     label: 'Plot',
-    href: '/property/plot',
-    image: 'https://media.istockphoto.com/id/2175808798/photo/houses-on-palm-island-in-dubai.jpg?s=612x612&w=0&k=20&c=IS-sQ8O8luKFilHBfjiJLa4e0Q0vYXopk9YDI4F05Q8=',
+    href: '/property?type=plot',
+    image: 'https://images.pexels.com/photos/31033420/pexels-photo-31033420.jpeg?auto=compress&cs=tinysrgb&w=800&h=600',
   },
   {
     label: 'Mansion',
-    href: '/property/mansion',
-    image: 'https://media.istockphoto.com/id/2175808798/photo/houses-on-palm-island-in-dubai.jpg?s=612x612&w=0&k=20&c=IS-sQ8O8luKFilHBfjiJLa4e0Q0vYXopk9YDI4F05Q8=',
+    href: '/property?type=mansion',
+    image: 'https://images.pexels.com/photos/10514386/pexels-photo-10514386.jpeg?auto=compress&cs=tinysrgb&w=800&h=600',
   },
 ];
 

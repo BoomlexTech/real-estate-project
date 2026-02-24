@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import StatCard from '../common/StatCard';
 
 const stats = [
@@ -76,50 +77,20 @@ export default function WhoWeAre() {
               transition={{ duration: 0.6 }}
               className="relative"
             >
-              {/* Dubai skyline illustration / placeholder */}
-              <div
-                className="relative rounded-2xl overflow-hidden aspect-[4/3] flex items-end"
-                style={{ background: 'linear-gradient(135deg, #0f1320 0%, #1a2a4a 100%)' }}
-              >
-                {/* Skyline SVG */}
-                <svg viewBox="0 0 600 400" fill="none" className="absolute inset-0 w-full h-full">
-                  <rect x="0" y="0" width="600" height="400" fill="url(#sky)" />
-                  <defs>
-                    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#0d1829" />
-                      <stop offset="100%" stopColor="#1a2a4a" />
-                    </linearGradient>
-                  </defs>
-                  {/* Buildings */}
-                  <rect x="20" y="180" width="60" height="220" fill="#1e2d4a" />
-                  <rect x="90" y="120" width="80" height="280" fill="#243359" />
-                  <rect x="180" y="80" width="60" height="320" fill="#1a2a4a" />
-                  <rect x="250" y="50" width="100" height="350" fill="#2a3d5e" />
-                  <rect x="360" y="100" width="70" height="300" fill="#1e2d4a" />
-                  <rect x="440" y="140" width="90" height="260" fill="#243359" />
-                  <rect x="540" y="200" width="60" height="200" fill="#1a2a4a" />
-                  {/* Windows */}
-                  {Array.from({ length: 6 }).map((_, row) =>
-                    Array.from({ length: 3 }).map((_, col) => (
-                      <rect key={`${row}-${col}`} x={255 + col * 28} y={60 + row * 50} width="16" height="28" fill="rgba(201,168,76,0.4)" rx="2" />
-                    ))
-                  )}
-                  {/* Moon */}
-                  <circle cx="520" cy="60" r="30" fill="#2a3a5a" />
-                  <circle cx="535" cy="50" r="24" fill="#0d1829" />
-                  {/* Stars */}
-                  {[[100, 40], [200, 30], [350, 20], [450, 45], [150, 70]].map(([x, y]) => (
-                    <circle key={`${x}-${y}`} cx={x} cy={y} r="2" fill="#c9a84c" opacity="0.6" />
-                  ))}
-                  {/* Ground */}
-                  <rect x="0" y="380" width="600" height="20" fill="#0a0f1c" />
-                  {/* Dubai Frame silhouette */}
-                  <rect x="260" y="150" width="8" height="230" fill="#3a4a6a" />
-                  <rect x="330" y="150" width="8" height="230" fill="#3a4a6a" />
-                  <rect x="260" y="148" width="78" height="12" fill="#3a4a6a" />
-                </svg>
-
-                <div className="relative z-10 p-6">
+              <div className="relative rounded-2xl overflow-hidden aspect-4/3">
+                <Image
+                  src="https://images.pexels.com/photos/31033420/pexels-photo-31033420.jpeg?auto=compress&cs=tinysrgb&w=1200&h=900"
+                  alt="Dubai Marina Skyline"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                {/* Dark overlay */}
+                <div
+                  className="absolute inset-0"
+                  style={{ background: 'linear-gradient(to top, rgba(10,14,26,0.6) 0%, transparent 60%)' }}
+                />
+                <div className="absolute bottom-0 left-0 p-6 z-10">
                   <span
                     className="inline-block px-3 py-1.5 text-xs font-bold rounded-full"
                     style={{ background: '#c9a84c', color: '#1a1f2e' }}

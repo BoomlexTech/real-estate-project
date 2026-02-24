@@ -7,6 +7,7 @@ import DeveloperSpotlight from "@/components/home/DeveloperSpotlight";
 import MortgageBanner from "@/components/home/MortgageBanner";
 import BrandedResidences from "@/components/home/BrandedResidences";
 import FeaturedProjects from "@/components/home/FeaturedProjects";
+import YoutubeSection from "@/components/home/YoutubeSection";
 
 export default function HomePage() {
   return (
@@ -20,6 +21,7 @@ export default function HomePage() {
       <MortgageBanner />
       <BrandedResidences />
       <FeaturedProjects />
+      <YoutubeSection />
     </>
   );
 }

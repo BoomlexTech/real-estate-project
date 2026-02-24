@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
       { protocol: 'https', hostname: '**.realcapital.ae' },
       { protocol: 'https', hostname: 'images.unsplash.com' },
       { protocol: 'https', hostname: 'media.istockphoto.com' },
+      { protocol: 'https', hostname: 'images.pexels.com' },
       { protocol: 'http', hostname: 'localhost' },
     ],
   },
