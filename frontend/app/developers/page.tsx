@@ -1,0 +1,45 @@
+import { getDevelopers } from '@/lib/api';
+import Link from 'next/link';
+import Image from 'next/image';
+
+export default async function DevelopersPage() {
+  let developers: Awaited<ReturnType<typeof getDevelopers>> = [];
+  try {
+    developers = await getDevelopers();
+  } catch {
+    developers = [];
+  }
+
+  return (
+    <main className="min-h-screen pt-32 pb-20 px-4" style={{ background: '#1a1f2e' }}>
+      <div className="max-w-7xl mx-auto">
+        <h1 className="text-3xl sm:text-4xl font-bold text-white mb-2">Top Developers in Dubai</h1>
+        <p className="text-gray-400 mb-10">Explore projects from the region&apos;s leading developers</p>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {developers.map((dev) => (
+            <Link
+              key={dev.id}
+              href={`/developers/${dev.slug}`}
+              className="group block p-6 rounded-2xl transition-all hover:scale-[1.02]"
+              style={{ background: '#232838', border: '1px solid #2d3348' }}
+            >
+              <div className="w-16 h-16 rounded-xl overflow-hidden mb-4 relative" style={{ background: '#1a1f2e' }}>
+                {dev.logo && (
+                  <Image src={dev.logo} alt={dev.name} fill className="object-cover" sizes="64px" />
+                )}
+              </div>
+              <h3 className="text-white text-lg font-bold group-hover:text-yellow-400 transition-colors">
+                {dev.name}
+              </h3>
+              <p className="text-gray-400 text-sm mt-1 line-clamp-2">{dev.description}</p>
+              <p className="text-sm mt-3" style={{ color: '#c9a84c' }}>
+                {dev.properties} Projects
+              </p>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </main>
+  );
+}
