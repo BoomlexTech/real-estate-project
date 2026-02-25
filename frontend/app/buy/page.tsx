@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export const metadata = {
   title: 'Buy Property in Dubai',
-  description: 'Find properties for sale in Dubai. Apartments, villas, penthouses and more with Real Capital.',
+  description: 'Find properties for sale in Dubai. Apartments, villas, penthouses and more with Awtad Real Estate.',
 };
 
 export default function BuyPage() {

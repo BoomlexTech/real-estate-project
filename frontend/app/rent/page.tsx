@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export const metadata = {
   title: 'Rent Property in Dubai',
-  description: 'Find properties for rent in Dubai. Apartments, villas, studios and more with Real Capital.',
+  description: 'Find properties for rent in Dubai. Apartments, villas, studios and more with Awtad Real Estate.',
 };
 
 export default function RentPage() {

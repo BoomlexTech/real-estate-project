@@ -13,18 +13,18 @@ const openSans = Open_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: "Real Capital | Dubai Luxury Real Estate Agency",
-    template: "%s | Real Capital",
+    default: "Awtad Real Estate | Dubai Luxury Real Estate Agency",
+    template: "%s | Awtad Real Estate",
   },
   description:
-    "Real Capital is Dubai's premier luxury real estate agency. Buy, sell, and invest in luxury properties across the UAE with AED 11 Billion in sales.",
-  keywords: ["Dubai real estate", "luxury properties", "off-plan", "buy property Dubai", "Real Capital"],
+    "Awtad Real Estate is Dubai's premier luxury real estate agency. Buy, sell, and invest in luxury properties across the UAE with AED 11 Billion in sales.",
+  keywords: ["Dubai real estate", "luxury properties", "off-plan", "buy property Dubai", "Awtad Real Estate"],
   openGraph: {
     type: "website",
     locale: "en_AE",
-    url: "https://realcapital.ae",
-    siteName: "Real Capital",
-    title: "Real Capital | Dubai Luxury Real Estate Agency",
+    url: "https://awtadrealestate.com",
+    siteName: "Awtad Real Estate",
+    title: "Awtad Real Estate | Dubai Luxury Real Estate Agency",
     description:
       "Dubai's premier luxury real estate agency with AED 11 Billion in sales. Find apartments, villas, and off-plan properties.",
   },

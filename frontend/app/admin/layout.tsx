@@ -55,7 +55,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     >
       {/* Brand */}
       <div className="px-6 py-5" style={{ borderBottom: '1px solid #2e3446' }}>
-        <span className="text-xl font-bold" style={{ color: '#c9a84c' }}>Real Capital</span>
+        <span className="text-xl font-bold" style={{ color: '#c9a84c' }}>Awtad Real Estate</span>
         <p className="text-xs mt-0.5" style={{ color: '#8892a4' }}>Admin Portal</p>
       </div>
 
@@ -138,7 +138,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             <button onClick={() => setSidebarOpen(true)} style={{ color: '#8892a4' }}>
               <Menu size={22} />
             </button>
-            <span className="font-bold text-sm" style={{ color: '#c9a84c' }}>Real Capital Admin</span>
+            <span className="font-bold text-sm" style={{ color: '#c9a84c' }}>Awtad Real Estate Admin</span>
           </div>
 
           {/* Scrollable page content */}

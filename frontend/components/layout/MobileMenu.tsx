@@ -58,7 +58,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           >
             {/* Header */}
             <div className="flex items-center justify-between p-5 border-b" style={{ borderColor: '#3a4058' }}>
-              <span className="text-xl font-bold" style={{ color: '#c9a84c' }}>REAL CAPITAL</span>
+              <span className="text-xl font-bold" style={{ color: '#c9a84c' }}>AWTAD REAL ESTATE</span>
               <button
                 onClick={onClose}
                 className="p-2 rounded-lg hover:bg-white/10 transition-colors"
@@ -85,11 +85,11 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 
             {/* Contact */}
             <div className="p-5 border-t space-y-3" style={{ borderColor: '#3a4058' }}>
-              <a href="tel:+97143456789" className="flex items-center gap-2 text-sm text-gray-300 hover:text-white">
-                <span>📞</span> +971 4 345 6789
+              <a href="tel:+971547093295" className="flex items-center gap-2 text-sm text-gray-300 hover:text-white">
+                <span>📞</span> +971 54 709 3295
               </a>
-              <a href="mailto:info@realcapital.ae" className="flex items-center gap-2 text-sm text-gray-300 hover:text-white">
-                <span>✉️</span> info@realcapital.ae
+              <a href="mailto:leasing@awtadrealestate.com" className="flex items-center gap-2 text-sm text-gray-300 hover:text-white">
+                <span>✉️</span> leasing@awtadrealestate.com
               </a>
             </div>
           </motion.div>

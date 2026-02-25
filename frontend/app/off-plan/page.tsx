@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export const metadata = {
   title: 'Off-Plan Properties in Dubai',
-  description: 'Invest in off-plan properties in Dubai. Best payment plans and pre-launch prices with Real Capital.',
+  description: 'Invest in off-plan properties in Dubai. Best payment plans and pre-launch prices with Awtad Real Estate.',
 };
 
 const projects = [

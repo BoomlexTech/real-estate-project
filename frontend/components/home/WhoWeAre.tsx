@@ -126,7 +126,7 @@ export default function WhoWeAre() {
                   Dubai&apos;s real estate market is one of the most dynamic and fast-paced in the world. With thousands of listings, new developments launching daily, and complex regulatory frameworks, navigating the market without expert guidance can be overwhelming.
                 </p>
                 <p>
-                  At Real Capital, we simplify this complexity. Our team of multilingual experts with deep local knowledge has helped thousands of clients from 18+ countries find their perfect property — whether for living, investment, or portfolio diversification.
+                  At Awtad Real Estate, we simplify this complexity. Our team of multilingual experts with deep local knowledge has helped thousands of clients from 18+ countries find their perfect property — whether for living, investment, or portfolio diversification.
                 </p>
                 <p>
                   From off-plan developments with flexible payment plans to ready-to-move luxury properties, we offer comprehensive end-to-end services tailored to your unique needs and goals.

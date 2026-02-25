@@ -53,8 +53,8 @@ export default function Footer() {
                 P
               </div>
               <div>
-                <div className="font-bold text-base" style={{ color: '#c9a84c' }}>REAL</div>
-                <div className="text-white text-xs font-light tracking-widest">CAPITAL</div>
+                <div className="font-bold text-base" style={{ color: '#c9a84c' }}>AWTAD</div>
+                <div className="text-white text-xs font-light tracking-widest">REAL ESTATE</div>
               </div>
             </div>
             <p className="text-sm text-gray-400 leading-relaxed mb-5">
@@ -132,22 +132,28 @@ export default function Footer() {
               <div className="flex gap-2.5">
                 <MapPin className="w-4 h-4 shrink-0 mt-0.5" style={{ color: '#c9a84c' }} />
                 <div>
-                  <p className="text-gray-400 text-xs leading-relaxed">Office 301, Tower B, Business Bay, Dubai, UAE</p>
+                  <p className="text-gray-400 text-xs leading-relaxed">Office 2301, Vision Tower, Business Bay, PO Box 445372, Dubai, UAE</p>
                 </div>
               </div>
               <div className="flex gap-2.5">
                 <MapPin className="w-4 h-4 shrink-0 mt-0.5" style={{ color: '#c9a84c' }} />
                 <div>
-                  <p className="text-gray-400 text-xs leading-relaxed">Suite 12, Marina Walk, Dubai Marina, UAE</p>
+                  <p className="text-gray-400 text-xs leading-relaxed">Office 1102, Tower B, Prime Business Centre, JVC, Dubai, UAE</p>
+                </div>
+              </div>
+              <div className="flex gap-2.5">
+                <MapPin className="w-4 h-4 shrink-0 mt-0.5" style={{ color: '#c9a84c' }} />
+                <div>
+                  <p className="text-gray-400 text-xs leading-relaxed">Ground Floor, Namaa Building, Rashideya, Behind Grand Mall, Ajman, UAE</p>
                 </div>
               </div>
               <div className="flex gap-2.5">
                 <Phone className="w-4 h-4 shrink-0" style={{ color: '#c9a84c' }} />
-                <a href="tel:+97143456789" className="text-gray-400 hover:text-white text-xs transition-colors">+971 4 345 6789</a>
+                <a href="tel:+971547093295" className="text-gray-400 hover:text-white text-xs transition-colors">+971 54 709 3295</a>
               </div>
               <div className="flex gap-2.5">
                 <Mail className="w-4 h-4 shrink-0" style={{ color: '#c9a84c' }} />
-                <a href="mailto:info@realcapital.ae" className="text-gray-400 hover:text-white text-xs transition-colors">info@realcapital.ae</a>
+                <a href="mailto:leasing@awtadrealestate.com" className="text-gray-400 hover:text-white text-xs transition-colors">leasing@awtadrealestate.com</a>
               </div>
             </div>
 
@@ -173,7 +179,7 @@ export default function Footer() {
         style={{ borderColor: '#2d3347' }}
       >
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-gray-500">
-          <p>© {currentYear} REAL CAPITAL All Rights Reserved</p>
+          <p>© {currentYear} AWTAD REAL ESTATE All Rights Reserved</p>
           <div className="flex items-center gap-4">
             <Link href="/terms" className="hover:text-gray-300 transition-colors">TERMS & CONDITIONS</Link>
             <Link href="/privacy" className="hover:text-gray-300 transition-colors">PRIVACY & POLICY</Link>

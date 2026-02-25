@@ -96,7 +96,7 @@ function normalizeBlogPost(b: any): BlogPost {
     excerpt: b.excerpt || '',
     content: b.content || '',
     image: b.coverImage || b.image || '',
-    author: b.author || 'Real Capital Editorial',
+    author: b.author || 'Awtad Real Estate Editorial',
     publishedAt: b.publishedAt || b.createdAt,
     category: b.category || 'Market Insights',
     tags: b.tags || [],

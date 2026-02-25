@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export const metadata = {
   title: 'Ready to Move Properties in Dubai',
-  description: 'Find ready to move properties in Dubai. Move in immediately with Real Capital.',
+  description: 'Find ready to move properties in Dubai. Move in immediately with Awtad Real Estate.',
 };
 
 export default function ReadyToMovePage() {

@@ -116,7 +116,7 @@ export default function PropertySearch() {
           {/* Heading */}
           <div className="text-center mb-8">
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">
-              Real Capital Best Real Estate Agency In Dubai
+              Awtad Real Estate — Best Real Estate Agency In Dubai
             </h2>
             <p className="text-gray-400">Find Your Dream Property</p>
             <div className="mt-3 w-16 h-0.5 mx-auto" style={{ background: '#c9a84c' }} />

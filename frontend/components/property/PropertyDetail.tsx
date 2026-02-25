@@ -238,11 +238,13 @@ export default function PropertyDetail({ property }: Props) {
                   Call Agent
                 </a>
                 <a
-                  href={`mailto:${property.agent.email}`}
+                  href="https://faq.whatsapp.com/5913398998672934"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 w-full py-3 rounded-lg font-semibold text-sm transition-colors"
                   style={{ background: '#2d3347', color: 'white', border: '1px solid rgba(201,168,76,0.45)' }}
                 >
-                  Email Agent
+                  WhatsApp Agent
                 </a>
               </div>
 

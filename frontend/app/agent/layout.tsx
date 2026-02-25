@@ -31,7 +31,7 @@ export default function AgentLayout({ children }: { children: React.ReactNode })
     >
       {/* Brand */}
       <div className="px-6 py-5" style={{ borderBottom: '1px solid #2e3446' }}>
-        <span className="text-xl font-bold" style={{ color: '#c9a84c' }}>Real Capital</span>
+        <span className="text-xl font-bold" style={{ color: '#c9a84c' }}>Awtad Real Estate</span>
         <p className="text-xs mt-0.5" style={{ color: '#8892a4' }}>Agent Portal</p>
       </div>
 
@@ -110,7 +110,7 @@ export default function AgentLayout({ children }: { children: React.ReactNode })
             <button onClick={() => setSidebarOpen(true)} style={{ color: '#8892a4' }}>
               <Menu size={22} />
             </button>
-            <span className="font-bold text-sm" style={{ color: '#c9a84c' }}>Real Capital Agent</span>
+            <span className="font-bold text-sm" style={{ color: '#c9a84c' }}>Awtad Real Estate Agent</span>
           </div>
 
           <main className="flex-1 overflow-y-auto p-6">{children}</main>

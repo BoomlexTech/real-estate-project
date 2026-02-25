@@ -55,11 +55,13 @@ export default async function AgentsPage() {
                   Call
                 </a>
                 <a
-                  href={`mailto:${agent.email}`}
+                  href="https://faq.whatsapp.com/5913398998672934"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex-1 text-center py-2 rounded-lg text-sm font-semibold border transition-colors hover:bg-white/5"
                   style={{ borderColor: '#c9a84c', color: '#c9a84c' }}
                 >
-                  Email
+                  WhatsApp
                 </a>
               </div>
             </div>

@@ -13,10 +13,9 @@ interface ContactForm {
 }
 
 const offices = [
-  { name: 'Business Bay Office', address: 'Office 301, Tower B, Business Bay, Dubai, UAE', phone: '+971 4 345 6789' },
-  { name: 'Dubai Marina Office', address: 'Suite 12, Marina Walk, Dubai Marina, Dubai, UAE', phone: '+971 4 456 7890' },
-  { name: 'Downtown Office', address: 'Level 5, Boulevard Plaza 1, Downtown Dubai, UAE', phone: '+971 4 567 8901' },
-  { name: 'JVC Office', address: 'Ground Floor, Circle Mall, JVC, Dubai, UAE', phone: '+971 4 678 9012' },
+  { name: 'Group Head Office', address: 'Office 2301, Vision Tower, Business Bay, PO Box 445372, Dubai, UAE', phone: '+971 43 231 503' },
+  { name: 'Dubai Office', address: 'Office 1102, Tower B, Prime Business Centre, JVC, Dubai, UAE', phone: '+971 54 709 3295' },
+  { name: 'Ajman Office', address: 'Ground Floor, Namaa Building, Rashideya, Behind Grand Mall, Ajman, UAE', phone: '+971 50 302 1541' },
 ];
 
 export default function ContactPage() {
@@ -90,17 +89,17 @@ export default function ContactPage() {
             <div className="card-dark p-6">
               <h3 className="text-white font-semibold mb-4">Quick Contact</h3>
               <div className="space-y-3">
-                <a href="tel:+97143456789" className="flex items-center gap-3 text-sm text-gray-300 hover:text-white transition-colors group">
+                <a href="tel:+971547093295" className="flex items-center gap-3 text-sm text-gray-300 hover:text-white transition-colors group">
                   <div className="w-9 h-9 rounded-full flex items-center justify-center shrink-0" style={{ background: 'rgba(201,168,76,0.15)' }}>
                     <Phone className="w-4 h-4" style={{ color: '#c9a84c' }} />
                   </div>
-                  +971 4 345 6789
+                  +971 54 709 3295
                 </a>
-                <a href="mailto:info@realcapital.ae" className="flex items-center gap-3 text-sm text-gray-300 hover:text-white transition-colors">
+                <a href="mailto:leasing@awtadrealestate.com" className="flex items-center gap-3 text-sm text-gray-300 hover:text-white transition-colors">
                   <div className="w-9 h-9 rounded-full flex items-center justify-center shrink-0" style={{ background: 'rgba(201,168,76,0.15)' }}>
                     <Mail className="w-4 h-4" style={{ color: '#c9a84c' }} />
                   </div>
-                  info@realcapital.ae
+                  leasing@awtadrealestate.com
                 </a>
               </div>
             </div>

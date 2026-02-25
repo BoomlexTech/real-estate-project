@@ -8,7 +8,7 @@ interface LogoProps {
 export default function Logo({ className = '', showText = true }: LogoProps) {
     return (
         <Link href="/" className={`flex items-center gap-2.5 shrink-0 ${className}`}>
-            {/* Icon mark — abstract building + "RC" */}
+            {/* Icon mark — abstract building */}
             <svg
                 width="36"
                 height="36"
@@ -36,8 +36,8 @@ export default function Logo({ className = '', showText = true }: LogoProps) {
             {/* Wordmark */}
             {showText && (
                 <div className="hidden sm:flex items-baseline gap-1.5 text-xl font-bold tracking-wide">
-                    <span style={{ color: '#c9a84c' }}>REAL</span>
-                    <span className="text-white font-light">CAPITAL</span>
+                    <span style={{ color: '#c9a84c' }}>AWTAD</span>
+                    <span className="text-white font-light">REAL ESTATE</span>
                 </div>
             )}
         </Link>

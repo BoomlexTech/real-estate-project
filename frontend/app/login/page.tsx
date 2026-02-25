@@ -51,7 +51,7 @@ export default function LoginPage() {
       <div className="w-full max-w-md">
         {/* Logo / brand */}
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold" style={{ color: '#c9a84c' }}>Real Capital</h1>
+          <h1 className="text-3xl font-bold" style={{ color: '#c9a84c' }}>Awtad Real Estate</h1>
           <p className="mt-1 text-sm" style={{ color: '#8892a4' }}>Portal Access</p>
         </div>
 

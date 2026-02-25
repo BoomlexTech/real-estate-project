@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'About Real Capital',
+  title: 'About Awtad Real Estate',
   description: "Dubai's premier luxury real estate agency. Learn about our story, team, and values.",
 };
 
@@ -9,7 +9,7 @@ const stats = [
   { value: 'AED 11B+', label: 'Total Sales Volume' },
   { value: '10,000+', label: 'Happy Clients' },
   { value: '18+', label: 'Languages Spoken' },
-  { value: '4', label: 'Offices in Dubai' },
+  { value: '3', label: 'Offices in Dubai' },
 ];
 
 const values = [
@@ -25,9 +25,9 @@ export default function AboutPage() {
       {/* Hero */}
       <div className="px-4 py-16 text-center" style={{ background: '#242938' }}>
         <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: '#c9a84c' }}>OUR STORY</p>
-        <h1 className="text-4xl font-bold text-white mb-4">About Real Capital</h1>
+        <h1 className="text-4xl font-bold text-white mb-4">About Awtad Real Estate</h1>
         <p className="text-gray-400 max-w-2xl mx-auto text-sm leading-relaxed">
-          Founded with a vision to redefine luxury real estate in Dubai, Real Capital has grown to become one of the emirate&apos;s most trusted property agencies, with over AED 11 Billion in completed transactions.
+          Founded with a vision to redefine luxury real estate in Dubai, Awtad Real Estate has grown to become one of the emirate&apos;s most trusted property agencies, with over AED 11 Billion in completed transactions.
         </p>
       </div>
 
@@ -49,7 +49,7 @@ export default function AboutPage() {
           <h2 className="text-2xl font-bold text-white mb-6">Our Story</h2>
           <div className="space-y-4 text-gray-400 text-sm leading-relaxed">
             <p>
-              Real Capital was established with a singular mission: to make Dubai&apos;s dynamic real estate market accessible, transparent, and profitable for every client — whether a first-time buyer or a seasoned investor.
+              Awtad Real Estate was established with a singular mission: to make Dubai&apos;s dynamic real estate market accessible, transparent, and profitable for every client — whether a first-time buyer or a seasoned investor.
             </p>
             <p>
               We are official sales partners of Dubai&apos;s top developers including Emaar, DAMAC, Meraas, and Aldar. This gives our clients exclusive access to pre-launch pricing, the best payment plans, and developer-direct deals not available elsewhere.
