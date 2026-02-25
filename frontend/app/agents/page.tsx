@@ -95,22 +95,21 @@ export default async function AgentsPage() {
 
                 {/* Buttons — relative + z-10 to sit above the stretched link */}
                 <div className="relative z-10 flex gap-2">
-                  <span
+                  <Link
+                    href={`/agents/${agent.id}`}
                     className="flex-1 text-center py-2 text-[10px] tracking-[0.16em] uppercase font-medium"
                     style={{ background: '#C9A96E', color: '#0A0E1A' }}
                   >
                     View Profile
-                  </span>
-                  {agent.phone && (
-                    <a
-                      href={`tel:${agent.phone}`}
-                      className="w-9 h-9 flex items-center justify-center transition-colors"
-                      style={{ border: '1px solid rgba(201,169,110,0.38)', color: '#C9A96E' }}
-                      title="Call agent"
-                    >
-                      <Phone size={13} />
-                    </a>
-                  )}
+                  </Link>
+                  <a
+                    href="tel:+971547093295"
+                    className="w-9 h-9 flex items-center justify-center transition-colors"
+                    style={{ border: '1px solid rgba(201,169,110,0.38)', color: '#C9A96E' }}
+                    title="Call agent"
+                  >
+                    <Phone size={13} />
+                  </a>
                 </div>
               </div>
             ))}

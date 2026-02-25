@@ -96,14 +96,6 @@ export default function HeroSlider() {
         />
       </AnimatePresence>
 
-      {/* Deep overlay */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background: 'linear-gradient(105deg, rgba(20, 16, 8, 0.98) 0%, rgba(56, 45, 22, 0.7) 25%, rgba(10, 14, 26, 0.1) 70%, transparent 100%)',
-        }}
-      />
-
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pt-36 pb-24 w-full">
         <AnimatePresence mode="wait" custom={direction}>
@@ -115,7 +107,8 @@ export default function HeroSlider() {
             animate="center"
             exit="exit"
             transition={{ duration: 0.65, ease: 'easeInOut' }}
-            className="max-w-3xl"
+            className="max-w-3xl p-10"
+            style={{ background: 'rgba(10,14,26,0.78)' }}
           >
             {/* Status badge — outline, no fill */}
             <motion.div
@@ -148,7 +141,7 @@ export default function HeroSlider() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
               className="text-xs sm:text-sm font-light tracking-[0.18em] uppercase mb-10"
-              style={{ color: 'rgba(255,255,255,0.48)' }}
+              style={{ color: 'rgba(255,255,255,0.75)' }}
             >
               {slide.subtitle}
             </motion.p>
@@ -170,15 +163,15 @@ export default function HeroSlider() {
             >
               <div className="flex items-center gap-2">
                 <MapPin className="w-3 h-3 shrink-0" style={{ color: '#C9A96E' }} />
-                <span className="text-xs tracking-[0.08em] text-gray-400">{slide.location}</span>
+                <span className="text-xs tracking-[0.08em] text-gray-300">{slide.location}</span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="text-[10px] tracking-[0.18em] uppercase" style={{ color: '#C9A96E' }}>Plan</span>
-                <span className="text-xs tracking-[0.08em] text-gray-400">{slide.paymentPlan}</span>
+                <span className="text-xs tracking-[0.08em] text-gray-300">{slide.paymentPlan}</span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="text-[10px] tracking-[0.18em] uppercase" style={{ color: '#C9A96E' }}>Ready</span>
-                <span className="text-xs tracking-[0.08em] text-gray-400">{slide.completion}</span>
+                <span className="text-xs tracking-[0.08em] text-gray-300">{slide.completion}</span>
               </div>
             </motion.div>
 
@@ -190,7 +183,7 @@ export default function HeroSlider() {
               className="flex flex-wrap items-end gap-10"
             >
               <div>
-                <p className="text-[10px] tracking-[0.22em] uppercase mb-1.5" style={{ color: 'rgba(255,255,255,0.38)' }}>
+                <p className="text-[10px] tracking-[0.22em] uppercase mb-1.5" style={{ color: 'rgba(255,255,255,0.6)' }}>
                   {slide.priceLabel}
                 </p>
                 <p className="font-serif text-4xl sm:text-5xl font-light leading-none" style={{ color: '#C9A96E' }}>

@@ -82,29 +82,24 @@ export default async function AgentDetailPage({
                   <MapPin size={12} style={{ color: '#C9A96E' }} />
                   <span>{agent!.properties} Active Listings</span>
                 </div>
-                {agent!.email && (
-                  <div className="flex items-center gap-2 text-xs tracking-wide" style={{ color: '#94A3B8' }}>
-                    <Mail size={12} style={{ color: '#C9A96E' }} />
-                    <span>{agent!.email}</span>
-                  </div>
-                )}
+                <div className="flex items-center gap-2 text-xs tracking-wide" style={{ color: '#94A3B8' }}>
+                  <Mail size={12} style={{ color: '#C9A96E' }} />
+                  <span>leasing@awtadrealestate.com</span>
+                </div>
               </div>
 
               {/* CTA Buttons */}
               <div className="flex flex-wrap gap-3">
-                {agent!.phone && (
-                  <a
-                    href={`tel:${agent!.phone}`}
-                    className="inline-flex items-center gap-2 px-6 py-2.5 text-[11px] tracking-[0.16em] uppercase font-medium transition-all"
-                    style={{ background: '#C9A96E', color: '#0A0E1A' }}
-                    onMouseEnter={undefined}
-                  >
-                    <Phone size={13} />
-                    Call Agent
-                  </a>
-                )}
                 <a
-                  href={`https://wa.me/${agent!.whatsapp || agent!.phone}?text=Hi%2C%20I%27m%20interested%20in%20your%20listings`}
+                  href="tel:+971547093295"
+                  className="inline-flex items-center gap-2 px-6 py-2.5 text-[11px] tracking-[0.16em] uppercase font-medium transition-all"
+                  style={{ background: '#C9A96E', color: '#0A0E1A' }}
+                >
+                  <Phone size={13} />
+                  Call Agent
+                </a>
+                <a
+                  href="https://wa.me/971547093295?text=Hi%2C%20I%27m%20interested%20in%20your%20listings"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-6 py-2.5 text-[11px] tracking-[0.16em] uppercase font-medium transition-colors"
