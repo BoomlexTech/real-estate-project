@@ -2,6 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Facebook, Instagram, Linkedin, Youtube, MapPin, Phone, Mail } from 'lucide-react';
 
 const emirates = [
@@ -45,17 +46,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Col 1: Logo + Description */}
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-2 mb-4">
-              <div
-                className="w-9 h-9 rounded-full flex items-center justify-center text-sm font-black"
-                style={{ background: '#c9a84c', color: '#1a1f2e' }}
-              >
-                P
-              </div>
-              <div>
-                <div className="font-bold text-base" style={{ color: '#c9a84c' }}>AWTAD</div>
-                <div className="text-white text-xs font-light tracking-widest">REAL ESTATE</div>
-              </div>
+            <div className="mb-4 inline-flex bg-white rounded-md px-2 py-1.5">
+              <Image
+                src="/logo2.png"
+                alt="Awtad Real Estate and Brokerage"
+                width={140}
+                height={58}
+                className="object-contain h-10 w-auto"
+              />
             </div>
             <p className="text-sm text-gray-400 leading-relaxed mb-5">
               Dubai&apos;s leading luxury real estate agency. We help clients buy, sell, and invest in premium properties across the UAE.

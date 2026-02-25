@@ -1,45 +1,23 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface LogoProps {
     className?: string;
-    showText?: boolean;
 }
 
-export default function Logo({ className = '', showText = true }: LogoProps) {
+export default function Logo({ className = '' }: LogoProps) {
     return (
-        <Link href="/" className={`flex items-center gap-2.5 shrink-0 ${className}`}>
-            {/* Icon mark — abstract building */}
-            <svg
-                width="36"
-                height="36"
-                viewBox="0 0 36 36"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="shrink-0"
-            >
-                {/* Outer rounded-square */}
-                <rect width="36" height="36" rx="8" fill="#c9a84c" />
-                {/* Building silhouette */}
-                <rect x="6" y="14" width="7" height="16" rx="1" fill="#1a1f2e" />
-                <rect x="15" y="8" width="7" height="22" rx="1" fill="#1a1f2e" />
-                <rect x="24" y="12" width="6" height="18" rx="1" fill="#1a1f2e" />
-                {/* Window dots */}
-                <rect x="8" y="17" width="3" height="3" rx="0.5" fill="#c9a84c" opacity="0.6" />
-                <rect x="8" y="22" width="3" height="3" rx="0.5" fill="#c9a84c" opacity="0.6" />
-                <rect x="17" y="11" width="3" height="3" rx="0.5" fill="#c9a84c" opacity="0.6" />
-                <rect x="17" y="16" width="3" height="3" rx="0.5" fill="#c9a84c" opacity="0.6" />
-                <rect x="17" y="21" width="3" height="3" rx="0.5" fill="#c9a84c" opacity="0.6" />
-                <rect x="25.5" y="15" width="3" height="3" rx="0.5" fill="#c9a84c" opacity="0.6" />
-                <rect x="25.5" y="20" width="3" height="3" rx="0.5" fill="#c9a84c" opacity="0.6" />
-            </svg>
-
-            {/* Wordmark */}
-            {showText && (
-                <div className="hidden sm:flex items-baseline gap-1.5 text-xl font-bold tracking-wide">
-                    <span style={{ color: '#c9a84c' }}>AWTAD</span>
-                    <span className="text-white font-light">REAL ESTATE</span>
-                </div>
-            )}
+        <Link href="/" className={`shrink-0 ${className}`}>
+            <div className="bg-white rounded-md px-2 py-1 inline-flex items-center">
+                <Image
+                    src="/logo2.png"
+                    alt="Awtad Real Estate and Brokerage"
+                    width={140}
+                    height={58}
+                    className="object-contain h-10 w-auto"
+                    priority
+                />
+            </div>
         </Link>
     );
 }

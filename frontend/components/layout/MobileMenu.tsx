@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { X, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -58,7 +59,15 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           >
             {/* Header */}
             <div className="flex items-center justify-between p-5 border-b" style={{ borderColor: '#3a4058' }}>
-              <span className="text-xl font-bold" style={{ color: '#c9a84c' }}>AWTAD REAL ESTATE</span>
+              <div className="inline-flex bg-white rounded-md px-2 py-1">
+                <Image
+                  src="/logo2.png"
+                  alt="Awtad Real Estate and Brokerage"
+                  width={130}
+                  height={54}
+                  className="object-contain h-9 w-auto"
+                />
+              </div>
               <button
                 onClick={onClose}
                 className="p-2 rounded-lg hover:bg-white/10 transition-colors"
