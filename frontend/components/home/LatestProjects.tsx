@@ -46,13 +46,14 @@ export default function LatestProjects() {
         </motion.div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px" style={{ background: 'rgba(201,169,110,0.12)' }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {properties.map((property, i) => (
             <motion.div
               key={property.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45, delay: i * 0.07, ease: 'easeOut' }}
+              style={{ padding: '0.5rem' }}
             >
               <PropertyCard property={property} />
             </motion.div>

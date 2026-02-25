@@ -64,13 +64,14 @@ export default function FeaturedProjects() {
                 </motion.div>
 
                 {/* Grid with thin gold gap lines */}
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px" style={{ background: 'rgba(201,169,110,0.15)' }}>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3">
                     {visibleProjects.map((project, i) => (
                         <motion.div
                             key={project.id}
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.45, delay: i * 0.07, ease: 'easeOut' }}
+                            style={{ padding: '0.5rem' }}
                         >
                             <PropertyCard property={project} />
                         </motion.div>

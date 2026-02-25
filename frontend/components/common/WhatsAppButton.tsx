@@ -3,11 +3,9 @@
 import { motion } from 'framer-motion';
 
 export default function WhatsAppButton() {
-  const number = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '+971564189201';
-
   return (
     <motion.a
-      href={`https://wa.me/${number.replace(/\D/g, '')}`}
+      href="https://wa.me/971547093295?text=I'm%20interrested%20about%20this%20property"
       target="_blank"
       rel="noopener noreferrer"
       initial={{ scale: 0, opacity: 0 }}

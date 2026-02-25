@@ -46,9 +46,9 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
           {/* Col 1: Logo + Description */}
           <div className="lg:col-span-1">
-            <div className="mb-4 inline-flex bg-white rounded-md px-2 py-1.5">
+            <div className="mb-4">
               <Image
-                src="/logo2.png"
+                src="/pnglogo.png"
                 alt="Awtad Real Estate and Brokerage"
                 width={140}
                 height={58}

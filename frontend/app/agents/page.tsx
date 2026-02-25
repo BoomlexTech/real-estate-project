@@ -55,7 +55,7 @@ export default async function AgentsPage() {
                   Call
                 </a>
                 <a
-                  href="https://faq.whatsapp.com/5913398998672934"
+                  href="https://wa.me/971547093295?text=I'm%20interrested%20about%20this%20property"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 text-center py-2 rounded-lg text-sm font-semibold border transition-colors hover:bg-white/5"

@@ -238,7 +238,7 @@ export default function PropertyDetail({ property }: Props) {
                   Call Agent
                 </a>
                 <a
-                  href="https://faq.whatsapp.com/5913398998672934"
+                  href="https://wa.me/971547093295?text=I'm%20interrested%20about%20this%20property"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 w-full py-3 rounded-lg font-semibold text-sm transition-colors"
