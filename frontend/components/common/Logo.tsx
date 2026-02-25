@@ -9,7 +9,7 @@ export default function Logo({ className = '' }: LogoProps) {
     return (
         <Link href="/" className={`shrink-0 ${className}`}>
             <Image
-                src="/pnglogo.png"
+                src="/final.png"
                 alt="Awtad Real Estate and Brokerage"
                 width={140}
                 height={58}

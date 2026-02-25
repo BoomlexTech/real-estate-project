@@ -37,7 +37,7 @@ export default function Footer() {
   const pathname = usePathname();
   const currentYear = new Date().getFullYear();
 
-  if (pathname?.startsWith('/admin') || pathname?.startsWith('/agent')) return null;
+  if (pathname?.startsWith('/admin') || (pathname?.startsWith('/agent') && !pathname?.startsWith('/agents'))) return null;
 
   return (
     <footer style={{ background: '#070B15', borderTop: '1px solid rgba(201,169,110,0.14)' }}>
@@ -48,7 +48,7 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <div className="mb-4">
               <Image
-                src="/pnglogo.png"
+                src="/final.png"
                 alt="Awtad Real Estate and Brokerage"
                 width={140}
                 height={58}
