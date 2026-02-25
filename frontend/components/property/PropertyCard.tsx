@@ -112,7 +112,7 @@ function CardCarousel({ images, type, status }: { images: string[]; type: string
       <div className="absolute top-3 left-3 z-10">
         <span
           className="px-2 py-0.5 text-[10px] tracking-[0.16em] uppercase"
-          style={{ border: '1px solid rgba(201,169,110,0.55)', color: '#C9A96E' }}
+          style={{ border: '1px solid rgba(201,169,110,0.55)', color: '#C9A96E', background: '#000' }}
         >
           {statusLabels[status] || (status || 'available').toUpperCase()}
         </span>
@@ -122,7 +122,7 @@ function CardCarousel({ images, type, status }: { images: string[]; type: string
       <div className="absolute top-3 right-3 z-10">
         <span
           className="px-2 py-0.5 text-[10px] tracking-[0.12em] uppercase"
-          style={{ border: '1px solid rgba(255,255,255,0.18)', color: 'rgba(255,255,255,0.5)' }}
+          style={{ border: '1px solid rgba(255,255,255,0.18)', color: 'rgba(255,255,255,0.85)', background: '#000' }}
         >
           {typeLabels[type] || (type || 'property').toUpperCase()}
         </span>
@@ -182,7 +182,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
         {/* Title */}
         <Link href={`/property/${property.slug}`}>
           <h3
-            className="text-white text-sm mb-4 line-clamp-2 leading-relaxed tracking-wide transition-colors hover:text-[#C9A96E]"
+            className="text-white text-sm mb-4 line-clamp-2 leading-relaxed tracking-wide transition-colors hover:text-gold"
             style={{ fontWeight: 400 }}
           >
             {property.title}
@@ -214,7 +214,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
           <div className="flex gap-2 mb-4 flex-wrap">
             {property.paymentPlan && (
               <span
-                className="text-[10px] px-2 py-0.5 tracking-[0.1em] uppercase"
+                className="text-[10px] px-2 py-0.5 tracking-widest uppercase"
                 style={{ border: '1px solid rgba(201,169,110,0.25)', color: '#C9A96E' }}
               >
                 {typeof property.paymentPlan === 'object'
@@ -224,7 +224,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
             )}
             {property.completionDate && (
               <span
-                className="text-[10px] px-2 py-0.5 tracking-[0.1em] uppercase"
+                className="text-[10px] px-2 py-0.5 tracking-widest uppercase"
                 style={{ border: '1px solid rgba(255,255,255,0.1)', color: 'rgba(148,163,184,0.65)' }}
               >
                 {property.completionDate}
@@ -246,7 +246,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
               >
                 {property.agent.name.charAt(0)}
               </div>
-              <span className="text-xs tracking-wide truncate max-w-[5.5rem]" style={{ color: '#94A3B8' }}>
+              <span className="text-xs tracking-wide truncate max-w-22" style={{ color: '#94A3B8' }}>
                 {property.agent.name}
               </span>
             </div>
