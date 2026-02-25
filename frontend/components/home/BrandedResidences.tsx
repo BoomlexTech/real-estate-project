@@ -2,10 +2,10 @@
 
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import Link from 'next/link';
 import { Property } from '@/lib/types';
 import { getProperties } from '@/lib/api';
+import PropertyCard from '../property/PropertyCard';
 
 export default function BrandedResidences() {
     const [properties, setProperties] = useState<Property[]>([]);
@@ -13,7 +13,6 @@ export default function BrandedResidences() {
     const visible = 3;
 
     useEffect(() => {
-        // Fetch branded / luxury properties (penthouses + high-price)
         getProperties({ sort: 'price_desc', limit: 10 })
             .then((res) => setProperties(res.data))
             .catch(() => setProperties([]));
@@ -24,80 +23,65 @@ export default function BrandedResidences() {
     const canNext = startIdx + visible < properties.length;
 
     return (
-        <section className="py-20 px-4" style={{ background: '#242938' }}>
+        <section className="py-28 px-4" style={{ background: '#0f1523' }}>
             <div className="max-w-7xl mx-auto">
-                <div className="grid lg:grid-cols-[380px_1fr] gap-12">
-                    {/* Left Info */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                    >
-                        <p className="text-sm font-semibold uppercase tracking-widest mb-2" style={{ color: '#c9a84c' }}>
-                            LUXURY LIVING
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="flex flex-col sm:flex-row sm:items-end justify-between mb-16 gap-6"
+                >
+                    <div>
+                        <p className="text-[10px] tracking-[0.28em] uppercase mb-4" style={{ color: '#C9A96E' }}>
+                            Luxury Living
                         </p>
-                        <h2 className="text-3xl font-bold text-white mb-4 leading-tight">
-                            Branded Residences
+                        <span className="section-divider mb-5" />
+                        <h2 className="font-serif text-4xl sm:text-5xl font-light text-white leading-[1.08]">
+                            Branded Residences<br />
+                            <span style={{ color: '#C9A96E' }}>In Dubai</span>
                         </h2>
-                        <p className="text-gray-400 text-sm leading-relaxed mb-6">
-                            Discover exclusive branded residences from world-renowned luxury brands.
-                            Each property offers bespoke design, five-star amenities, and unparalleled lifestyle experiences.
+                        <p className="text-sm leading-[1.85] tracking-wide mt-4 max-w-sm" style={{ color: '#94A3B8' }}>
+                            Exclusive branded residences from world-renowned luxury names — bespoke design, five-star amenities, unparalleled lifestyle.
                         </p>
-                        <Link href="/property" className="btn-gold inline-flex text-sm">
-                            View All Properties →
-                        </Link>
-
-                        {/* Carousel arrows */}
-                        <div className="flex gap-2 mt-8">
-                            <button
-                                onClick={() => setStartIdx((p) => Math.max(0, p - 1))}
-                                disabled={!canPrev}
-                                className="w-10 h-10 rounded-full flex items-center justify-center text-white transition disabled:opacity-30"
-                                style={{ border: '1px solid rgba(201,168,76,0.45)' }}
-                            >←</button>
-                            <button
-                                onClick={() => setStartIdx((p) => Math.min(properties.length - visible, p + 1))}
-                                disabled={!canNext}
-                                className="w-10 h-10 rounded-full flex items-center justify-center text-white transition disabled:opacity-30"
-                                style={{ border: '1px solid rgba(201,168,76,0.45)' }}
-                            >→</button>
-                        </div>
-                    </motion.div>
-
-                    {/* Right Cards */}
-                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                        {visibleProps.map((prop, i) => (
-                            <motion.div
-                                key={prop.id}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: i * 0.1 }}
+                        <div className="flex items-center gap-4 mt-6">
+                            <Link
+                                href="/property"
+                                className="text-[10px] tracking-[0.2em] uppercase transition-colors pb-0.5"
+                                style={{ color: '#C9A96E', borderBottom: '1px solid rgba(201,169,110,0.4)' }}
                             >
-                                <Link href={`/property/${prop.slug}`} className="group block">
-                                    <div className="rounded-2xl overflow-hidden" style={{ background: '#1a1f2e', border: '1px solid rgba(201,168,76,0.45)' }}>
-                                        <div className="relative h-48 overflow-hidden">
-                                            <Image
-                                                src={prop.images[0] || '/placeholder.jpg'}
-                                                alt={prop.title}
-                                                fill
-                                                className="object-cover group-hover:scale-105 transition-transform duration-500"
-                                                sizes="(max-width: 768px) 100vw, 33vw"
-                                            />
-                                            <span className="absolute top-3 left-3 px-2 py-0.5 text-[10px] font-bold rounded-full uppercase" style={{ background: '#c9a84c', color: '#1a1f2e' }}>
-                                                {prop.type.replace(/-/g, ' ')}
-                                            </span>
-                                        </div>
-                                        <div className="p-4">
-                                            <h3 className="text-white font-bold group-hover:text-yellow-400 transition-colors">{prop.title}</h3>
-                                            <p className="text-gray-500 text-xs mt-1">{prop.location}, {prop.emirate}</p>
-                                            <p className="text-sm font-bold mt-2" style={{ color: '#c9a84c' }}>{prop.priceLabel}</p>
-                                        </div>
-                                    </div>
-                                </Link>
-                            </motion.div>
-                        ))}
+                                View All Properties →
+                            </Link>
+                            {/* Navigation arrows */}
+                            <div className="flex gap-2 ml-2">
+                                <button
+                                    onClick={() => setStartIdx((p) => Math.max(0, p - 1))}
+                                    disabled={!canPrev}
+                                    className="w-10 h-10 flex items-center justify-center text-white text-base transition-all disabled:opacity-25"
+                                    style={{ border: '1px solid rgba(201,169,110,0.38)' }}
+                                >←</button>
+                                <button
+                                    onClick={() => setStartIdx((p) => Math.min(properties.length - visible, p + 1))}
+                                    disabled={!canNext}
+                                    className="w-10 h-10 flex items-center justify-center text-white text-base transition-all disabled:opacity-25"
+                                    style={{ border: '1px solid rgba(201,169,110,0.38)' }}
+                                >→</button>
+                            </div>
+                        </div>
                     </div>
+                </motion.div>
+
+                {/* Grid with thin gold gap lines */}
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px" style={{ background: 'rgba(201,169,110,0.15)' }}>
+                    {visibleProps.map((prop, i) => (
+                        <motion.div
+                            key={prop.id}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.45, delay: i * 0.07, ease: 'easeOut' }}
+                        >
+                            <PropertyCard property={prop} />
+                        </motion.div>
+                    ))}
                 </div>
             </div>
         </section>

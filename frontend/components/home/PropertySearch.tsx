@@ -110,16 +110,21 @@ export default function PropertySearch() {
   };
 
   return (
-    <section className="relative z-20 py-16 px-4" style={{ background: '#1a1f2e' }}>
+    <section className="relative z-20 py-20 px-4" style={{ background: '#0f1523' }}>
       <div className="max-w-5xl mx-auto">
-        <div className="card-dark p-8">
+        <div className="p-8 sm:p-10" style={{ background: '#111827', border: '1px solid rgba(201,169,110,0.2)' }}>
           {/* Heading */}
-          <div className="text-center mb-8">
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">
-              Awtad Real Estate — Best Real Estate Agency In Dubai
+          <div className="text-center mb-10">
+            <p className="text-[10px] tracking-[0.28em] uppercase mb-4" style={{ color: '#C9A96E' }}>
+              Property Search
+            </p>
+            <span className="section-divider mx-auto mb-5" />
+            <h2 className="font-serif text-3xl sm:text-4xl font-light text-white mb-2 leading-tight">
+              Find Your Ideal Property
             </h2>
-            <p className="text-gray-400">Find Your Dream Property</p>
-            <div className="mt-3 w-16 h-0.5 mx-auto" style={{ background: '#c9a84c' }} />
+            <p className="text-xs tracking-[0.08em]" style={{ color: '#94A3B8' }}>
+              Dubai&apos;s finest properties — curated for discerning buyers
+            </p>
           </div>
 
           {/* Row 1 */}
@@ -136,14 +141,31 @@ export default function PropertySearch() {
             <SelectField label="Price Range" options={priceOptions} value={filters.price} onChange={set('price')} />
             <SelectField label="Status" options={statusOptions} value={filters.status} onChange={set('status')} />
 
-            {/* FIND Button */}
+            {/* Search button — outlined luxury style */}
             <button
               onClick={handleSearch}
-              className="lg:col-span-2 flex items-center justify-center gap-2 font-bold text-sm py-2.5 rounded-md transition-all hover:opacity-90 active:scale-95"
-              style={{ background: 'white', color: '#1a1f2e' }}
+              className="lg:col-span-2 flex items-center justify-center gap-2.5 transition-all"
+              style={{
+                border: '1px solid #C9A96E',
+                color: '#C9A96E',
+                background: 'transparent',
+                fontSize: '0.6875rem',
+                fontWeight: 500,
+                letterSpacing: '0.16em',
+                textTransform: 'uppercase',
+                padding: '0.8125rem 2rem',
+              }}
+              onMouseEnter={e => {
+                (e.currentTarget as HTMLElement).style.background = '#C9A96E';
+                (e.currentTarget as HTMLElement).style.color = '#0A0E1A';
+              }}
+              onMouseLeave={e => {
+                (e.currentTarget as HTMLElement).style.background = 'transparent';
+                (e.currentTarget as HTMLElement).style.color = '#C9A96E';
+              }}
             >
-              <Search className="w-4 h-4" />
-              FIND PROPERTIES
+              <Search className="w-3.5 h-3.5" />
+              Find Properties
             </button>
           </div>
         </div>

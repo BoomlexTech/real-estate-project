@@ -17,41 +17,42 @@ export default function LatestProjects() {
   }, []);
 
   return (
-    <section className="py-20 px-4" style={{ background: '#242938' }}>
+    <section className="py-28 px-4" style={{ background: '#0f1523' }}>
       <div className="max-w-7xl mx-auto">
         {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4"
+          className="flex flex-col sm:flex-row sm:items-end justify-between mb-16 gap-6"
         >
           <div>
-            <p className="text-sm font-semibold uppercase tracking-widest mb-2" style={{ color: '#c9a84c' }}>
-              FEATURED
+            <p className="text-[10px] tracking-[0.28em] uppercase mb-4" style={{ color: '#C9A96E' }}>
+              Featured
             </p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white">
-              Latest Projects In Dubai
+            <span className="section-divider mb-5" />
+            <h2 className="font-serif text-4xl sm:text-5xl font-light text-white leading-[1.08]">
+              Latest Projects<br />
+              <span style={{ color: '#C9A96E' }}>In Dubai</span>
             </h2>
           </div>
           <Link
             href="/property"
-            className="text-sm font-medium border-b pb-0.5 whitespace-nowrap transition-colors hover:text-yellow-400"
-            style={{ color: '#c9a84c', borderColor: '#c9a84c' }}
+            className="text-[10px] tracking-[0.2em] uppercase transition-colors pb-0.5 whitespace-nowrap self-end sm:self-auto"
+            style={{ color: '#C9A96E', borderBottom: '1px solid rgba(201,169,110,0.4)' }}
           >
             View All Properties →
           </Link>
         </motion.div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px" style={{ background: 'rgba(201,169,110,0.12)' }}>
           {properties.map((property, i) => (
             <motion.div
               key={property.id}
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45, delay: i * 0.07, ease: 'easeOut' }}
             >
               <PropertyCard property={property} />
             </motion.div>

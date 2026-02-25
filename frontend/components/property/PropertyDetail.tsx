@@ -28,7 +28,7 @@ export default function PropertyDetail({ property }: Props) {
   const onSubmit = (_data: ContactForm) => setSubmitted(true);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-10">
+    <div className="max-w-7xl mx-auto px-4 pt-32 pb-16">
       <div className="grid lg:grid-cols-3 gap-8">
         {/* Main Content */}
         <div className="lg:col-span-2 space-y-8">

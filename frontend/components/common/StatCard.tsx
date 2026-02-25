@@ -17,17 +17,19 @@ export default function StatCard({ icon, title, subtitle, delay = 0 }: StatCardP
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay }}
-      className="card-dark p-6 flex flex-col items-center text-center gap-3 hover:border-yellow-500/40 transition-colors group"
+      className="p-7 flex flex-col items-center text-center gap-4 transition-colors group"
+      style={{ background: '#111827' }}
     >
+      {/* Square icon — no border-radius */}
       <div
-        className="w-12 h-12 rounded-full flex items-center justify-center text-xl group-hover:scale-110 transition-transform"
-        style={{ background: 'rgba(201,168,76,0.15)', border: '1px solid rgba(201,168,76,0.3)' }}
+        className="w-10 h-10 flex items-center justify-center text-sm"
+        style={{ border: '1px solid rgba(201,169,110,0.28)', color: '#C9A96E' }}
       >
         {icon}
       </div>
       <div>
-        <p className="text-white font-bold text-base leading-tight">{title}</p>
-        <p className="text-gray-400 text-xs mt-1 leading-relaxed">{subtitle}</p>
+        <p className="font-serif text-xl font-light text-white leading-tight mb-1">{title}</p>
+        <p className="text-[11px] tracking-[0.08em] leading-relaxed" style={{ color: '#94A3B8' }}>{subtitle}</p>
       </div>
     </motion.div>
   );

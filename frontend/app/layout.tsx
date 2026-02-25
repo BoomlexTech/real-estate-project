@@ -1,12 +1,20 @@
 import type { Metadata } from "next";
-import { Open_Sans } from "next/font/google";
+import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { AuthProvider } from "@/contexts/AuthContext";
 
-const openSans = Open_Sans({
-  variable: "--font-open-sans",
+const cormorant = Cormorant_Garamond({
+  variable: "--font-cormorant",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  display: "swap",
+});
+
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
   display: "swap",
 });
@@ -36,8 +44,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={openSans.variable}>
-      <body className="antialiased min-h-screen flex flex-col" style={{ background: "#1a1f2e" }} suppressHydrationWarning>
+    <html lang="en" className={`${cormorant.variable} ${inter.variable}`}>
+      <body className="antialiased min-h-screen flex flex-col" style={{ background: "#0A0E1A" }} suppressHydrationWarning>
         <AuthProvider>
           <Header />
           <main className="flex-1">{children}</main>

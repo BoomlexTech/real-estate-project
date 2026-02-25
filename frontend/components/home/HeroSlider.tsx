@@ -2,18 +2,18 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight, MapPin, Calendar, CreditCard } from 'lucide-react';
+import { MapPin } from 'lucide-react';
 import Link from 'next/link';
 
 const slides = [
   {
     id: 1,
-    badge: 'OFF-PLAN',
+    badge: 'Off-Plan',
     title: 'Creek Waters Residence',
-    subtitle: 'Waterfront Apartment At Dubai Creek Harbour',
+    subtitle: 'Waterfront Residences — Dubai Creek Harbour',
     location: 'Dubai Creek Harbour',
     price: 'AED 1,800,000',
-    priceLabel: 'Starting Price',
+    priceLabel: 'Starting From',
     paymentPlan: '20/40/40',
     completion: '2026',
     cta: 'View Property',
@@ -22,12 +22,12 @@ const slides = [
   },
   {
     id: 2,
-    badge: 'READY TO MOVE',
+    badge: 'Ready to Move',
     title: 'Marina Heights Tower',
-    subtitle: 'Premium Apartment At Dubai Marina',
+    subtitle: 'Premium Residences — Dubai Marina',
     location: 'Dubai Marina',
     price: 'AED 3,500,000',
-    priceLabel: 'Starting Price',
+    priceLabel: 'Starting From',
     paymentPlan: 'Flexible',
     completion: 'Ready',
     cta: 'View Property',
@@ -36,12 +36,12 @@ const slides = [
   },
   {
     id: 3,
-    badge: 'FOR SALE',
+    badge: 'For Sale',
     title: 'Palm Jumeirah Signature Villa',
-    subtitle: 'Exclusive Beachfront Villa With Private Beach',
+    subtitle: 'Exclusive Beachfront Estate — Palm Jumeirah',
     location: 'Palm Jumeirah',
     price: 'AED 25,000,000',
-    priceLabel: 'Starting Price',
+    priceLabel: 'Starting From',
     paymentPlan: 'Negotiable',
     completion: 'Ready',
     cta: 'View Property',
@@ -65,28 +65,28 @@ export default function HeroSlider() {
   };
 
   useEffect(() => {
-    const timer = setInterval(next, 6000);
+    const timer = setInterval(next, 7000);
     return () => clearInterval(timer);
   }, [next]);
 
   const slide = slides[current];
 
   const variants = {
-    enter: (dir: 'left' | 'right') => ({ x: dir === 'right' ? 60 : -60, opacity: 0 }),
+    enter: (dir: 'left' | 'right') => ({ x: dir === 'right' ? 40 : -40, opacity: 0 }),
     center: { x: 0, opacity: 1 },
-    exit: (dir: 'left' | 'right') => ({ x: dir === 'right' ? -60 : 60, opacity: 0 }),
+    exit: (dir: 'left' | 'right') => ({ x: dir === 'right' ? -40 : 40, opacity: 0 }),
   };
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background images — crossfade on slide change */}
+      {/* Background — slow crossfade */}
       <AnimatePresence mode="sync">
         <motion.div
           key={slide.id}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 1.2 }}
+          transition={{ duration: 1.5 }}
           className="absolute inset-0"
           style={{
             backgroundImage: `url(${slide.image})`,
@@ -96,16 +96,16 @@ export default function HeroSlider() {
         />
       </AnimatePresence>
 
-      {/* Dark overlay so text stays readable */}
+      {/* Deep overlay */}
       <div
         className="absolute inset-0"
         style={{
-          background: 'linear-gradient(to right, rgba(10,14,26,0.85) 0%, rgba(10,14,26,0.6) 55%, rgba(10,14,26,0.25) 100%)',
+          background: 'linear-gradient(105deg, rgba(10,14,26,0.94) 0%, rgba(10,14,26,0.74) 52%, rgba(10,14,26,0.32) 100%)',
         }}
       />
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-28 pb-16 w-full">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pt-36 pb-24 w-full">
         <AnimatePresence mode="wait" custom={direction}>
           <motion.div
             key={slide.id}
@@ -114,116 +114,146 @@ export default function HeroSlider() {
             initial="enter"
             animate="center"
             exit="exit"
-            transition={{ duration: 0.5, ease: 'easeInOut' }}
-            className="max-w-2xl"
+            transition={{ duration: 0.65, ease: 'easeInOut' }}
+            className="max-w-3xl"
           >
-            {/* Badge */}
+            {/* Status badge — outline, no fill */}
             <motion.div
-              initial={{ opacity: 0, y: -10 }}
+              initial={{ opacity: 0, y: -8 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="inline-flex items-center gap-2 mb-6"
+              transition={{ delay: 0.08 }}
+              className="mb-8"
             >
               <span
-                className="px-3 py-1 text-xs font-bold rounded-full tracking-widest"
-                style={{ background: '#c9a84c', color: '#1a1f2e' }}
+                className="px-3 py-1.5 text-xs tracking-[0.22em] uppercase"
+                style={{ border: '1px solid rgba(201,169,110,0.55)', color: '#C9A96E' }}
               >
                 {slide.badge}
               </span>
             </motion.div>
 
-            {/* Title */}
+            {/* Title — Cormorant Garamond, very large, light weight */}
             <motion.h1
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 22 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.15 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-2 leading-tight"
+              transition={{ delay: 0.14 }}
+              className="font-serif text-5xl sm:text-6xl lg:text-7xl xl:text-[5.5rem] font-light text-white mb-5 leading-[1.04]"
             >
               {slide.title}
             </motion.h1>
+
+            {/* Subtitle — Inter light, uppercase, spaced */}
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="text-xl sm:text-2xl font-light mb-6"
-              style={{ color: '#c9a84c' }}
+              className="text-xs sm:text-sm font-light tracking-[0.18em] uppercase mb-10"
+              style={{ color: 'rgba(255,255,255,0.48)' }}
             >
               {slide.subtitle}
             </motion.p>
 
-            {/* Info Pills */}
+            {/* Thin gold divider — animated draw */}
+            <motion.div
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ delay: 0.24, duration: 0.55 }}
+              style={{ width: '56px', height: '1px', background: '#C9A96E', transformOrigin: 'left', marginBottom: '2.5rem' }}
+            />
+
+            {/* Meta row — location, plan, completion */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.25 }}
-              className="flex flex-wrap gap-3 mb-8"
+              transition={{ delay: 0.28 }}
+              className="flex flex-wrap gap-8 mb-14"
             >
-              <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm text-gray-300" style={{ background: 'rgba(255,255,255,0.08)' }}>
-                <MapPin className="w-3.5 h-3.5" style={{ color: '#c9a84c' }} />
-                {slide.location}
+              <div className="flex items-center gap-2">
+                <MapPin className="w-3 h-3 shrink-0" style={{ color: '#C9A96E' }} />
+                <span className="text-xs tracking-[0.08em] text-gray-400">{slide.location}</span>
               </div>
-              <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm text-gray-300" style={{ background: 'rgba(255,255,255,0.08)' }}>
-                <CreditCard className="w-3.5 h-3.5" style={{ color: '#c9a84c' }} />
-                {slide.paymentPlan} Payment Plan
+              <div className="flex items-center gap-2">
+                <span className="text-[10px] tracking-[0.18em] uppercase" style={{ color: '#C9A96E' }}>Plan</span>
+                <span className="text-xs tracking-[0.08em] text-gray-400">{slide.paymentPlan}</span>
               </div>
-              <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm text-gray-300" style={{ background: 'rgba(255,255,255,0.08)' }}>
-                <Calendar className="w-3.5 h-3.5" style={{ color: '#c9a84c' }} />
-                {slide.completion} Completion
+              <div className="flex items-center gap-2">
+                <span className="text-[10px] tracking-[0.18em] uppercase" style={{ color: '#C9A96E' }}>Ready</span>
+                <span className="text-xs tracking-[0.08em] text-gray-400">{slide.completion}</span>
               </div>
             </motion.div>
 
-            {/* Price + CTA */}
+            {/* Price + CTA row */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="flex flex-wrap items-center gap-6"
+              transition={{ delay: 0.33 }}
+              className="flex flex-wrap items-end gap-10"
             >
               <div>
-                <p className="text-gray-400 text-xs uppercase tracking-wider mb-0.5">{slide.priceLabel}</p>
-                <p className="text-3xl font-bold" style={{ color: '#c9a84c' }}>{slide.price}</p>
+                <p className="text-[10px] tracking-[0.22em] uppercase mb-1.5" style={{ color: 'rgba(255,255,255,0.38)' }}>
+                  {slide.priceLabel}
+                </p>
+                <p className="font-serif text-4xl sm:text-5xl font-light leading-none" style={{ color: '#C9A96E' }}>
+                  {slide.price}
+                </p>
               </div>
-              <Link href={slide.href} className="btn-gold text-sm">
-                {slide.cta} →
-              </Link>
-              <Link href="/property" className="text-sm text-gray-300 hover:text-white transition-colors border-b border-gray-600 hover:border-white pb-0.5">
-                Browse All Properties
-              </Link>
+              <div className="flex items-center gap-5">
+                <Link href={slide.href} className="btn-gold">
+                  {slide.cta}
+                </Link>
+                <Link
+                  href="/property"
+                  className="text-[10px] tracking-[0.18em] uppercase transition-colors pb-0.5"
+                  style={{ color: 'rgba(255,255,255,0.42)', borderBottom: '1px solid rgba(255,255,255,0.22)' }}
+                  onMouseEnter={e => {
+                    (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.8)';
+                    (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.5)';
+                  }}
+                  onMouseLeave={e => {
+                    (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.42)';
+                    (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.22)';
+                  }}
+                >
+                  All Properties
+                </Link>
+              </div>
             </motion.div>
           </motion.div>
         </AnimatePresence>
 
-        {/* Slide Indicators */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-2">
+        {/* Slide indicators — thin line segments */}
+        <div className="absolute bottom-14 left-6 sm:left-10 lg:left-16 flex gap-2 items-center">
           {slides.map((_, i) => (
             <button
               key={i}
               onClick={() => { setDirection(i > current ? 'right' : 'left'); setCurrent(i); }}
-              className="rounded-full transition-all duration-300"
+              className="transition-all duration-400"
               style={{
-                width: i === current ? '24px' : '8px',
-                height: '8px',
-                background: i === current ? '#c9a84c' : 'rgba(255,255,255,0.3)',
+                width: i === current ? '36px' : '14px',
+                height: '1px',
+                background: i === current ? '#C9A96E' : 'rgba(255,255,255,0.28)',
               }}
             />
           ))}
         </div>
       </div>
 
-      {/* Arrow buttons */}
+      {/* Arrow buttons — square, minimal */}
       <button
         onClick={prev}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full flex items-center justify-center transition-all hover:scale-110"
-        style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)' }}
+        className="absolute left-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center text-white text-lg transition-all hover:opacity-90 opacity-50"
+        style={{ border: '1px solid rgba(255,255,255,0.25)' }}
+        aria-label="Previous slide"
       >
-        <ChevronLeft className="w-5 h-5 text-white" />
+        ←
       </button>
       <button
         onClick={next}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full flex items-center justify-center transition-all hover:scale-110"
-        style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)' }}
+        className="absolute right-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center text-white text-lg transition-all hover:opacity-90 opacity-50"
+        style={{ border: '1px solid rgba(255,255,255,0.25)' }}
+        aria-label="Next slide"
       >
-        <ChevronRight className="w-5 h-5 text-white" />
+        →
       </button>
     </section>
   );
