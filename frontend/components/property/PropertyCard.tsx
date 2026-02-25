@@ -239,7 +239,11 @@ export default function PropertyCard({ property }: PropertyCardProps) {
             className="flex items-center justify-between mt-auto pt-4"
             style={{ borderTop: '1px solid #1E293B' }}
           >
-            <div className="flex items-center gap-2.5">
+            <Link
+              href={`/agents/${property.agent.id}`}
+              className="flex items-center gap-2.5 min-w-0 group/agent"
+              title={`View ${property.agent.name}'s profile`}
+            >
               <div
                 className="w-7 h-7 rounded-full overflow-hidden shrink-0 border"
                 style={{ background: '#1a1f2e', borderColor: 'rgba(201,169,110,0.3)' }}
@@ -252,10 +256,10 @@ export default function PropertyCard({ property }: PropertyCardProps) {
                   </div>
                 )}
               </div>
-              <span className="text-xs tracking-wide truncate max-w-22" style={{ color: '#94A3B8' }}>
+              <span className="text-xs tracking-wide truncate max-w-22 transition-colors group-hover/agent:text-gold" style={{ color: '#94A3B8' }}>
                 {property.agent.name}
               </span>
-            </div>
+            </Link>
             <div className="flex gap-2">
               <a
                 href="https://wa.me/971547093295?text=I'm%20interrested%20about%20this%20property"
