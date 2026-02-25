@@ -107,8 +107,8 @@ export default function HeroSlider() {
             animate="center"
             exit="exit"
             transition={{ duration: 0.65, ease: 'easeInOut' }}
-            className="max-w-3xl p-10"
-            style={{ background: 'rgba(10,14,26,0.78)' }}
+            className="max-w-3xl"
+            style={{ textShadow: '0 1px 2px rgba(0,0,0,1), 0 2px 8px rgba(0,0,0,1), 0 4px 20px rgba(0,0,0,1), 0 8px 40px rgba(0,0,0,0.95)' }}
           >
             {/* Status badge — outline, no fill */}
             <motion.div
