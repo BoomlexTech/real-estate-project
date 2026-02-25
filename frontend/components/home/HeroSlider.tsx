@@ -141,7 +141,7 @@ export default function HeroSlider() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
               className="text-xs sm:text-sm font-light tracking-[0.18em] uppercase mb-10"
-              style={{ color: 'rgba(255,255,255,0.75)' }}
+              style={{ color: 'rgba(255,255,255,0.95)', textShadow: '0 1px 3px rgba(0,0,0,1), 0 2px 10px rgba(0,0,0,1), 0 4px 24px rgba(0,0,0,1)' }}
             >
               {slide.subtitle}
             </motion.p>
@@ -160,6 +160,7 @@ export default function HeroSlider() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.28 }}
               className="flex flex-wrap gap-8 mb-14"
+              style={{ textShadow: '0 1px 3px rgba(0,0,0,1), 0 2px 10px rgba(0,0,0,1), 0 4px 24px rgba(0,0,0,1)' }}
             >
               <div className="flex items-center gap-2">
                 <MapPin className="w-3 h-3 shrink-0" style={{ color: '#C9A96E' }} />
@@ -183,7 +184,7 @@ export default function HeroSlider() {
               className="flex flex-wrap items-end gap-10"
             >
               <div>
-                <p className="text-[10px] tracking-[0.22em] uppercase mb-1.5" style={{ color: 'rgba(255,255,255,0.6)' }}>
+                <p className="text-[10px] tracking-[0.22em] uppercase mb-1.5" style={{ color: 'rgba(255,255,255,0.9)', textShadow: '0 1px 3px rgba(0,0,0,1), 0 2px 10px rgba(0,0,0,1), 0 4px 24px rgba(0,0,0,1)' }}>
                   {slide.priceLabel}
                 </p>
                 <p className="font-serif text-4xl sm:text-5xl font-light leading-none" style={{ color: '#C9A96E' }}>
