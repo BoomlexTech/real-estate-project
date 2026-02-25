@@ -167,4 +167,23 @@ export async function getStats(): Promise<Stats> {
   return data;
 }
 
+export async function submitContactMessage(formData: {
+  name: string;
+  email: string;
+  phone?: string;
+  subject?: string;
+  message: string;
+}): Promise<{ success: boolean; message: string }> {
+  const { data } = await api.post('/contact/message', formData);
+  return data;
+}
+
+export async function submitPropertyInquiry(
+  propertyId: string,
+  formData: { name: string; phone: string; email: string; message: string }
+): Promise<{ success: boolean; message: string }> {
+  const { data } = await api.post(`/properties/${propertyId}/inquiry`, formData);
+  return data;
+}
+
 export default api;

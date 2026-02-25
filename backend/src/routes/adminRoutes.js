@@ -10,6 +10,10 @@ const {
   forceDeleteProperty,
   getInquiries,
   updateInquiryStatus,
+  getContactMessages,
+  updateContactMessageStatus,
+  getPropertyInquiries,
+  updatePropertyInquiryStatus,
   getNotifications,
   markNotificationsSeen,
 } = require('../controllers/adminController');
@@ -35,6 +39,14 @@ router.delete('/properties/:id', forceDeleteProperty);
 // Mortgage inquiries
 router.get('/inquiries', getInquiries);
 router.patch('/inquiries/:id/status', updateInquiryStatus);
+
+// Contact messages
+router.get('/contact-messages', getContactMessages);
+router.patch('/contact-messages/:id/status', updateContactMessageStatus);
+
+// Property inquiries
+router.get('/property-inquiries', getPropertyInquiries);
+router.patch('/property-inquiries/:id/status', updatePropertyInquiryStatus);
 
 // Notifications
 router.get('/notifications', getNotifications);

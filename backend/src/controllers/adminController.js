@@ -1,6 +1,8 @@
 const Agent = require('../models/Agent');
 const Property = require('../models/Property');
 const MortgageInquiry = require('../models/MortgageInquiry');
+const ContactMessage = require('../models/ContactMessage');
+const PropertyInquiry = require('../models/PropertyInquiry');
 const Notification = require('../models/Notification');
 
 // GET /api/admin/dashboard
@@ -205,6 +207,93 @@ const updateInquiryStatus = async (req, res, next) => {
   }
 };
 
+// ─── CONTACT MESSAGES ────────────────────────────────────
+
+// GET /api/admin/contact-messages
+const getContactMessages = async (req, res, next) => {
+  try {
+    const page = Math.max(1, Number(req.query.page) || 1);
+    const limit = Math.min(50, Number(req.query.limit) || 20);
+    const skip = (page - 1) * limit;
+
+    const filter = {};
+    if (req.query.status) filter.status = req.query.status;
+
+    const [data, total] = await Promise.all([
+      ContactMessage.find(filter).sort({ createdAt: -1 }).skip(skip).limit(limit),
+      ContactMessage.countDocuments(filter),
+    ]);
+
+    res.json({ success: true, data, total, page, totalPages: Math.ceil(total / limit) });
+  } catch (err) {
+    next(err);
+  }
+};
+
+// PATCH /api/admin/contact-messages/:id/status
+const updateContactMessageStatus = async (req, res, next) => {
+  try {
+    const { status } = req.body;
+    const allowed = ['new', 'read', 'replied'];
+    if (!allowed.includes(status))
+      return res.status(400).json({ success: false, message: `status must be one of: ${allowed.join(', ')}` });
+
+    const msg = await ContactMessage.findByIdAndUpdate(req.params.id, { status }, { new: true });
+    if (!msg)
+      return res.status(404).json({ success: false, message: 'Message not found' });
+
+    res.json({ success: true, data: msg });
+  } catch (err) {
+    next(err);
+  }
+};
+
+// ─── PROPERTY INQUIRIES ───────────────────────────────────
+
+// GET /api/admin/property-inquiries
+const getPropertyInquiries = async (req, res, next) => {
+  try {
+    const page = Math.max(1, Number(req.query.page) || 1);
+    const limit = Math.min(50, Number(req.query.limit) || 20);
+    const skip = (page - 1) * limit;
+
+    const filter = {};
+    if (req.query.status) filter.status = req.query.status;
+
+    const [data, total] = await Promise.all([
+      PropertyInquiry.find(filter)
+        .populate('property', 'title')
+        .populate('agent', 'name email')
+        .sort({ createdAt: -1 })
+        .skip(skip)
+        .limit(limit),
+      PropertyInquiry.countDocuments(filter),
+    ]);
+
+    res.json({ success: true, data, total, page, totalPages: Math.ceil(total / limit) });
+  } catch (err) {
+    next(err);
+  }
+};
+
+// PATCH /api/admin/property-inquiries/:id/status
+const updatePropertyInquiryStatus = async (req, res, next) => {
+  try {
+    const { status } = req.body;
+    const allowed = ['new', 'contacted', 'closed'];
+    if (!allowed.includes(status))
+      return res.status(400).json({ success: false, message: `status must be one of: ${allowed.join(', ')}` });
+
+    const inquiry = await PropertyInquiry.findByIdAndUpdate(req.params.id, { status }, { new: true });
+    if (!inquiry)
+      return res.status(404).json({ success: false, message: 'Inquiry not found' });
+
+    res.json({ success: true, data: inquiry });
+  } catch (err) {
+    next(err);
+  }
+};
+
 // ─── NOTIFICATIONS ───────────────────────────────────────
 
 // GET /api/admin/notifications
@@ -242,6 +331,10 @@ module.exports = {
   forceDeleteProperty,
   getInquiries,
   updateInquiryStatus,
+  getContactMessages,
+  updateContactMessageStatus,
+  getPropertyInquiries,
+  updatePropertyInquiryStatus,
   getNotifications,
   markNotificationsSeen,
 };

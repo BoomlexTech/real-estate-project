@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { MapPin, Bed, Bath, Maximize2, Calendar, CreditCard, Phone, CheckCircle, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Property } from '@/lib/types';
 import { useForm } from 'react-hook-form';
+import { submitPropertyInquiry } from '@/lib/api';
 
 interface ContactForm {
   name: string;
@@ -19,13 +20,22 @@ interface Props {
 
 export default function PropertyDetail({ property }: Props) {
   const [submitted, setSubmitted] = useState(false);
+  const [serverError, setServerError] = useState('');
   const [activeImage, setActiveImage] = useState(0);
   const images = property.images ?? [];
-  const { register, handleSubmit } = useForm<ContactForm>({
+  const { register, handleSubmit, formState: { isSubmitting } } = useForm<ContactForm>({
     defaultValues: { message: `I'm interested in ${property.title}. Please contact me.` },
   });
 
-  const onSubmit = (_data: ContactForm) => setSubmitted(true);
+  const onSubmit = async (data: ContactForm) => {
+    setServerError('');
+    try {
+      await submitPropertyInquiry(property.id, data);
+      setSubmitted(true);
+    } catch {
+      setServerError('Failed to send inquiry. Please try again.');
+    }
+  };
 
   return (
     <div className="max-w-7xl mx-auto px-4 pt-32 pb-16">
@@ -268,8 +278,9 @@ export default function PropertyDetail({ property }: Props) {
                     <input {...register('phone')} placeholder="Phone Number" className="input-dark text-sm" />
                     <input {...register('email', { required: true })} placeholder="Email" type="email" className="input-dark text-sm" />
                     <textarea {...register('message')} rows={3} className="input-dark text-sm resize-none" />
-                    <button type="submit" className="btn-gold w-full justify-center text-sm py-2.5">
-                      Send Message
+                    {serverError && <p className="text-red-400 text-xs">{serverError}</p>}
+                    <button type="submit" disabled={isSubmitting} className="btn-gold w-full justify-center text-sm py-2.5 disabled:opacity-60">
+                      {isSubmitting ? 'Sending…' : 'Send Message'}
                     </button>
                   </form>
                 )}

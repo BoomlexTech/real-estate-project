@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { MapPin, Phone, Mail, CheckCircle } from 'lucide-react';
+import { submitContactMessage } from '@/lib/api';
 
 interface ContactForm {
   name: string;
@@ -20,9 +21,18 @@ const offices = [
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
-  const { register, handleSubmit, formState: { errors } } = useForm<ContactForm>();
+  const [serverError, setServerError] = useState('');
+  const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<ContactForm>();
 
-  const onSubmit = (_data: ContactForm) => setSubmitted(true);
+  const onSubmit = async (data: ContactForm) => {
+    setServerError('');
+    try {
+      await submitContactMessage(data);
+      setSubmitted(true);
+    } catch {
+      setServerError('Failed to send message. Please try again.');
+    }
+  };
 
   return (
     <div className="min-h-screen pt-24" style={{ background: '#1a1f2e' }}>
@@ -75,8 +85,9 @@ export default function ContactPage() {
                     className="input-dark text-sm resize-none"
                   />
                   {errors.message && <p className="text-red-400 text-xs">Message is required</p>}
-                  <button type="submit" className="btn-gold w-full justify-center">
-                    Send Message →
+                  {serverError && <p className="text-red-400 text-xs">{serverError}</p>}
+                  <button type="submit" disabled={isSubmitting} className="btn-gold w-full justify-center disabled:opacity-60">
+                    {isSubmitting ? 'Sending…' : 'Send Message →'}
                   </button>
                 </form>
               </>

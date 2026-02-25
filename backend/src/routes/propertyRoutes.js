@@ -12,6 +12,7 @@ const {
 } = require('../controllers/propertyController');
 const { protect } = require('../middleware/auth');
 const { isAdmin, isApprovedAgent, isOwnerOrAdmin } = require('../middleware/roleAuth');
+const { submitPropertyInquiry } = require('../controllers/propertyInquiryController');
 
 // Public
 router.get('/', getProperties);
@@ -30,5 +31,8 @@ router.delete('/:id', protect, isOwnerOrAdmin, deleteProperty);
 
 // Protected — admin only can toggle featured
 router.patch('/:id/feature', protect, isAdmin, toggleFeatured);
+
+// Public — submit inquiry for a specific property
+router.post('/:id/inquiry', submitPropertyInquiry);
 
 module.exports = router;

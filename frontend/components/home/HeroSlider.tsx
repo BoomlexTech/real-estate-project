@@ -96,6 +96,12 @@ export default function HeroSlider() {
         />
       </AnimatePresence>
 
+      {/* Minimal scrim */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: 'linear-gradient(90deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.35) 55%, transparent 85%)' }}
+      />
+
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pt-36 pb-24 w-full">
         <AnimatePresence mode="wait" custom={direction}>
@@ -108,7 +114,7 @@ export default function HeroSlider() {
             exit="exit"
             transition={{ duration: 0.65, ease: 'easeInOut' }}
             className="max-w-3xl"
-            style={{ textShadow: '0 1px 2px rgba(0,0,0,1), 0 2px 8px rgba(0,0,0,1), 0 4px 20px rgba(0,0,0,1), 0 8px 40px rgba(0,0,0,0.95)' }}
+            style={{ textShadow: '0 1px 4px rgba(0,0,0,0.7)' }}
           >
             {/* Status badge — outline, no fill */}
             <motion.div
@@ -141,7 +147,7 @@ export default function HeroSlider() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
               className="text-xs sm:text-sm font-light tracking-[0.18em] uppercase mb-10"
-              style={{ color: 'rgba(255,255,255,0.95)', textShadow: '0 1px 3px rgba(0,0,0,1), 0 2px 10px rgba(0,0,0,1), 0 4px 24px rgba(0,0,0,1)' }}
+              style={{ color: 'rgba(255,255,255,0.95)' }}
             >
               {slide.subtitle}
             </motion.p>
@@ -160,7 +166,7 @@ export default function HeroSlider() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.28 }}
               className="flex flex-wrap gap-8 mb-14"
-              style={{ textShadow: '0 1px 3px rgba(0,0,0,1), 0 2px 10px rgba(0,0,0,1), 0 4px 24px rgba(0,0,0,1)' }}
+              style={{}}
             >
               <div className="flex items-center gap-2">
                 <MapPin className="w-3 h-3 shrink-0" style={{ color: '#C9A96E' }} />
@@ -184,7 +190,7 @@ export default function HeroSlider() {
               className="flex flex-wrap items-end gap-10"
             >
               <div>
-                <p className="text-[10px] tracking-[0.22em] uppercase mb-1.5" style={{ color: 'rgba(255,255,255,0.9)', textShadow: '0 1px 3px rgba(0,0,0,1), 0 2px 10px rgba(0,0,0,1), 0 4px 24px rgba(0,0,0,1)' }}>
+                <p className="text-[10px] tracking-[0.22em] uppercase mb-1.5" style={{ color: 'rgba(255,255,255,0.9)' }}>
                   {slide.priceLabel}
                 </p>
                 <p className="font-serif text-4xl sm:text-5xl font-light leading-none" style={{ color: '#C9A96E' }}>

@@ -52,7 +52,7 @@ export default function SignupPage() {
 
   if (submitted) {
     return (
-      <div className="min-h-screen flex items-center justify-center px-4" style={{ background: '#1a1f2e' }}>
+      <div className="min-h-screen flex items-center justify-center px-4 pt-24" style={{ background: '#1a1f2e' }}>
         <div className="w-full max-w-md text-center space-y-6">
           <div
             className="w-16 h-16 rounded-full flex items-center justify-center mx-auto text-3xl"
@@ -78,7 +78,7 @@ export default function SignupPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 py-12" style={{ background: '#1a1f2e' }}>
+    <div className="min-h-screen flex items-center justify-center px-4 pt-28 pb-12" style={{ background: '#1a1f2e' }}>
       <div className="w-full max-w-lg">
         {/* Brand */}
         <div className="text-center mb-8">

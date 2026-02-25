@@ -8,6 +8,8 @@ import {
   Users,
   Building2,
   FileText,
+  MessageSquare,
+  Home,
   LogOut,
   Menu,
   X,
@@ -46,6 +48,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     { label: 'Agents', href: '/admin/agents', icon: <Users size={18} />, badge: pendingAgents },
     { label: 'Properties', href: '/admin/properties', icon: <Building2 size={18} /> },
     { label: 'Inquiries', href: '/admin/inquiries', icon: <FileText size={18} /> },
+    { label: 'Contact Messages', href: '/admin/contact-messages', icon: <MessageSquare size={18} /> },
+    { label: 'Property Inquiries', href: '/admin/property-inquiries', icon: <Home size={18} /> },
   ];
 
   const Sidebar = (
