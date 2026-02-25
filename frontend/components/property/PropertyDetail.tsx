@@ -215,10 +215,16 @@ export default function PropertyDetail({ property }: Props) {
               <h3 className="text-white font-semibold text-sm mb-4">Listed By</h3>
               <div className="flex items-center gap-3 mb-5 pb-5" style={{ borderBottom: '1px solid #3a4058' }}>
                 <div
-                  className="w-12 h-12 rounded-full flex items-center justify-center text-lg font-bold shrink-0"
-                  style={{ background: 'rgba(201,168,76,0.2)', color: '#c9a84c' }}
+                  className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 border"
+                  style={{ background: '#1a1f2e', borderColor: 'rgba(201,168,76,0.3)' }}
                 >
-                  {property.agent.name.charAt(0)}
+                  {property.agent.photo ? (
+                    <img src={property.agent.photo} alt={property.agent.name} className="w-full h-full object-cover" />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center text-lg font-bold" style={{ color: '#c9a84c' }}>
+                      {property.agent.name.charAt(0).toUpperCase()}
+                    </div>
+                  )}
                 </div>
                 <div>
                   <p className="text-white font-semibold text-sm">{property.agent.name}</p>

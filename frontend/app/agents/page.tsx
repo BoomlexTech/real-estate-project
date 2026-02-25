@@ -1,6 +1,6 @@
 import { getAgents } from '@/lib/api';
 import type { Agent } from '@/lib/types';
-import Image from 'next/image';
+import Link from 'next/link';
 
 export default async function AgentsPage() {
   let agents: Agent[] = [];
@@ -18,15 +18,20 @@ export default async function AgentsPage() {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {agents.map((agent) => (
-            <div
+            <Link
               key={agent.id}
-              className="p-6 rounded-2xl"
+              href={`/agents/${agent.id}`}
+              className="block p-6 rounded-2xl transition-all hover:scale-[1.02]"
               style={{ background: '#232838', border: '1px solid #2d3348' }}
             >
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-16 h-16 rounded-full overflow-hidden relative" style={{ background: '#1a1f2e' }}>
-                  {agent.photo && (
-                    <Image src={agent.photo} alt={agent.name} fill className="object-cover" sizes="64px" />
+                <div className="w-16 h-16 rounded-full overflow-hidden flex-shrink-0" style={{ background: '#1a1f2e' }}>
+                  {agent.photo ? (
+                    <img src={agent.photo} alt={agent.name} className="w-full h-full object-cover" />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center text-xl font-bold" style={{ color: '#c9a84c' }}>
+                      {agent.name.charAt(0).toUpperCase()}
+                    </div>
                   )}
                 </div>
                 <div>
@@ -47,24 +52,20 @@ export default async function AgentsPage() {
               </div>
 
               <div className="flex gap-3 mt-5">
-                <a
-                  href={`tel:${agent.phone}`}
-                  className="flex-1 text-center py-2 rounded-lg text-sm font-semibold text-white transition-colors hover:opacity-90"
+                <span
+                  className="flex-1 text-center py-2 rounded-lg text-sm font-semibold text-white"
                   style={{ background: '#c9a84c' }}
                 >
                   Call
-                </a>
-                <a
-                  href="https://wa.me/971547093295?text=I'm%20interrested%20about%20this%20property"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 text-center py-2 rounded-lg text-sm font-semibold border transition-colors hover:bg-white/5"
+                </span>
+                <span
+                  className="flex-1 text-center py-2 rounded-lg text-sm font-semibold border"
                   style={{ borderColor: '#c9a84c', color: '#c9a84c' }}
                 >
                   WhatsApp
-                </a>
+                </span>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

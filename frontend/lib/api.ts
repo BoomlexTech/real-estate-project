@@ -59,9 +59,10 @@ function normalizeProperty(p: any): Property {
 
 // Normalize backend agent → frontend Agent
 function normalizeAgent(a: any): Agent {
+  if (!a) return {} as Agent;
   return {
-    id: a._id || a.id,
-    name: a.name,
+    id: String(a._id || a.id || ''),
+    name: a.name || '',
     photo: a.photo || '',
     phone: a.phone || '',
     whatsapp: a.phone || '',
@@ -131,6 +132,14 @@ export async function getDeveloper(slug: string): Promise<Developer> {
 export async function getAgents(): Promise<Agent[]> {
   const { data } = await api.get('/agents');
   return (data || []).map(normalizeAgent);
+}
+
+export async function getAgent(id: string): Promise<{ agent: Agent; properties: Property[] }> {
+  const { data } = await api.get(`/agents/${id}`);
+  return {
+    agent: normalizeAgent(data.agent),
+    properties: (data.properties || []).map(normalizeProperty),
+  };
 }
 
 export async function getBlogPosts(): Promise<BlogPost[]> {

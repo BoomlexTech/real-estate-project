@@ -100,7 +100,7 @@ export default function HeroSlider() {
       <div
         className="absolute inset-0"
         style={{
-          background: 'linear-gradient(105deg, rgba(10,14,26,0.94) 0%, rgba(10,14,26,0.74) 52%, rgba(10,14,26,0.32) 100%)',
+          background: 'linear-gradient(105deg, rgba(20, 16, 8, 0.98) 0%, rgba(56, 45, 22, 0.7) 25%, rgba(10, 14, 26, 0.1) 70%, transparent 100%)',
         }}
       />
 

@@ -70,3 +70,17 @@ export async function getPropertyById(id: string): Promise<AgentProperty> {
   const { data } = await api.get(`/properties/id/${id}`);
   return data.data;
 }
+
+export interface UpdateProfilePayload {
+  name?: string;
+  phone?: string;
+  photo?: string;
+  languages?: string[];
+  specialization?: string;
+  bio?: string;
+}
+
+export async function updateProfile(payload: UpdateProfilePayload): Promise<any> {
+  const { data } = await api.put('/agents/profile', payload);
+  return data;
+}
