@@ -89,6 +89,7 @@ export default function HeroSlider() {
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const playerContainerRef = useRef<HTMLDivElement>(null);
   const playerRef = useRef<any>(null);
+  const touchStartX = useRef<number>(0);
 
   const isVideoSlide = slides[current].type === 'video';
 
@@ -192,7 +193,14 @@ export default function HeroSlider() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section
+      className="relative min-h-screen flex items-center overflow-hidden"
+      onTouchStart={(e) => { touchStartX.current = e.touches[0].clientX; }}
+      onTouchEnd={(e) => {
+        const diff = touchStartX.current - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 50) diff > 0 ? next() : prev();
+      }}
+    >
 
       {/* Background — image for property slides */}
       {slide.type === 'property' && (
@@ -387,10 +395,10 @@ export default function HeroSlider() {
         )}
       </div>
 
-      {/* Arrow buttons — always visible */}
+      {/* Arrow buttons — side arrows hidden on mobile to prevent text overlap */}
       <button
         onClick={prev}
-        className="absolute left-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center text-white text-lg transition-all hover:opacity-90 opacity-50"
+        className="absolute left-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 hidden sm:flex items-center justify-center text-white text-lg transition-all hover:opacity-90 opacity-50"
         style={{ border: '1px solid rgba(255,255,255,0.25)' }}
         aria-label="Previous slide"
       >
@@ -398,12 +406,32 @@ export default function HeroSlider() {
       </button>
       <button
         onClick={next}
-        className="absolute right-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center text-white text-lg transition-all hover:opacity-90 opacity-50"
+        className="absolute right-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 hidden sm:flex items-center justify-center text-white text-lg transition-all hover:opacity-90 opacity-50"
         style={{ border: '1px solid rgba(255,255,255,0.25)' }}
         aria-label="Next slide"
       >
         →
       </button>
+
+      {/* Mobile-only bottom arrows — shown below slide indicators */}
+      <div className="absolute bottom-12 right-6 flex gap-2 sm:hidden z-20">
+        <button
+          onClick={prev}
+          className="w-8 h-8 flex items-center justify-center text-white text-sm transition-all opacity-60 hover:opacity-90"
+          style={{ border: '1px solid rgba(255,255,255,0.25)' }}
+          aria-label="Previous slide"
+        >
+          ←
+        </button>
+        <button
+          onClick={next}
+          className="w-8 h-8 flex items-center justify-center text-white text-sm transition-all opacity-60 hover:opacity-90"
+          style={{ border: '1px solid rgba(255,255,255,0.25)' }}
+          aria-label="Next slide"
+        >
+          →
+        </button>
+      </div>
     </section>
   );
 }
