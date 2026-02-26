@@ -92,7 +92,7 @@ export default function Header() {
         </div>
 
         {/* Main Nav */}
-        <div className="flex items-center justify-between px-5 lg:px-8 py-4">
+        <div className="flex items-center justify-between px-5 lg:px-8 py-2.5">
           {/* Logo */}
           <Logo />
 

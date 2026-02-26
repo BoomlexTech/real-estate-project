@@ -110,7 +110,13 @@ export default function PropertySearch() {
   };
 
   return (
-    <section className="relative z-20 py-20 px-4" style={{ background: '#0f1523' }}>
+    <section
+      className="relative z-20 py-20 px-4"
+      style={{
+        marginTop: '-220px',
+        background: 'linear-gradient(to bottom, transparent 0%, transparent 38%, rgba(15,21,35,0.85) 58%, #0f1523 72%)',
+      }}
+    >
       <div className="max-w-5xl mx-auto">
         <div className="p-8 sm:p-10" style={{ background: '#111827', border: '1px solid rgba(201,169,110,0.2)' }}>
           {/* Heading */}
@@ -119,7 +125,10 @@ export default function PropertySearch() {
               Property Search
             </p>
             <span className="section-divider mx-auto mb-5" />
-            <h2 className="font-serif text-3xl sm:text-4xl font-light text-white mb-2 leading-tight">
+            <h2
+              className="font-serif text-3xl sm:text-4xl font-light text-white mb-2 leading-tight"
+              style={{ textShadow: '0 2px 12px rgba(0,0,0,0.8)' }}
+            >
               Find Your Ideal Property
             </h2>
             <p className="text-xs tracking-[0.08em]" style={{ color: '#94A3B8' }}>
@@ -141,7 +150,7 @@ export default function PropertySearch() {
             <SelectField label="Price Range" options={priceOptions} value={filters.price} onChange={set('price')} />
             <SelectField label="Status" options={statusOptions} value={filters.status} onChange={set('status')} />
 
-            {/* Search button — outlined luxury style */}
+            {/* Search button */}
             <button
               onClick={handleSearch}
               className="lg:col-span-2 flex items-center justify-center gap-2.5 transition-all"
@@ -175,7 +184,7 @@ export default function PropertySearch() {
 }
 
 function SelectField({
-  label,
+  label: _label,
   options,
   value,
   onChange,
