@@ -20,6 +20,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  icons: {
+    icon: "/logo2.png",
+  },
   title: {
     default: "Awtad Real Estate | Dubai Luxury Real Estate Agency",
     template: "%s | Awtad Real Estate",
