@@ -208,7 +208,7 @@ function SelectField({
         }}
       >
         {options.map((opt) => (
-          <option key={opt.value || opt.label} value={opt.value}>
+          <option key={opt.value || opt.label} value={opt.value} style={{ background: '#0d1117', color: '#e2c992' }}>
             {opt.label}
           </option>
         ))}

@@ -85,6 +85,7 @@ const slides: Slide[] = [
 export default function HeroSlider() {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState<'left' | 'right'>('right');
+  const [videoReady, setVideoReady] = useState(false);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const playerContainerRef = useRef<HTMLDivElement>(null);
   const playerRef = useRef<any>(null);
@@ -115,8 +116,11 @@ export default function HeroSlider() {
     if (!isVideoSlide) {
       playerRef.current?.destroy();
       playerRef.current = null;
+      setVideoReady(false);
       return;
     }
+
+    setVideoReady(false);
 
     const initPlayer = () => {
       if (!playerContainerRef.current) return;
@@ -131,6 +135,7 @@ export default function HeroSlider() {
           showinfo: 0,
         },
         events: {
+          onReady: () => setVideoReady(true),
           onStateChange: (e: any) => {
             // 0 = ended → auto-advance to next slide
             if (e.data === 0) next();
@@ -148,6 +153,7 @@ export default function HeroSlider() {
     return () => {
       playerRef.current?.destroy();
       playerRef.current = null;
+      setVideoReady(false);
     };
   }, [isVideoSlide, next]);
 
@@ -219,6 +225,16 @@ export default function HeroSlider() {
             className="absolute inset-0"
             style={{ background: 'rgba(0,0,0,0.35)' }}
           />
+
+          {/* Loading state — shown until player fires onReady */}
+          {!videoReady && (
+            <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
+              <div style={{ width: '32px', height: '1px', background: '#C9A96E', marginBottom: '16px' }} />
+              <p className="text-[11px] tracking-[0.3em] uppercase" style={{ color: 'rgba(255,255,255,0.5)' }}>
+                Loading
+              </p>
+            </div>
+          )}
         </motion.div>
       )}
 
