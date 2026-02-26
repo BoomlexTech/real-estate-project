@@ -135,7 +135,22 @@ export default function HeroSlider() {
           showinfo: 0,
         },
         events: {
-          onReady: () => setVideoReady(true),
+          onReady: (event: any) => {
+            setVideoReady(true);
+            const iframe = event.target.getIframe() as HTMLIFrameElement;
+            Object.assign(iframe.style, {
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              width: '100vw',
+              height: '56.25vw',
+              minHeight: '100vh',
+              minWidth: '177.78vh',
+              transform: 'translate(-50%, -50%)',
+              border: 'none',
+              pointerEvents: 'none',
+            });
+          },
           onStateChange: (e: any) => {
             // 0 = ended → auto-advance to next slide
             if (e.data === 0) next();
@@ -208,18 +223,9 @@ export default function HeroSlider() {
           transition={{ duration: 1 }}
           className="absolute inset-0 bg-black"
         >
-          <div
-            ref={playerContainerRef}
-            className="absolute"
-            style={{
-              top: '50%',
-              left: '50%',
-              width: '100%',
-              height: '100%',
-              transform: 'translate(-50%, -50%) scale(1.15)',
-              pointerEvents: 'none',
-            }}
-          />
+          <div className="absolute inset-0 overflow-hidden" style={{ pointerEvents: 'none' }}>
+            <div ref={playerContainerRef} />
+          </div>
           {/* Dark scrim over video */}
           <div
             className="absolute inset-0"
