@@ -13,6 +13,7 @@ export default function NewPropertyPage() {
     setServerError('');
     try {
       await createProperty(payload);
+      router.refresh();
       router.replace('/agent/properties');
     } catch (err: any) {
       const msg = err?.response?.data?.message || 'Failed to create property.';

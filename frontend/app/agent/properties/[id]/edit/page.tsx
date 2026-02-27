@@ -24,6 +24,7 @@ export default function EditPropertyPage() {
     setServerError('');
     try {
       await updateProperty(id, payload);
+      router.refresh();
       router.replace('/agent/properties');
     } catch (err: any) {
       const msg = err?.response?.data?.message || 'Failed to update property.';
@@ -63,7 +64,7 @@ export default function EditPropertyPage() {
     ppDown: property.paymentPlan?.downPayment ?? 0,
     ppOnCompletion: property.paymentPlan?.onCompletion ?? 0,
     ppDescription: property.paymentPlan?.description || '',
-    images: (property.images || []).join(', '),
+    images: property.images || [],
     amenities: (property.amenities || []).join(', '),
   };
 

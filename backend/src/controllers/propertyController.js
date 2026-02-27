@@ -100,7 +100,14 @@ const getProperty = async (req, res, next) => {
     if (!property) {
       return res.status(404).json({ success: false, message: 'Property not found' });
     }
-    res.json(property);
+
+    // Attach propertyCount to the agent so the "Listed By" card shows the correct number
+    const propertyObj = property.toObject();
+    if (propertyObj.agent?._id) {
+      propertyObj.agent.propertyCount = await Property.countDocuments({ agent: propertyObj.agent._id });
+    }
+
+    res.json(propertyObj);
   } catch (err) {
     next(err);
   }

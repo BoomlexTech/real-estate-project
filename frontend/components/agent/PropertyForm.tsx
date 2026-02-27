@@ -1,7 +1,8 @@
 'use client';
 
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import { PropertyPayload } from '@/lib/agentApi';
+import ImageUploadField from './ImageUploadField';
 
 export interface PropertyFormValues {
   title: string;
@@ -19,7 +20,7 @@ export interface PropertyFormValues {
   ppDown: number;
   ppOnCompletion: number;
   ppDescription: string;
-  images: string;   // comma-separated URLs
+  images: string[];  // array of image URLs
   amenities: string; // comma-separated
 }
 
@@ -61,6 +62,7 @@ export default function PropertyForm({ defaultValues, onSubmit, submitLabel = 'S
   const {
     register,
     handleSubmit,
+    control,
     formState: { errors, isSubmitting },
   } = useForm<PropertyFormValues>({ defaultValues });
 
@@ -82,7 +84,7 @@ export default function PropertyForm({ defaultValues, onSubmit, submitLabel = 'S
         onCompletion: Number(values.ppOnCompletion) || 0,
         description: values.ppDescription || '',
       },
-      images: values.images ? values.images.split(',').map((s) => s.trim()).filter(Boolean) : [],
+      images: values.images ?? [],
       amenities: values.amenities ? values.amenities.split(',').map((s) => s.trim()).filter(Boolean) : [],
     };
     await onSubmit(payload);
@@ -240,15 +242,15 @@ export default function PropertyForm({ defaultValues, onSubmit, submitLabel = 'S
 
       {/* Media */}
       <Section title="Images & Amenities">
-        <Field label="Image URLs">
-          <textarea
-            rows={3}
-            placeholder="Paste image URLs separated by commas"
-            className={inputCls + ' resize-none'}
-            style={inputStyle()}
-            {...register('images')}
+        <Field label="Images">
+          <Controller
+            name="images"
+            control={control}
+            defaultValue={[]}
+            render={({ field }) => (
+              <ImageUploadField value={field.value} onChange={field.onChange} />
+            )}
           />
-          <p className="mt-1 text-xs" style={{ color: '#8892a4' }}>Separate URLs with commas</p>
         </Field>
 
         <Field label="Amenities">
