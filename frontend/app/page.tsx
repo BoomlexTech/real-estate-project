@@ -14,8 +14,8 @@ export default function HomePage() {
     <>
       <HeroSlider />
       <PropertySearch />
-      <WhoWeAre />
       <PropertyTypes />
+      <WhoWeAre />
       <LatestProjects />
       <DeveloperSpotlight />
       <MortgageBanner />

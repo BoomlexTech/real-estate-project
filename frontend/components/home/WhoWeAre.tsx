@@ -2,28 +2,45 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { Award, TrendingUp, Globe, Building2 } from 'lucide-react';
 import StatCard from '../common/StatCard';
 
 const stats = [
   {
-    icon: '✦',
+    icon: <Award className="w-5 h-5" />,
+    value: 4,
+    suffix: '',
+    prefix: '',
     title: 'Top Selling Partner',
     subtitle: 'EMAAR, DAMAC, Meraas, Aldar',
+    progress: 95,
   },
   {
-    icon: '✦',
-    title: 'AED 11 Billion',
+    icon: <TrendingUp className="w-5 h-5" />,
+    value: 11,
+    suffix: 'B+',
+    prefix: 'AED ',
+    title: 'In Sales',
     subtitle: 'Total real estate transacted',
+    progress: 88,
   },
   {
-    icon: '✦',
-    title: '18+ Languages',
+    icon: <Globe className="w-5 h-5" />,
+    value: 18,
+    suffix: '+',
+    prefix: '',
+    title: 'Languages',
     subtitle: 'Multilingual expert team',
+    progress: 72,
   },
   {
-    icon: '✦',
-    title: '3 Offices',
+    icon: <Building2 className="w-5 h-5" />,
+    value: 3,
+    suffix: '',
+    prefix: '',
+    title: 'Offices',
     subtitle: 'Located across Dubai & UAE',
+    progress: 60,
   },
 ];
 
@@ -55,10 +72,14 @@ export default function WhoWeAre() {
             {stats.map((stat, i) => (
               <StatCard
                 key={stat.title}
-                icon={<span className="text-sm font-light" style={{ color: '#C9A96E' }}>{stat.icon}</span>}
+                icon={stat.icon}
+                value={stat.value}
+                suffix={stat.suffix}
+                prefix={stat.prefix}
                 title={stat.title}
                 subtitle={stat.subtitle}
-                delay={i * 0.1}
+                progress={stat.progress}
+                delay={i * 0.12}
               />
             ))}
           </div>
@@ -78,7 +99,7 @@ export default function WhoWeAre() {
               className="relative"
             >
               {/* Sharp-cornered image */}
-              <div className="relative overflow-hidden aspect-[4/3]">
+              <div className="relative overflow-hidden aspect-4/3">
                 <Image
                   src="https://images.pexels.com/photos/31033420/pexels-photo-31033420.jpeg?auto=compress&cs=tinysrgb&w=1200&h=900"
                   alt="Dubai Skyline"
