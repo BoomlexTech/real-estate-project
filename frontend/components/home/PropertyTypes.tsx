@@ -69,7 +69,7 @@ export default function PropertyTypes() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className={`${i === 0 ? 'sm:col-span-2 lg:col-span-2' : 'lg:col-span-1'} ${i === 2 ? 'sm:col-span-2 lg:col-span-2' : ''}`}
+              className={`col-span-1 ${i === 0 ? 'sm:col-span-2 lg:col-span-2' : ''} ${i === 2 ? 'lg:col-span-2' : ''}`}
             >
               <Link
                 href={type.href}
