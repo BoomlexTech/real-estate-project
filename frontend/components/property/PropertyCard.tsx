@@ -264,7 +264,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
                 href="https://wa.me/971547093295?text=I'm%20interrested%20about%20this%20property"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-7 h-7 flex items-center justify-center transition-colors hover:bg-white/5"
+                className="w-8 h-8 flex items-center justify-center transition-colors hover:bg-white/5"
                 style={{ border: '1px solid var(--border-color)', color: 'var(--text-secondary)' }}
                 title="WhatsApp agent"
               >
@@ -273,7 +273,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
               </a>
               <a
                 href={`tel:${property.agent.phone}`}
-                className="w-7 h-7 flex items-center justify-center transition-colors hover:bg-white/5"
+                className="w-8 h-8 flex items-center justify-center transition-colors hover:bg-white/5"
                 style={{ border: '1px solid var(--border-color)', color: 'var(--text-secondary)' }}
                 title="Call agent"
               >
