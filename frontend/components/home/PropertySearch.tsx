@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Search } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 interface Option { label: string; value: string }
 
@@ -111,15 +112,11 @@ export default function PropertySearch() {
 
   return (
     <section
-      className="relative z-20 py-20 px-4"
-      style={{
-        marginTop: '-220px',
-        background: 'linear-gradient(to bottom, transparent 0%, transparent 38%, rgba(15,21,35,0.85) 58%, #0f1523 72%)',
-        pointerEvents: 'none',
-      }}
+      className="relative z-20 py-16 sm:py-20 px-4"
+      style={{ background: '#0f1523' }}
     >
       <div className="max-w-5xl mx-auto">
-        <div className="glass-card p-8 sm:p-10" style={{ pointerEvents: 'auto' }}>
+        <div className="glass-card p-8 sm:p-10">
           {/* Heading */}
           <div className="text-center mb-10">
             <p className="text-[10px] tracking-[0.28em] uppercase mb-4" style={{ color: '#C9A96E' }}>
@@ -128,7 +125,6 @@ export default function PropertySearch() {
             <span className="section-divider mx-auto mb-5" />
             <h2
               className="font-serif text-3xl sm:text-4xl font-light text-white mb-2 leading-tight"
-              style={{ textShadow: '0 2px 12px rgba(0,0,0,0.8)' }}
             >
               Find Your Ideal Property
             </h2>
@@ -146,38 +142,33 @@ export default function PropertySearch() {
           </div>
 
           {/* Row 2 */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
             <SelectField label="Bedrooms" options={bedroomOptions} value={filters.bedrooms} onChange={set('bedrooms')} />
             <SelectField label="Price Range" options={priceOptions} value={filters.price} onChange={set('price')} />
             <SelectField label="Status" options={statusOptions} value={filters.status} onChange={set('status')} />
-
-            {/* Search button */}
-            <button
-              onClick={handleSearch}
-              className="lg:col-span-2 flex items-center justify-center gap-2.5 transition-all"
-              style={{
-                border: '1px solid #C9A96E',
-                color: '#C9A96E',
-                background: 'transparent',
-                fontSize: '0.6875rem',
-                fontWeight: 500,
-                letterSpacing: '0.16em',
-                textTransform: 'uppercase',
-                padding: '0.8125rem 2rem',
-              }}
-              onMouseEnter={e => {
-                (e.currentTarget as HTMLElement).style.background = '#C9A96E';
-                (e.currentTarget as HTMLElement).style.color = '#0A0E1A';
-              }}
-              onMouseLeave={e => {
-                (e.currentTarget as HTMLElement).style.background = 'transparent';
-                (e.currentTarget as HTMLElement).style.color = '#C9A96E';
-              }}
-            >
-              <Search className="w-3.5 h-3.5" />
-              Find Properties
-            </button>
           </div>
+
+          {/* Search button — full width, animated */}
+          <motion.button
+            onClick={handleSearch}
+            whileHover={{ scale: 1.03, backgroundColor: '#C9A96E', color: '#0A0E1A', boxShadow: '0 0 24px rgba(201,169,110,0.4)' }}
+            whileTap={{ scale: 0.96 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+            className="w-full flex items-center justify-center gap-2.5"
+            style={{
+              border: '1px solid #C9A96E',
+              color: '#C9A96E',
+              background: 'transparent',
+              fontSize: '0.6875rem',
+              fontWeight: 500,
+              letterSpacing: '0.16em',
+              textTransform: 'uppercase' as const,
+              padding: '0.9375rem 2rem',
+            }}
+          >
+            <Search className="w-3.5 h-3.5" />
+            Find Properties
+          </motion.button>
         </div>
       </div>
     </section>

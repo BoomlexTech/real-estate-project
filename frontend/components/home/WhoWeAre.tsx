@@ -22,7 +22,7 @@ const stats = [
   },
   {
     icon: '✦',
-    title: '4 Offices',
+    title: '3 Offices',
     subtitle: 'Located across Dubai & UAE',
   },
 ];
