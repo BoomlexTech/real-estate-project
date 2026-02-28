@@ -189,7 +189,7 @@ export default function HeroSlider() {
 
   return (
     <section
-      className="relative min-h-screen flex items-center overflow-hidden"
+      className="relative h-screen flex items-center overflow-hidden"
       onTouchStart={(e) => { touchStartX.current = e.touches[0].clientX; }}
       onTouchEnd={(e) => {
         const diff = touchStartX.current - e.changedTouches[0].clientX;
@@ -261,7 +261,7 @@ export default function HeroSlider() {
       )}
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pt-36 pb-64 w-full">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pt-36 pb-32 w-full">
 
         {/* Property slide content */}
         {slide.type === 'property' && (
@@ -274,7 +274,7 @@ export default function HeroSlider() {
               animate="center"
               exit="exit"
               transition={{ duration: 0.65, ease: 'easeInOut' }}
-              className="max-w-3xl"
+              className="w-full"
               style={{ textShadow: '0 1px 4px rgba(0,0,0,0.7)' }}
             >
               <motion.div
@@ -314,43 +314,41 @@ export default function HeroSlider() {
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{ delay: 0.24, duration: 0.55 }}
-                style={{ width: '56px', height: '1px', background: '#C9A96E', transformOrigin: 'left', marginBottom: '2.5rem' }}
+                style={{ width: '56px', height: '1px', background: '#C9A96E', transformOrigin: 'left', marginBottom: '1.5rem' }}
               />
 
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.28 }}
-                className="flex flex-wrap gap-8 mb-14"
+                className="flex flex-wrap items-center justify-between gap-6"
               >
-                <div className="flex items-center gap-2">
-                  <MapPin className="w-3 h-3 shrink-0" style={{ color: '#C9A96E' }} />
-                  <span className="text-xs tracking-[0.08em] text-gray-300">{slide.location}</span>
+                {/* Left side — details */}
+                <div className="flex flex-wrap items-center gap-6">
+                  <div className="flex items-center gap-2">
+                    <MapPin className="w-3 h-3 shrink-0" style={{ color: '#C9A96E' }} />
+                    <span className="text-xs tracking-[0.08em] text-gray-300">{slide.location}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-[10px] tracking-[0.18em] uppercase" style={{ color: '#C9A96E' }}>Plan</span>
+                    <span className="text-xs tracking-[0.08em] text-gray-300">{slide.paymentPlan}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-[10px] tracking-[0.18em] uppercase" style={{ color: '#C9A96E' }}>Ready</span>
+                    <span className="text-xs tracking-[0.08em] text-gray-300">{slide.completion}</span>
+                  </div>
+                  <div className="h-4 w-px bg-gray-600 hidden sm:block" />
+                  <div>
+                    <span className="text-[10px] tracking-[0.18em] uppercase" style={{ color: 'rgba(255,255,255,0.7)' }}>
+                      {slide.priceLabel}{' '}
+                    </span>
+                    <span className="font-serif text-xl sm:text-2xl font-light" style={{ color: '#C9A96E' }}>
+                      {slide.price}
+                    </span>
+                  </div>
                 </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-[10px] tracking-[0.18em] uppercase" style={{ color: '#C9A96E' }}>Plan</span>
-                  <span className="text-xs tracking-[0.08em] text-gray-300">{slide.paymentPlan}</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-[10px] tracking-[0.18em] uppercase" style={{ color: '#C9A96E' }}>Ready</span>
-                  <span className="text-xs tracking-[0.08em] text-gray-300">{slide.completion}</span>
-                </div>
-              </motion.div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.33 }}
-                className="flex flex-wrap items-end gap-10"
-              >
-                <div>
-                  <p className="text-[10px] tracking-[0.22em] uppercase mb-1.5" style={{ color: 'rgba(255,255,255,0.9)' }}>
-                    {slide.priceLabel}
-                  </p>
-                  <p className="font-serif text-4xl sm:text-5xl font-light leading-none" style={{ color: '#C9A96E' }}>
-                    {slide.price}
-                  </p>
-                </div>
+                {/* Right side — CTA */}
                 <div className="flex items-center gap-5">
                   <Link href={slide.href} className="btn-gold">
                     {slide.cta}

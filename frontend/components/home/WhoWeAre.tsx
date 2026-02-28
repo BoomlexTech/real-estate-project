@@ -66,7 +66,7 @@ export default function WhoWeAre() {
       </section>
 
       {/* Who We Are Section */}
-      <section className="py-28 px-4" style={{ background: '#0A0E1A' }}>
+      <section className="py-16 sm:py-20 lg:py-28 px-4" style={{ background: '#0A0E1A' }}>
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 xl:gap-24 items-center">
             {/* Left: Image */}
@@ -103,7 +103,7 @@ export default function WhoWeAre() {
 
               {/* Floating stat — sharp corners, offset */}
               <div
-                className="glass-card absolute -bottom-6 -right-6 px-6 py-5"
+                className="glass-card hidden sm:block absolute -bottom-6 -right-6 px-6 py-5"
               >
                 <p className="font-serif text-3xl font-light" style={{ color: '#C9A96E' }}>11B+</p>
                 <p className="text-[10px] tracking-[0.14em] uppercase mt-1" style={{ color: '#94A3B8' }}>
@@ -123,7 +123,7 @@ export default function WhoWeAre() {
                 Who We Are
               </p>
               <span className="section-divider mb-6" />
-              <h2 className="font-serif text-4xl sm:text-5xl font-light text-white mb-8 leading-[1.1]">
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light text-white mb-8 leading-[1.1]">
                 Navigating Dubai&apos;s{' '}
                 <span style={{ color: '#C9A96E' }}>Real Estate</span>{' '}
                 with Precision

@@ -39,7 +39,7 @@ function MortgageCalculator() {
   const fmt = (n: number) => 'AED ' + Math.round(n).toLocaleString();
 
   return (
-    <div className="card-dark p-8">
+    <div className="card-dark p-5 sm:p-8">
       <h2 className="text-white font-bold text-xl mb-6 flex items-center gap-2">
         <Calculator className="w-5 h-5" style={{ color: '#c9a84c' }} />
         Mortgage Calculator
@@ -144,19 +144,19 @@ export default function MortgagePage() {
       {/* Hero */}
       <div className="px-4 py-16 text-center" style={{ background: '#242938' }}>
         <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: '#c9a84c' }}>FINANCING</p>
-        <h1 className="text-4xl font-bold text-white mb-4">Get a Mortgage in Dubai & The UAE</h1>
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">Get a Mortgage in Dubai & The UAE</h1>
         <p className="text-gray-400 max-w-2xl mx-auto text-sm leading-relaxed">
           Our dedicated mortgage advisors work with 20+ leading UAE banks to secure the most competitive rates. Free consultation, zero broker fees.
         </p>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 py-12">
-        <div className="grid lg:grid-cols-2 gap-10">
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-10">
           {/* Calculator */}
           <MortgageCalculator />
 
           {/* Inquiry Form */}
-          <div className="card-dark p-8">
+          <div className="card-dark p-5 sm:p-8">
             <h2 className="text-white font-bold text-xl mb-2">Get Pre-Approved Online</h2>
             <p className="text-gray-400 text-sm mb-6">Find out how much you can borrow in minutes. No credit check required.</p>
 

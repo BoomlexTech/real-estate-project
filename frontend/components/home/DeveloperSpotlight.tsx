@@ -26,20 +26,20 @@ export default function DeveloperSpotlight() {
   }, []);
 
   return (
-    <section className="py-28 px-4" style={{ background: '#0A0E1A' }}>
+    <section className="py-16 sm:py-20 lg:py-28 px-4" style={{ background: '#0A0E1A' }}>
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="flex flex-col sm:flex-row sm:items-end justify-between mb-16 gap-6"
+          className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 sm:mb-16 gap-6"
         >
           <div>
             <p className="text-[10px] tracking-[0.28em] uppercase mb-4" style={{ color: '#C9A96E' }}>
               Our Partners
             </p>
             <span className="section-divider mb-5" />
-            <h2 className="font-serif text-4xl sm:text-5xl font-light text-white leading-[1.08]">
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light text-white leading-[1.08]">
               Top Developers<br />
               <span style={{ color: '#C9A96E' }}>In Dubai</span>
             </h2>

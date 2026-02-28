@@ -38,16 +38,16 @@ export default function ContactPage() {
     <div className="min-h-screen pt-24" style={{ background: '#1a1f2e' }}>
       <div className="px-4 py-14 text-center" style={{ background: '#242938' }}>
         <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: '#c9a84c' }}>GET IN TOUCH</p>
-        <h1 className="text-4xl font-bold text-white mb-4">Contact Us</h1>
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">Contact Us</h1>
         <p className="text-gray-400 max-w-xl mx-auto text-sm">
           Our team of expert consultants is available 7 days a week to answer your questions and guide your property journey.
         </p>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 py-12">
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-12">
           {/* Form */}
-          <div className="card-dark p-8">
+          <div className="card-dark p-5 sm:p-8">
             {submitted ? (
               <div className="text-center py-12">
                 <CheckCircle className="w-16 h-16 mx-auto mb-4" style={{ color: '#c9a84c' }} />

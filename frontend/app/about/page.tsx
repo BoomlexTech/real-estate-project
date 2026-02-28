@@ -25,7 +25,7 @@ export default function AboutPage() {
       {/* Hero */}
       <div className="px-4 py-16 text-center" style={{ background: '#242938' }}>
         <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: '#c9a84c' }}>OUR STORY</p>
-        <h1 className="text-4xl font-bold text-white mb-4">About Awtad Real Estate</h1>
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">About Awtad Real Estate</h1>
         <p className="text-gray-400 max-w-2xl mx-auto text-sm leading-relaxed">
           Founded with a vision to redefine luxury real estate in Dubai, Awtad Real Estate has grown to become one of the emirate&apos;s most trusted property agencies, with over AED 11 Billion in completed transactions.
         </p>
