@@ -46,7 +46,7 @@ const types = [
 
 export default function PropertyTypes() {
   return (
-    <section className="py-20 px-4" style={{ background: '#1a1f2e' }}>
+    <section className="py-20 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Heading */}
         <motion.div
@@ -55,7 +55,7 @@ export default function PropertyTypes() {
           viewport={{ once: true }}
           className="text-center mb-10"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-white">
+          <h2 className="font-serif text-3xl sm:text-4xl font-light text-white leading-tight">
             Explore New Properties In Dubai By Type
           </h2>
         </motion.div>
@@ -83,16 +83,23 @@ export default function PropertyTypes() {
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
-                {/* Dark overlay */}
-                <div
+                {/* Dark overlay — continuous breathing */}
+                <motion.div
                   className="absolute inset-0 transition-opacity duration-300 group-hover:opacity-60"
-                  style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 60%)', opacity: 0.8 }}
+                  style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 60%)' }}
+                  animate={{ opacity: [0.8, 0.95, 0.8] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: i * 0.15 }}
                 />
-                {/* Border glow on hover */}
-                <div className="absolute inset-0 rounded-2xl transition-colors duration-300" style={{ border: '1px solid rgba(201,168,76,0.45)' }} />
+                {/* Border glow on hover — continuous breathing */}
+                <motion.div
+                  className="absolute inset-0 rounded-2xl transition-colors duration-300"
+                  style={{ border: '1px solid rgba(201,168,76,0.45)' }}
+                  animate={{ borderColor: ['rgba(201,168,76,0.2)', 'rgba(201,168,76,0.5)', 'rgba(201,168,76,0.2)'] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut', delay: i * 0.2 }}
+                />
                 {/* Label */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-                  <h3 className="text-white text-xl sm:text-2xl font-bold group-hover:text-yellow-400 transition-colors">
+                  <h3 className="text-white text-xl sm:text-2xl font-bold group-hover:text-gold transition-colors">
                     {type.label}
                   </h3>
                   <p className="text-gray-300 text-sm mt-1">Great Deals Available</p>
@@ -124,16 +131,23 @@ export default function PropertyTypes() {
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
                   sizes="(max-width: 768px) 50vw, 25vw"
                 />
-                {/* Dark overlay */}
-                <div
+                {/* Dark overlay — continuous breathing */}
+                <motion.div
                   className="absolute inset-0 transition-opacity duration-300 group-hover:opacity-60"
-                  style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 60%)', opacity: 0.8 }}
+                  style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 60%)' }}
+                  animate={{ opacity: [0.8, 0.95, 0.8] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: (i + 3) * 0.15 }}
                 />
-                {/* Border glow on hover */}
-                <div className="absolute inset-0 rounded-2xl transition-colors duration-300" style={{ border: '1px solid rgba(201,168,76,0.45)' }} />
+                {/* Border glow on hover — continuous breathing */}
+                <motion.div
+                  className="absolute inset-0 rounded-2xl transition-colors duration-300"
+                  style={{ border: '1px solid rgba(201,168,76,0.45)' }}
+                  animate={{ borderColor: ['rgba(201,168,76,0.2)', 'rgba(201,168,76,0.5)', 'rgba(201,168,76,0.2)'] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut', delay: (i + 3) * 0.2 }}
+                />
                 {/* Label */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-                  <h3 className="text-white text-lg sm:text-xl font-bold group-hover:text-yellow-400 transition-colors">
+                  <h3 className="text-white text-lg sm:text-xl font-bold group-hover:text-gold transition-colors">
                     {type.label}
                   </h3>
                   <p className="text-gray-300 text-sm mt-1">Great Deals Available</p>

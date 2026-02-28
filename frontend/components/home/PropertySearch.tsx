@@ -125,7 +125,6 @@ export default function PropertySearch() {
   return (
     <section
       className="relative z-20 py-16 sm:py-20 px-4"
-      style={{ background: '#0f1523' }}
     >
 
       {/* Left decorative stats — xl screens only */}

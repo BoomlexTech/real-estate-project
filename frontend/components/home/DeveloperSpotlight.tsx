@@ -30,7 +30,7 @@ export default function DeveloperSpotlight() {
   }, []);
 
   return (
-    <section className="py-16 sm:py-20 lg:py-28 px-4" style={{ background: '#0A0E1A' }}>
+    <section className="py-16 sm:py-20 lg:py-28 px-4">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -73,16 +73,29 @@ export default function DeveloperSpotlight() {
                 href={`/developers/${dev.slug}`}
                 className="glass-card flex flex-col items-center justify-center text-center gap-3 p-6 h-full transition-colors group"
               >
-                <div
+                <motion.div
                   className="w-14 h-14 relative overflow-hidden flex items-center justify-center text-sm font-light"
                   style={{ border: '1px solid rgba(201,169,110,0.28)', background: '#111827' }}
+                  animate={{
+                    boxShadow: [
+                      '0 0 0px rgba(201,169,110,0)',
+                      '0 0 16px rgba(201,169,110,0.3)',
+                      '0 0 0px rgba(201,169,110,0)',
+                    ],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                    delay: i * 0.2, // Offset each logo's pulse slightly
+                  }}
                 >
                   {dev.logo ? (
                     <Image src={dev.logo} alt={dev.name} fill className="object-cover" sizes="56px" />
                   ) : (
                     <span style={{ color: '#C9A96E' }}>{dev.name.charAt(0)}</span>
                   )}
-                </div>
+                </motion.div>
                 <div>
                   <p
                     className="text-white text-xs tracking-wide font-light transition-colors group-hover:text-gold"

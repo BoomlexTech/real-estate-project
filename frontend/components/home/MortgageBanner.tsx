@@ -39,7 +39,7 @@ export default function MortgageBanner() {
   ];
 
   return (
-    <section className="py-12 sm:py-16 lg:py-20 px-4" style={{ background: '#1a1f2e' }}>
+    <section className="py-12 sm:py-16 lg:py-20 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left */}
@@ -49,10 +49,10 @@ export default function MortgageBanner() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <p className="text-sm font-semibold uppercase tracking-widest mb-3" style={{ color: '#c9a84c' }}>
-              MORTGAGE SERVICES
+            <p className="text-[10px] tracking-[0.28em] uppercase mb-4" style={{ color: '#C9A96E' }}>
+              Mortgage Services
             </p>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-5 leading-tight">
+            <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-light text-white mb-5 leading-tight">
               Get Mortgage in Dubai &amp;{' '}
               <span style={{ color: '#c9a84c' }}>The UAE</span>
             </h2>
@@ -87,7 +87,6 @@ export default function MortgageBanner() {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
             whileHover={{ y: -8, boxShadow: '0 0 56px rgba(201,169,110,0.4), 0 16px 48px rgba(201,169,110,0.25), 0 0 0 1px rgba(201,169,110,0.35)' }}
             transition={{ duration: 0.6, type: 'spring', stiffness: 280, damping: 22 }}
             className="card-dark p-5 sm:p-8"

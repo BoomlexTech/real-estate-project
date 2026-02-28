@@ -144,7 +144,7 @@ export default function MortgagePage() {
       {/* Hero */}
       <div className="px-4 py-16 text-center" style={{ background: '#242938' }}>
         <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: '#c9a84c' }}>FINANCING</p>
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">Get a Mortgage in Dubai & The UAE</h1>
+        <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl font-light text-white mb-4 leading-tight">Get a Mortgage in Dubai & The UAE</h1>
         <p className="text-gray-400 max-w-2xl mx-auto text-sm leading-relaxed">
           Our dedicated mortgage advisors work with 20+ leading UAE banks to secure the most competitive rates. Free consultation, zero broker fees.
         </p>

@@ -14,7 +14,7 @@ export default async function BlogPage() {
   return (
     <main className="min-h-screen pt-32 pb-20 px-4" style={{ background: '#1a1f2e' }}>
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-3xl sm:text-4xl font-bold text-white mb-2">Blog & Insights</h1>
+        <h1 className="font-serif text-3xl sm:text-4xl font-light text-white mb-2 leading-tight">Blog & Insights</h1>
         <p className="text-gray-400 mb-10">Stay updated with the latest Dubai real estate news</p>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -117,7 +117,7 @@ export default function YoutubeSection() {
   };
 
   return (
-    <section className="py-20 px-4" style={{ background: '#242938' }}>
+    <section className="py-20 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
@@ -127,10 +127,10 @@ export default function YoutubeSection() {
           className="flex flex-col sm:flex-row sm:items-end justify-between mb-6 sm:mb-10 gap-4 sm:gap-0"
         >
           <div>
-            <p className="text-sm font-semibold uppercase tracking-widest mb-2" style={{ color: '#c9a84c' }}>
-              PROPERTY TOURS
+            <p className="text-[10px] tracking-[0.28em] uppercase mb-4" style={{ color: '#C9A96E' }}>
+              Property Tours
             </p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white">
+            <h2 className="font-serif text-3xl sm:text-4xl font-light text-white leading-tight">
               Explore Dubai Real Estate
             </h2>
             <p className="text-gray-400 text-sm mt-2 max-w-xl">

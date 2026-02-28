@@ -49,7 +49,7 @@ export default function ServicesPage() {
     <div className="min-h-screen pt-24" style={{ background: '#1a1f2e' }}>
       <div className="px-4 py-16 text-center" style={{ background: '#242938' }}>
         <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: '#c9a84c' }}>WHAT WE OFFER</p>
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">Our Services</h1>
+        <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl font-light text-white mb-4 leading-tight">Our Services</h1>
         <p className="text-gray-400 max-w-xl mx-auto text-sm">
           End-to-end real estate services tailored to buyers, sellers, investors, and landlords in Dubai and the UAE.
         </p>

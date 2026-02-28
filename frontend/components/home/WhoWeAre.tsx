@@ -66,7 +66,7 @@ export default function WhoWeAre() {
   return (
     <>
       {/* Stats Section */}
-      <section className="py-20 px-4" style={{ background: '#0f1523' }}>
+      <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-px" style={{ background: 'rgba(201,169,110,0.12)' }}>
             {stats.map((stat, i) => (
@@ -87,7 +87,7 @@ export default function WhoWeAre() {
       </section>
 
       {/* Who We Are Section */}
-      <section className="py-16 sm:py-20 lg:py-28 px-4" style={{ background: '#0A0E1A' }}>
+      <section className="py-16 sm:py-20 lg:py-28 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 xl:gap-24 items-center">
             {/* Left: Image */}

@@ -25,7 +25,7 @@ export default function FeaturedProjects() {
     const canNext = startIdx + visible < projects.length;
 
     return (
-        <section className="py-16 sm:py-20 lg:py-28 px-4" style={{ background: '#0A0E1A' }}>
+        <section className="py-16 sm:py-20 lg:py-28 px-4">
             <div className="max-w-7xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
