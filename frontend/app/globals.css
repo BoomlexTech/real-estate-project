@@ -253,7 +253,7 @@ body {
 
 /* Select dark — glass */
 .select-dark {
-  background: rgba(10, 14, 26, 0.8);
+  background: #0A0E1A;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid var(--border-gold);
