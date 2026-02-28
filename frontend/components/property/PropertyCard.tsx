@@ -111,7 +111,7 @@ function CardCarousel({ images, type, status }: { images: string[]; type: string
       {/* Status badge — outline only, no fill */}
       <div className="absolute top-3 left-3 z-10">
         <span
-          className="px-2 py-0.5 text-[10px] tracking-[0.16em] uppercase"
+          className="px-2 py-0.5 text-[10px] tracking-[0.16em] uppercase rounded"
           style={{ border: '1px solid rgba(201,169,110,0.55)', color: '#C9A96E', background: '#000' }}
         >
           {statusLabels[status] || (status || 'available').toUpperCase()}
@@ -121,7 +121,7 @@ function CardCarousel({ images, type, status }: { images: string[]; type: string
       {/* Type badge — outline, subtle */}
       <div className="absolute top-3 right-3 z-10">
         <span
-          className="px-2 py-0.5 text-[10px] tracking-[0.12em] uppercase"
+          className="px-2 py-0.5 text-[10px] tracking-[0.12em] uppercase rounded"
           style={{ border: '1px solid rgba(255,255,255,0.18)', color: 'rgba(255,255,255,0.85)', background: '#000' }}
         >
           {typeLabels[type] || (type || 'property').toUpperCase()}
@@ -215,7 +215,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
             <div className="flex gap-2 mb-4 flex-wrap">
               {property.paymentPlan && (
                 <span
-                  className="text-[10px] px-2 py-0.5 tracking-widest uppercase"
+                  className="text-[10px] px-2 py-0.5 tracking-widest uppercase rounded"
                   style={{ border: '1px solid var(--border-gold)', color: 'var(--gold)' }}
                 >
                   {typeof property.paymentPlan === 'object'
@@ -225,7 +225,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
               )}
               {property.completionDate && (
                 <span
-                  className="text-[10px] px-2 py-0.5 tracking-widest uppercase"
+                  className="text-[10px] px-2 py-0.5 tracking-widest uppercase rounded"
                   style={{ border: '1px solid rgba(255,255,255,0.1)', color: 'rgba(148,163,184,0.65)' }}
                 >
                   {property.completionDate}
@@ -267,7 +267,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-8 h-8 flex items-center justify-center transition-colors hover:bg-white/5"
-                  style={{ border: '1px solid var(--border-color)', color: 'var(--text-secondary)' }}
+                  style={{ border: '1px solid var(--border-color)', color: 'var(--text-secondary)', borderRadius: '4px' }}
                   title="WhatsApp agent"
                 >
                   <svg className="w-3.5 h-3.5 fill-current text-green-500" viewBox="0 0 24 24">
@@ -276,7 +276,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
                 <a
                   href={`tel:${property.agent.phone}`}
                   className="w-8 h-8 flex items-center justify-center transition-colors hover:bg-white/5"
-                  style={{ border: '1px solid var(--border-color)', color: 'var(--text-secondary)' }}
+                  style={{ border: '1px solid var(--border-color)', color: 'var(--text-secondary)', borderRadius: '4px' }}
                   title="Call agent"
                 >
                   <Phone className="w-3 h-3" />

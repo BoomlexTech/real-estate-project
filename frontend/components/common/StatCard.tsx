@@ -82,6 +82,7 @@ export default function StatCard({
               style={{
                 border: '1px solid rgba(201,169,110,0.3)',
                 background: 'rgba(201,169,110,0.04)',
+                borderRadius: '8px',
               }}
               animate={{
                 boxShadow: [

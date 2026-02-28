@@ -50,7 +50,7 @@ export default function FeaturedProjects() {
                             onClick={() => setStartIdx((p) => Math.max(0, p - 1))}
                             disabled={!canPrev}
                             className="w-10 h-10 flex items-center justify-center text-white text-base transition-all disabled:opacity-25"
-                            style={{ border: '1px solid rgba(201,169,110,0.38)' }}
+                            style={{ border: '1px solid rgba(201,169,110,0.38)', borderRadius: '6px' }}
                         >
                             ←
                         </button>
@@ -58,7 +58,7 @@ export default function FeaturedProjects() {
                             onClick={() => setStartIdx((p) => Math.min(projects.length - visible, p + 1))}
                             disabled={!canNext}
                             className="w-10 h-10 flex items-center justify-center text-white text-base transition-all disabled:opacity-25"
-                            style={{ border: '1px solid rgba(201,169,110,0.38)' }}
+                            style={{ border: '1px solid rgba(201,169,110,0.38)', borderRadius: '6px' }}
                         >
                             →
                         </button>

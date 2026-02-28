@@ -391,7 +391,7 @@ export default function HeroSlider() {
       <button
         onClick={prev}
         className="absolute left-5 top-1/2 -translate-y-1/2 z-20 w-12 h-12 hidden sm:flex items-center justify-center text-white text-xl transition-all hover:opacity-100 opacity-85"
-        style={{ border: '1px solid rgba(255,255,255,0.5)', background: 'rgba(0,0,0,0.3)', backdropFilter: 'blur(4px)' }}
+        style={{ border: '1px solid rgba(255,255,255,0.5)', background: 'rgba(0,0,0,0.3)', backdropFilter: 'blur(4px)', borderRadius: '6px' }}
         aria-label="Previous slide"
       >
         ←
@@ -399,7 +399,7 @@ export default function HeroSlider() {
       <button
         onClick={next}
         className="absolute right-5 top-1/2 -translate-y-1/2 z-20 w-12 h-12 hidden sm:flex items-center justify-center text-white text-xl transition-all hover:opacity-100 opacity-85"
-        style={{ border: '1px solid rgba(255,255,255,0.5)', background: 'rgba(0,0,0,0.3)', backdropFilter: 'blur(4px)' }}
+        style={{ border: '1px solid rgba(255,255,255,0.5)', background: 'rgba(0,0,0,0.3)', backdropFilter: 'blur(4px)', borderRadius: '6px' }}
         aria-label="Next slide"
       >
         →
