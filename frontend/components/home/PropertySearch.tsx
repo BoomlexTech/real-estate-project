@@ -162,59 +162,61 @@ export default function PropertySearch() {
       </div>
 
       <div className="max-w-5xl mx-auto">
-        <div className="glass-card p-8 sm:p-10">
-          {/* Heading */}
-          <div className="text-center mb-10">
-            <p className="text-[10px] tracking-[0.28em] uppercase mb-4" style={{ color: '#C9A96E' }}>
-              Property Search
-            </p>
-            <span className="section-divider mx-auto mb-5" />
-            <h2
-              className="font-serif text-3xl sm:text-4xl font-light text-white mb-2 leading-tight"
+        <div className="property-card-wrapper">
+          <div className="property-card-content p-8 sm:p-10 bg-[rgba(15,21,35,0.7)] backdrop-blur-md">
+            {/* Heading */}
+            <div className="text-center mb-10">
+              <p className="text-[10px] tracking-[0.28em] uppercase mb-4" style={{ color: '#C9A96E' }}>
+                Property Search
+              </p>
+              <span className="section-divider mx-auto mb-5" />
+              <h2
+                className="font-serif text-3xl sm:text-4xl font-light text-white mb-2 leading-tight"
+              >
+                Find Your Ideal Property
+              </h2>
+              <p className="text-xs tracking-[0.08em]" style={{ color: '#94A3B8' }}>
+                Dubai&apos;s finest properties — curated for discerning buyers
+              </p>
+            </div>
+
+            {/* Row 1 */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-3">
+              <SelectField label="Emirates" options={emirateOptions} value={filters.emirate} onChange={set('emirate')} />
+              <SelectField label="Location" options={locationOptions} value={filters.location} onChange={set('location')} />
+              <SelectField label="Developer" options={developerOptions} value={filters.developer} onChange={set('developer')} />
+              <SelectField label="Property Type" options={typeOptions} value={filters.type} onChange={set('type')} />
+            </div>
+
+            {/* Row 2 */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
+              <SelectField label="Bedrooms" options={bedroomOptions} value={filters.bedrooms} onChange={set('bedrooms')} />
+              <SelectField label="Price Range" options={priceOptions} value={filters.price} onChange={set('price')} />
+              <SelectField label="Status" options={statusOptions} value={filters.status} onChange={set('status')} />
+            </div>
+
+            {/* Search button — full width, animated */}
+            <motion.button
+              onClick={handleSearch}
+              whileHover={{ scale: 1.03, backgroundColor: '#E2B96A', boxShadow: '0 0 32px rgba(201,169,110,0.65), 0 4px 16px rgba(201,169,110,0.35)' }}
+              whileTap={{ scale: 0.96 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+              className="w-full flex items-center justify-center gap-2.5"
+              style={{
+                border: '1px solid #C9A96E',
+                color: '#0A0E1A',
+                background: '#C9A96E',
+                fontSize: '0.6875rem',
+                fontWeight: 600,
+                letterSpacing: '0.16em',
+                textTransform: 'uppercase' as const,
+                padding: '0.9375rem 2rem',
+              }}
             >
-              Find Your Ideal Property
-            </h2>
-            <p className="text-xs tracking-[0.08em]" style={{ color: '#94A3B8' }}>
-              Dubai&apos;s finest properties — curated for discerning buyers
-            </p>
+              <Search className="w-3.5 h-3.5" />
+              Find Properties
+            </motion.button>
           </div>
-
-          {/* Row 1 */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-3">
-            <SelectField label="Emirates" options={emirateOptions} value={filters.emirate} onChange={set('emirate')} />
-            <SelectField label="Location" options={locationOptions} value={filters.location} onChange={set('location')} />
-            <SelectField label="Developer" options={developerOptions} value={filters.developer} onChange={set('developer')} />
-            <SelectField label="Property Type" options={typeOptions} value={filters.type} onChange={set('type')} />
-          </div>
-
-          {/* Row 2 */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
-            <SelectField label="Bedrooms" options={bedroomOptions} value={filters.bedrooms} onChange={set('bedrooms')} />
-            <SelectField label="Price Range" options={priceOptions} value={filters.price} onChange={set('price')} />
-            <SelectField label="Status" options={statusOptions} value={filters.status} onChange={set('status')} />
-          </div>
-
-          {/* Search button — full width, animated */}
-          <motion.button
-            onClick={handleSearch}
-            whileHover={{ scale: 1.03, backgroundColor: '#E2B96A', boxShadow: '0 0 32px rgba(201,169,110,0.65), 0 4px 16px rgba(201,169,110,0.35)' }}
-            whileTap={{ scale: 0.96 }}
-            transition={{ type: 'spring', stiffness: 400, damping: 20 }}
-            className="w-full flex items-center justify-center gap-2.5"
-            style={{
-              border: '1px solid #C9A96E',
-              color: '#0A0E1A',
-              background: '#C9A96E',
-              fontSize: '0.6875rem',
-              fontWeight: 600,
-              letterSpacing: '0.16em',
-              textTransform: 'uppercase' as const,
-              padding: '0.9375rem 2rem',
-            }}
-          >
-            <Search className="w-3.5 h-3.5" />
-            Find Properties
-          </motion.button>
         </div>
       </div>
     </section>

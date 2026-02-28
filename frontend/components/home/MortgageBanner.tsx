@@ -89,79 +89,80 @@ export default function MortgageBanner() {
             viewport={{ once: true }}
             whileHover={{ y: -8, boxShadow: '0 0 56px rgba(201,169,110,0.4), 0 16px 48px rgba(201,169,110,0.25), 0 0 0 1px rgba(201,169,110,0.35)' }}
             transition={{ duration: 0.6, type: 'spring', stiffness: 280, damping: 22 }}
-            className="card-dark p-5 sm:p-8"
-            style={{ boxShadow: '0 0 24px rgba(201,169,110,0.15), 0 4px 16px rgba(201,169,110,0.08)', border: '1px solid rgba(201,169,110,0.2)' }}
+            className="property-card-wrapper"
           >
-            {submitted ? (
-              <div className="text-center py-8">
-                <CheckCircle className="w-14 h-14 mx-auto mb-4" style={{ color: '#c9a84c' }} />
-                <h3 className="text-white text-xl font-bold mb-2">Thank You!</h3>
-                <p className="text-gray-400 text-sm">
-                  Our mortgage advisor will contact you within 24 hours.
-                </p>
-              </div>
-            ) : (
-              <>
-                <h3 className="text-white text-lg font-bold mb-1">
-                  Find Out How Much You Can Borrow
-                </h3>
-                <p className="text-gray-400 text-xs mb-6">In Minutes — No obligation, free consultation</p>
+            <div className="property-card-content p-5 sm:p-8 bg-card">
+              {submitted ? (
+                <div className="text-center py-8">
+                  <CheckCircle className="w-14 h-14 mx-auto mb-4" style={{ color: '#c9a84c' }} />
+                  <h3 className="text-white text-xl font-bold mb-2">Thank You!</h3>
+                  <p className="text-gray-400 text-sm">
+                    Our mortgage advisor will contact you within 24 hours.
+                  </p>
+                </div>
+              ) : (
+                <>
+                  <h3 className="text-white text-lg font-bold mb-1">
+                    Find Out How Much You Can Borrow
+                  </h3>
+                  <p className="text-gray-400 text-xs mb-6">In Minutes — No obligation, free consultation</p>
 
-                <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-                  <div>
-                    <input
-                      {...register('name', { required: true })}
-                      placeholder="Full Name"
-                      className="input-dark text-sm"
-                    />
-                    {errors.name && <p className="text-red-400 text-xs mt-1">Name is required</p>}
-                  </div>
-
-                  <div className="flex gap-2">
-                    <div
-                      className="flex items-center gap-1.5 px-3 rounded-md shrink-0 text-sm border"
-                      style={{ background: 'rgba(10,14,26,0.45)', backdropFilter: 'blur(8px)', borderColor: 'rgba(201,169,110,0.2)', color: 'var(--text-secondary)' }}
-                    >
-                      🇦🇪 +971
+                  <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+                    <div>
+                      <input
+                        {...register('name', { required: true })}
+                        placeholder="Full Name"
+                        className="input-dark text-sm"
+                      />
+                      {errors.name && <p className="text-red-400 text-xs mt-1">Name is required</p>}
                     </div>
-                    <input
-                      {...register('phone', { required: true })}
-                      placeholder="Phone Number"
-                      className="input-dark text-sm"
-                    />
-                  </div>
-                  {errors.phone && <p className="text-red-400 text-xs -mt-2">Phone is required</p>}
 
-                  <div>
-                    <input
-                      {...register('email', { required: true, pattern: /^\S+@\S+\.\S+$/ })}
-                      placeholder="Email Address"
-                      type="email"
-                      className="input-dark text-sm"
-                    />
-                    {errors.email && <p className="text-red-400 text-xs mt-1">Valid email is required</p>}
-                  </div>
+                    <div className="flex gap-2">
+                      <div
+                        className="flex items-center gap-1.5 px-3 rounded-md shrink-0 text-sm border"
+                        style={{ background: 'rgba(10,14,26,0.45)', backdropFilter: 'blur(8px)', borderColor: 'rgba(201,169,110,0.2)', color: 'var(--text-secondary)' }}
+                      >
+                        🇦🇪 +971
+                      </div>
+                      <input
+                        {...register('phone', { required: true })}
+                        placeholder="Phone Number"
+                        className="input-dark text-sm"
+                      />
+                    </div>
+                    {errors.phone && <p className="text-red-400 text-xs -mt-2">Phone is required</p>}
 
-                  <div>
-                    <input
-                      {...register('loanAmount', { required: true, min: 100000 })}
-                      placeholder="Loan Amount (AED)"
-                      type="number"
-                      className="input-dark text-sm"
-                    />
-                    {errors.loanAmount && <p className="text-red-400 text-xs mt-1">Valid loan amount required</p>}
-                  </div>
+                    <div>
+                      <input
+                        {...register('email', { required: true, pattern: /^\S+@\S+\.\S+$/ })}
+                        placeholder="Email Address"
+                        type="email"
+                        className="input-dark text-sm"
+                      />
+                      {errors.email && <p className="text-red-400 text-xs mt-1">Valid email is required</p>}
+                    </div>
 
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    className="btn-gold w-full justify-center text-sm py-3 disabled:opacity-60"
-                  >
-                    {loading ? 'Submitting...' : 'Get Online Pre-Approval →'}
-                  </button>
-                </form>
-              </>
-            )}
+                    <div>
+                      <input
+                        {...register('loanAmount', { required: true, min: 100000 })}
+                        placeholder="Loan Amount (AED)"
+                        type="number"
+                        className="input-dark text-sm"
+                      />
+                      {errors.loanAmount && <p className="text-red-400 text-xs mt-1">Valid loan amount required</p>}
+                    </div>
+
+                    <button
+                      type="submit"
+                      disabled={loading}
+                      className="btn-gold w-full justify-center text-sm py-3 disabled:opacity-60"
+                    >
+                      {loading ? 'Submitting...' : 'Get Online Pre-Approval →'}
+                    </button>
+                  </form>
+                </>
+              )}
+            </div>
           </motion.div>
         </div>
       </div>

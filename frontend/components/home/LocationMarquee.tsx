@@ -15,7 +15,7 @@ const locations = [
 
 export default function LocationMarquee() {
     return (
-        <section className="bg-card border-y border-white/5 overflow-hidden py-3">
+        <section className="bg-card border-y py-3" style={{ borderColor: 'rgba(201,169,110,0.4)' }}>
             <div className="relative flex whitespace-nowrap overflow-hidden">
                 {/* The scrolling track */}
                 <div className="flex animate-marquee min-w-max">
