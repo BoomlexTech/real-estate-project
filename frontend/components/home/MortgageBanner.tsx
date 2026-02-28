@@ -88,7 +88,10 @@ export default function MortgageBanner() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            whileHover={{ y: -8, boxShadow: '0 0 56px rgba(201,169,110,0.4), 0 16px 48px rgba(201,169,110,0.25), 0 0 0 1px rgba(201,169,110,0.35)' }}
+            transition={{ duration: 0.6, type: 'spring', stiffness: 280, damping: 22 }}
             className="card-dark p-5 sm:p-8"
+            style={{ boxShadow: '0 0 24px rgba(201,169,110,0.15), 0 4px 16px rgba(201,169,110,0.08)', border: '1px solid rgba(201,169,110,0.2)' }}
           >
             {submitted ? (
               <div className="text-center py-8">

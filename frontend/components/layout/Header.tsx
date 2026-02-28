@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { Menu, Phone, Facebook, Instagram, Linkedin, Youtube, ChevronDown } from 'lucide-react';
+import { Menu, Phone, Facebook, Instagram, Linkedin, Youtube } from 'lucide-react';
 import MobileMenu from './MobileMenu';
 import Logo from '../common/Logo';
 
@@ -42,13 +42,13 @@ export default function Header() {
           background: scrolled ? 'rgba(10,14,26,0.98)' : 'rgba(10,14,26,0.82)',
           backdropFilter: 'blur(16px)',
           boxShadow: scrolled ? '0 1px 0 rgba(201,169,110,0.18)' : 'none',
-          borderBottom: '1px solid rgba(201,169,110,0.14)',
+          borderBottom: '1px solid rgba(201,169,110,0.55)',
         }}
       >
         {/* Top Bar */}
         <div
           className="hidden md:flex items-center justify-between px-6 py-2 text-xs border-b"
-          style={{ borderColor: 'rgba(201,169,110,0.14)', background: 'rgba(10,14,26,0.55)' }}
+          style={{ borderColor: 'rgba(201,169,110,0.55)', background: 'rgba(10,14,26,0.55)' }}
         >
           <div className="flex items-center gap-7">
             <a href="https://wa.me/971547093295?text=I'm%20interrested%20about%20this%20property" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 transition-colors" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.75rem', letterSpacing: '0.06em' }}
@@ -67,26 +67,47 @@ export default function Header() {
             </a>
           </div>
           <div className="flex items-center gap-6">
-            <div className="flex items-center gap-1.5 cursor-pointer transition-colors" style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.75rem', letterSpacing: '0.08em' }}>
-              <span>EN</span>
-              <ChevronDown className="w-3 h-3" />
-            </div>
-            <div className="flex items-center gap-4">
-              {[
-                { href: 'https://facebook.com', Icon: Facebook, color: '#1877F2', hoverColor: '#4096FF' },
-                { href: 'https://instagram.com', Icon: Instagram, color: '#E1306C', hoverColor: '#F5568A' },
-                { href: 'https://linkedin.com', Icon: Linkedin, color: '#0A66C2', hoverColor: '#3B8DD4' },
-                { href: 'https://youtube.com', Icon: Youtube, color: '#FF0000', hoverColor: '#FF4444' },
-              ].map(({ href, Icon, color, hoverColor }) => (
-                <a key={href} href={href} target="_blank" rel="noopener noreferrer"
-                  style={{ color }}
-                  onMouseEnter={e => (e.currentTarget.style.color = hoverColor)}
-                  onMouseLeave={e => (e.currentTarget.style.color = color)}
-                  className="transition-colors"
-                >
-                  <Icon className="w-4 h-4" />
-                </a>
-              ))}
+            <div className="flex items-center gap-2.5">
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 px-3 py-1 rounded-full text-white text-xs font-medium transition-opacity hover:opacity-85"
+                style={{ background: '#1877F2' }}
+              >
+                <Facebook className="w-3.5 h-3.5" />
+                Facebook
+              </a>
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 px-3 py-1 rounded-full text-white text-xs font-medium transition-opacity hover:opacity-85"
+                style={{ background: 'linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)' }}
+              >
+                <Instagram className="w-3.5 h-3.5" />
+                Instagram
+              </a>
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 px-3 py-1 rounded-full text-white text-xs font-medium transition-opacity hover:opacity-85"
+                style={{ background: '#0A66C2' }}
+              >
+                <Linkedin className="w-3.5 h-3.5" />
+                LinkedIn
+              </a>
+              <a
+                href="https://youtube.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 px-3 py-1 rounded-full text-white text-xs font-medium transition-opacity hover:opacity-85"
+                style={{ background: '#FF0000' }}
+              >
+                <Youtube className="w-3.5 h-3.5" />
+                YouTube
+              </a>
             </div>
           </div>
         </div>

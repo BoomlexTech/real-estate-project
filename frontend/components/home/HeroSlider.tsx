@@ -6,6 +6,7 @@ import { MapPin } from 'lucide-react';
 import Link from 'next/link';
 
 const LOCAL_VIDEO_SRC = '/landing-video.mp4';
+const LOCAL_VIDEO_SRC_2 = '/landing-video-2.mp4';
 
 type PropertySlide = {
   id: number;
@@ -33,6 +34,10 @@ type Slide = PropertySlide | VideoSlide;
 const slides: Slide[] = [
   {
     id: 'video',
+    type: 'video',
+  },
+  {
+    id: 'video2',
     type: 'video',
   },
   {
@@ -87,6 +92,7 @@ export default function HeroSlider() {
   const [direction, setDirection] = useState<'left' | 'right'>('right');
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const videoRef2 = useRef<HTMLVideoElement>(null);
   const touchStartX = useRef<number>(0);
 
   const isVideoSlide = slides[current].type === 'video';
@@ -101,16 +107,20 @@ export default function HeroSlider() {
     setCurrent((c) => (c - 1 + slides.length) % slides.length);
   };
 
-  // Play/pause video based on active slide
+  // Play/pause videos based on active slide
   useEffect(() => {
-    if (!videoRef.current) return;
-    if (isVideoSlide) {
-      videoRef.current.currentTime = 0;
-      videoRef.current.play().catch(() => { });
+    const slideId = slides[current].id;
+    if (slideId === 'video') {
+      videoRef.current?.play().catch(() => {});
+      if (videoRef2.current) { videoRef2.current.pause(); videoRef2.current.currentTime = 0; }
+    } else if (slideId === 'video2') {
+      videoRef2.current?.play().catch(() => {});
+      if (videoRef.current) { videoRef.current.pause(); videoRef.current.currentTime = 0; }
     } else {
-      videoRef.current.pause();
+      videoRef.current?.pause();
+      videoRef2.current?.pause();
     }
-  }, [isVideoSlide]);
+  }, [current]);
 
   // Auto-advance timer — paused while video is playing
   useEffect(() => {
@@ -168,11 +178,19 @@ export default function HeroSlider() {
         <video
           ref={videoRef}
           src={LOCAL_VIDEO_SRC}
-          autoPlay
           muted
           playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ pointerEvents: 'none' }}
+          className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
+          style={{ pointerEvents: 'none', opacity: slides[current].id === 'video' ? 1 : 0 }}
+          onEnded={() => next()}
+        />
+        <video
+          ref={videoRef2}
+          src={LOCAL_VIDEO_SRC_2}
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
+          style={{ pointerEvents: 'none', opacity: slides[current].id === 'video2' ? 1 : 0 }}
           onEnded={() => next()}
         />
         {/* Dark scrim over video */}

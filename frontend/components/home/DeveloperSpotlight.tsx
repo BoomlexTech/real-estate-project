@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import { getDevelopers } from '@/lib/api';
 import useIsMobile from '@/lib/useIsMobile';
 
@@ -10,6 +11,7 @@ interface Dev {
   id: string;
   slug: string;
   name: string;
+  logo: string;
   properties: number;
 }
 
@@ -21,7 +23,7 @@ export default function DeveloperSpotlight() {
     getDevelopers()
       .then((devs) =>
         setDevelopers(
-          devs.map((d) => ({ id: d.id, slug: d.slug, name: d.name, properties: d.properties }))
+          devs.map((d) => ({ id: d.id, slug: d.slug, name: d.name, logo: d.logo || '', properties: d.properties }))
         )
       )
       .catch(() => setDevelopers([]));
@@ -72,10 +74,14 @@ export default function DeveloperSpotlight() {
                 className="glass-card flex flex-col items-center justify-center text-center gap-3 p-6 h-full transition-colors group"
               >
                 <div
-                  className="w-12 h-12 flex items-center justify-center text-sm font-light transition-colors"
-                  style={{ border: '1px solid rgba(201,169,110,0.28)', color: '#C9A96E' }}
+                  className="w-14 h-14 relative overflow-hidden flex items-center justify-center text-sm font-light"
+                  style={{ border: '1px solid rgba(201,169,110,0.28)', background: '#111827' }}
                 >
-                  {dev.name.charAt(0)}
+                  {dev.logo ? (
+                    <Image src={dev.logo} alt={dev.name} fill className="object-cover" sizes="56px" />
+                  ) : (
+                    <span style={{ color: '#C9A96E' }}>{dev.name.charAt(0)}</span>
+                  )}
                 </div>
                 <div>
                   <p

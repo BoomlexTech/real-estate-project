@@ -110,11 +110,58 @@ export default function PropertySearch() {
     router.push(`/property?${params.toString()}`);
   };
 
+  const leftStats = [
+    { value: '500+', label: 'Properties Listed' },
+    { value: 'AED 2B+', label: 'Sales Volume' },
+    { value: '50+', label: 'Nationalities Served' },
+  ];
+
+  const rightStats = [
+    { value: '10+', label: 'Years of Excellence' },
+    { value: '98%', label: 'Client Satisfaction' },
+    { value: '20+', label: 'Bank Partners' },
+  ];
+
   return (
     <section
       className="relative z-20 py-16 sm:py-20 px-4"
       style={{ background: '#0f1523' }}
     >
+
+      {/* Left decorative stats — xl screens only */}
+      <div className="absolute left-6 xl:left-10 2xl:left-16 top-1/2 -translate-y-1/2 hidden xl:flex flex-col items-center gap-0">
+        <div className="w-px h-10 mb-6" style={{ background: 'linear-gradient(to bottom, transparent, rgba(201,169,110,0.5))' }} />
+        {leftStats.map((s, i) => (
+          <div key={s.label}>
+            <div className="flex flex-col items-center text-center py-4 px-2">
+              <span className="font-serif text-2xl font-light mb-1" style={{ color: '#C9A96E' }}>{s.value}</span>
+              <span className="text-[10px] tracking-[0.14em] uppercase" style={{ color: 'rgba(255,255,255,0.38)' }}>{s.label}</span>
+            </div>
+            {i < leftStats.length - 1 && (
+              <div className="w-px h-5 mx-auto" style={{ background: 'rgba(201,169,110,0.2)' }} />
+            )}
+          </div>
+        ))}
+        <div className="w-px h-10 mt-6" style={{ background: 'linear-gradient(to bottom, rgba(201,169,110,0.5), transparent)' }} />
+      </div>
+
+      {/* Right decorative stats — xl screens only */}
+      <div className="absolute right-6 xl:right-10 2xl:right-16 top-1/2 -translate-y-1/2 hidden xl:flex flex-col items-center gap-0">
+        <div className="w-px h-10 mb-6" style={{ background: 'linear-gradient(to bottom, transparent, rgba(201,169,110,0.5))' }} />
+        {rightStats.map((s, i) => (
+          <div key={s.label}>
+            <div className="flex flex-col items-center text-center py-4 px-2">
+              <span className="font-serif text-2xl font-light mb-1" style={{ color: '#C9A96E' }}>{s.value}</span>
+              <span className="text-[10px] tracking-[0.14em] uppercase" style={{ color: 'rgba(255,255,255,0.38)' }}>{s.label}</span>
+            </div>
+            {i < rightStats.length - 1 && (
+              <div className="w-px h-5 mx-auto" style={{ background: 'rgba(201,169,110,0.2)' }} />
+            )}
+          </div>
+        ))}
+        <div className="w-px h-10 mt-6" style={{ background: 'linear-gradient(to bottom, rgba(201,169,110,0.5), transparent)' }} />
+      </div>
+
       <div className="max-w-5xl mx-auto">
         <div className="glass-card p-8 sm:p-10">
           {/* Heading */}
@@ -151,16 +198,16 @@ export default function PropertySearch() {
           {/* Search button — full width, animated */}
           <motion.button
             onClick={handleSearch}
-            whileHover={{ scale: 1.03, backgroundColor: '#C9A96E', color: '#0A0E1A', boxShadow: '0 0 24px rgba(201,169,110,0.4)' }}
+            whileHover={{ scale: 1.03, backgroundColor: '#E2B96A', boxShadow: '0 0 32px rgba(201,169,110,0.65), 0 4px 16px rgba(201,169,110,0.35)' }}
             whileTap={{ scale: 0.96 }}
             transition={{ type: 'spring', stiffness: 400, damping: 20 }}
             className="w-full flex items-center justify-center gap-2.5"
             style={{
               border: '1px solid #C9A96E',
-              color: '#C9A96E',
-              background: 'transparent',
+              color: '#0A0E1A',
+              background: '#C9A96E',
               fontSize: '0.6875rem',
-              fontWeight: 500,
+              fontWeight: 600,
               letterSpacing: '0.16em',
               textTransform: 'uppercase' as const,
               padding: '0.9375rem 2rem',

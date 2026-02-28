@@ -152,7 +152,8 @@ function CardCarousel({ images, type, status }: { images: string[]; type: string
 export default function PropertyCard({ property }: PropertyCardProps) {
   return (
     <div
-      className="property-card group glass-card overflow-hidden flex flex-col h-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_48px_rgba(0,0,0,0.6)]"
+      className="property-card group glass-card overflow-hidden flex flex-col h-full transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_20px_60px_rgba(0,0,0,0.7),0_0_50px_rgba(201,169,110,0.45),0_0_100px_rgba(201,169,110,0.18)]"
+      style={{ '--tw-ring-color': 'rgba(201,169,110,0.3)' } as React.CSSProperties}
     >
       {/* Image Carousel */}
       <Link href={`/property/${property.slug}`} className="block overflow-hidden">
