@@ -140,6 +140,8 @@ body {
 
 /* Primary luxury button — outlined, no fill */
 .btn-gold {
+  position: relative;
+  overflow: hidden;
   background: transparent;
   color: var(--gold);
   border: 1px solid var(--gold);
@@ -153,16 +155,40 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.625rem;
-  transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.25s ease;
+}
+/* Shimmer sweep */
+.btn-gold::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent);
+  transform: skewX(-18deg);
+  transition: left 0.55s ease;
+  pointer-events: none;
+}
+.btn-gold:hover::after {
+  left: 160%;
 }
 .btn-gold:hover {
   background: var(--gold);
   color: #0A0E1A;
+  transform: translateY(-2px);
   box-shadow: 0 0 22px rgba(201, 169, 110, 0.45), 0 4px 16px rgba(201, 169, 110, 0.25);
+}
+.btn-gold:active {
+  transform: translateY(1px) scale(0.97);
+  box-shadow: 0 2px 8px rgba(201, 169, 110, 0.2);
+  transition-duration: 0.08s;
 }
 
 /* White outlined button variant */
 .btn-outline-white {
+  position: relative;
+  overflow: hidden;
   background: transparent;
   color: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -176,12 +202,33 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease, transform 0.25s ease;
+}
+/* Shimmer sweep */
+.btn-outline-white::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent);
+  transform: skewX(-18deg);
+  transition: left 0.55s ease;
+  pointer-events: none;
+}
+.btn-outline-white:hover::after {
+  left: 160%;
 }
 .btn-outline-white:hover {
   background: rgba(255, 255, 255, 0.07);
   border-color: rgba(255, 255, 255, 0.6);
   color: white;
+  transform: translateY(-2px);
+}
+.btn-outline-white:active {
+  transform: translateY(1px) scale(0.97);
+  transition-duration: 0.08s;
 }
 
 /* Thin gold horizontal rule — section divider motif */
