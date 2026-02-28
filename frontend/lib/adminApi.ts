@@ -177,3 +177,50 @@ export async function getPropertyInquiries(page = 1, status?: PropertyInquirySta
 export async function updatePropertyInquiryStatus(id: string, status: PropertyInquiryStatus): Promise<void> {
   await api.patch(`/admin/property-inquiries/${id}/status`, { status });
 }
+
+// ─── Blog Posts ───────────────────────────────────────────
+export interface AdminBlogPost {
+  _id: string;
+  title: string;
+  slug: string;
+  content: string;
+  excerpt: string;
+  coverImage: string;
+  author: string;
+  category: string;
+  tags: string[];
+  isFeatured: boolean;
+  publishedAt: string;
+  createdAt: string;
+}
+
+export interface AdminBlogResponse {
+  data: AdminBlogPost[];
+  total: number;
+  page: number;
+  totalPages: number;
+}
+
+export async function getAdminBlogPosts(page = 1): Promise<AdminBlogResponse> {
+  const { data } = await api.get('/admin/blogs', { params: { page, limit: 20 } });
+  return data;
+}
+
+export async function getAdminBlogPost(id: string): Promise<AdminBlogPost> {
+  const { data } = await api.get(`/admin/blogs/${id}`);
+  return data.data;
+}
+
+export async function createBlogPost(payload: Omit<AdminBlogPost, '_id' | 'createdAt'>): Promise<AdminBlogPost> {
+  const { data } = await api.post('/admin/blogs', payload);
+  return data.data;
+}
+
+export async function updateBlogPost(id: string, payload: Partial<Omit<AdminBlogPost, '_id' | 'createdAt'>>): Promise<AdminBlogPost> {
+  const { data } = await api.put(`/admin/blogs/${id}`, payload);
+  return data.data;
+}
+
+export async function deleteAdminBlogPost(id: string): Promise<void> {
+  await api.delete(`/admin/blogs/${id}`);
+}

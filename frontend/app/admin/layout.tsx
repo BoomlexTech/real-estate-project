@@ -10,6 +10,7 @@ import {
   FileText,
   MessageSquare,
   Home,
+  BookOpen,
   LogOut,
   Menu,
   X,
@@ -50,6 +51,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     { label: 'Inquiries', href: '/admin/inquiries', icon: <FileText size={18} /> },
     { label: 'Contact Messages', href: '/admin/contact-messages', icon: <MessageSquare size={18} /> },
     { label: 'Property Inquiries', href: '/admin/property-inquiries', icon: <Home size={18} /> },
+    { label: 'Blog Posts', href: '/admin/blogs', icon: <BookOpen size={18} /> },
   ];
 
   const Sidebar = (

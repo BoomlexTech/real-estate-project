@@ -17,6 +17,7 @@ const {
   getNotifications,
   markNotificationsSeen,
 } = require('../controllers/adminController');
+const { getAdminBlogPosts, getBlogPostById, createBlogPost, updateBlogPost, deleteBlogPost } = require('../controllers/blogController');
 const { protect } = require('../middleware/auth');
 const { isAdmin } = require('../middleware/roleAuth');
 
@@ -51,5 +52,12 @@ router.patch('/property-inquiries/:id/status', updatePropertyInquiryStatus);
 // Notifications
 router.get('/notifications', getNotifications);
 router.patch('/notifications/seen', markNotificationsSeen);
+
+// Blog posts
+router.get('/blogs', getAdminBlogPosts);
+router.get('/blogs/:id', getBlogPostById);
+router.post('/blogs', createBlogPost);
+router.put('/blogs/:id', updateBlogPost);
+router.delete('/blogs/:id', deleteBlogPost);
 
 module.exports = router;

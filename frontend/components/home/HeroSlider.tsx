@@ -284,7 +284,7 @@ export default function HeroSlider() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.33 }}
-                className="flex items-center gap-5 mt-6 sm:mt-0"
+                className="flex items-center gap-5 mt-6 sm:mt-10"
               >
                 <Link href={slide.href} className="btn-gold">
                   {slide.cta}
