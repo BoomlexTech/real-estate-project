@@ -73,7 +73,7 @@ export default function PropertyTypes() {
             >
               <Link
                 href={type.href}
-                className="group relative block overflow-hidden rounded-2xl"
+                className="group relative block overflow-hidden rounded-2xl transition-shadow duration-300 hover:shadow-[0_0_40px_rgba(201,169,110,0.28)]"
                 style={{ height: '280px' }}
               >
                 <Image
@@ -114,7 +114,7 @@ export default function PropertyTypes() {
             >
               <Link
                 href={type.href}
-                className="group relative block overflow-hidden rounded-2xl"
+                className="group relative block overflow-hidden rounded-2xl transition-shadow duration-300 hover:shadow-[0_0_40px_rgba(201,169,110,0.28)]"
                 style={{ height: '260px' }}
               >
                 <Image

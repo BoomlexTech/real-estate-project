@@ -182,8 +182,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
         <Link href={`/property/${property.slug}`}>
           <h3
             className="text-sm mb-4 line-clamp-2 leading-relaxed tracking-wide transition-colors hover:text-gold"
-            style={{ color: 'var(--text-primary)' }}
-            style={{ fontWeight: 400 }}
+            style={{ color: 'var(--text-primary)', fontWeight: 400 }}
           >
             {property.title}
           </h3>
