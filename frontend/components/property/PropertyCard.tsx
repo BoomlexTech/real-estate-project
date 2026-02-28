@@ -152,8 +152,7 @@ function CardCarousel({ images, type, status }: { images: string[]; type: string
 export default function PropertyCard({ property }: PropertyCardProps) {
   return (
     <div
-      className="property-card group overflow-hidden flex flex-col h-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_40px_rgba(0,0,0,0.5)]"
-      style={{ background: 'var(--bg-card)', border: '1px solid var(--border-gold)' }}
+      className="property-card group glass-card overflow-hidden flex flex-col h-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_48px_rgba(0,0,0,0.6)]"
     >
       {/* Image Carousel */}
       <Link href={`/property/${property.slug}`} className="block overflow-hidden">

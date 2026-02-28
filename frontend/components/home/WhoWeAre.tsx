@@ -103,8 +103,7 @@ export default function WhoWeAre() {
 
               {/* Floating stat — sharp corners, offset */}
               <div
-                className="absolute -bottom-6 -right-6 px-6 py-5 shadow-xl"
-                style={{ background: '#111827', border: '1px solid rgba(201,169,110,0.25)' }}
+                className="glass-card absolute -bottom-6 -right-6 px-6 py-5"
               >
                 <p className="font-serif text-3xl font-light" style={{ color: '#C9A96E' }}>11B+</p>
                 <p className="text-[10px] tracking-[0.14em] uppercase mt-1" style={{ color: '#94A3B8' }}>
@@ -147,8 +146,7 @@ export default function WhoWeAre() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.1 + 0.2 }}
-                    className="p-5 transition-colors"
-                    style={{ background: '#111827' }}
+                    className="glass-card p-5 transition-colors"
                   >
                     <p className="font-serif text-2xl font-light mb-3" style={{ color: 'rgba(201,169,110,0.35)' }}>
                       {svc.label}

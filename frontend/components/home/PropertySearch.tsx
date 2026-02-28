@@ -118,7 +118,7 @@ export default function PropertySearch() {
       }}
     >
       <div className="max-w-5xl mx-auto">
-        <div className="p-8 sm:p-10" style={{ background: '#111827', border: '1px solid rgba(201,169,110,0.2)' }}>
+        <div className="glass-card p-8 sm:p-10">
           {/* Heading */}
           <div className="text-center mb-10">
             <p className="text-[10px] tracking-[0.28em] uppercase mb-4" style={{ color: '#C9A96E' }}>

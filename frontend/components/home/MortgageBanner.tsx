@@ -118,7 +118,7 @@ export default function MortgageBanner() {
                   <div className="flex gap-2">
                     <div
                       className="flex items-center gap-1.5 px-3 rounded-md shrink-0 text-sm border"
-                      style={{ background: '#1a1f2e', borderColor: '#3a4058', color: '#9ca3af' }}
+                      style={{ background: 'rgba(10,14,26,0.45)', backdropFilter: 'blur(8px)', borderColor: 'rgba(201,169,110,0.2)', color: 'var(--text-secondary)' }}
                     >
                       🇦🇪 +971
                     </div>

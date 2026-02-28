@@ -48,7 +48,7 @@ export default function Header() {
         {/* Top Bar */}
         <div
           className="hidden md:flex items-center justify-between px-6 py-2 text-xs border-b"
-          style={{ borderColor: 'rgba(201,169,110,0.12)', background: 'rgba(10,14,26,0.92)' }}
+          style={{ borderColor: 'rgba(201,169,110,0.14)', background: 'rgba(10,14,26,0.55)' }}
         >
           <div className="flex items-center gap-7">
             <a href="https://wa.me/971547093295?text=I'm%20interrested%20about%20this%20property" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 transition-colors" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.75rem', letterSpacing: '0.06em' }}

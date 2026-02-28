@@ -45,8 +45,7 @@ function VideoCard({ video }: { video: (typeof videos)[0] }) {
 
   return (
     <div
-      className="rounded-2xl overflow-hidden flex flex-col h-full"
-      style={{ background: '#232838', border: '1px solid rgba(201,168,76,0.35)' }}
+      className="glass-card rounded-2xl overflow-hidden flex flex-col h-full"
     >
       <div className="relative w-full shrink-0" style={{ paddingTop: '56.25%' }}>
         {playing ? (

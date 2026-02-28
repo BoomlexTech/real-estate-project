@@ -66,11 +66,37 @@ body {
   color: var(--gold);
 }
 
+/* Glassmorphism — frosted glass card utility */
+.glass-card {
+  background: rgba(17, 24, 39, 0.5);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  border: 1px solid rgba(201, 169, 110, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+[data-theme="light"] .glass-card {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid rgba(201, 169, 110, 0.28);
+  border-top: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.75);
+}
+
 /* Dark card — sharp, architectural, no border-radius */
 .card-dark {
-  background: var(--bg-card);
+  background: rgba(17, 24, 39, 0.5);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
   border: 1px solid var(--border-gold);
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: 0;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 /* Gradient overlay for hero */
@@ -136,9 +162,11 @@ body {
   background: var(--gold);
 }
 
-/* Select dark — sharp corners */
+/* Select dark — sharp corners, glass */
 .select-dark {
-  background: var(--bg-card);
+  background: rgba(10, 14, 26, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid var(--border-gold);
   color: var(--text-primary);
   border-radius: 0;
@@ -154,9 +182,11 @@ body {
   border-color: var(--gold);
 }
 
-/* Input dark — sharp corners */
+/* Input dark — sharp corners, glass */
 .input-dark {
-  background: var(--bg-secondary);
+  background: rgba(10, 14, 26, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid var(--border-gold);
   color: var(--text-primary);
   border-radius: 0;
@@ -172,6 +202,12 @@ body {
 .input-dark::placeholder {
   color: var(--text-secondary);
   letter-spacing: 0.02em;
+}
+[data-theme="light"] .select-dark,
+[data-theme="light"] .input-dark {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 /* Property card image — slow luxury zoom on hover */

@@ -66,8 +66,7 @@ export default function DeveloperSpotlight() {
             >
               <Link
                 href={`/developers/${dev.slug}`}
-                className="flex flex-col items-center text-center gap-3 p-6 transition-colors group"
-                style={{ background: '#111827' }}
+                className="glass-card flex flex-col items-center text-center gap-3 p-6 transition-colors group"
               >
                 <div
                   className="w-12 h-12 flex items-center justify-center text-sm font-light transition-colors"
