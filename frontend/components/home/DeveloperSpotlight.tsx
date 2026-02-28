@@ -74,7 +74,7 @@ export default function DeveloperSpotlight() {
                 className="glass-card flex flex-col items-center justify-center text-center gap-3 p-6 h-full transition-colors group"
               >
                 <motion.div
-                  className="w-14 h-14 relative overflow-hidden flex items-center justify-center text-sm font-light"
+                  className="w-24 h-24 lg:w-28 lg:h-28 rounded-full relative overflow-hidden flex items-center justify-center text-xl lg:text-3xl font-light mb-2"
                   style={{ border: '1px solid rgba(201,169,110,0.28)', background: '#111827' }}
                   animate={{
                     boxShadow: [
@@ -91,7 +91,7 @@ export default function DeveloperSpotlight() {
                   }}
                 >
                   {dev.logo ? (
-                    <Image src={dev.logo} alt={dev.name} fill className="object-cover" sizes="56px" />
+                    <Image src={dev.logo} alt={dev.name} fill className="object-cover" sizes="(max-width: 1024px) 96px, 112px" />
                   ) : (
                     <span style={{ color: '#C9A96E' }}>{dev.name.charAt(0)}</span>
                   )}
