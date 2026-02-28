@@ -3,6 +3,7 @@ import PropertySearch from "@/components/home/PropertySearch";
 import LocationMarquee from "@/components/home/LocationMarquee";
 import BackgroundStars from "@/components/home/BackgroundStars";
 import WhoWeAre from "@/components/home/WhoWeAre";
+import CitySkyline from "@/components/home/CitySkyline";
 import PropertyTypes from "@/components/home/PropertyTypes";
 import LatestProjects from "@/components/home/LatestProjects";
 import DeveloperSpotlight from "@/components/home/DeveloperSpotlight";
@@ -36,6 +37,7 @@ export default function HomePage() {
         <LocationMarquee />
         <PropertyTypes />
         <WhoWeAre />
+        <CitySkyline />
         <LatestProjects />
         <DeveloperSpotlight />
         <MortgageBanner />

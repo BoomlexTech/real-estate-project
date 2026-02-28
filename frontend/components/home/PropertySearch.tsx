@@ -163,7 +163,7 @@ export default function PropertySearch() {
 
       <div className="max-w-5xl mx-auto">
         <div className="property-card-wrapper">
-          <div className="property-card-content p-8 sm:p-10 bg-[rgba(15,21,35,0.7)] backdrop-blur-md">
+          <div className="property-card-content bg-transparent p-8 sm:p-10">
             {/* Heading */}
             <div className="text-center mb-10">
               <p className="text-[10px] tracking-[0.28em] uppercase mb-4" style={{ color: '#C9A96E' }}>

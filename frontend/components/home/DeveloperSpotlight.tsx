@@ -67,7 +67,9 @@ export default function DeveloperSpotlight() {
         className="relative flex whitespace-nowrap overflow-hidden py-4 w-full"
         style={{
           WebkitMaskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
-          maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)'
+          maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
+          borderTop: 'none',
+          borderBottom: 'none',
         }}
       >
         <div className="flex animate-marquee-ease min-w-max hover:[animation-play-state:paused] gap-4">
@@ -83,6 +85,7 @@ export default function DeveloperSpotlight() {
               <Link
                 href={`/developers/${dev.slug}`}
                 className="glass-card flex flex-col items-center justify-center text-center gap-3 p-6 h-full transition-colors group"
+                style={{ borderTop: 'none', borderBottom: 'none' }}
               >
                 <motion.div
                   className="w-24 h-24 lg:w-28 lg:h-28 rounded-full relative overflow-hidden flex items-center justify-center text-xl lg:text-3xl font-light mb-2"

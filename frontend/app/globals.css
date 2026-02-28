@@ -253,7 +253,7 @@ body {
 
 /* Select dark — glass */
 .select-dark {
-  background: rgba(201, 169, 110, 0.12);
+  background: rgba(10, 14, 26, 0.8);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid var(--border-gold);
@@ -353,7 +353,11 @@ body {
   position: relative;
   z-index: 1;
   border-radius: 0.75rem;
-  background: var(--bg-card) !important;
+  background: var(--bg-card);
+}
+
+.property-card-content.bg-page {
+  background: var(--bg-primary) !important;
 }
 
 .property-card-content.glass-card {

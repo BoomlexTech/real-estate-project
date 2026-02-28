@@ -42,10 +42,10 @@ export default function Footer() {
   return (
     <footer style={{ background: '#070B15', borderTop: '1px solid rgba(201,169,110,0.14)' }}>
       {/* Main Footer */}
-      <div className="max-w-7xl mx-auto px-4 py-14">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
+      <div className="max-w-7xl mx-auto px-4 py-8 md:py-14">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-12">
           {/* Col 1: Logo + Description */}
-          <div className="lg:col-span-1">
+          <div className="col-span-2 lg:col-span-1">
             <div className="mb-4">
               <Image
                 src="/final.png"
@@ -124,7 +124,7 @@ export default function Footer() {
           </div>
 
           {/* Col 5: Contact */}
-          <div>
+          <div className="col-span-2 lg:col-span-1">
             <h4 className="text-white font-light text-xs mb-5 tracking-[0.2em] uppercase" style={{ color: 'rgba(255,255,255,0.7)' }}>Contact Us</h4>
             <div className="space-y-4">
               <div className="flex gap-2.5">
@@ -133,13 +133,13 @@ export default function Footer() {
                   <p className="text-xs leading-relaxed tracking-wide" style={{ color: '#94A3B8' }}>Office 2301, Vision Tower, Business Bay, PO Box 445372, Dubai, UAE</p>
                 </div>
               </div>
-              <div className="flex gap-2.5">
+              <div className="hidden md:flex gap-2.5">
                 <MapPin className="w-4 h-4 shrink-0 mt-0.5" style={{ color: '#c9a84c' }} />
                 <div>
                   <p className="text-xs leading-relaxed tracking-wide" style={{ color: '#94A3B8' }}>Office 1102, Tower B, Prime Business Centre, JVC, Dubai, UAE</p>
                 </div>
               </div>
-              <div className="flex gap-2.5">
+              <div className="hidden md:flex gap-2.5">
                 <MapPin className="w-4 h-4 shrink-0 mt-0.5" style={{ color: '#c9a84c' }} />
                 <div>
                   <p className="text-xs leading-relaxed tracking-wide" style={{ color: '#94A3B8' }}>Ground Floor, Namaa Building, Rashideya, Behind Grand Mall, Ajman, UAE</p>
