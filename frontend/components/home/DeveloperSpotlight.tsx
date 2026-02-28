@@ -56,18 +56,29 @@ export default function DeveloperSpotlight() {
             View All Developers →
           </Link>
         </motion.div>
+      </div>
 
-        <div
-          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-px"
-          style={{ background: 'rgba(201,169,110,0.12)' }}
-        >
-          {(isMobile ? developers.slice(0, 4) : developers).map((dev, i) => (
+      {/* Continuous Marquee Track - Full Width with Fade Edges */}
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-100px' }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+        className="relative flex whitespace-nowrap overflow-hidden py-4 w-full"
+        style={{
+          WebkitMaskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
+          maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)'
+        }}
+      >
+        <div className="flex animate-marquee-ease min-w-max hover:[animation-play-state:paused] gap-4">
+          {/* Duplicate array for infinite seamless scroll */}
+          {[...developers, ...developers, ...developers, ...developers].map((dev, i) => (
             <motion.div
-              key={dev.id}
+              key={`${dev.id}-${i}`}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: i * 0.06, ease: 'easeOut' }}
-              className="h-full"
+              transition={{ duration: 0.4, delay: (i % developers.length) * 0.06, ease: 'easeOut' }}
+              className="w-[200px] sm:w-[240px] shrink-0"
             >
               <Link
                 href={`/developers/${dev.slug}`}
@@ -87,18 +98,24 @@ export default function DeveloperSpotlight() {
                     duration: 3,
                     repeat: Infinity,
                     ease: 'easeInOut',
-                    delay: i * 0.2, // Offset each logo's pulse slightly
+                    delay: (i % developers.length) * 0.2,
                   }}
                 >
                   {dev.logo ? (
-                    <Image src={dev.logo} alt={dev.name} fill className="object-cover" sizes="(max-width: 1024px) 96px, 112px" />
+                    <Image
+                      src={dev.logo}
+                      alt={dev.name}
+                      fill
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-110 group-hover:-translate-y-1"
+                      sizes="(max-width: 1024px) 96px, 112px"
+                    />
                   ) : (
                     <span style={{ color: '#C9A96E' }}>{dev.name.charAt(0)}</span>
                   )}
                 </motion.div>
                 <div>
                   <p
-                    className="text-white text-xs tracking-wide font-light transition-colors group-hover:text-gold"
+                    className="text-white text-xs tracking-wide font-light transition-colors group-hover:text-gold whitespace-normal"
                   >
                     {dev.name}
                   </p>
@@ -110,7 +127,7 @@ export default function DeveloperSpotlight() {
             </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

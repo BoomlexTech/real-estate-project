@@ -181,7 +181,7 @@ export default function PropertySearch() {
             </div>
 
             {/* Row 1 */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-3">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-3">
               <SelectField label="Emirates" options={emirateOptions} value={filters.emirate} onChange={set('emirate')} />
               <SelectField label="Location" options={locationOptions} value={filters.location} onChange={set('location')} />
               <SelectField label="Developer" options={developerOptions} value={filters.developer} onChange={set('developer')} />
@@ -189,7 +189,7 @@ export default function PropertySearch() {
             </div>
 
             {/* Row 2 */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6">
               <SelectField label="Bedrooms" options={bedroomOptions} value={filters.bedrooms} onChange={set('bedrooms')} />
               <SelectField label="Price Range" options={priceOptions} value={filters.price} onChange={set('price')} />
               <SelectField label="Status" options={statusOptions} value={filters.status} onChange={set('status')} />
@@ -239,7 +239,7 @@ function SelectField({
       <select
         value={value}
         onChange={onChange}
-        className="select-dark pr-8 text-sm"
+        className="select-dark pr-8 text-xs sm:text-sm"
         style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%239ca3af'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E")`,
           backgroundRepeat: 'no-repeat',

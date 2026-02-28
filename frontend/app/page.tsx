@@ -16,8 +16,8 @@ export default function HomePage() {
     <div className="relative min-h-screen overflow-hidden" style={{ background: 'var(--bg-primary)' }}>
       {/* Background ambient lighting */}
       <div className="absolute inset-0 pointer-events-none">
-        {/* Top-right subtle gold glow */}
-        <div className="absolute top-[5%] right-[-10%] w-[50%] h-[600px] rounded-full blur-[140px] opacity-[0.04]" style={{ background: 'var(--gold)' }} />
+        {/* Top-right subtle gold glow — moved lower to avoid hero overlap */}
+        <div className="absolute top-[35%] right-[-10%] w-[40%] h-125 rounded-full blur-[160px] opacity-[0.025]" style={{ background: 'var(--gold)' }} />
         {/* Mid-left deep navy glow */}
         <div className="absolute top-[30%] left-[-15%] w-[45%] h-[800px] rounded-full blur-[150px] opacity-[0.6]" style={{ background: '#0a101f' }} />
         {/* Bottom-right warm glow */}

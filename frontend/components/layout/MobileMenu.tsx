@@ -22,10 +22,10 @@ const navLinks = [
 ];
 
 const socials = [
-  { href: 'https://facebook.com', Icon: Facebook },
-  { href: 'https://instagram.com', Icon: Instagram },
-  { href: 'https://linkedin.com', Icon: Linkedin },
-  { href: 'https://youtube.com', Icon: Youtube },
+  { href: 'https://facebook.com', Icon: Facebook, color: '#1877F2' },
+  { href: 'https://instagram.com', Icon: Instagram, color: '#E4405F' },
+  { href: 'https://linkedin.com', Icon: Linkedin, color: '#0A66C2' },
+  { href: 'https://youtube.com', Icon: Youtube, color: '#FF0000' },
 ];
 
 interface MobileMenuProps {
@@ -187,19 +187,17 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               </div>
 
               {/* Socials */}
-              <div className="flex items-center gap-4">
-                {socials.map(({ href, Icon }) => (
+              <div className="flex items-center gap-4 mt-6">
+                {socials.map(({ href, Icon, color }) => (
                   <a
                     key={href}
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="transition-colors"
-                    style={{ color: 'rgba(255,255,255,0.3)' }}
-                    onMouseEnter={e => (e.currentTarget.style.color = '#C9A96E')}
-                    onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.3)')}
+                    className="flex justify-center items-center w-8 h-8 rounded-full transition-transform hover:scale-110"
+                    style={{ background: 'rgba(255,255,255,0.05)' }}
                   >
-                    <Icon className="w-3.5 h-3.5" />
+                    <Icon className="w-4 h-4" style={{ color: color }} />
                   </a>
                 ))}
               </div>

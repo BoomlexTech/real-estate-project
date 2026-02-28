@@ -427,6 +427,12 @@ body {
   display: flex;
 }
 
-.animate-marquee:hover {
+.animate-marquee-ease {
+  animation: marquee 30s ease-in-out infinite;
+  display: flex;
+}
+
+.animate-marquee:hover,
+.animate-marquee-ease:hover {
   animation-play-state: paused;
 }
