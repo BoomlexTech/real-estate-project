@@ -154,7 +154,11 @@ export default function HeroSlider() {
           },
           onStateChange: (e: any) => {
             // 0 = ended → auto-advance to next slide
-            if (e.data === 0) next();
+            if (e.data === 0) {
+              const scrollY = window.scrollY;
+              next();
+              requestAnimationFrame(() => window.scrollTo({ top: scrollY, behavior: 'instant' }));
+            }
           },
         },
       });
@@ -234,10 +238,10 @@ export default function HeroSlider() {
           <div className="absolute inset-0 overflow-hidden" style={{ pointerEvents: 'none' }}>
             <div ref={playerContainerRef} />
           </div>
-          {/* Dark scrim over video */}
+          {/* Dark scrim over video — directional for text legibility */}
           <div
             className="absolute inset-0"
-            style={{ background: 'rgba(0,0,0,0.35)' }}
+            style={{ background: 'linear-gradient(90deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.35) 55%, transparent 85%)' }}
           />
 
           {/* Loading state — shown until player fires onReady */}
@@ -374,6 +378,62 @@ export default function HeroSlider() {
               </motion.div>
             </motion.div>
           </AnimatePresence>
+        )}
+
+        {/* Video slide content — branding overlay */}
+        {slide.type === 'video' && (
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: videoReady ? 1 : 0, y: videoReady ? 0 : 18 }}
+            transition={{ duration: 0.9, ease: 'easeOut' }}
+            className="max-w-3xl"
+            style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}
+          >
+            <div className="mb-8">
+              <span
+                className="px-3 py-1.5 text-xs tracking-[0.22em] uppercase"
+                style={{ border: '1px solid rgba(201,169,110,0.55)', color: '#C9A96E' }}
+              >
+                Premium Real Estate
+              </span>
+            </div>
+
+            <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl xl:text-[5.5rem] font-light text-white mb-5 leading-[1.04]">
+              Dubai&apos;s Finest<br />Properties
+            </h1>
+
+            <p
+              className="text-xs sm:text-sm font-light tracking-[0.18em] uppercase mb-10"
+              style={{ color: 'rgba(255,255,255,0.85)' }}
+            >
+              Luxury Living — Waterfront · Villas · Penthouses
+            </p>
+
+            <div
+              style={{ width: '56px', height: '1px', background: '#C9A96E', marginBottom: '2.5rem' }}
+            />
+
+            <div className="flex flex-wrap items-center gap-5">
+              <Link href="/property" className="btn-gold">
+                Explore Properties
+              </Link>
+              <Link
+                href="/contact"
+                className="text-[10px] tracking-[0.18em] uppercase transition-colors pb-0.5"
+                style={{ color: 'rgba(255,255,255,0.42)', borderBottom: '1px solid rgba(255,255,255,0.22)' }}
+                onMouseEnter={e => {
+                  (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.8)';
+                  (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.5)';
+                }}
+                onMouseLeave={e => {
+                  (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.42)';
+                  (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.22)';
+                }}
+              >
+                Contact Us
+              </Link>
+            </div>
+          </motion.div>
         )}
 
         {/* Slide indicators — hidden on video slide */}

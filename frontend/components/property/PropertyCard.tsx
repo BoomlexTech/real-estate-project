@@ -153,7 +153,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
   return (
     <div
       className="property-card group overflow-hidden flex flex-col h-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_40px_rgba(0,0,0,0.5)]"
-      style={{ background: '#111827', border: '1px solid rgba(201,169,110,0.2)' }}
+      style={{ background: 'var(--bg-card)', border: '1px solid var(--border-gold)' }}
     >
       {/* Image Carousel */}
       <Link href={`/property/${property.slug}`} className="block overflow-hidden">
@@ -168,21 +168,22 @@ export default function PropertyCard({ property }: PropertyCardProps) {
       <div className="flex flex-col flex-1 p-5">
         {/* Location */}
         <div className="flex items-center gap-1.5 mb-3">
-          <MapPin className="w-3 h-3 shrink-0" style={{ color: '#C9A96E' }} />
-          <span className="text-xs tracking-[0.06em]" style={{ color: '#94A3B8' }}>
+          <MapPin className="w-3 h-3 shrink-0" style={{ color: 'var(--gold)' }} />
+          <span className="text-xs tracking-[0.06em]" style={{ color: 'var(--text-secondary)' }}>
             {property.location}, {property.emirate}
           </span>
         </div>
 
         {/* Price — serif, large, light weight */}
-        <p className="font-serif text-2xl font-light mb-1 leading-tight" style={{ color: '#C9A96E' }}>
+        <p className="font-serif text-2xl font-light mb-1 leading-tight" style={{ color: 'var(--gold)' }}>
           {property.priceLabel}
         </p>
 
         {/* Title */}
         <Link href={`/property/${property.slug}`}>
           <h3
-            className="text-white text-sm mb-4 line-clamp-2 leading-relaxed tracking-wide transition-colors hover:text-gold"
+            className="text-sm mb-4 line-clamp-2 leading-relaxed tracking-wide transition-colors hover:text-gold"
+            style={{ color: 'var(--text-primary)' }}
             style={{ fontWeight: 400 }}
           >
             {property.title}
@@ -192,7 +193,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
         {/* Stats */}
         <div
           className="flex items-center gap-5 text-xs mb-4 pb-4"
-          style={{ borderBottom: '1px solid #1E293B', color: '#94A3B8' }}
+          style={{ borderBottom: '1px solid var(--border-color)', color: 'var(--text-secondary)' }}
         >
           <div className="flex items-center gap-1.5">
             <Bed className="w-3 h-3" />
@@ -203,7 +204,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
             <span>{property.area.toLocaleString()} sqft</span>
           </div>
           {property.developer && (
-            <div className="ml-auto text-[11px] tracking-wide" style={{ color: 'rgba(148,163,184,0.55)' }}>
+            <div className="ml-auto text-[11px] tracking-wide" style={{ color: 'var(--text-secondary)', opacity: 0.65 }}>
               {property.developer}
             </div>
           )}
@@ -215,7 +216,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
             {property.paymentPlan && (
               <span
                 className="text-[10px] px-2 py-0.5 tracking-widest uppercase"
-                style={{ border: '1px solid rgba(201,169,110,0.25)', color: '#C9A96E' }}
+                style={{ border: '1px solid var(--border-gold)', color: 'var(--gold)' }}
               >
                 {typeof property.paymentPlan === 'object'
                   ? `${property.paymentPlan.downPayment}/${property.paymentPlan.onCompletion} Plan`
@@ -237,7 +238,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
         {property.agent && (
           <div
             className="flex items-center justify-between mt-auto pt-4"
-            style={{ borderTop: '1px solid #1E293B' }}
+            style={{ borderTop: '1px solid var(--border-color)' }}
           >
             <Link
               href={`/agents/${property.agent.id}`}
@@ -246,17 +247,17 @@ export default function PropertyCard({ property }: PropertyCardProps) {
             >
               <div
                 className="w-7 h-7 rounded-full overflow-hidden shrink-0 border"
-                style={{ background: '#1a1f2e', borderColor: 'rgba(201,169,110,0.3)' }}
+                style={{ background: 'var(--bg-secondary)', borderColor: 'var(--border-gold)' }}
               >
                 {property.agent.photo ? (
                   <img src={property.agent.photo} alt={property.agent.name} className="w-full h-full object-cover" />
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center text-[10px] font-bold" style={{ color: '#C9A96E' }}>
+                  <div className="w-full h-full flex items-center justify-center text-[10px] font-bold" style={{ color: 'var(--gold)' }}>
                     {property.agent.name.charAt(0).toUpperCase()}
                   </div>
                 )}
               </div>
-              <span className="text-xs tracking-wide truncate max-w-22 transition-colors group-hover/agent:text-gold" style={{ color: '#94A3B8' }}>
+              <span className="text-xs tracking-wide truncate max-w-22 transition-colors group-hover/agent:text-gold" style={{ color: 'var(--text-secondary)' }}>
                 {property.agent.name}
               </span>
             </Link>
@@ -266,7 +267,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-7 h-7 flex items-center justify-center transition-colors hover:bg-white/5"
-                style={{ border: '1px solid rgba(255,255,255,0.12)', color: '#94A3B8' }}
+                style={{ border: '1px solid var(--border-color)', color: 'var(--text-secondary)' }}
                 title="WhatsApp agent"
               >
                 <svg className="w-3.5 h-3.5 fill-current text-green-500" viewBox="0 0 24 24">
@@ -275,7 +276,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
               <a
                 href={`tel:${property.agent.phone}`}
                 className="w-7 h-7 flex items-center justify-center transition-colors hover:bg-white/5"
-                style={{ border: '1px solid rgba(255,255,255,0.12)', color: '#94A3B8' }}
+                style={{ border: '1px solid var(--border-color)', color: 'var(--text-secondary)' }}
                 title="Call agent"
               >
                 <Phone className="w-3 h-3" />

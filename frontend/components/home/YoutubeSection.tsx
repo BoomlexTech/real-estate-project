@@ -190,7 +190,7 @@ export default function YoutubeSection() {
               style={{
                 width: i === startIdx ? '24px' : '8px',
                 height: '8px',
-                background: i === startIdx ? '#c9a84c' : 'rgba(255,255,255,0.25)',
+                background: i === startIdx ? 'var(--gold)' : 'var(--border-color)',
               }}
             />
           ))}

@@ -29,16 +29,7 @@ export const metadata: Metadata = {
   },
   description:
     "Awtad Real Estate is Dubai's premier luxury real estate agency. Buy, sell, and invest in luxury properties across the UAE with AED 11 Billion in sales.",
-  keywords: ["Dubai real estate", "luxury properties", "off-plan", "buy property Dubai", "Awtad Real Estate"],
-  openGraph: {
-    type: "website",
-    locale: "en_AE",
-    url: "https://awtadrealestate.com",
-    siteName: "Awtad Real Estate",
-    title: "Awtad Real Estate | Dubai Luxury Real Estate Agency",
-    description:
-      "Dubai's premier luxury real estate agency with AED 11 Billion in sales. Find apartments, villas, and off-plan properties.",
-  },
+  keywords: ["Dubai real estate", "luxury properties", "off-plan", "buy property Dubai", "Awtad Real Estate"]
 };
 
 export default function RootLayout({
