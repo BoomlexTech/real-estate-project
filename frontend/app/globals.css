@@ -241,7 +241,7 @@ body {
 
 /* Select dark — sharp corners, glass */
 .select-dark {
-  background: rgba(10, 14, 26, 0.45);
+  background: rgba(201, 169, 110, 0.12);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid var(--border-gold);

@@ -103,15 +103,6 @@ export default function HeroSlider() {
     setCurrent((c) => (c - 1 + slides.length) % slides.length);
   };
 
-  // Load YouTube IFrame API script once
-  useEffect(() => {
-    if (document.getElementById('yt-api-script')) return;
-    const script = document.createElement('script');
-    script.id = 'yt-api-script';
-    script.src = 'https://www.youtube.com/iframe_api';
-    document.body.appendChild(script);
-  }, []);
-
   // Init/destroy YT player when video slide becomes active/inactive
   useEffect(() => {
     if (!isVideoSlide) {
@@ -244,15 +235,20 @@ export default function HeroSlider() {
             style={{ background: 'linear-gradient(90deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.35) 55%, transparent 85%)' }}
           />
 
-          {/* Loading state — shown until player fires onReady */}
-          {!videoReady && (
-            <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
-              <div style={{ width: '32px', height: '1px', background: '#C9A96E', marginBottom: '16px' }} />
-              <p className="text-[11px] tracking-[0.3em] uppercase" style={{ color: 'rgba(255,255,255,0.5)' }}>
-                Loading
-              </p>
-            </div>
-          )}
+          {/* Thumbnail — shown instantly, fades out once player is ready */}
+          <img
+            src="https://img.youtube.com/vi/a1OX0A19DM4/maxresdefault.jpg"
+            alt=""
+            aria-hidden="true"
+            style={{
+              position: 'absolute', inset: 0,
+              width: '100%', height: '100%',
+              objectFit: 'cover',
+              opacity: videoReady ? 0 : 1,
+              transition: 'opacity 0.8s ease',
+              pointerEvents: 'none',
+            }}
+          />
         </motion.div>
       )}
 
