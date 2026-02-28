@@ -6,9 +6,11 @@ import Link from 'next/link';
 import PropertyCard from '../property/PropertyCard';
 import { Property } from '@/lib/types';
 import { getProperties } from '@/lib/api';
+import useIsMobile from '@/lib/useIsMobile';
 
 export default function LatestProjects() {
   const [properties, setProperties] = useState<Property[]>([]);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     getProperties({ sort: 'newest', limit: 6 })
@@ -47,7 +49,7 @@ export default function LatestProjects() {
 
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-          {properties.map((property, i) => (
+          {(isMobile ? properties.slice(0, 3) : properties).map((property, i) => (
             <motion.div
               key={property.id}
               initial={{ opacity: 0, y: 20 }}

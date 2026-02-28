@@ -115,10 +115,11 @@ export default function PropertySearch() {
       style={{
         marginTop: '-220px',
         background: 'linear-gradient(to bottom, transparent 0%, transparent 38%, rgba(15,21,35,0.85) 58%, #0f1523 72%)',
+        pointerEvents: 'none',
       }}
     >
       <div className="max-w-5xl mx-auto">
-        <div className="glass-card p-8 sm:p-10">
+        <div className="glass-card p-8 sm:p-10" style={{ pointerEvents: 'auto' }}>
           {/* Heading */}
           <div className="text-center mb-10">
             <p className="text-[10px] tracking-[0.28em] uppercase mb-4" style={{ color: '#C9A96E' }}>

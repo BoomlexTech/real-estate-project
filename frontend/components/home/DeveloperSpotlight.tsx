@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { getDevelopers } from '@/lib/api';
+import useIsMobile from '@/lib/useIsMobile';
 
 interface Dev {
   id: string;
@@ -14,6 +15,7 @@ interface Dev {
 
 export default function DeveloperSpotlight() {
   const [developers, setDevelopers] = useState<Dev[]>([]);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     getDevelopers()
@@ -57,16 +59,17 @@ export default function DeveloperSpotlight() {
           className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-px"
           style={{ background: 'rgba(201,169,110,0.12)' }}
         >
-          {developers.map((dev, i) => (
+          {(isMobile ? developers.slice(0, 4) : developers).map((dev, i) => (
             <motion.div
               key={dev.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: i * 0.06, ease: 'easeOut' }}
+              className="h-full"
             >
               <Link
                 href={`/developers/${dev.slug}`}
-                className="glass-card flex flex-col items-center text-center gap-3 p-6 transition-colors group"
+                className="glass-card flex flex-col items-center justify-center text-center gap-3 p-6 h-full transition-colors group"
               >
                 <div
                   className="w-12 h-12 flex items-center justify-center text-sm font-light transition-colors"

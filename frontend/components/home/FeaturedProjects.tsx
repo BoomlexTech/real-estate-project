@@ -6,11 +6,13 @@ import Link from 'next/link';
 import { Property } from '@/lib/types';
 import { getProperties } from '@/lib/api';
 import PropertyCard from '../property/PropertyCard';
+import useIsMobile from '@/lib/useIsMobile';
 
 export default function FeaturedProjects() {
     const [projects, setProjects] = useState<Property[]>([]);
     const [startIdx, setStartIdx] = useState(0);
-    const visible = 3;
+    const isMobile = useIsMobile();
+    const visible = isMobile ? 2 : 3;
 
     useEffect(() => {
         getProperties({ sort: 'featured', limit: 10 })

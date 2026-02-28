@@ -17,7 +17,7 @@ export default function StatCard({ icon, title, subtitle, delay = 0 }: StatCardP
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay }}
-      className="glass-card p-7 flex flex-col items-center text-center gap-4 transition-colors group"
+      className="glass-card p-4 sm:p-7 flex flex-col items-center text-center gap-2 sm:gap-4 transition-colors group"
     >
       {/* Square icon — no border-radius */}
       <div
