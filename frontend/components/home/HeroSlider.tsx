@@ -296,15 +296,28 @@ export default function HeroSlider() {
                 </Link>
                 <Link
                   href="/property"
-                  className="hidden sm:inline-flex text-[10px] tracking-[0.18em] uppercase transition-colors pb-0.5"
-                  style={{ color: 'rgba(255,255,255,0.42)', borderBottom: '1px solid rgba(255,255,255,0.22)' }}
+                  className="hidden sm:inline-flex items-center text-[10px] tracking-[0.18em] uppercase px-5 py-2.5 font-medium transition-all duration-250"
+                  style={{
+                    background: '#C9A96E',
+                    color: '#0A0E1A',
+                    border: '1px solid #C9A96E',
+                    borderRadius: '6px',
+                    boxShadow: '0 0 0 rgba(201,169,110,0)',
+                    transform: 'translateY(0)',
+                  }}
                   onMouseEnter={e => {
-                    (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.8)';
-                    (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.5)';
+                    const el = e.currentTarget as HTMLElement;
+                    el.style.background = '#E8D5A8';
+                    el.style.borderColor = '#E8D5A8';
+                    el.style.boxShadow = '0 0 22px rgba(201,169,110,0.55), 0 6px 18px rgba(201,169,110,0.3)';
+                    el.style.transform = 'translateY(-3px) scale(1.04)';
                   }}
                   onMouseLeave={e => {
-                    (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.42)';
-                    (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.22)';
+                    const el = e.currentTarget as HTMLElement;
+                    el.style.background = '#C9A96E';
+                    el.style.borderColor = '#C9A96E';
+                    el.style.boxShadow = '0 0 0 rgba(201,169,110,0)';
+                    el.style.transform = 'translateY(0) scale(1)';
                   }}
                 >
                   All Properties
@@ -353,15 +366,28 @@ export default function HeroSlider() {
               </Link>
               <Link
                 href="/contact"
-                className="text-[10px] tracking-[0.18em] uppercase transition-colors pb-0.5"
-                style={{ color: 'rgba(255,255,255,0.42)', borderBottom: '1px solid rgba(255,255,255,0.22)' }}
+                className="inline-flex items-center text-[10px] tracking-[0.18em] uppercase px-5 py-2.5 font-medium transition-all duration-250"
+                style={{
+                  background: '#C9A96E',
+                  color: '#0A0E1A',
+                  border: '1px solid #C9A96E',
+                  borderRadius: '6px',
+                  boxShadow: '0 0 0 rgba(201,169,110,0)',
+                  transform: 'translateY(0)',
+                }}
                 onMouseEnter={e => {
-                  (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.8)';
-                  (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.5)';
+                  const el = e.currentTarget as HTMLElement;
+                  el.style.background = '#E8D5A8';
+                  el.style.borderColor = '#E8D5A8';
+                  el.style.boxShadow = '0 0 22px rgba(201,169,110,0.55), 0 6px 18px rgba(201,169,110,0.3)';
+                  el.style.transform = 'translateY(-3px) scale(1.04)';
                 }}
                 onMouseLeave={e => {
-                  (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.42)';
-                  (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.22)';
+                  const el = e.currentTarget as HTMLElement;
+                  el.style.background = '#C9A96E';
+                  el.style.borderColor = '#C9A96E';
+                  el.style.boxShadow = '0 0 0 rgba(201,169,110,0)';
+                  el.style.transform = 'translateY(0) scale(1)';
                 }}
               >
                 Contact Us
