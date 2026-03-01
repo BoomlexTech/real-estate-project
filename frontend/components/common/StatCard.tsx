@@ -62,7 +62,7 @@ export default function StatCard({
     >
       {/* Gold gradient top accent */}
       <div
-        className="absolute top-0 left-0 right-0 h-[2px] transition-all duration-500 group-hover:h-[3px]"
+        className="absolute top-0 left-0 right-0 h-0.5 transition-all duration-500 group-hover:h-0.75"
         style={{ background: 'linear-gradient(90deg, transparent 0%, #C9A96E 50%, transparent 100%)' }}
       />
 
@@ -101,8 +101,8 @@ export default function StatCard({
               <div className="text-base sm:text-lg" style={{ color: '#C9A96E' }}>{icon}</div>
             </motion.div>
             {/* Corner accents */}
-            <div className="absolute -top-[2px] -left-[2px] w-2 h-2 border-t border-l opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ borderColor: '#C9A96E' }} />
-            <div className="absolute -bottom-[2px] -right-[2px] w-2 h-2 border-b border-r opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ borderColor: '#C9A96E' }} />
+            <div className="absolute -top-0.5 -left-0.5 w-2 h-2 border-t border-l opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ borderColor: '#C9A96E' }} />
+            <div className="absolute -bottom-0.5 -right-0.5 w-2 h-2 border-b border-r opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ borderColor: '#C9A96E' }} />
           </div>
 
           {/* Animated counter */}
@@ -118,7 +118,7 @@ export default function StatCard({
               {prefix}{count.toLocaleString()}{suffix}
             </p>
             <p className="text-white text-xs sm:text-sm font-light tracking-wide mb-1">{title}</p>
-            <p className="text-[10px] sm:text-[11px] tracking-[0.1em] leading-relaxed" style={{ color: '#94A3B8' }}>
+            <p className="text-[10px] sm:text-[11px] tracking-widest leading-relaxed" style={{ color: '#94A3B8' }}>
               {subtitle}
             </p>
           </div>
@@ -127,7 +127,7 @@ export default function StatCard({
         {/* Luxury progress bar with continuous shimmer */}
         <div className="w-full mt-auto pt-2">
           <div
-            className="w-full h-[2px] relative overflow-hidden"
+            className="w-full h-0.5 relative overflow-hidden"
             style={{ background: 'rgba(201,169,110,0.1)' }}
           >
             {/* Fill bar */}

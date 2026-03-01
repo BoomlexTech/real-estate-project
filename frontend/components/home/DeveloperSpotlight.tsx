@@ -80,7 +80,7 @@ export default function DeveloperSpotlight() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: (i % developers.length) * 0.06, ease: 'easeOut' }}
-              className="w-[200px] sm:w-[240px] shrink-0"
+              className="w-50 sm:w-60 shrink-0"
             >
               <Link
                 href={`/developers/${dev.slug}`}
