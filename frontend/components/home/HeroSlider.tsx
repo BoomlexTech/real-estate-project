@@ -193,21 +193,8 @@ export default function HeroSlider() {
           style={{ pointerEvents: 'none', opacity: slides[current].id === 'video2' ? 1 : 0 }}
           onEnded={() => next()}
         />
-        {/* Dark scrim over video */}
-        <div
-          className="absolute inset-0"
-          style={{ background: 'linear-gradient(90deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.35) 55%, rgba(0,0,0,0.15) 85%, rgba(0,0,0,0.2) 100%)' }}
-        />
       </div>
 
-      {/* Scrim — for property slides */}
-      <div
-        className="absolute inset-0 pointer-events-none transition-opacity duration-700"
-        style={{
-          background: 'linear-gradient(90deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.35) 55%, rgba(0,0,0,0.15) 85%, rgba(0,0,0,0.2) 100%)',
-          opacity: slide.type === 'property' ? 1 : 0,
-        }}
-      />
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pt-36 pb-32 w-full">
@@ -406,13 +393,6 @@ export default function HeroSlider() {
       </button>
 
 
-      {/* Bottom gradient blend into the next section */}
-      <div
-        className="absolute bottom-0 left-0 right-0 h-[40vh] z-10 pointer-events-none"
-        style={{
-          background: 'linear-gradient(to bottom, transparent 0%, rgba(10,14,26,0.5) 40%, rgba(10,14,26,0.95) 80%, #0A0E1A 100%)',
-        }}
-      />
 
     </section>
   );
