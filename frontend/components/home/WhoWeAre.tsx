@@ -159,7 +159,7 @@ export default function WhoWeAre() {
               </div>
 
               {/* Service Cards — outlined, sharp, numbered */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-px" style={{ background: 'rgba(201,169,110,0.12)' }}>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {services.map((svc, i) => (
                   <motion.div
                     key={svc.title}
