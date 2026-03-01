@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { Award, TrendingUp, Globe, Building2 } from 'lucide-react';
 import StatCard from '../common/StatCard';
+import CitySkyline from './CitySkyline';
 
 const stats = [
   {
@@ -64,11 +65,18 @@ const services = [
 
 export default function WhoWeAre() {
   return (
-    <>
+    <div className="relative overflow-hidden" style={{ background: '#0A0E1A' }}>
+      {/* CitySkyline — pinned as background */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <CitySkyline />
+      </div>
+      {/* Dark overlay — improves text readability over skyline */}
+      <div className="absolute inset-0 z-1 pointer-events-none" style={{ background: 'rgba(10,14,26,0.72)' }} />
+
       {/* Stats Section */}
-      <section className="py-20 px-4">
+      <section className="relative z-10 pt-10 pb-0 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-px" style={{ background: 'rgba(201,169,110,0.12)' }}>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {stats.map((stat, i) => (
               <StatCard
                 key={stat.title}
@@ -87,9 +95,9 @@ export default function WhoWeAre() {
       </section>
 
       {/* Who We Are Section */}
-      <section className="py-16 sm:py-20 lg:py-28 px-4">
+      <section className="relative z-10 py-10 sm:py-14 lg:py-20 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 xl:gap-24 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 xl:gap-24 items-start">
             {/* Left: Image */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -181,6 +189,6 @@ export default function WhoWeAre() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

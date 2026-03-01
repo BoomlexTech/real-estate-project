@@ -4,12 +4,16 @@
   --bg-primary: #0A0E1A;
   --bg-secondary: #0f1523;
   --bg-card: #111827;
+  --bg-section-alt: #0D1120;
+  --bg-warm-tint: #0E0D18;
   --gold: #C9A96E;
   --gold-light: #DFBF8A;
   --text-primary: #ffffff;
+  --text-body: #D4D0C8;
   --text-secondary: #94A3B8;
   --border-color: #1E293B;
   --border-gold: rgba(201, 169, 110, 0.28);
+  --border-subtle: rgba(255, 255, 255, 0.05);
 }
 
 @theme inline {
@@ -440,4 +444,63 @@ body {
 .animate-marquee:hover,
 .animate-marquee-ease:hover {
   animation-play-state: paused;
+}
+
+/* Section depth utilities */
+
+/* Subtle dot-grid texture for alt-background sections */
+.texture-dot-grid {
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* SVG noise grain — makes flat dark sections feel material, not pixel-flat */
+.section-grain {
+  position: relative;
+}
+
+.section-grain::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.35;
+  mix-blend-mode: overlay;
+}
+
+/* Section edge gradient blending — 80px soft transition to base bg at top */
+.section-fade-top {
+  position: relative;
+}
+
+.section-fade-top::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(to bottom, var(--bg-primary), transparent);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Section edge gradient blending — 80px soft transition to base bg at bottom */
+.section-fade-bottom {
+  position: relative;
+}
+
+.section-fade-bottom::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(to top, var(--bg-primary), transparent);
+  pointer-events: none;
+  z-index: 2;
 }

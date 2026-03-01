@@ -91,7 +91,7 @@ const VIEWBOX_H = 500;
 
 function FarLayer() {
   return (
-    <g opacity="0.25">
+    <g opacity="0.55">
       {FAR_BUILDINGS.map((b, i) => (
         <rect
           key={i}
@@ -99,7 +99,7 @@ function FarLayer() {
           y={VIEWBOX_H - b.h}
           width={b.w}
           height={b.h}
-          fill="rgba(201,169,110,0.18)"
+          fill="rgba(201,169,110,0.32)"
         />
       ))}
     </g>
@@ -108,7 +108,7 @@ function FarLayer() {
 
 function MidLayer() {
   return (
-    <g opacity="0.5">
+    <g opacity="0.8">
       {MID_BUILDINGS.map((b, i) => (
         <g key={i}>
           <rect
@@ -116,8 +116,8 @@ function MidLayer() {
             y={VIEWBOX_H - b.h}
             width={b.w}
             height={b.h}
-            fill="rgba(15,21,35,0.9)"
-            stroke="rgba(201,169,110,0.22)"
+            fill="rgba(20,28,48,0.75)"
+            stroke="rgba(201,169,110,0.45)"
             strokeWidth="0.5"
           />
           {/* Window grid */}
@@ -129,7 +129,7 @@ function MidLayer() {
                 y={VIEWBOX_H - b.h + 8 + row * 18}
                 width={6}
                 height={9}
-                fill={seededRandom(i * 10000 + row * 100 + col) > 0.55 ? 'rgba(201,169,110,0.35)' : 'rgba(201,169,110,0.06)'}
+                fill={seededRandom(i * 10000 + row * 100 + col) > 0.55 ? 'rgba(201,169,110,0.65)' : 'rgba(201,169,110,0.14)'}
                 rx={0.5}
               />
             ))
@@ -137,7 +137,7 @@ function MidLayer() {
           {b.hasSpire && (
             <polygon
               points={`${b.x + b.w / 2 - 4},${VIEWBOX_H - b.h} ${b.x + b.w / 2 + 4},${VIEWBOX_H - b.h} ${b.x + b.w / 2},${VIEWBOX_H - b.h - 28}`}
-              fill="rgba(201,169,110,0.4)"
+              fill="rgba(201,169,110,0.7)"
             />
           )}
         </g>
@@ -159,8 +159,8 @@ function NearLayer() {
               y={VIEWBOX_H - b.h}
               width={b.w}
               height={b.h}
-              fill="rgba(10,14,26,0.95)"
-              stroke="rgba(201,169,110,0.35)"
+              fill="rgba(16,22,40,0.82)"
+              stroke="rgba(201,169,110,0.6)"
               strokeWidth="0.8"
             />
             {/* Setback detail — upper third narrowing */}
@@ -169,8 +169,8 @@ function NearLayer() {
               y={VIEWBOX_H - b.h}
               width={b.w * 0.7}
               height={b.h * 0.35}
-              fill="rgba(10,14,26,0.95)"
-              stroke="rgba(201,169,110,0.2)"
+              fill="rgba(16,22,40,0.82)"
+              stroke="rgba(201,169,110,0.4)"
               strokeWidth="0.5"
             />
             {/* Window grid */}
@@ -182,7 +182,7 @@ function NearLayer() {
                   y={VIEWBOX_H - b.h * 0.6 + row * 20}
                   width={7}
                   height={11}
-                  fill={seededRandom(i * 10000 + row * 100 + col) > 0.45 ? 'rgba(201,169,110,0.5)' : 'rgba(201,169,110,0.08)'}
+                  fill={seededRandom(i * 10000 + row * 100 + col) > 0.45 ? 'rgba(201,169,110,0.75)' : 'rgba(201,169,110,0.16)'}
                   rx={0.5}
                 />
               ))
@@ -195,7 +195,7 @@ function NearLayer() {
                   y1={VIEWBOX_H - b.h}
                   x2={b.x + b.w / 2}
                   y2={VIEWBOX_H - b.h - spireH}
-                  stroke="rgba(201,169,110,0.7)"
+                  stroke="rgba(201,169,110,0.9)"
                   strokeWidth="1.5"
                 />
                 {/* Spire tip glow dot */}
@@ -232,7 +232,7 @@ export default function CitySkyline() {
   const opacity = useTransform(scrollYProgress, [0, 0.12, 0.85, 1], [0, 1, 1, 0.4]);
 
   return (
-    <div ref={ref} className="relative w-full overflow-hidden" style={{ height: '420px', background: '#0A0E1A' }}>
+    <div ref={ref} className="relative w-full h-full overflow-hidden" style={{ background: '#0A0E1A' }}>
 
       <motion.div
         style={{ opacity }}
@@ -247,7 +247,7 @@ export default function CitySkyline() {
           <defs>
             <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stopColor="rgba(201,169,110,0.0)" />
-              <stop offset="100%" stopColor="rgba(201,169,110,0.04)" />
+              <stop offset="100%" stopColor="rgba(201,169,110,0.12)" />
             </linearGradient>
           </defs>
 
@@ -272,19 +272,6 @@ export default function CitySkyline() {
         </svg>
       </motion.div>
 
-      {/* Center label */}
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        className="absolute inset-0 flex flex-col items-center justify-center z-20 pointer-events-none"
-      >
-        <p className="text-[9px] tracking-[0.38em] uppercase mb-2" style={{ color: 'rgba(201,169,110,0.55)' }}>
-          Dubai, UAE
-        </p>
-        <div className="w-8 h-px" style={{ background: 'rgba(201,169,110,0.35)' }} />
-      </motion.div>
     </div>
   );
 }

@@ -19,7 +19,7 @@ export default function LatestProjects() {
   }, []);
 
   return (
-    <section className="py-16 sm:py-20 lg:py-28 px-4">
+    <section className="py-16 sm:py-20 lg:py-28 px-4 section-grain texture-dot-grid" style={{ background: 'var(--bg-section-alt)' }}>
       <div className="max-w-7xl mx-auto">
         {/* Heading */}
         <motion.div

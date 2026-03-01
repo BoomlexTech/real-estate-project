@@ -39,7 +39,7 @@ export default function MortgageBanner() {
   ];
 
   return (
-    <section className="py-12 sm:py-16 lg:py-20 px-4">
+    <section className="py-12 sm:py-16 lg:py-20 px-4" style={{ background: 'var(--bg-warm-tint)' }}>
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left */}
@@ -54,7 +54,7 @@ export default function MortgageBanner() {
             </p>
             <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-light text-white mb-5 leading-tight">
               Get Mortgage in Dubai &amp;{' '}
-              <span style={{ color: '#c9a84c' }}>The UAE</span>
+              <span style={{ color: '#C9A96E' }}>The UAE</span>
             </h2>
             <p className="text-gray-400 text-sm leading-relaxed mb-6">
               Our dedicated mortgage advisors work with 20+ leading banks to secure the best rates for you. Whether you&apos;re a first-time buyer or seasoned investor, we make the financing process seamless and fast.
@@ -72,7 +72,7 @@ export default function MortgageBanner() {
                 <div key={f.text} className="flex items-center gap-3">
                   <div
                     className="w-8 h-8 rounded-full flex items-center justify-center shrink-0"
-                    style={{ background: 'rgba(201,168,76,0.15)', color: '#c9a84c' }}
+                    style={{ background: 'rgba(201,169,110,0.15)', color: '#C9A96E' }}
                   >
                     {f.icon}
                   </div>
@@ -87,14 +87,21 @@ export default function MortgageBanner() {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            whileHover={{ y: -8, boxShadow: '0 0 56px rgba(201,169,110,0.4), 0 16px 48px rgba(201,169,110,0.25), 0 0 0 1px rgba(201,169,110,0.35)' }}
+            whileHover={{ y: -8 }}
             transition={{ duration: 0.6, type: 'spring', stiffness: 280, damping: 22 }}
-            className="property-card-wrapper"
+            className="relative rounded-xl overflow-hidden"
+            style={{
+              borderLeft: '1px solid rgba(201,169,110,0.55)',
+              borderBottom: '1px solid rgba(201,169,110,0.55)',
+              borderTop: '1px solid rgba(201,169,110,0.08)',
+              borderRight: '1px solid rgba(201,169,110,0.08)',
+              boxShadow: '-4px 4px 32px rgba(201,169,110,0.12), -1px 4px 16px rgba(201,169,110,0.08)',
+            }}
           >
-            <div className="property-card-content p-5 sm:p-8 bg-card">
+            <div className="p-5 sm:p-8" style={{ background: 'var(--bg-card)' }}>
               {submitted ? (
                 <div className="text-center py-8">
-                  <CheckCircle className="w-14 h-14 mx-auto mb-4" style={{ color: '#c9a84c' }} />
+                  <CheckCircle className="w-14 h-14 mx-auto mb-4" style={{ color: '#C9A96E' }} />
                   <h3 className="text-white text-xl font-bold mb-2">Thank You!</h3>
                   <p className="text-gray-400 text-sm">
                     Our mortgage advisor will contact you within 24 hours.

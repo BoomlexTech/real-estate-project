@@ -97,11 +97,17 @@ export default function DeveloperSpotlight() {
                       '0 0 0px rgba(201,169,110,0)',
                     ],
                   }}
+                  whileHover={{
+                    scale: 1.1,
+                    boxShadow: '0 0 0 2px #C9A96E, 0 0 22px rgba(201,169,110,0.5)',
+                  }}
                   transition={{
                     duration: 3,
                     repeat: Infinity,
                     ease: 'easeInOut',
                     delay: (i % developers.length) * 0.2,
+                    scale: { type: 'spring', stiffness: 300, damping: 20, duration: undefined },
+                    boxShadow: { duration: 0.2 },
                   }}
                 >
                   {dev.logo ? (

@@ -74,7 +74,7 @@ function VideoCard({ video }: { video: (typeof videos)[0] }) {
             >
               <div
                 className="w-14 h-14 rounded-full flex items-center justify-center transition-transform duration-200 group-hover:scale-110 shadow-lg"
-                style={{ background: '#c9a84c' }}
+                style={{ background: '#C9A96E' }}
               >
                 <Play className="w-6 h-6 fill-current" style={{ color: '#1a1f2e', marginLeft: '2px' }} />
               </div>
@@ -85,7 +85,7 @@ function VideoCard({ video }: { video: (typeof videos)[0] }) {
 
       <div className="px-4 py-3 flex flex-col flex-1">
         <p className="text-white text-sm font-semibold leading-snug line-clamp-2">{video.title}</p>
-        <p className="text-xs mt-1.5" style={{ color: '#c9a84c' }}>{video.location}</p>
+        <p className="text-xs mt-1.5" style={{ color: '#C9A96E' }}>{video.location}</p>
       </div>
     </div>
   );
@@ -117,7 +117,7 @@ export default function YoutubeSection() {
   };
 
   return (
-    <section className="py-20 px-4">
+    <section className="py-20 px-4" style={{ background: 'var(--bg-warm-tint)' }}>
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div

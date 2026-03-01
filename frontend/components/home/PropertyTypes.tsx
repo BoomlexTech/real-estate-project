@@ -46,7 +46,7 @@ const types = [
 
 export default function PropertyTypes() {
   return (
-    <section className="py-20 px-4">
+    <section className="py-20 px-4 section-grain texture-dot-grid" style={{ background: 'var(--bg-section-alt)' }}>
       <div className="max-w-7xl mx-auto">
         {/* Heading */}
         <motion.div

@@ -25,7 +25,7 @@ export default function BrandedResidences() {
     const canNext = startIdx + visible < properties.length;
 
     return (
-        <section className="py-16 sm:py-20 lg:py-28 px-4">
+        <section className="py-16 sm:py-20 lg:py-28 px-4 section-grain texture-dot-grid" style={{ background: 'var(--bg-section-alt)' }}>
             <div className="max-w-7xl mx-auto">
                 <div className="flex flex-col lg:grid lg:grid-cols-3 lg:gap-16 lg:items-start">
 
