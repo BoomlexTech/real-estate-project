@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { Award, TrendingUp, Globe, Building2 } from 'lucide-react';
 import StatCard from '../common/StatCard';
-import CitySkyline from './CitySkyline';
 
 const stats = [
   {
@@ -66,13 +65,6 @@ const services = [
 export default function WhoWeAre() {
   return (
     <div className="relative overflow-hidden" style={{ background: '#0A0E1A' }}>
-      {/* CitySkyline — pinned as background */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <CitySkyline />
-      </div>
-      {/* Dark overlay — improves text readability over skyline */}
-      <div className="absolute inset-0 z-1 pointer-events-none" style={{ background: 'rgba(10,14,26,0.72)' }} />
-
       {/* Stats Section */}
       <section className="relative z-10 pt-10 pb-0 px-4">
         <div className="max-w-7xl mx-auto">
