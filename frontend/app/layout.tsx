@@ -39,7 +39,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${cormorant.variable} ${inter.variable}`}>
-
+      <head>
+        <link rel="preconnect" href="https://images.pexels.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://images.pexels.com" />
+      </head>
       <body className="antialiased min-h-screen flex flex-col" style={{ background: "#0A0E1A" }} suppressHydrationWarning>
         <AuthProvider>
           <Header />

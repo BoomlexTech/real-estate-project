@@ -53,7 +53,7 @@ const slides: Slide[] = [
     completion: '2026',
     cta: 'View Property',
     href: '/property/creek-waters-residence',
-    image: 'https://images.pexels.com/photos/30707660/pexels-photo-30707660.jpeg?w=1920&q=85&fit=crop',
+    image: 'https://images.pexels.com/photos/14749800/pexels-photo-14749800.jpeg?auto=compress&cs=tinysrgb&w=1280&q=80',
   },
   {
     id: 2,
@@ -68,7 +68,7 @@ const slides: Slide[] = [
     completion: 'Ready',
     cta: 'View Property',
     href: '/property/marina-heights-tower',
-    image: 'https://images.pexels.com/photos/31033420/pexels-photo-31033420.jpeg?w=1920&q=85&fit=crop',
+    image: 'https://images.pexels.com/photos/13256066/pexels-photo-13256066.jpeg?auto=compress&cs=tinysrgb&w=1280&q=80',
   },
   {
     id: 3,
@@ -83,7 +83,7 @@ const slides: Slide[] = [
     completion: 'Ready',
     cta: 'View Property',
     href: '/property/palm-jumeirah-signature-villa',
-    image: 'https://images.pexels.com/photos/4497544/pexels-photo-4497544.jpeg?w=1920&q=85&fit=crop',
+    image: 'https://images.pexels.com/photos/17914739/pexels-photo-17914739.jpeg?auto=compress&cs=tinysrgb&w=1280&q=80',
   },
 ];
 
@@ -94,6 +94,14 @@ export default function HeroSlider() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const videoRef2 = useRef<HTMLVideoElement>(null);
   const touchStartX = useRef<number>(0);
+
+  // Eagerly preload all property slide images on mount so they're cached before the user reaches them
+  useEffect(() => {
+    (slides.filter(s => s.type === 'property') as PropertySlide[]).forEach(s => {
+      const img = new window.Image();
+      img.src = s.image;
+    });
+  }, []);
 
   const isVideoSlide = slides[current].type === 'video';
 
@@ -169,6 +177,16 @@ export default function HeroSlider() {
           />
         )}
       </AnimatePresence>
+
+      {/* Dark gradient overlay — left-side text contrast on property slides */}
+      {slide.type === 'property' && (
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: 'linear-gradient(to right, rgba(10,14,26,0.72) 0%, rgba(10,14,26,0.35) 55%, rgba(10,14,26,0.08) 100%)',
+          }}
+        />
+      )}
 
       {/* Background — local video (always mounted, play/pause controlled) */}
       <div
