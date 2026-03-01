@@ -206,10 +206,10 @@ export default function PropertySearch() {
             </AnimatePresence>
 
             {/* Footer row — Advanced toggle + Search button */}
-            <div className="flex items-center justify-between gap-4 mt-4">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mt-4">
               <button
                 onClick={() => setExpanded((v) => !v)}
-                className="flex items-center gap-1.5 text-[10px] tracking-[0.18em] uppercase transition-colors"
+                className="flex items-center gap-1.5 text-[10px] tracking-[0.18em] uppercase transition-colors self-start"
                 style={{ color: 'rgba(201,169,110,0.75)' }}
               >
                 <motion.span
@@ -226,7 +226,7 @@ export default function PropertySearch() {
                 whileHover={{ scale: 1.03, backgroundColor: '#E2B96A', boxShadow: '0 0 32px rgba(201,169,110,0.65), 0 4px 16px rgba(201,169,110,0.35)' }}
                 whileTap={{ scale: 0.96 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 20 }}
-                className="flex items-center justify-center gap-2.5 flex-1 sm:flex-none"
+                className="flex items-center justify-center gap-2.5 w-full sm:w-auto"
                 style={{
                   border: '1px solid #C9A96E',
                   color: '#0A0E1A',
