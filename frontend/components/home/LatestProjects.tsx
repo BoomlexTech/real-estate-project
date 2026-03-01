@@ -26,21 +26,19 @@ export default function LatestProjects() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 sm:mb-16 gap-6"
+          className="flex flex-col items-center text-center mb-8 sm:mb-16 gap-4"
         >
-          <div>
-            <p className="text-[10px] tracking-[0.28em] uppercase mb-4" style={{ color: '#C9A96E' }}>
-              Featured
-            </p>
-            <span className="section-divider mb-5" />
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light text-white leading-[1.08]">
-              Latest Projects<br />
-              <span style={{ color: '#C9A96E' }}>In Dubai</span>
-            </h2>
-          </div>
+          <p className="text-[10px] tracking-[0.28em] uppercase" style={{ color: '#C9A96E' }}>
+            Featured
+          </p>
+          <span className="section-divider mx-auto" />
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light text-white leading-[1.08]">
+            Latest Projects<br />
+            <span style={{ color: '#C9A96E' }}>In Dubai</span>
+          </h2>
           <Link
             href="/property"
-            className="text-[10px] tracking-[0.2em] uppercase transition-colors pb-0.5 whitespace-nowrap self-end sm:self-auto"
+            className="text-[10px] tracking-[0.2em] uppercase transition-colors pb-0.5 whitespace-nowrap"
             style={{ color: '#C9A96E', borderBottom: '1px solid rgba(201,169,110,0.4)' }}
           >
             View All Properties →

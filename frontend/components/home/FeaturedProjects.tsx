@@ -31,21 +31,19 @@ export default function FeaturedProjects() {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 sm:mb-16 gap-4 sm:gap-0"
+                    className="relative flex flex-col items-center text-center mb-8 sm:mb-16 gap-4"
                 >
-                    <div>
-                        <p className="text-[10px] tracking-[0.28em] uppercase mb-4" style={{ color: '#C9A96E' }}>
-                            Explore
-                        </p>
-                        <span className="section-divider mb-5" />
-                        <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light text-white leading-[1.08]">
-                            Featured Projects<br />
-                            <span style={{ color: '#C9A96E' }}>In Dubai</span>
-                        </h2>
-                    </div>
+                    <p className="text-[10px] tracking-[0.28em] uppercase" style={{ color: '#C9A96E' }}>
+                        Explore
+                    </p>
+                    <span className="section-divider mx-auto" />
+                    <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light text-white leading-[1.08]">
+                        Featured Projects<br />
+                        <span style={{ color: '#C9A96E' }}>In Dubai</span>
+                    </h2>
 
-                    {/* Navigation arrows — square outline */}
-                    <div className="flex gap-2">
+                    {/* Navigation arrows — floated top-right */}
+                    <div className="absolute top-0 right-0 flex gap-2">
                         <button
                             onClick={() => setStartIdx((p) => Math.max(0, p - 1))}
                             disabled={!canPrev}

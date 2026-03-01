@@ -124,22 +124,20 @@ export default function YoutubeSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="flex flex-col sm:flex-row sm:items-end justify-between mb-6 sm:mb-10 gap-4 sm:gap-0"
+          className="relative flex flex-col items-center text-center mb-6 sm:mb-10 gap-4"
         >
-          <div>
-            <p className="text-[10px] tracking-[0.28em] uppercase mb-4" style={{ color: '#C9A96E' }}>
-              Property Tours
-            </p>
-            <h2 className="font-serif text-3xl sm:text-4xl font-light text-white leading-tight">
-              Explore Dubai Real Estate
-            </h2>
-            <p className="text-gray-400 text-sm mt-2 max-w-xl">
-              Watch exclusive video tours of Dubai&apos;s most sought-after properties — from waterfront apartments to luxury villas.
-            </p>
-          </div>
+          <p className="text-[10px] tracking-[0.28em] uppercase" style={{ color: '#C9A96E' }}>
+            Property Tours
+          </p>
+          <h2 className="font-serif text-3xl sm:text-4xl font-light text-white leading-tight">
+            Explore Dubai Real Estate
+          </h2>
+          <p className="text-gray-400 text-sm max-w-xl">
+            Watch exclusive video tours of Dubai&apos;s most sought-after properties — from waterfront apartments to luxury villas.
+          </p>
 
-          {/* Arrow controls */}
-          <div className="flex gap-2 shrink-0 ml-4">
+          {/* Arrow controls — floated top-right */}
+          <div className="absolute top-0 right-0 flex gap-2">
             <button
               onClick={prev}
               disabled={!canPrev}
