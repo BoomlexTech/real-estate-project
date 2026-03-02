@@ -17,7 +17,7 @@ export default async function BlogDetailPage({
   }
 
   return (
-    <main className="min-h-screen pt-32 pb-20 px-4" style={{ background: '#1a1f2e' }}>
+    <main className="min-h-screen pt-32 pb-20 px-4" style={{ background: 'var(--bg-primary)' }}>
       <article className="max-w-3xl mx-auto">
         {/* Cover Image */}
         <div className="relative w-full h-64 sm:h-80 rounded-2xl overflow-hidden mb-8">
@@ -58,12 +58,12 @@ export default async function BlogDetailPage({
 
         {/* Tags */}
         {post.tags.length > 0 && (
-          <div className="flex flex-wrap gap-2 mt-10 pt-6" style={{ borderTop: '1px solid #2d3348' }}>
+          <div className="flex flex-wrap gap-2 mt-10 pt-6" style={{ borderTop: '1px solid var(--border-color)' }}>
             {post.tags.map((tag) => (
               <span
                 key={tag}
                 className="px-3 py-1 text-xs rounded-full"
-                style={{ background: '#2d3348', color: '#c9a84c' }}
+                style={{ background: 'var(--bg-card)', color: '#c9a84c' }}
               >
                 #{tag}
               </span>

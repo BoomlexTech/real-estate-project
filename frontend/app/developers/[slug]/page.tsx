@@ -19,11 +19,11 @@ export default async function DeveloperDetailPage({
   }
 
   return (
-    <main className="min-h-screen pt-32 pb-20 px-4" style={{ background: '#1a1f2e' }}>
+    <main className="min-h-screen pt-32 pb-20 px-4" style={{ background: 'var(--bg-primary)' }}>
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="flex items-start gap-6 mb-10">
-          <div className="w-20 h-20 rounded-2xl overflow-hidden relative flex-shrink-0" style={{ background: '#232838' }}>
+          <div className="w-20 h-20 rounded-2xl overflow-hidden relative flex-shrink-0" style={{ background: 'var(--bg-card)' }}>
             {developer.logo && (
               <Image src={developer.logo} alt={developer.name} fill className="object-cover" sizes="80px" />
             )}

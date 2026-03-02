@@ -47,17 +47,17 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4" style={{ background: '#1a1f2e' }}>
+    <div className="min-h-screen flex items-center justify-center px-4" style={{ background: 'var(--bg-primary)' }}>
       <div className="w-full max-w-md">
         {/* Logo / brand */}
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold" style={{ color: '#c9a84c' }}>Awtad Real Estate</h1>
-          <p className="mt-1 text-sm" style={{ color: '#8892a4' }}>Portal Access</p>
+          <p className="mt-1 text-sm" style={{ color: 'var(--text-secondary)' }}>Portal Access</p>
         </div>
 
-        <div className="rounded-2xl overflow-hidden" style={{ background: '#242938', border: '1px solid #2e3446' }}>
+        <div className="rounded-2xl overflow-hidden" style={{ background: 'var(--bg-secondary)', border: '1px solid var(--border-color)' }}>
           {/* Tabs */}
-          <div className="flex" style={{ borderBottom: '1px solid #2e3446' }}>
+          <div className="flex" style={{ borderBottom: '1px solid var(--border-color)' }}>
             {(['agent', 'admin'] as Tab[]).map((t) => (
               <button
                 key={t}
@@ -77,7 +77,7 @@ export default function LoginPage() {
           {/* Form */}
           <form onSubmit={handleSubmit(onSubmit)} className="p-8 space-y-5">
             <div>
-              <label className="block text-sm font-medium mb-1.5" style={{ color: '#c9d1d9' }}>
+              <label className="block text-sm font-medium mb-1.5" style={{ color: 'var(--text-body)' }}>
                 Email
               </label>
               <input
@@ -86,9 +86,9 @@ export default function LoginPage() {
                 placeholder="you@example.com"
                 className="w-full rounded-lg px-4 py-3 text-sm outline-none transition-all"
                 style={{
-                  background: '#1a1f2e',
-                  border: errors.email ? '1px solid #e74c3c' : '1px solid #2e3446',
-                  color: '#e6edf3',
+                  background: 'var(--bg-primary)',
+                  border: errors.email ? '1px solid #e74c3c' : '1px solid var(--border-color)',
+                  color: 'var(--text-primary)',
                 }}
                 {...register('email', {
                   required: 'Email is required',
@@ -101,7 +101,7 @@ export default function LoginPage() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-1.5" style={{ color: '#c9d1d9' }}>
+              <label className="block text-sm font-medium mb-1.5" style={{ color: 'var(--text-body)' }}>
                 Password
               </label>
               <input
@@ -110,9 +110,9 @@ export default function LoginPage() {
                 placeholder="••••••••"
                 className="w-full rounded-lg px-4 py-3 text-sm outline-none transition-all"
                 style={{
-                  background: '#1a1f2e',
-                  border: errors.password ? '1px solid #e74c3c' : '1px solid #2e3446',
-                  color: '#e6edf3',
+                  background: 'var(--bg-primary)',
+                  border: errors.password ? '1px solid #e74c3c' : '1px solid var(--border-color)',
+                  color: 'var(--text-primary)',
                 }}
                 {...register('password', { required: 'Password is required' })}
               />
@@ -140,7 +140,7 @@ export default function LoginPage() {
             </button>
 
             {tab === 'agent' && (
-              <p className="text-center text-sm" style={{ color: '#8892a4' }}>
+              <p className="text-center text-sm" style={{ color: 'var(--text-secondary)' }}>
                 Not registered?{' '}
                 <a href="/signup" className="font-medium hover:underline" style={{ color: '#c9a84c' }}>
                   Apply as an Agent

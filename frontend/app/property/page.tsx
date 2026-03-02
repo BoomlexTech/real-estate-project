@@ -44,7 +44,7 @@ export default async function PropertyPage({
   }
 
   return (
-    <main className="min-h-screen pt-32 pb-20 px-4" style={{ background: '#0A0E1A' }}>
+    <main className="min-h-screen pt-32 pb-20 px-4" style={{ background: 'var(--bg-primary)' }}>
       <div className="max-w-7xl mx-auto">
         <h1 className="text-3xl sm:text-4xl font-bold text-white mb-8">
           {params.type

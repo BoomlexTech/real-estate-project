@@ -52,7 +52,7 @@ export default function SignupPage() {
 
   if (submitted) {
     return (
-      <div className="min-h-screen flex items-center justify-center px-4 pt-24" style={{ background: '#1a1f2e' }}>
+      <div className="min-h-screen flex items-center justify-center px-4 pt-24" style={{ background: 'var(--bg-primary)' }}>
         <div className="w-full max-w-md text-center space-y-6">
           <div
             className="w-16 h-16 rounded-full flex items-center justify-center mx-auto text-3xl"
@@ -60,8 +60,8 @@ export default function SignupPage() {
           >
             ✓
           </div>
-          <h2 className="text-2xl font-bold" style={{ color: '#e6edf3' }}>Application Submitted!</h2>
-          <p className="text-sm leading-relaxed" style={{ color: '#8892a4' }}>
+          <h2 className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>Application Submitted!</h2>
+          <p className="text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
             Your agent application has been received. An admin will review and approve your account
             shortly. You&apos;ll be able to log in once approved.
           </p>
@@ -78,18 +78,18 @@ export default function SignupPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 pt-28 pb-12" style={{ background: '#1a1f2e' }}>
+    <div className="min-h-screen flex items-center justify-center px-4 pt-28 pb-12" style={{ background: 'var(--bg-primary)' }}>
       <div className="w-full max-w-lg">
         {/* Brand */}
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold" style={{ color: '#c9a84c' }}>Awtad Real Estate</h1>
-          <p className="mt-1 text-sm" style={{ color: '#8892a4' }}>Agent Application</p>
+          <p className="mt-1 text-sm" style={{ color: 'var(--text-secondary)' }}>Agent Application</p>
         </div>
 
-        <div className="rounded-2xl overflow-hidden" style={{ background: '#242938', border: '1px solid #2e3446' }}>
-          <div className="px-8 pt-6 pb-2" style={{ borderBottom: '1px solid #2e3446' }}>
-            <h2 className="text-lg font-semibold" style={{ color: '#e6edf3' }}>Create Agent Account</h2>
-            <p className="text-xs mt-0.5" style={{ color: '#8892a4' }}>
+        <div className="rounded-2xl overflow-hidden" style={{ background: 'var(--bg-secondary)', border: '1px solid var(--border-color)' }}>
+          <div className="px-8 pt-6 pb-2" style={{ borderBottom: '1px solid var(--border-color)' }}>
+            <h2 className="text-lg font-semibold" style={{ color: 'var(--text-primary)' }}>Create Agent Account</h2>
+            <p className="text-xs mt-0.5" style={{ color: 'var(--text-secondary)' }}>
               Your application will be reviewed by an admin before activation.
             </p>
           </div>
@@ -98,7 +98,7 @@ export default function SignupPage() {
             {/* Row: name + email */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium mb-1.5" style={{ color: '#c9d1d9' }}>
+                <label className="block text-sm font-medium mb-1.5" style={{ color: 'var(--text-body)' }}>
                   Full Name <span style={{ color: '#e74c3c' }}>*</span>
                 </label>
                 <input
@@ -106,9 +106,9 @@ export default function SignupPage() {
                   placeholder="John Smith"
                   className="w-full rounded-lg px-4 py-3 text-sm outline-none"
                   style={{
-                    background: '#1a1f2e',
-                    border: errors.name ? '1px solid #e74c3c' : '1px solid #2e3446',
-                    color: '#e6edf3',
+                    background: 'var(--bg-primary)',
+                    border: errors.name ? '1px solid #e74c3c' : '1px solid var(--border-color)',
+                    color: 'var(--text-primary)',
                   }}
                   {...register('name', { required: 'Name is required' })}
                 />
@@ -118,7 +118,7 @@ export default function SignupPage() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-1.5" style={{ color: '#c9d1d9' }}>
+                <label className="block text-sm font-medium mb-1.5" style={{ color: 'var(--text-body)' }}>
                   Email <span style={{ color: '#e74c3c' }}>*</span>
                 </label>
                 <input
@@ -126,9 +126,9 @@ export default function SignupPage() {
                   placeholder="you@example.com"
                   className="w-full rounded-lg px-4 py-3 text-sm outline-none"
                   style={{
-                    background: '#1a1f2e',
-                    border: errors.email ? '1px solid #e74c3c' : '1px solid #2e3446',
-                    color: '#e6edf3',
+                    background: 'var(--bg-primary)',
+                    border: errors.email ? '1px solid #e74c3c' : '1px solid var(--border-color)',
+                    color: 'var(--text-primary)',
                   }}
                   {...register('email', {
                     required: 'Email is required',
@@ -144,7 +144,7 @@ export default function SignupPage() {
             {/* Row: password + confirm */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium mb-1.5" style={{ color: '#c9d1d9' }}>
+                <label className="block text-sm font-medium mb-1.5" style={{ color: 'var(--text-body)' }}>
                   Password <span style={{ color: '#e74c3c' }}>*</span>
                 </label>
                 <input
@@ -152,9 +152,9 @@ export default function SignupPage() {
                   placeholder="••••••••"
                   className="w-full rounded-lg px-4 py-3 text-sm outline-none"
                   style={{
-                    background: '#1a1f2e',
-                    border: errors.password ? '1px solid #e74c3c' : '1px solid #2e3446',
-                    color: '#e6edf3',
+                    background: 'var(--bg-primary)',
+                    border: errors.password ? '1px solid #e74c3c' : '1px solid var(--border-color)',
+                    color: 'var(--text-primary)',
                   }}
                   {...register('password', {
                     required: 'Password is required',
@@ -167,7 +167,7 @@ export default function SignupPage() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-1.5" style={{ color: '#c9d1d9' }}>
+                <label className="block text-sm font-medium mb-1.5" style={{ color: 'var(--text-body)' }}>
                   Confirm Password <span style={{ color: '#e74c3c' }}>*</span>
                 </label>
                 <input
@@ -175,9 +175,9 @@ export default function SignupPage() {
                   placeholder="••••••••"
                   className="w-full rounded-lg px-4 py-3 text-sm outline-none"
                   style={{
-                    background: '#1a1f2e',
-                    border: errors.confirmPassword ? '1px solid #e74c3c' : '1px solid #2e3446',
-                    color: '#e6edf3',
+                    background: 'var(--bg-primary)',
+                    border: errors.confirmPassword ? '1px solid #e74c3c' : '1px solid var(--border-color)',
+                    color: 'var(--text-primary)',
                   }}
                   {...register('confirmPassword', {
                     required: 'Please confirm your password',
@@ -192,12 +192,12 @@ export default function SignupPage() {
 
             {/* Phone */}
             <div>
-              <label className="block text-sm font-medium mb-1.5" style={{ color: '#c9d1d9' }}>Phone</label>
+              <label className="block text-sm font-medium mb-1.5" style={{ color: 'var(--text-body)' }}>Phone</label>
               <input
                 type="tel"
                 placeholder="+971 50 000 0000"
                 className="w-full rounded-lg px-4 py-3 text-sm outline-none"
-                style={{ background: '#1a1f2e', border: '1px solid #2e3446', color: '#e6edf3' }}
+                style={{ background: 'var(--bg-primary)', border: '1px solid var(--border-color)', color: 'var(--text-primary)' }}
                 {...register('phone')}
               />
             </div>
@@ -205,28 +205,28 @@ export default function SignupPage() {
             {/* Row: languages + specialization */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium mb-1.5" style={{ color: '#c9d1d9' }}>
+                <label className="block text-sm font-medium mb-1.5" style={{ color: 'var(--text-body)' }}>
                   Languages
                 </label>
                 <input
                   type="text"
                   placeholder="English, Arabic, Russian"
                   className="w-full rounded-lg px-4 py-3 text-sm outline-none"
-                  style={{ background: '#1a1f2e', border: '1px solid #2e3446', color: '#e6edf3' }}
+                  style={{ background: 'var(--bg-primary)', border: '1px solid var(--border-color)', color: 'var(--text-primary)' }}
                   {...register('languages')}
                 />
-                <p className="mt-1 text-xs" style={{ color: '#8892a4' }}>Comma-separated</p>
+                <p className="mt-1 text-xs" style={{ color: 'var(--text-secondary)' }}>Comma-separated</p>
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-1.5" style={{ color: '#c9d1d9' }}>
+                <label className="block text-sm font-medium mb-1.5" style={{ color: 'var(--text-body)' }}>
                   Specialization
                 </label>
                 <input
                   type="text"
                   placeholder="Luxury Villas, Off-Plan…"
                   className="w-full rounded-lg px-4 py-3 text-sm outline-none"
-                  style={{ background: '#1a1f2e', border: '1px solid #2e3446', color: '#e6edf3' }}
+                  style={{ background: 'var(--bg-primary)', border: '1px solid var(--border-color)', color: 'var(--text-primary)' }}
                   {...register('specialization')}
                 />
               </div>
@@ -234,12 +234,12 @@ export default function SignupPage() {
 
             {/* Bio */}
             <div>
-              <label className="block text-sm font-medium mb-1.5" style={{ color: '#c9d1d9' }}>Bio</label>
+              <label className="block text-sm font-medium mb-1.5" style={{ color: 'var(--text-body)' }}>Bio</label>
               <textarea
                 rows={3}
                 placeholder="Tell us about your experience…"
                 className="w-full rounded-lg px-4 py-3 text-sm outline-none resize-none"
-                style={{ background: '#1a1f2e', border: '1px solid #2e3446', color: '#e6edf3' }}
+                style={{ background: 'var(--bg-primary)', border: '1px solid var(--border-color)', color: 'var(--text-primary)' }}
                 {...register('bio')}
               />
             </div>
@@ -262,7 +262,7 @@ export default function SignupPage() {
               {isSubmitting ? 'Submitting…' : 'Submit Application'}
             </button>
 
-            <p className="text-center text-sm" style={{ color: '#8892a4' }}>
+            <p className="text-center text-sm" style={{ color: 'var(--text-secondary)' }}>
               Already have an account?{' '}
               <a href="/login" className="font-medium hover:underline" style={{ color: '#c9a84c' }}>
                 Sign In

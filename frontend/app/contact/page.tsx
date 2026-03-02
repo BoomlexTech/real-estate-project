@@ -35,8 +35,8 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen pt-24" style={{ background: '#1a1f2e' }}>
-      <div className="px-4 py-14 text-center" style={{ background: '#242938' }}>
+    <div className="min-h-screen pt-24" style={{ background: 'var(--bg-primary)' }}>
+      <div className="px-4 py-14 text-center" style={{ background: 'var(--bg-secondary)' }}>
         <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: '#c9a84c' }}>GET IN TOUCH</p>
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">Contact Us</h1>
         <p className="text-gray-400 max-w-xl mx-auto text-sm">

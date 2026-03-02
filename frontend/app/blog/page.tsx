@@ -12,7 +12,7 @@ export default async function BlogPage() {
   }
 
   return (
-    <main className="min-h-screen pt-32 pb-20 px-4" style={{ background: '#1a1f2e' }}>
+    <main className="min-h-screen pt-32 pb-20 px-4" style={{ background: 'var(--bg-primary)' }}>
       <div className="max-w-7xl mx-auto">
         <h1 className="font-serif text-3xl sm:text-4xl font-light text-white mb-2 leading-tight">Blog & Insights</h1>
         <p className="text-gray-400 mb-10">Stay updated with the latest Dubai real estate news</p>
@@ -23,7 +23,7 @@ export default async function BlogPage() {
               key={post.id}
               href={`/blog/${post.slug}`}
               className="group block rounded-2xl overflow-hidden transition-transform hover:scale-[1.02]"
-              style={{ background: '#232838', border: '1px solid #2d3348' }}
+              style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)' }}
             >
               <div className="relative h-48">
                 <Image

@@ -23,11 +23,13 @@
   --font-serif: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
   --color-gold: #C9A96E;
   --color-gold-light: #DFBF8A;
-  --color-bg-primary: #0A0E1A;
-  --color-bg-secondary: #0f1523;
-  --color-bg-card: #111827;
-  --color-text-secondary: #94A3B8;
-  --color-border: #1E293B;
+  /* Use var() so Tailwind utility classes (bg-card, bg-bg-primary, etc.)
+     respond to [data-theme="light"] at runtime */
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-bg-card: var(--bg-card);
+  --color-text-secondary: var(--text-secondary);
+  --color-border: var(--border-color);
 }
 
 * {

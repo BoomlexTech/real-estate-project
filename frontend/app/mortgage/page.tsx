@@ -116,12 +116,12 @@ function MortgageCalculator() {
       </div>
 
       {/* Results */}
-      <div className="mt-8 rounded-xl p-5 space-y-4" style={{ background: '#1a1f2e', border: '1px solid #3a4058' }}>
+      <div className="mt-8 rounded-xl p-5 space-y-4" style={{ background: 'var(--bg-primary)', border: '1px solid var(--border-color)' }}>
         <div className="flex justify-between items-center">
           <span className="text-gray-400 text-sm">Loan Amount</span>
           <span className="text-white font-semibold">{fmt(loanAmount)}</span>
         </div>
-        <div className="flex justify-between items-center pb-4" style={{ borderBottom: '1px solid #3a4058' }}>
+        <div className="flex justify-between items-center pb-4" style={{ borderBottom: '1px solid var(--border-color)' }}>
           <span className="text-gray-400 text-sm">Total Repayment</span>
           <span className="text-white font-semibold">{fmt(totalPayment)}</span>
         </div>
@@ -140,9 +140,9 @@ export default function MortgagePage() {
   const onSubmit = (_data: InquiryForm) => setSubmitted(true);
 
   return (
-    <div className="min-h-screen pt-24" style={{ background: '#1a1f2e' }}>
+    <div className="min-h-screen pt-24" style={{ background: 'var(--bg-primary)' }}>
       {/* Hero */}
-      <div className="px-4 py-16 text-center" style={{ background: '#242938' }}>
+      <div className="px-4 py-16 text-center" style={{ background: 'var(--bg-secondary)' }}>
         <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: '#c9a84c' }}>FINANCING</p>
         <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl font-light text-white mb-4 leading-tight">Get a Mortgage in Dubai & The UAE</h1>
         <p className="text-gray-400 max-w-2xl mx-auto text-sm leading-relaxed">
@@ -182,7 +182,7 @@ export default function MortgagePage() {
                   <option>Retired / High Net Worth</option>
                 </select>
 
-                <div className="rounded-lg p-4 text-xs text-gray-400 space-y-1" style={{ background: '#1a1f2e', border: '1px solid #3a4058' }}>
+                <div className="rounded-lg p-4 text-xs text-gray-400 space-y-1" style={{ background: 'var(--bg-primary)', border: '1px solid var(--border-color)' }}>
                   <p className="text-white font-medium mb-2">What we offer:</p>
                   {['Rates from 3.49% per annum', 'Up to 25-year loan terms', 'Up to 80% LTV for UAE residents', 'Zero application fees'].map((item) => (
                     <p key={item} className="flex items-center gap-2"><span style={{ color: '#c9a84c' }}>✓</span> {item}</p>
@@ -205,7 +205,7 @@ export default function MortgagePage() {
               <div
                 key={bank}
                 className="px-5 py-3 rounded-lg text-sm text-gray-300"
-                style={{ background: '#2d3347', border: '1px solid #3a4058' }}
+                style={{ background: 'var(--bg-secondary)', border: '1px solid var(--border-color)' }}
               >
                 {bank}
               </div>

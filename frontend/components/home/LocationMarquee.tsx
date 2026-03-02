@@ -15,14 +15,14 @@ const locations = [
 
 export default function LocationMarquee() {
     return (
-        <section className="bg-card border-y py-3" style={{ borderColor: 'rgba(201,169,110,0.4)' }}>
+        <section className="border-y py-3" style={{ background: 'var(--bg-card)', borderColor: 'rgba(201,169,110,0.4)' }}>
             <div className="relative flex whitespace-nowrap overflow-hidden">
                 {/* The scrolling track */}
                 <div className="flex animate-marquee min-w-max">
                     {/* We duplicate the content to create a seamless loop */}
                     {[...locations, ...locations, ...locations, ...locations].map((location, i) => (
                         <div key={i} className="flex items-center">
-                            <span className="text-white/70 text-sm font-light tracking-[0.15em] uppercase px-4 sm:px-8">
+                            <span className="text-sm font-light tracking-[0.15em] uppercase px-4 sm:px-8" style={{ color: 'var(--text-secondary)' }}>
                                 {location}
                             </span>
                             <span className="text-gold opacity-50 text-xs">◆</span>

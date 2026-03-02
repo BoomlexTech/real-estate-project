@@ -24,7 +24,7 @@ export default async function AgentDetailPage({
   }
 
   return (
-    <main className="min-h-screen pt-32 pb-20 px-4" style={{ background: '#0A0E1A' }}>
+    <main className="min-h-screen pt-32 pb-20 px-4" style={{ background: 'var(--bg-primary)' }}>
       <div className="max-w-7xl mx-auto">
 
         {/* Back */}
@@ -39,13 +39,13 @@ export default async function AgentDetailPage({
         {/* Agent Header Card */}
         <div
           className="p-8 mb-12"
-          style={{ background: '#111827', border: '1px solid rgba(201,169,110,0.2)' }}
+          style={{ background: 'var(--bg-card)', border: '1px solid rgba(201,169,110,0.2)' }}
         >
           <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
             {/* Avatar — square */}
             <div
               className="w-28 h-28 shrink-0 overflow-hidden flex items-center justify-center text-4xl font-serif font-light"
-              style={{ border: '2px solid rgba(201,169,110,0.55)', color: '#C9A96E', background: '#0A0E1A' }}
+              style={{ border: '2px solid rgba(201,169,110,0.55)', color: '#C9A96E', background: 'var(--bg-primary)' }}
             >
               {agent!.photo ? (
                 // eslint-disable-next-line @next/next/no-img-element
@@ -133,7 +133,7 @@ export default async function AgentDetailPage({
           {properties!.length === 0 ? (
             <div
               className="p-12 text-center"
-              style={{ background: '#111827', border: '1px solid rgba(201,169,110,0.15)' }}
+              style={{ background: 'var(--bg-card)', border: '1px solid rgba(201,169,110,0.15)' }}
             >
               <p className="text-sm tracking-wide" style={{ color: '#94A3B8' }}>No listings yet</p>
             </div>

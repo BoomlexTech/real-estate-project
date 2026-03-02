@@ -21,9 +21,9 @@ const values = [
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen pt-24" style={{ background: '#1a1f2e' }}>
+    <div className="min-h-screen pt-24" style={{ background: 'var(--bg-primary)' }}>
       {/* Hero */}
-      <div className="px-4 py-16 text-center" style={{ background: '#242938' }}>
+      <div className="px-4 py-16 text-center" style={{ background: 'var(--bg-secondary)' }}>
         <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: '#c9a84c' }}>OUR STORY</p>
         <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl font-light text-white mb-4 leading-tight">About Awtad Real Estate</h1>
         <p className="text-gray-400 max-w-2xl mx-auto text-sm leading-relaxed">
@@ -32,7 +32,7 @@ export default function AboutPage() {
       </div>
 
       {/* Stats */}
-      <div className="py-14 px-4" style={{ background: '#1a1f2e' }}>
+      <div className="py-14 px-4" style={{ background: 'var(--bg-primary)' }}>
         <div className="max-w-5xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-4">
           {stats.map((s) => (
             <div key={s.label} className="card-dark p-6 text-center">
@@ -44,7 +44,7 @@ export default function AboutPage() {
       </div>
 
       {/* Story */}
-      <div className="py-14 px-4" style={{ background: '#242938' }}>
+      <div className="py-14 px-4" style={{ background: 'var(--bg-secondary)' }}>
         <div className="max-w-4xl mx-auto">
           <h2 className="font-serif text-2xl font-light text-white mb-6 leading-tight">Our Story</h2>
           <div className="space-y-4 text-gray-400 text-sm leading-relaxed">
@@ -62,7 +62,7 @@ export default function AboutPage() {
       </div>
 
       {/* Values */}
-      <div className="py-14 px-4" style={{ background: '#1a1f2e' }}>
+      <div className="py-14 px-4" style={{ background: 'var(--bg-primary)' }}>
         <div className="max-w-7xl mx-auto">
           <h2 className="font-serif text-2xl font-light text-white mb-8 text-center leading-tight">Our Values</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -78,7 +78,7 @@ export default function AboutPage() {
       </div>
 
       {/* CTA */}
-      <div className="py-16 px-4 text-center" style={{ background: '#242938' }}>
+      <div className="py-16 px-4 text-center" style={{ background: 'var(--bg-secondary)' }}>
         <h2 className="font-serif text-2xl font-light text-white mb-4 leading-tight">Ready to Find Your Property?</h2>
         <p className="text-gray-400 text-sm mb-6">Our experts are ready to help you navigate Dubai&apos;s property market.</p>
         <div className="flex flex-wrap gap-4 justify-center">

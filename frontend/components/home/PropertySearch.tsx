@@ -125,8 +125,8 @@ export default function PropertySearch() {
   return (
     <section className="relative z-20 py-16 sm:py-20 px-4">
 
-      {/* Left decorative stats — xl screens only */}
-      <div className="absolute left-6 xl:left-10 2xl:left-16 top-1/2 -translate-y-1/2 hidden xl:flex flex-col items-center gap-0">
+      {/* Left decorative stats — 2xl screens only (needs 256px+ per side to avoid overlap) */}
+      <div className="absolute 2xl:left-16 top-1/2 -translate-y-1/2 hidden 2xl:flex flex-col items-center gap-0">
         <div className="w-px h-10 mb-6" style={{ background: 'linear-gradient(to bottom, transparent, rgba(201,169,110,0.5))' }} />
         {leftStats.map((s, i) => (
           <div key={s.label}>
@@ -142,8 +142,8 @@ export default function PropertySearch() {
         <div className="w-px h-10 mt-6" style={{ background: 'linear-gradient(to bottom, rgba(201,169,110,0.5), transparent)' }} />
       </div>
 
-      {/* Right decorative stats — xl screens only */}
-      <div className="absolute right-6 xl:right-10 2xl:right-16 top-1/2 -translate-y-1/2 hidden xl:flex flex-col items-center gap-0">
+      {/* Right decorative stats — 2xl screens only (needs 256px+ per side to avoid overlap) */}
+      <div className="absolute 2xl:right-16 top-1/2 -translate-y-1/2 hidden 2xl:flex flex-col items-center gap-0">
         <div className="w-px h-10 mb-6" style={{ background: 'linear-gradient(to bottom, transparent, rgba(201,169,110,0.5))' }} />
         {rightStats.map((s, i) => (
           <div key={s.label}>

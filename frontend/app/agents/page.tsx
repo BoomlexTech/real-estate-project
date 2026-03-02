@@ -12,7 +12,7 @@ export default async function AgentsPage() {
   }
 
   return (
-    <main className="min-h-screen pt-32 pb-20 px-4" style={{ background: '#0A0E1A' }}>
+    <main className="min-h-screen pt-32 pb-20 px-4" style={{ background: 'var(--bg-primary)' }}>
       <div className="max-w-7xl mx-auto">
 
         {/* Heading */}
@@ -32,7 +32,7 @@ export default async function AgentsPage() {
         {agents.length === 0 ? (
           <div
             className="p-16 text-center"
-            style={{ background: '#111827', border: '1px solid rgba(201,169,110,0.15)' }}
+            style={{ background: 'var(--bg-card)', border: '1px solid rgba(201,169,110,0.15)' }}
           >
             <p className="font-serif text-xl font-light text-white mb-2">No agents available</p>
             <p className="text-sm" style={{ color: '#94A3B8' }}>Check back soon.</p>
@@ -45,7 +45,7 @@ export default async function AgentsPage() {
               <div
                 key={agent.id}
                 className="group relative p-7 transition-colors"
-                style={{ background: '#111827' }}
+                style={{ background: 'var(--bg-card)' }}
               >
                 {/* Stretched link covers entire card */}
                 <Link href={`/agents/${agent.id}`} className="absolute inset-0" aria-label={`View ${agent.name}'s profile`} />
@@ -54,7 +54,7 @@ export default async function AgentsPage() {
                   {/* Square avatar */}
                   <div
                     className="w-16 h-16 shrink-0 overflow-hidden flex items-center justify-center text-xl font-serif font-light"
-                    style={{ border: '1px solid rgba(201,169,110,0.38)', color: '#C9A96E', background: '#0A0E1A' }}
+                    style={{ border: '1px solid rgba(201,169,110,0.38)', color: '#C9A96E', background: 'var(--bg-primary)' }}
                   >
                     {agent.photo ? (
                       // eslint-disable-next-line @next/next/no-img-element

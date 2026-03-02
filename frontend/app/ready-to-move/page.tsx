@@ -7,8 +7,8 @@ export const metadata = {
 
 export default function ReadyToMovePage() {
   return (
-    <div className="min-h-screen pt-24" style={{ background: '#1a1f2e' }}>
-      <div className="px-4 py-16 text-center" style={{ background: '#242938' }}>
+    <div className="min-h-screen pt-24" style={{ background: 'var(--bg-primary)' }}>
+      <div className="px-4 py-16 text-center" style={{ background: 'var(--bg-secondary)' }}>
         <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: '#c9a84c' }}>IMMEDIATE POSSESSION</p>
         <h1 className="text-4xl font-bold text-white mb-4">Ready to Move Properties</h1>
         <p className="text-gray-400 max-w-xl mx-auto text-sm leading-relaxed">

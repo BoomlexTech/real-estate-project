@@ -136,8 +136,8 @@ export default function YoutubeSection() {
             Watch exclusive video tours of Dubai&apos;s most sought-after properties — from waterfront apartments to luxury villas.
           </p>
 
-          {/* Arrow controls — floated top-right */}
-          <div className="absolute top-0 right-0 flex gap-2">
+          {/* Arrow controls — right-aligned on mobile, absolute top-right on sm+ */}
+          <div className="flex gap-2 self-end sm:absolute sm:top-0 sm:right-0">
             <button
               onClick={prev}
               disabled={!canPrev}

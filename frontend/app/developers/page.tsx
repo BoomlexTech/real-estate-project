@@ -11,7 +11,7 @@ export default async function DevelopersPage() {
   }
 
   return (
-    <main className="min-h-screen pt-32 pb-20 px-4" style={{ background: '#1a1f2e' }}>
+    <main className="min-h-screen pt-32 pb-20 px-4" style={{ background: 'var(--bg-primary)' }}>
       <div className="max-w-7xl mx-auto">
         <h1 className="text-3xl sm:text-4xl font-bold text-white mb-2">Top Developers in Dubai</h1>
         <p className="text-gray-400 mb-10">Explore projects from the region&apos;s leading developers</p>
@@ -22,9 +22,9 @@ export default async function DevelopersPage() {
               key={dev.id}
               href={`/developers/${dev.slug}`}
               className="group block p-6 rounded-2xl transition-all hover:scale-[1.02]"
-              style={{ background: '#232838', border: '1px solid #2d3348' }}
+              style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)' }}
             >
-              <div className="w-16 h-16 rounded-xl overflow-hidden mb-4 relative" style={{ background: '#1a1f2e' }}>
+              <div className="w-16 h-16 rounded-xl overflow-hidden mb-4 relative" style={{ background: 'var(--bg-primary)' }}>
                 {dev.logo && (
                   <Image src={dev.logo} alt={dev.name} fill className="object-cover" sizes="64px" />
                 )}

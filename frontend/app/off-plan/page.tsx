@@ -14,8 +14,8 @@ const projects = [
 
 export default function OffPlanPage() {
   return (
-    <div className="min-h-screen pt-24" style={{ background: '#1a1f2e' }}>
-      <div className="px-4 py-16 text-center" style={{ background: '#242938' }}>
+    <div className="min-h-screen pt-24" style={{ background: 'var(--bg-primary)' }}>
+      <div className="px-4 py-16 text-center" style={{ background: 'var(--bg-secondary)' }}>
         <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: '#c9a84c' }}>INVEST EARLY</p>
         <h1 className="text-4xl font-bold text-white mb-4">Off-Plan Properties in Dubai</h1>
         <p className="text-gray-400 max-w-xl mx-auto text-sm leading-relaxed">
@@ -45,7 +45,7 @@ export default function OffPlanPage() {
             <div key={p.name} className="card-dark p-5">
               <div
                 className="h-32 rounded-lg mb-4 flex items-end p-3"
-                style={{ background: 'linear-gradient(135deg, #0f1829 0%, #1a2a4a 100%)' }}
+                style={{ background: 'var(--bg-secondary)' }}
               >
                 <span
                   className="text-xs px-2 py-0.5 rounded font-bold"
