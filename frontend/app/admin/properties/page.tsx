@@ -8,8 +8,10 @@ import {
   toggleFeatured,
   AdminProperty,
 } from '@/lib/adminApi';
+import { useTheme } from '@/contexts/ThemeContext';
 
 export default function AdminPropertiesPage() {
+  const { palette } = useTheme();
   const [properties, setProperties] = useState<AdminProperty[]>([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
@@ -58,7 +60,7 @@ export default function AdminPropertiesPage() {
   const statusColor: Record<string, { bg: string; color: string }> = {
     'for-sale': { bg: 'rgba(59,130,246,0.15)', color: '#3b82f6' },
     'for-rent': { bg: 'rgba(34,197,94,0.15)', color: '#22c55e' },
-    'off-plan': { bg: 'rgba(201,168,76,0.15)', color: '#c9a84c' },
+    'off-plan': { bg: 'rgba(201,168,76,0.15)', color: palette.gold },
     'ready': { bg: 'rgba(168,85,247,0.15)', color: '#a855f7' },
   };
 
@@ -66,24 +68,24 @@ export default function AdminPropertiesPage() {
     <div>
       <div className="mb-6 flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold" style={{ color: '#e6edf3' }}>Properties</h1>
-          <p className="text-sm mt-1" style={{ color: '#8892a4' }}>
+          <h1 className="text-2xl font-bold" style={{ color: palette.textPrimary }}>Properties</h1>
+          <p className="text-sm mt-1" style={{ color: palette.textSecondary }}>
             {total} total listings
           </p>
         </div>
         <button
           onClick={() => fetchProperties(page)}
           className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm transition-opacity hover:opacity-70"
-          style={{ background: '#242938', border: '1px solid #2e3446', color: '#8892a4' }}
+          style={{ background: palette.cardBg, border: `1px solid ${palette.border}`, color: palette.textSecondary }}
         >
           <RefreshCw size={14} /> Refresh
         </button>
       </div>
 
-      <div className="rounded-xl overflow-hidden" style={{ background: '#242938', border: '1px solid #2e3446' }}>
+      <div className="rounded-xl overflow-hidden" style={{ background: palette.cardBg, border: `1px solid ${palette.border}` }}>
         {loading ? (
           <div className="flex items-center justify-center h-48">
-            <div className="w-7 h-7 border-2 rounded-full animate-spin" style={{ borderColor: '#c9a84c', borderTopColor: 'transparent' }} />
+            <div className="w-7 h-7 border-2 rounded-full animate-spin" style={{ borderColor: palette.gold, borderTopColor: 'transparent' }} />
           </div>
         ) : error ? (
           <div className="flex items-center justify-center h-48">
@@ -91,15 +93,15 @@ export default function AdminPropertiesPage() {
           </div>
         ) : properties.length === 0 ? (
           <div className="flex items-center justify-center h-48">
-            <p className="text-sm" style={{ color: '#8892a4' }}>No properties found.</p>
+            <p className="text-sm" style={{ color: palette.textSecondary }}>No properties found.</p>
           </div>
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr style={{ borderBottom: '1px solid #2e3446' }}>
+                <tr style={{ borderBottom: `1px solid ${palette.border}` }}>
                   {['Title', 'Type', 'Status', 'Price (AED)', 'Agent', 'Developer', 'Featured', 'Date', 'Actions'].map((h) => (
-                    <th key={h} className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide" style={{ color: '#8892a4' }}>
+                    <th key={h} className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide" style={{ color: palette.textSecondary }}>
                       {h}
                     </th>
                   ))}
@@ -107,35 +109,35 @@ export default function AdminPropertiesPage() {
               </thead>
               <tbody>
                 {properties.map((prop) => {
-                  const sc = statusColor[prop.status] || { bg: 'rgba(136,146,164,0.15)', color: '#8892a4' };
+                  const sc = statusColor[prop.status] || { bg: 'rgba(136,146,164,0.15)', color: palette.textSecondary };
                   return (
-                    <tr key={prop._id} style={{ borderBottom: '1px solid #2e3446' }}>
-                      <td className="px-4 py-3 font-medium max-w-[200px] truncate" style={{ color: '#e6edf3' }}>
+                    <tr key={prop._id} style={{ borderBottom: `1px solid ${palette.border}` }}>
+                      <td className="px-4 py-3 font-medium max-w-50 truncate" style={{ color: palette.textPrimary }}>
                         {prop.title}
                       </td>
-                      <td className="px-4 py-3 capitalize" style={{ color: '#8892a4' }}>{prop.propertyType}</td>
+                      <td className="px-4 py-3 capitalize" style={{ color: palette.textSecondary }}>{prop.propertyType}</td>
                       <td className="px-4 py-3">
                         <span className="px-2 py-0.5 rounded-full text-xs font-semibold" style={{ background: sc.bg, color: sc.color }}>
                           {prop.status}
                         </span>
                       </td>
-                      <td className="px-4 py-3 whitespace-nowrap" style={{ color: '#c9d1d9' }}>
+                      <td className="px-4 py-3 whitespace-nowrap" style={{ color: palette.textPrimary }}>
                         {prop.price ? `AED ${(prop.price / 1_000_000).toFixed(1)}M` : '—'}
                       </td>
-                      <td className="px-4 py-3" style={{ color: '#8892a4' }}>{prop.agent?.name || '—'}</td>
-                      <td className="px-4 py-3" style={{ color: '#8892a4' }}>{prop.developer?.name || '—'}</td>
+                      <td className="px-4 py-3" style={{ color: palette.textSecondary }}>{prop.agent?.name || '—'}</td>
+                      <td className="px-4 py-3" style={{ color: palette.textSecondary }}>{prop.developer?.name || '—'}</td>
                       <td className="px-4 py-3">
                         <button
                           onClick={() => handleToggleFeatured(prop._id)}
                           disabled={actionLoading === prop._id + '_feature'}
                           title={prop.isFeatured ? 'Unfeature' : 'Feature'}
                           className="transition-opacity hover:opacity-70 disabled:opacity-40"
-                          style={{ color: prop.isFeatured ? '#c9a84c' : '#4b5563' }}
+                          style={{ color: prop.isFeatured ? palette.gold : palette.textDim }}
                         >
-                          {prop.isFeatured ? <Star size={16} fill="#c9a84c" /> : <StarOff size={16} />}
+                          {prop.isFeatured ? <Star size={16} fill={palette.gold} /> : <StarOff size={16} />}
                         </button>
                       </td>
-                      <td className="px-4 py-3 whitespace-nowrap" style={{ color: '#8892a4' }}>
+                      <td className="px-4 py-3 whitespace-nowrap" style={{ color: palette.textSecondary }}>
                         {new Date(prop.createdAt).toLocaleDateString()}
                       </td>
                       <td className="px-4 py-3">
@@ -161,13 +163,13 @@ export default function AdminPropertiesPage() {
       {/* Pagination */}
       {totalPages > 1 && (
         <div className="flex items-center justify-between mt-4">
-          <p className="text-sm" style={{ color: '#8892a4' }}>Page {page} of {totalPages}</p>
+          <p className="text-sm" style={{ color: palette.textSecondary }}>Page {page} of {totalPages}</p>
           <div className="flex gap-2">
             <button
               onClick={() => setPage((p) => Math.max(1, p - 1))}
               disabled={page === 1}
               className="w-8 h-8 rounded-lg flex items-center justify-center transition-opacity hover:opacity-70 disabled:opacity-30"
-              style={{ background: '#242938', border: '1px solid #2e3446', color: '#8892a4' }}
+              style={{ background: palette.cardBg, border: `1px solid ${palette.border}`, color: palette.textSecondary }}
             >
               <ChevronLeft size={16} />
             </button>
@@ -175,7 +177,7 @@ export default function AdminPropertiesPage() {
               onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
               disabled={page === totalPages}
               className="w-8 h-8 rounded-lg flex items-center justify-center transition-opacity hover:opacity-70 disabled:opacity-30"
-              style={{ background: '#242938', border: '1px solid #2e3446', color: '#8892a4' }}
+              style={{ background: palette.cardBg, border: `1px solid ${palette.border}`, color: palette.textSecondary }}
             >
               <ChevronRight size={16} />
             </button>

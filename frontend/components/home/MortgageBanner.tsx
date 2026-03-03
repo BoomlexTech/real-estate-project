@@ -52,11 +52,11 @@ export default function MortgageBanner() {
             <p className="text-[10px] tracking-[0.28em] uppercase mb-4" style={{ color: '#C9A96E' }}>
               Mortgage Services
             </p>
-            <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-light text-white mb-5 leading-tight">
+            <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-light t-heading mb-5 leading-tight">
               Get Mortgage in Dubai &amp;{' '}
               <span style={{ color: '#C9A96E' }}>The UAE</span>
             </h2>
-            <p className="text-gray-400 text-sm leading-relaxed mb-6">
+            <p className="t-secondary text-sm leading-relaxed mb-6">
               Our dedicated mortgage advisors work with 20+ leading banks to secure the best rates for you. Whether you&apos;re a first-time buyer or seasoned investor, we make the financing process seamless and fast.
             </p>
 
@@ -76,7 +76,7 @@ export default function MortgageBanner() {
                   >
                     {f.icon}
                   </div>
-                  <span className="text-gray-300 text-sm">{f.text}</span>
+                  <span className="t-secondary text-sm">{f.text}</span>
                 </div>
               ))}
             </div>
@@ -102,17 +102,17 @@ export default function MortgageBanner() {
               {submitted ? (
                 <div className="text-center py-8">
                   <CheckCircle className="w-14 h-14 mx-auto mb-4" style={{ color: '#C9A96E' }} />
-                  <h3 className="text-white text-xl font-bold mb-2">Thank You!</h3>
-                  <p className="text-gray-400 text-sm">
+                  <h3 className="t-heading text-xl font-bold mb-2">Thank You!</h3>
+                  <p className="t-secondary text-sm">
                     Our mortgage advisor will contact you within 24 hours.
                   </p>
                 </div>
               ) : (
                 <>
-                  <h3 className="text-white text-lg font-bold mb-1">
+                  <h3 className="t-heading text-lg font-bold mb-1">
                     Find Out How Much You Can Borrow
                   </h3>
-                  <p className="text-gray-400 text-xs mb-6">In Minutes — No obligation, free consultation</p>
+                  <p className="t-secondary text-xs mb-6">In Minutes — No obligation, free consultation</p>
 
                   <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                     <div>

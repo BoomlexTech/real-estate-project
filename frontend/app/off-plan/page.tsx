@@ -16,9 +16,9 @@ export default function OffPlanPage() {
   return (
     <div className="min-h-screen pt-24" style={{ background: 'var(--bg-primary)' }}>
       <div className="px-4 py-16 text-center" style={{ background: 'var(--bg-secondary)' }}>
-        <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: '#c9a84c' }}>INVEST EARLY</p>
-        <h1 className="text-4xl font-bold text-white mb-4">Off-Plan Properties in Dubai</h1>
-        <p className="text-gray-400 max-w-xl mx-auto text-sm leading-relaxed">
+        <p className="text-xs font-semibold uppercase tracking-widest mb-3 t-accent">INVEST EARLY</p>
+        <h1 className="text-4xl font-bold t-heading mb-4">Off-Plan Properties in Dubai</h1>
+        <p className="t-secondary max-w-xl mx-auto text-sm leading-relaxed">
           Get the best prices before completion. Our off-plan properties come with flexible payment plans from Dubai&apos;s top developers.
         </p>
       </div>
@@ -33,13 +33,13 @@ export default function OffPlanPage() {
           ].map((b) => (
             <div key={b.title} className="card-dark p-6 text-center">
               <div className="text-3xl mb-3">{b.icon}</div>
-              <h3 className="text-white font-semibold mb-2">{b.title}</h3>
-              <p className="text-gray-400 text-sm">{b.desc}</p>
+              <h3 className="t-heading font-semibold mb-2">{b.title}</h3>
+              <p className="t-secondary text-sm">{b.desc}</p>
             </div>
           ))}
         </div>
 
-        <h2 className="text-xl font-bold text-white mb-6">Featured Off-Plan Projects</h2>
+        <h2 className="text-xl font-bold t-heading mb-6">Featured Off-Plan Projects</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
           {projects.map((p) => (
             <div key={p.name} className="card-dark p-5">
@@ -54,10 +54,10 @@ export default function OffPlanPage() {
                   OFF-PLAN
                 </span>
               </div>
-              <h3 className="text-white font-semibold text-sm mb-1">{p.name}</h3>
-              <p className="text-gray-400 text-xs mb-2">{p.location}</p>
-              <p className="font-bold mb-3" style={{ color: '#c9a84c' }}>{p.price}</p>
-              <div className="flex gap-2 text-xs text-gray-500">
+              <h3 className="t-heading font-semibold text-sm mb-1">{p.name}</h3>
+              <p className="t-secondary text-xs mb-2">{p.location}</p>
+              <p className="font-bold mb-3 t-accent">{p.price}</p>
+              <div className="flex gap-2 text-xs t-dim">
                 <span>{p.plan} Plan</span>
                 <span>·</span>
                 <span>{p.completion}</span>

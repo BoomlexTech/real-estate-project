@@ -32,24 +32,24 @@ export default async function BlogDetailPage({
 
         {/* Meta */}
         <div className="flex items-center gap-3 mb-4">
-          <span className="px-3 py-1 text-xs font-semibold rounded-full" style={{ background: '#c9a84c', color: '#1a1f2e' }}>
+          <span className="px-3 py-1 text-xs font-semibold rounded-full badge-gold">
             {post.category}
           </span>
-          <span className="text-gray-500 text-sm">
+          <span className="t-dim text-sm">
             {new Date(post.publishedAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
           </span>
-          <span className="text-gray-500 text-sm">by {post.author}</span>
+          <span className="t-dim text-sm">by {post.author}</span>
         </div>
 
         {/* Title */}
-        <h1 className="text-3xl sm:text-4xl font-bold text-white mb-6 leading-tight">
+        <h1 className="text-3xl sm:text-4xl font-bold t-heading mb-6 leading-tight">
           {post.title}
         </h1>
 
         {/* Content */}
         <div
           className="prose prose-invert prose-lg max-w-none"
-          style={{ color: '#cbd5e1' }}
+          style={{ color: 'var(--text-body)' }}
         >
           {post.content.split('\n').map((paragraph, i) => (
             <p key={i} className="mb-4 leading-relaxed">{paragraph}</p>
@@ -62,8 +62,8 @@ export default async function BlogDetailPage({
             {post.tags.map((tag) => (
               <span
                 key={tag}
-                className="px-3 py-1 text-xs rounded-full"
-                style={{ background: 'var(--bg-card)', color: '#c9a84c' }}
+                className="px-3 py-1 text-xs rounded-full t-accent"
+                style={{ background: 'var(--bg-card)' }}
               >
                 #{tag}
               </span>

@@ -9,10 +9,12 @@ import {
   deleteAgent,
   AdminAgent,
 } from '@/lib/adminApi';
+import { useTheme } from '@/contexts/ThemeContext';
 
 type FilterTab = 'all' | 'pending' | 'approved';
 
 export default function AdminAgentsPage() {
+  const { palette } = useTheme();
   const [agents, setAgents] = useState<AdminAgent[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -70,28 +72,28 @@ export default function AdminAgentsPage() {
     <div>
       <div className="mb-6 flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold" style={{ color: '#e6edf3' }}>Agents</h1>
-          <p className="text-sm mt-1" style={{ color: '#8892a4' }}>Manage agent accounts and approvals</p>
+          <h1 className="text-2xl font-bold" style={{ color: palette.textPrimary }}>Agents</h1>
+          <p className="text-sm mt-1" style={{ color: palette.textSecondary }}>Manage agent accounts and approvals</p>
         </div>
         <button
           onClick={() => fetchAgents(tab)}
           className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm transition-opacity hover:opacity-70"
-          style={{ background: '#242938', border: '1px solid #2e3446', color: '#8892a4' }}
+          style={{ background: palette.cardBg, border: `1px solid ${palette.border}`, color: palette.textSecondary }}
         >
           <RefreshCw size={14} /> Refresh
         </button>
       </div>
 
       {/* Tabs */}
-      <div className="flex gap-1 mb-5 p-1 rounded-lg w-fit" style={{ background: '#242938', border: '1px solid #2e3446' }}>
+      <div className="flex gap-1 mb-5 p-1 rounded-lg w-fit" style={{ background: palette.cardBg, border: `1px solid ${palette.border}` }}>
         {tabs.map((t) => (
           <button
             key={t.key}
             onClick={() => setTab(t.key)}
             className="px-4 py-1.5 rounded-md text-sm font-medium transition-colors"
             style={{
-              background: tab === t.key ? '#c9a84c' : 'transparent',
-              color: tab === t.key ? '#1a1f2e' : '#8892a4',
+              background: tab === t.key ? palette.gold : 'transparent',
+              color: tab === t.key ? palette.pageBg : palette.textSecondary,
             }}
           >
             {t.label}
@@ -100,10 +102,10 @@ export default function AdminAgentsPage() {
       </div>
 
       {/* Table */}
-      <div className="rounded-xl overflow-hidden" style={{ background: '#242938', border: '1px solid #2e3446' }}>
+      <div className="rounded-xl overflow-hidden" style={{ background: palette.cardBg, border: `1px solid ${palette.border}` }}>
         {loading ? (
           <div className="flex items-center justify-center h-48">
-            <div className="w-7 h-7 border-2 rounded-full animate-spin" style={{ borderColor: '#c9a84c', borderTopColor: 'transparent' }} />
+            <div className="w-7 h-7 border-2 rounded-full animate-spin" style={{ borderColor: palette.gold, borderTopColor: 'transparent' }} />
           </div>
         ) : error ? (
           <div className="flex items-center justify-center h-48">
@@ -111,15 +113,15 @@ export default function AdminAgentsPage() {
           </div>
         ) : agents.length === 0 ? (
           <div className="flex items-center justify-center h-48">
-            <p className="text-sm" style={{ color: '#8892a4' }}>No agents found.</p>
+            <p className="text-sm" style={{ color: palette.textSecondary }}>No agents found.</p>
           </div>
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr style={{ borderBottom: '1px solid #2e3446' }}>
+                <tr style={{ borderBottom: `1px solid ${palette.border}` }}>
                   {['Name', 'Email', 'Phone', 'Specialization', 'Status', 'Joined', 'Actions'].map((h) => (
-                    <th key={h} className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide" style={{ color: '#8892a4' }}>
+                    <th key={h} className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide" style={{ color: palette.textSecondary }}>
                       {h}
                     </th>
                   ))}
@@ -127,11 +129,11 @@ export default function AdminAgentsPage() {
               </thead>
               <tbody>
                 {agents.map((agent) => (
-                  <tr key={agent._id} style={{ borderBottom: '1px solid #2e3446' }}>
-                    <td className="px-4 py-3 font-medium" style={{ color: '#e6edf3' }}>{agent.name}</td>
-                    <td className="px-4 py-3" style={{ color: '#8892a4' }}>{agent.email}</td>
-                    <td className="px-4 py-3" style={{ color: '#8892a4' }}>{agent.phone || '—'}</td>
-                    <td className="px-4 py-3" style={{ color: '#8892a4' }}>{agent.specialization || '—'}</td>
+                  <tr key={agent._id} style={{ borderBottom: `1px solid ${palette.border}` }}>
+                    <td className="px-4 py-3 font-medium" style={{ color: palette.textPrimary }}>{agent.name}</td>
+                    <td className="px-4 py-3" style={{ color: palette.textSecondary }}>{agent.email}</td>
+                    <td className="px-4 py-3" style={{ color: palette.textSecondary }}>{agent.phone || '—'}</td>
+                    <td className="px-4 py-3" style={{ color: palette.textSecondary }}>{agent.specialization || '—'}</td>
                     <td className="px-4 py-3">
                       <span
                         className="px-2 py-0.5 rounded-full text-xs font-semibold"
@@ -142,7 +144,7 @@ export default function AdminAgentsPage() {
                         {agent.isApproved ? 'Approved' : 'Pending'}
                       </span>
                     </td>
-                    <td className="px-4 py-3 whitespace-nowrap" style={{ color: '#8892a4' }}>
+                    <td className="px-4 py-3 whitespace-nowrap" style={{ color: palette.textSecondary }}>
                       {new Date(agent.createdAt).toLocaleDateString()}
                     </td>
                     <td className="px-4 py-3">
@@ -163,7 +165,7 @@ export default function AdminAgentsPage() {
                             disabled={actionLoading === agent._id + '_reject'}
                             title="Revoke approval"
                             className="w-7 h-7 rounded-md flex items-center justify-center transition-opacity hover:opacity-70 disabled:opacity-40"
-                            style={{ background: 'rgba(201,168,76,0.15)', color: '#c9a84c' }}
+                            style={{ background: `${palette.gold}26`, color: palette.gold }}
                           >
                             <X size={14} />
                           </button>

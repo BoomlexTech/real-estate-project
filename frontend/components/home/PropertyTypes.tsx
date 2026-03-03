@@ -55,7 +55,7 @@ export default function PropertyTypes() {
           viewport={{ once: true }}
           className="text-center mb-10"
         >
-          <h2 className="font-serif text-3xl sm:text-4xl font-light text-white leading-tight">
+          <h2 className="font-serif text-3xl sm:text-4xl font-light t-heading leading-tight">
             Explore New Properties In Dubai By Type
           </h2>
         </motion.div>

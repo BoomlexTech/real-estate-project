@@ -37,9 +37,9 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen pt-24" style={{ background: 'var(--bg-primary)' }}>
       <div className="px-4 py-14 text-center" style={{ background: 'var(--bg-secondary)' }}>
-        <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: '#c9a84c' }}>GET IN TOUCH</p>
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">Contact Us</h1>
-        <p className="text-gray-400 max-w-xl mx-auto text-sm">
+        <p className="text-xs font-semibold uppercase tracking-widest mb-3 t-accent">GET IN TOUCH</p>
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold t-heading mb-4">Contact Us</h1>
+        <p className="t-secondary max-w-xl mx-auto text-sm">
           Our team of expert consultants is available 7 days a week to answer your questions and guide your property journey.
         </p>
       </div>
@@ -50,13 +50,13 @@ export default function ContactPage() {
           <div className="card-dark p-5 sm:p-8">
             {submitted ? (
               <div className="text-center py-12">
-                <CheckCircle className="w-16 h-16 mx-auto mb-4" style={{ color: '#c9a84c' }} />
-                <h3 className="text-white text-xl font-bold mb-2">Message Sent!</h3>
-                <p className="text-gray-400 text-sm">We&apos;ll respond within 2 business hours.</p>
+                <CheckCircle className="w-16 h-16 mx-auto mb-4 t-accent" />
+                <h3 className="t-heading text-xl font-bold mb-2">Message Sent!</h3>
+                <p className="t-secondary text-sm">We&apos;ll respond within 2 business hours.</p>
               </div>
             ) : (
               <>
-                <h2 className="text-white font-bold text-lg mb-6">Send Us a Message</h2>
+                <h2 className="t-heading font-bold text-lg mb-6">Send Us a Message</h2>
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
@@ -98,17 +98,17 @@ export default function ContactPage() {
           <div className="space-y-6">
             {/* Quick Contact */}
             <div className="card-dark p-6">
-              <h3 className="text-white font-semibold mb-4">Quick Contact</h3>
+              <h3 className="t-heading font-semibold mb-4">Quick Contact</h3>
               <div className="space-y-3">
-                <a href="tel:+971547093295" className="flex items-center gap-3 text-sm text-gray-300 hover:text-white transition-colors group">
+                <a href="tel:+971547093295" className="flex items-center gap-3 text-sm t-link hover:opacity-80 transition-colors group">
                   <div className="w-9 h-9 rounded-full flex items-center justify-center shrink-0" style={{ background: 'rgba(201,168,76,0.15)' }}>
-                    <Phone className="w-4 h-4" style={{ color: '#c9a84c' }} />
+                    <Phone className="w-4 h-4 t-accent" />
                   </div>
                   +971 54 709 3295
                 </a>
-                <a href="mailto:leasing@awtadrealestate.com" className="flex items-center gap-3 text-sm text-gray-300 hover:text-white transition-colors">
+                <a href="mailto:leasing@awtadrealestate.com" className="flex items-center gap-3 text-sm t-link hover:opacity-80 transition-colors">
                   <div className="w-9 h-9 rounded-full flex items-center justify-center shrink-0" style={{ background: 'rgba(201,168,76,0.15)' }}>
-                    <Mail className="w-4 h-4" style={{ color: '#c9a84c' }} />
+                    <Mail className="w-4 h-4 t-accent" />
                   </div>
                   leasing@awtadrealestate.com
                 </a>
@@ -117,15 +117,15 @@ export default function ContactPage() {
 
             {/* Offices */}
             <div className="card-dark p-6">
-              <h3 className="text-white font-semibold mb-4">Our Offices</h3>
+              <h3 className="t-heading font-semibold mb-4">Our Offices</h3>
               <div className="space-y-4">
                 {offices.map((office) => (
                   <div key={office.name} className="flex gap-3">
-                    <MapPin className="w-4 h-4 shrink-0 mt-0.5" style={{ color: '#c9a84c' }} />
+                    <MapPin className="w-4 h-4 shrink-0 mt-0.5 t-accent" />
                     <div>
-                      <p className="text-white text-sm font-medium">{office.name}</p>
-                      <p className="text-gray-400 text-xs mt-0.5">{office.address}</p>
-                      <a href={`tel:${office.phone}`} className="text-xs text-gray-500 hover:text-white transition-colors mt-0.5 block">{office.phone}</a>
+                      <p className="t-heading text-sm font-medium">{office.name}</p>
+                      <p className="t-secondary text-xs mt-0.5">{office.address}</p>
+                      <a href={`tel:${office.phone}`} className="text-xs t-dim hover:opacity-80 transition-colors mt-0.5 block">{office.phone}</a>
                     </div>
                   </div>
                 ))}
@@ -134,11 +134,11 @@ export default function ContactPage() {
 
             {/* Hours */}
             <div className="card-dark p-6">
-              <h3 className="text-white font-semibold mb-4">Working Hours</h3>
+              <h3 className="t-heading font-semibold mb-4">Working Hours</h3>
               <div className="space-y-2 text-sm">
-                <div className="flex justify-between"><span className="text-gray-400">Mon – Fri</span><span className="text-white">9:00 AM – 7:00 PM</span></div>
-                <div className="flex justify-between"><span className="text-gray-400">Saturday</span><span className="text-white">10:00 AM – 6:00 PM</span></div>
-                <div className="flex justify-between"><span className="text-gray-400">Sunday</span><span className="text-white">10:00 AM – 4:00 PM</span></div>
+                <div className="flex justify-between"><span className="t-secondary">Mon – Fri</span><span className="t-heading">9:00 AM – 7:00 PM</span></div>
+                <div className="flex justify-between"><span className="t-secondary">Saturday</span><span className="t-heading">10:00 AM – 6:00 PM</span></div>
+                <div className="flex justify-between"><span className="t-secondary">Sunday</span><span className="t-heading">10:00 AM – 4:00 PM</span></div>
               </div>
             </div>
           </div>

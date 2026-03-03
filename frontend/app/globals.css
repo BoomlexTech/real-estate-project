@@ -11,9 +11,32 @@
   --text-primary: #ffffff;
   --text-body: #D4D0C8;
   --text-secondary: #94A3B8;
+  --text-dim: #6b7280;
+  --text-link: #d1d5db;
   --border-color: #1E293B;
   --border-gold: rgba(201, 169, 110, 0.28);
   --border-subtle: rgba(255, 255, 255, 0.05);
+  --skeleton-bg: #2d3347;
+  --skeleton-shine: #3a4058;
+}
+
+/* ── Light theme overrides ───────────────────────────── */
+[data-theme="light"] {
+  --bg-primary:     #f4f0e8;
+  --bg-secondary:   #ece8e0;
+  --bg-card:        #ffffff;
+  --bg-section-alt: #edeae2;
+  --bg-warm-tint:   #f0ece3;
+  --text-primary:   #0A0E1A;
+  --text-body:      #2d3748;
+  --text-secondary: #4a5568;
+  --text-dim:       #718096;
+  --text-link:      #374151;
+  --border-color:   #d8d4cc;
+  --border-gold:    rgba(201,169,110,0.45);
+  --border-subtle:  rgba(0,0,0,0.07);
+  --skeleton-bg:    #ddd8d0;
+  --skeleton-shine: #c8c2ba;
 }
 
 @theme inline {
@@ -72,6 +95,24 @@ body {
 .text-gold {
   color: var(--gold);
 }
+
+/* ── Theme-aware text utilities ─────────────────────── */
+/* Replaces hardcoded text-white / text-gray-* Tailwind classes */
+.t-heading   { color: var(--text-primary); }
+.t-body      { color: var(--text-body); }
+.t-secondary { color: var(--text-secondary); }
+.t-dim       { color: var(--text-dim); }
+.t-link      { color: var(--text-link); }
+.t-accent    { color: var(--gold); }
+
+/* Gold badge — dark text on gold bg, works both modes */
+.badge-gold {
+  background: var(--gold);
+  color: var(--bg-primary);
+}
+
+/* Theme-aware border utility */
+.border-themed { border-color: var(--border-color); }
 
 /* Glassmorphism — frosted glass card utility */
 .glass-card {
@@ -249,6 +290,16 @@ body {
   transition-duration: 0.08s;
 }
 
+[data-theme="light"] .btn-outline-white {
+  color: var(--text-secondary);
+  border-color: var(--border-color);
+}
+[data-theme="light"] .btn-outline-white:hover {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: var(--gold);
+  color: var(--text-primary);
+}
+
 /* Thin gold horizontal rule — section divider motif */
 .section-divider {
   display: block;
@@ -306,9 +357,68 @@ body {
 
 [data-theme="light"] .select-dark,
 [data-theme="light"] .input-dark {
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--text-primary);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
+}
+
+/* ── Additional light-mode component overrides ── */
+[data-theme="light"] body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .hero-overlay {
+  background: linear-gradient(to right,
+    rgba(244,240,232,0.92) 0%,
+    rgba(244,240,232,0.65) 55%,
+    rgba(244,240,232,0.18) 100%);
+}
+
+[data-theme="light"] .property-card-content {
+  background: var(--bg-card);
+}
+
+[data-theme="light"] .card-dark {
+  background: rgba(255,255,255,0.8);
+  border-color: var(--border-gold);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+
+[data-theme="light"] .section-fade-top::before,
+[data-theme="light"] .section-fade-bottom::after {
+  background: var(--bg-primary);
+}
+
+[data-theme="light"] .nav-link {
+  color: rgba(10,14,26,0.6);
+}
+
+[data-theme="light"] .nav-link:hover {
+  color: var(--gold);
+}
+
+[data-theme="light"] .texture-dot-grid {
+  background-image: radial-gradient(circle, rgba(0,0,0,0.05) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Header background helper — referenced in Header.tsx */
+.header-surface {
+  background: rgba(10,14,26,0.82);
+  border-bottom: 1px solid rgba(201,169,110,0.55);
+}
+.header-surface.scrolled {
+  background: rgba(10,14,26,0.98);
+}
+
+[data-theme="light"] .header-surface {
+  background: rgba(244,240,232,0.92);
+  border-bottom: 1px solid rgba(201,169,110,0.4);
+}
+[data-theme="light"] .header-surface.scrolled {
+  background: rgba(244,240,232,0.99);
 }
 
 /* Property card dual-layer structure — spinning gold glow on hover */

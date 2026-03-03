@@ -317,7 +317,7 @@ export default function HeroSlider() {
                   className="hidden sm:inline-flex items-center text-[10px] tracking-[0.18em] uppercase px-5 py-2.5 font-medium transition-all duration-250"
                   style={{
                     background: '#C9A96E',
-                    color: '#0A0E1A',
+                    color: 'var(--bg-primary)',
                     border: '1px solid #C9A96E',
                     borderRadius: '6px',
                     boxShadow: '0 0 0 rgba(201,169,110,0)',
@@ -387,7 +387,7 @@ export default function HeroSlider() {
                 className="inline-flex items-center text-[10px] tracking-[0.18em] uppercase px-5 py-2.5 font-medium transition-all duration-250"
                 style={{
                   background: '#C9A96E',
-                  color: '#0A0E1A',
+                  color: 'var(--bg-primary)',
                   border: '1px solid #C9A96E',
                   borderRadius: '6px',
                   boxShadow: '0 0 0 rgba(201,169,110,0)',

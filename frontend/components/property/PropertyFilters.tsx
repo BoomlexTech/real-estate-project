@@ -95,26 +95,26 @@ export default function PropertyFilters({ onFilterChange }: Props) {
       <div className="lg:hidden mb-4">
         <button
           onClick={() => setShowMobile(!showMobile)}
-          className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-white"
-          style={{ background: '#2d3347', border: '1px solid rgba(201,168,76,0.45)' }}
+          className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium"
+          style={{ background: 'var(--bg-card)', border: '1px solid var(--border-gold)', color: 'var(--text-primary)' }}
         >
           <SlidersHorizontal className="w-4 h-4" style={{ color: '#c9a84c' }} />
-          Filters {activeCount > 0 && <span className="px-1.5 py-0.5 rounded-full text-xs" style={{ background: '#c9a84c', color: '#1a1f2e' }}>{activeCount}</span>}
+          Filters {activeCount > 0 && <span className="px-1.5 py-0.5 rounded-full text-xs badge-gold">{activeCount}</span>}
         </button>
       </div>
 
       {/* Sidebar */}
       <div
         className={`${showMobile ? 'block' : 'hidden'} lg:block rounded-xl p-5 space-y-5`}
-        style={{ background: '#2d3347', border: '1px solid rgba(201,168,76,0.45)' }}
+        style={{ background: 'var(--bg-card)', border: '1px solid var(--border-gold)' }}
       >
         <div className="flex items-center justify-between">
-          <h3 className="text-white font-semibold text-sm flex items-center gap-2">
+          <h3 className="font-semibold text-sm flex items-center gap-2" style={{ color: 'var(--text-primary)' }}>
             <SlidersHorizontal className="w-4 h-4" style={{ color: '#c9a84c' }} />
             Filters
           </h3>
           {activeCount > 0 && (
-            <button onClick={reset} className="flex items-center gap-1 text-xs text-gray-400 hover:text-white transition-colors">
+            <button onClick={reset} className="flex items-center gap-1 text-xs t-secondary hover:opacity-80 transition-colors">
               <X className="w-3 h-3" /> Reset
             </button>
           )}
@@ -145,9 +145,9 @@ export default function PropertyFilters({ onFilterChange }: Props) {
                   onClick={() => set('status', val)}
                   className="px-2.5 py-1 rounded-full text-xs font-medium transition-all"
                   style={{
-                    background: active ? '#c9a84c' : '#1a1f2e',
-                    color: active ? '#1a1f2e' : '#9ca3af',
-                    border: `1px solid ${active ? '#c9a84c' : 'rgba(201,168,76,0.45)'}`,
+                    background: active ? 'var(--gold)' : 'var(--bg-secondary)',
+                    color: active ? 'var(--bg-primary)' : 'var(--text-secondary)',
+                    border: `1px solid ${active ? 'var(--gold)' : 'var(--border-gold)'}`,
                   }}
                 >
                   {s}
@@ -168,9 +168,9 @@ export default function PropertyFilters({ onFilterChange }: Props) {
                   onClick={() => set('type', t.value)}
                   className="px-2.5 py-1 rounded-full text-xs font-medium transition-all"
                   style={{
-                    background: active ? '#c9a84c' : '#1a1f2e',
-                    color: active ? '#1a1f2e' : '#9ca3af',
-                    border: `1px solid ${active ? '#c9a84c' : 'rgba(201,168,76,0.45)'}`,
+                    background: active ? 'var(--gold)' : 'var(--bg-secondary)',
+                    color: active ? 'var(--bg-primary)' : 'var(--text-secondary)',
+                    border: `1px solid ${active ? 'var(--gold)' : 'var(--border-gold)'}`,
                   }}
                 >
                   {t.label}
@@ -191,9 +191,9 @@ export default function PropertyFilters({ onFilterChange }: Props) {
                   onClick={() => set('bedrooms', b.value)}
                   className="w-10 h-10 rounded-lg text-xs font-semibold transition-all"
                   style={{
-                    background: active ? '#c9a84c' : '#1a1f2e',
-                    color: active ? '#1a1f2e' : '#9ca3af',
-                    border: `1px solid ${active ? '#c9a84c' : 'rgba(201,168,76,0.45)'}`,
+                    background: active ? 'var(--gold)' : 'var(--bg-secondary)',
+                    color: active ? 'var(--bg-primary)' : 'var(--text-secondary)',
+                    border: `1px solid ${active ? 'var(--gold)' : 'var(--border-gold)'}`,
                   }}
                 >
                   {b.label}
@@ -243,7 +243,7 @@ export default function PropertyFilters({ onFilterChange }: Props) {
 function FilterGroup({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div>
-      <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2.5">{label}</p>
+      <p className="text-xs font-semibold uppercase tracking-wider t-secondary mb-2.5">{label}</p>
       {children}
     </div>
   );

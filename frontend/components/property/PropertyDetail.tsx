@@ -50,7 +50,7 @@ export default function PropertyDetail({ property }: Props) {
             {/* Main image */}
             <div
               className="w-full aspect-video rounded-2xl overflow-hidden relative"
-              style={{ background: 'linear-gradient(135deg, #0f1829 0%, #1a2a4a 100%)' }}
+              style={{ background: 'linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-card) 100%)' }}
             >
               {images.length > 0 ? (
                 <img
@@ -112,7 +112,7 @@ export default function PropertyDetail({ property }: Props) {
                     onClick={() => setActiveImage(i)}
                     className="shrink-0 w-20 h-14 rounded-lg overflow-hidden transition-all"
                     style={{
-                      border: i === activeImage ? '2px solid #c9a84c' : '2px solid transparent',
+                      border: i === activeImage ? '2px solid var(--gold)' : '2px solid transparent',
                       opacity: i === activeImage ? 1 : 0.55,
                     }}
                   >
@@ -126,11 +126,11 @@ export default function PropertyDetail({ property }: Props) {
           {/* Title & Price */}
           <div>
             <div className="flex items-start justify-between flex-wrap gap-3 mb-2">
-              <h1 className="text-2xl sm:text-3xl font-bold text-white">{property.title}</h1>
-              <p className="text-2xl font-bold" style={{ color: '#c9a84c' }}>{property.priceLabel}</p>
+              <h1 className="text-2xl sm:text-3xl font-bold t-heading">{property.title}</h1>
+              <p className="text-2xl font-bold" style={{ color: 'var(--gold)' }}>{property.priceLabel}</p>
             </div>
-            <div className="flex items-center gap-1.5 text-gray-400 text-sm">
-              <MapPin className="w-4 h-4" style={{ color: '#c9a84c' }} />
+            <div className="flex items-center gap-1.5 t-secondary text-sm">
+              <MapPin className="w-4 h-4" style={{ color: 'var(--gold)' }} />
               {property.location}, {property.emirate}
             </div>
           </div>
@@ -144,11 +144,11 @@ export default function PropertyDetail({ property }: Props) {
               { icon: <Calendar />, label: 'Completion', value: property.completionDate || 'Ready' },
             ].map((stat) => (
               <div key={stat.label} className="card-dark p-4 text-center">
-                <div className="flex justify-center mb-1" style={{ color: '#c9a84c' }}>
+                <div className="flex justify-center mb-1" style={{ color: 'var(--gold)' }}>
                   {stat.icon}
                 </div>
-                <p className="text-white font-semibold text-sm">{stat.value}</p>
-                <p className="text-gray-500 text-xs mt-0.5">{stat.label}</p>
+                <p className="t-heading font-semibold text-sm">{stat.value}</p>
+                <p className="t-dim text-xs mt-0.5">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -156,22 +156,22 @@ export default function PropertyDetail({ property }: Props) {
           {/* Payment Plan */}
           {property.paymentPlan && (
             <div className="card-dark p-6">
-              <h3 className="text-white font-semibold mb-4 flex items-center gap-2">
-                <CreditCard className="w-4 h-4" style={{ color: '#c9a84c' }} />
+              <h3 className="t-heading font-semibold mb-4 flex items-center gap-2">
+                <CreditCard className="w-4 h-4" style={{ color: 'var(--gold)' }} />
                 Payment Plan
               </h3>
               <div className="flex gap-4">
                 <div className="flex-1 rounded-lg p-4 text-center" style={{ background: 'rgba(201,168,76,0.1)', border: '1px solid rgba(201,168,76,0.25)' }}>
-                  <p className="text-2xl font-bold" style={{ color: '#c9a84c' }}>
+                  <p className="text-2xl font-bold" style={{ color: 'var(--gold)' }}>
                     {typeof property.paymentPlan === 'object' ? property.paymentPlan.downPayment : property.paymentPlan}%
                   </p>
-                  <p className="text-xs text-gray-400 mt-1">During Construction</p>
+                  <p className="text-xs t-secondary mt-1">During Construction</p>
                 </div>
                 <div className="flex-1 rounded-lg p-4 text-center" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(201,168,76,0.45)' }}>
-                  <p className="text-2xl font-bold text-white">
+                  <p className="text-2xl font-bold t-heading">
                     {typeof property.paymentPlan === 'object' ? property.paymentPlan.onCompletion : 100 - parseInt(property.paymentPlan as string)}%
                   </p>
-                  <p className="text-xs text-gray-400 mt-1">On Completion</p>
+                  <p className="text-xs t-secondary mt-1">On Completion</p>
                 </div>
               </div>
             </div>
@@ -179,18 +179,18 @@ export default function PropertyDetail({ property }: Props) {
 
           {/* Description */}
           <div className="card-dark p-6">
-            <h3 className="text-white font-semibold mb-4">Description</h3>
-            <p className="text-gray-400 text-sm leading-relaxed">{property.description}</p>
+            <h3 className="t-heading font-semibold mb-4">Description</h3>
+            <p className="t-secondary text-sm leading-relaxed">{property.description}</p>
           </div>
 
           {/* Amenities */}
           {property.amenities.length > 0 && (
             <div className="card-dark p-6">
-              <h3 className="text-white font-semibold mb-4">Amenities</h3>
+              <h3 className="t-heading font-semibold mb-4">Amenities</h3>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 {property.amenities.map((amenity) => (
-                  <div key={amenity} className="flex items-center gap-2 text-sm text-gray-300">
-                    <CheckCircle className="w-4 h-4 shrink-0" style={{ color: '#c9a84c' }} />
+                  <div key={amenity} className="flex items-center gap-2 text-sm t-link">
+                    <CheckCircle className="w-4 h-4 shrink-0" style={{ color: 'var(--gold)' }} />
                     {amenity}
                   </div>
                 ))}
@@ -200,17 +200,17 @@ export default function PropertyDetail({ property }: Props) {
 
           {/* Map placeholder */}
           <div className="card-dark p-6">
-            <h3 className="text-white font-semibold mb-4 flex items-center gap-2">
-              <MapPin className="w-4 h-4" style={{ color: '#c9a84c' }} />
+            <h3 className="t-heading font-semibold mb-4 flex items-center gap-2">
+              <MapPin className="w-4 h-4" style={{ color: 'var(--gold)' }} />
               Location
             </h3>
             <div
               className="w-full h-48 rounded-xl flex items-center justify-center"
-              style={{ background: '#1a1f2e', border: '1px dashed rgba(201,168,76,0.45)' }}
+              style={{ background: 'var(--bg-secondary)', border: '1px dashed var(--border-gold)' }}
             >
               <div className="text-center">
-                <MapPin className="w-8 h-8 mx-auto mb-2" style={{ color: '#c9a84c' }} />
-                <p className="text-gray-400 text-sm">{property.location}, {property.emirate}</p>
+                <MapPin className="w-8 h-8 mx-auto mb-2" style={{ color: 'var(--gold)' }} />
+                <p className="t-secondary text-sm">{property.location}, {property.emirate}</p>
               </div>
             </div>
           </div>
@@ -225,24 +225,24 @@ export default function PropertyDetail({ property }: Props) {
               animate={{ opacity: 1, y: 0 }}
               className="card-dark p-6 sticky top-28"
             >
-              <h3 className="text-white font-semibold text-sm mb-4">Listed By</h3>
-              <div className="flex items-center gap-3 mb-5 pb-5" style={{ borderBottom: '1px solid #3a4058' }}>
+              <h3 className="t-heading font-semibold text-sm mb-4">Listed By</h3>
+              <div className="flex items-center gap-3 mb-5 pb-5" style={{ borderBottom: '1px solid var(--border-color)' }}>
                 <div
                   className="w-12 h-12 rounded-full overflow-hidden shrink-0 border"
-                  style={{ background: '#1a1f2e', borderColor: 'rgba(201,168,76,0.3)' }}
+                  style={{ background: 'var(--bg-secondary)', borderColor: 'rgba(201,168,76,0.3)' }}
                 >
                   {property.agent.photo ? (
                     <img src={property.agent.photo} alt={property.agent.name} className="w-full h-full object-cover" />
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center text-lg font-bold" style={{ color: '#c9a84c' }}>
+                    <div className="w-full h-full flex items-center justify-center text-lg font-bold" style={{ color: 'var(--gold)' }}>
                       {property.agent.name.charAt(0).toUpperCase()}
                     </div>
                   )}
                 </div>
                 <div>
-                  <p className="text-white font-semibold text-sm">{property.agent.name}</p>
-                  <p className="text-gray-400 text-xs mt-0.5">{property.agent.properties} properties</p>
-                  <p className="text-gray-500 text-xs">{property.agent.languages.join(' · ')}</p>
+                  <p className="t-heading font-semibold text-sm">{property.agent.name}</p>
+                  <p className="t-secondary text-xs mt-0.5">{property.agent.properties} properties</p>
+                  <p className="t-dim text-xs">{property.agent.languages.join(' · ')}</p>
                 </div>
               </div>
 
@@ -251,7 +251,7 @@ export default function PropertyDetail({ property }: Props) {
                 <a
                   href={`tel:${property.agent?.phone || DEFAULT_PHONE}`}
                   className="flex items-center justify-center gap-2 w-full py-3 rounded-lg font-semibold text-sm transition-colors"
-                  style={{ background: '#c9a84c', color: '#1a1f2e' }}
+                  style={{ background: 'var(--gold)', color: 'var(--bg-primary)' }}
                 >
                   <Phone className="w-4 h-4" />
                   Call Agent
@@ -261,19 +261,19 @@ export default function PropertyDetail({ property }: Props) {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 w-full py-3 rounded-lg font-semibold text-sm transition-colors"
-                  style={{ background: '#2d3347', color: 'white', border: '1px solid rgba(201,168,76,0.45)' }}
+                  style={{ background: 'var(--skeleton-bg)', color: 'var(--text-primary)', border: '1px solid var(--border-gold)' }}
                 >
                   WhatsApp Agent
                 </a>
               </div>
 
               {/* Inquiry Form */}
-              <div className="mt-6 pt-5" style={{ borderTop: '1px solid #3a4058' }}>
-                <h4 className="text-white text-sm font-semibold mb-3">Send Inquiry</h4>
+              <div className="mt-6 pt-5" style={{ borderTop: '1px solid var(--border-color)' }}>
+                <h4 className="t-heading text-sm font-semibold mb-3">Send Inquiry</h4>
                 {submitted ? (
                   <div className="text-center py-4">
-                    <CheckCircle className="w-8 h-8 mx-auto mb-2" style={{ color: '#c9a84c' }} />
-                    <p className="text-sm text-gray-300">We&apos;ll be in touch soon!</p>
+                    <CheckCircle className="w-8 h-8 mx-auto mb-2" style={{ color: 'var(--gold)' }} />
+                    <p className="text-sm t-link">We&apos;ll be in touch soon!</p>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">

@@ -48,9 +48,9 @@ export default function ServicesPage() {
   return (
     <div className="min-h-screen pt-24" style={{ background: 'var(--bg-primary)' }}>
       <div className="px-4 py-16 text-center" style={{ background: 'var(--bg-secondary)' }}>
-        <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: '#c9a84c' }}>WHAT WE OFFER</p>
-        <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl font-light text-white mb-4 leading-tight">Our Services</h1>
-        <p className="text-gray-400 max-w-xl mx-auto text-sm">
+        <p className="text-xs font-semibold uppercase tracking-widest mb-3 t-accent">WHAT WE OFFER</p>
+        <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl font-light t-heading mb-4 leading-tight">Our Services</h1>
+        <p className="t-secondary max-w-xl mx-auto text-sm">
           End-to-end real estate services tailored to buyers, sellers, investors, and landlords in Dubai and the UAE.
         </p>
       </div>
@@ -60,12 +60,12 @@ export default function ServicesPage() {
           {services.map((svc) => (
             <div key={svc.title} className="card-dark p-6 hover:border-yellow-500/30 transition-all">
               <div className="text-3xl mb-4">{svc.icon}</div>
-              <h3 className="text-white font-bold text-lg mb-2">{svc.title}</h3>
-              <p className="text-gray-400 text-sm leading-relaxed mb-4">{svc.desc}</p>
+              <h3 className="t-heading font-bold text-lg mb-2">{svc.title}</h3>
+              <p className="t-secondary text-sm leading-relaxed mb-4">{svc.desc}</p>
               <ul className="space-y-1.5">
                 {svc.features.map((f) => (
-                  <li key={f} className="flex items-center gap-2 text-xs text-gray-300">
-                    <span style={{ color: '#c9a84c' }}>✓</span> {f}
+                  <li key={f} className="flex items-center gap-2 text-xs t-link">
+                    <span className="t-accent">✓</span> {f}
                   </li>
                 ))}
               </ul>

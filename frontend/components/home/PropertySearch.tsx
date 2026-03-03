@@ -229,7 +229,7 @@ export default function PropertySearch() {
                 className="flex items-center justify-center gap-2.5 w-full sm:w-auto"
                 style={{
                   border: '1px solid #C9A96E',
-                  color: '#0A0E1A',
+                  color: 'var(--bg-primary)',
                   background: '#C9A96E',
                   fontSize: '0.6875rem',
                   fontWeight: 600,

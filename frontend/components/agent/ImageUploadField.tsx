@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { CldUploadWidget } from 'next-cloudinary';
+import { useTheme } from '@/contexts/ThemeContext';
 
 interface Props {
   value: string[];
@@ -9,6 +10,7 @@ interface Props {
 }
 
 export default function ImageUploadField({ value, onChange }: Props) {
+  const { palette } = useTheme();
   const [urlInput, setUrlInput] = useState('');
   // Keep a ref that always mirrors the latest value so onSuccess callbacks
   // never capture a stale closure (multiple parallel uploads fire before re-render)
@@ -41,7 +43,7 @@ export default function ImageUploadField({ value, onChange }: Props) {
             type="button"
             onClick={() => open()}
             className="flex items-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium transition-opacity hover:opacity-90"
-            style={{ background: '#c9a84c', color: '#1a1f2e' }}
+            style={{ background: palette.gold, color: palette.pageBg }}
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
@@ -67,13 +69,13 @@ export default function ImageUploadField({ value, onChange }: Props) {
           }}
           placeholder="Or paste an image URL…"
           className="flex-1 rounded-lg px-4 py-2.5 text-sm outline-none"
-          style={{ background: '#1a1f2e', border: '1px solid #2e3446', color: '#e6edf3' }}
+          style={{ background: palette.inputBg, border: `1px solid ${palette.border}`, color: palette.textPrimary }}
         />
         <button
           type="button"
           onClick={addUrl}
           className="rounded-lg px-4 py-2.5 text-sm font-medium transition-opacity hover:opacity-80"
-          style={{ background: '#2e3446', color: '#c9a84c', border: '1px solid #3a4257' }}
+          style={{ background: palette.border, color: palette.gold, border: `1px solid ${palette.border}` }}
         >
           Add
         </button>
@@ -106,7 +108,7 @@ export default function ImageUploadField({ value, onChange }: Props) {
               {/* Image number badge */}
               <span
                 className="absolute bottom-1 left-1 text-xs px-1.5 rounded"
-                style={{ background: 'rgba(0,0,0,0.6)', color: '#c9a84c' }}
+                style={{ background: 'rgba(0,0,0,0.6)', color: palette.gold }}
               >
                 {i + 1}
               </span>
@@ -116,7 +118,7 @@ export default function ImageUploadField({ value, onChange }: Props) {
       )}
 
       {value.length > 0 && (
-        <p className="text-xs" style={{ color: '#8892a4' }}>
+        <p className="text-xs" style={{ color: palette.textSecondary }}>
           {value.length} image{value.length !== 1 ? 's' : ''} added · hover a thumbnail to remove
         </p>
       )}

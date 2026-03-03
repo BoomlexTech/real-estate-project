@@ -16,13 +16,13 @@ interface PropertyGridProps {
 
 function SkeletonCard() {
   return (
-    <div className="rounded-xl overflow-hidden animate-pulse" style={{ background: '#2d3347', border: '1px solid rgba(201,168,76,0.45)' }}>
-      <div className="h-48 w-full" style={{ background: '#3a4058' }} />
+    <div className="rounded-xl overflow-hidden animate-pulse" style={{ background: 'var(--skeleton-bg)', border: '1px solid var(--border-gold)' }}>
+      <div className="h-48 w-full" style={{ background: 'var(--skeleton-shine)' }} />
       <div className="p-4 space-y-3">
-        <div className="h-3 rounded w-2/3" style={{ background: '#3a4058' }} />
-        <div className="h-5 rounded w-1/2" style={{ background: '#3a4058' }} />
-        <div className="h-4 rounded w-full" style={{ background: '#3a4058' }} />
-        <div className="h-3 rounded w-3/4" style={{ background: '#3a4058' }} />
+        <div className="h-3 rounded w-2/3" style={{ background: 'var(--skeleton-shine)' }} />
+        <div className="h-5 rounded w-1/2" style={{ background: 'var(--skeleton-shine)' }} />
+        <div className="h-4 rounded w-full" style={{ background: 'var(--skeleton-shine)' }} />
+        <div className="h-3 rounded w-3/4" style={{ background: 'var(--skeleton-shine)' }} />
       </div>
     </div>
   );
@@ -51,8 +51,8 @@ export default function PropertyGrid({ properties, loading, page = 1, totalPages
     return (
       <div className="text-center py-20">
         <div className="text-4xl mb-4">🏙️</div>
-        <h3 className="text-white text-lg font-semibold mb-2">No Properties Found</h3>
-        <p className="text-gray-400 text-sm">Try adjusting your filters to see more results.</p>
+        <h3 className="t-heading text-lg font-semibold mb-2">No Properties Found</h3>
+        <p className="t-secondary text-sm">Try adjusting your filters to see more results.</p>
       </div>
     );
   }
@@ -79,7 +79,7 @@ export default function PropertyGrid({ properties, loading, page = 1, totalPages
             onClick={() => goToPage(page - 1)}
             disabled={page === 1}
             className="px-4 py-2 rounded-lg text-sm font-medium transition-all disabled:opacity-30"
-            style={{ background: '#2d3347', color: '#9ca3af', border: '1px solid rgba(201,168,76,0.45)' }}
+            style={{ background: 'var(--skeleton-bg)', color: 'var(--text-secondary)', border: '1px solid var(--border-gold)' }}
           >
             ← Prev
           </button>
@@ -91,9 +91,9 @@ export default function PropertyGrid({ properties, loading, page = 1, totalPages
                 onClick={() => goToPage(p)}
                 className="w-9 h-9 rounded-lg text-sm font-medium transition-all"
                 style={{
-                  background: p === page ? '#c9a84c' : '#2d3347',
-                  color: p === page ? '#1a1f2e' : '#9ca3af',
-                  border: `1px solid ${p === page ? '#c9a84c' : 'rgba(201,168,76,0.45)'}`,
+                  background: p === page ? 'var(--gold)' : 'var(--skeleton-bg)',
+                  color: p === page ? 'var(--bg-primary)' : 'var(--text-secondary)',
+                  border: `1px solid ${p === page ? 'var(--gold)' : 'var(--border-gold)'}`,
                 }}
               >
                 {p}
@@ -104,7 +104,7 @@ export default function PropertyGrid({ properties, loading, page = 1, totalPages
             onClick={() => goToPage(page + 1)}
             disabled={page === totalPages}
             className="px-4 py-2 rounded-lg text-sm font-medium transition-all disabled:opacity-30"
-            style={{ background: '#2d3347', color: '#9ca3af', border: '1px solid rgba(201,168,76,0.45)' }}
+            style={{ background: 'var(--skeleton-bg)', color: 'var(--text-secondary)', border: '1px solid var(--border-gold)' }}
           >
             Next →
           </button>

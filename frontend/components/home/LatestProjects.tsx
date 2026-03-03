@@ -32,7 +32,7 @@ export default function LatestProjects() {
             Featured
           </p>
           <span className="section-divider mx-auto" />
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light text-white leading-[1.08]">
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light t-heading leading-[1.08]">
             Latest Projects<br />
             <span style={{ color: '#C9A96E' }}>In Dubai</span>
           </h2>

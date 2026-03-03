@@ -4,8 +4,10 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Pencil, Trash2, RefreshCw, Plus, Star } from 'lucide-react';
 import { getAdminBlogPosts, deleteAdminBlogPost, AdminBlogPost } from '@/lib/adminApi';
+import { useTheme } from '@/contexts/ThemeContext';
 
 export default function AdminBlogsPage() {
+  const { palette } = useTheme();
   const [posts, setPosts] = useState<AdminBlogPost[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -43,31 +45,31 @@ export default function AdminBlogsPage() {
     <div>
       <div className="mb-6 flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold" style={{ color: '#e6edf3' }}>Blog Posts</h1>
-          <p className="text-sm mt-1" style={{ color: '#8892a4' }}>Create, edit, and delete blog articles</p>
+          <h1 className="text-2xl font-bold" style={{ color: palette.textPrimary }}>Blog Posts</h1>
+          <p className="text-sm mt-1" style={{ color: palette.textSecondary }}>Create, edit, and delete blog articles</p>
         </div>
         <div className="flex gap-2">
           <button
             onClick={fetchPosts}
             className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm transition-opacity hover:opacity-70"
-            style={{ background: '#242938', border: '1px solid #2e3446', color: '#8892a4' }}
+            style={{ background: palette.cardBg, border: `1px solid ${palette.border}`, color: palette.textSecondary }}
           >
             <RefreshCw size={14} /> Refresh
           </button>
           <Link
             href="/admin/blogs/new"
             className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-opacity hover:opacity-80"
-            style={{ background: '#c9a84c', color: '#1a1f2e' }}
+            style={{ background: palette.gold, color: palette.pageBg }}
           >
             <Plus size={14} /> New Post
           </Link>
         </div>
       </div>
 
-      <div className="rounded-xl overflow-hidden" style={{ background: '#242938', border: '1px solid #2e3446' }}>
+      <div className="rounded-xl overflow-hidden" style={{ background: palette.cardBg, border: `1px solid ${palette.border}` }}>
         {loading ? (
           <div className="flex items-center justify-center h-48">
-            <div className="w-7 h-7 border-2 rounded-full animate-spin" style={{ borderColor: '#c9a84c', borderTopColor: 'transparent' }} />
+            <div className="w-7 h-7 border-2 rounded-full animate-spin" style={{ borderColor: palette.gold, borderTopColor: 'transparent' }} />
           </div>
         ) : error ? (
           <div className="flex items-center justify-center h-48">
@@ -75,11 +77,11 @@ export default function AdminBlogsPage() {
           </div>
         ) : posts.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-48 gap-3">
-            <p className="text-sm" style={{ color: '#8892a4' }}>No blog posts yet.</p>
+            <p className="text-sm" style={{ color: palette.textSecondary }}>No blog posts yet.</p>
             <Link
               href="/admin/blogs/new"
               className="px-4 py-2 rounded-lg text-sm font-semibold"
-              style={{ background: '#c9a84c', color: '#1a1f2e' }}
+              style={{ background: palette.gold, color: palette.pageBg }}
             >
               Create your first post
             </Link>
@@ -88,9 +90,9 @@ export default function AdminBlogsPage() {
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr style={{ borderBottom: '1px solid #2e3446' }}>
+                <tr style={{ borderBottom: `1px solid ${palette.border}` }}>
                   {['Title', 'Category', 'Author', 'Featured', 'Published', 'Actions'].map((h) => (
-                    <th key={h} className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide" style={{ color: '#8892a4' }}>
+                    <th key={h} className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide" style={{ color: palette.textSecondary }}>
                       {h}
                     </th>
                   ))}
@@ -98,21 +100,21 @@ export default function AdminBlogsPage() {
               </thead>
               <tbody>
                 {posts.map((post) => (
-                  <tr key={post._id} style={{ borderBottom: '1px solid #2e3446' }}>
+                  <tr key={post._id} style={{ borderBottom: `1px solid ${palette.border}` }}>
                     <td className="px-4 py-3 max-w-xs">
-                      <span className="font-medium line-clamp-1" style={{ color: '#e6edf3' }}>{post.title}</span>
-                      <span className="text-xs block mt-0.5" style={{ color: '#8892a4' }}>{post.slug}</span>
+                      <span className="font-medium line-clamp-1" style={{ color: palette.textPrimary }}>{post.title}</span>
+                      <span className="text-xs block mt-0.5" style={{ color: palette.textSecondary }}>{post.slug}</span>
                     </td>
-                    <td className="px-4 py-3 whitespace-nowrap" style={{ color: '#8892a4' }}>{post.category}</td>
-                    <td className="px-4 py-3 whitespace-nowrap" style={{ color: '#8892a4' }}>{post.author}</td>
+                    <td className="px-4 py-3 whitespace-nowrap" style={{ color: palette.textSecondary }}>{post.category}</td>
+                    <td className="px-4 py-3 whitespace-nowrap" style={{ color: palette.textSecondary }}>{post.author}</td>
                     <td className="px-4 py-3">
                       {post.isFeatured ? (
-                        <Star size={14} className="fill-current" style={{ color: '#c9a84c' }} />
+                        <Star size={14} className="fill-current" style={{ color: palette.gold }} />
                       ) : (
-                        <span style={{ color: '#3a4058' }}>—</span>
+                        <span style={{ color: palette.textDim }}>—</span>
                       )}
                     </td>
-                    <td className="px-4 py-3 whitespace-nowrap" style={{ color: '#8892a4' }}>
+                    <td className="px-4 py-3 whitespace-nowrap" style={{ color: palette.textSecondary }}>
                       {new Date(post.publishedAt).toLocaleDateString()}
                     </td>
                     <td className="px-4 py-3">
@@ -120,7 +122,7 @@ export default function AdminBlogsPage() {
                         <Link
                           href={`/admin/blogs/${post._id}/edit`}
                           className="w-7 h-7 rounded-md flex items-center justify-center transition-opacity hover:opacity-70"
-                          style={{ background: 'rgba(201,168,76,0.15)', color: '#c9a84c' }}
+                          style={{ background: `${palette.gold}26`, color: palette.gold }}
                           title="Edit"
                         >
                           <Pencil size={13} />

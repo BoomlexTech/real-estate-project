@@ -5,11 +5,13 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 import { createBlogPost } from '@/lib/adminApi';
+import { useTheme } from '@/contexts/ThemeContext';
 
 const CATEGORIES = ['Market Insights', 'Investment', 'Lifestyle', 'News', 'Tips & Guides'];
 
 export default function NewBlogPostPage() {
   const router = useRouter();
+  const { palette } = useTheme();
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
 
@@ -59,9 +61,9 @@ export default function NewBlogPostPage() {
   };
 
   const inputStyle = {
-    background: '#1a1f2e',
-    border: '1px solid #2e3446',
-    color: '#e6edf3',
+    background: palette.inputBg,
+    border: `1px solid ${palette.border}`,
+    color: palette.textPrimary,
     borderRadius: 8,
     padding: '8px 12px',
     width: '100%',
@@ -69,19 +71,19 @@ export default function NewBlogPostPage() {
     outline: 'none',
   } as React.CSSProperties;
 
-  const labelStyle = { color: '#8892a4', fontSize: 12, fontWeight: 600, textTransform: 'uppercase' as const, letterSpacing: '0.06em', display: 'block', marginBottom: 6 };
+  const labelStyle = { color: palette.textSecondary, fontSize: 12, fontWeight: 600, textTransform: 'uppercase' as const, letterSpacing: '0.06em', display: 'block', marginBottom: 6 };
 
   return (
     <div className="max-w-3xl">
       <div className="mb-6 flex items-center gap-3">
-        <Link href="/admin/blogs" className="flex items-center gap-1.5 text-sm hover:opacity-70 transition-opacity" style={{ color: '#8892a4' }}>
+        <Link href="/admin/blogs" className="flex items-center gap-1.5 text-sm hover:opacity-70 transition-opacity" style={{ color: palette.textSecondary }}>
           <ArrowLeft size={15} /> Back
         </Link>
-        <span style={{ color: '#2e3446' }}>|</span>
-        <h1 className="text-2xl font-bold" style={{ color: '#e6edf3' }}>New Blog Post</h1>
+        <span style={{ color: palette.border }}>|</span>
+        <h1 className="text-2xl font-bold" style={{ color: palette.textPrimary }}>New Blog Post</h1>
       </div>
 
-      <form onSubmit={handleSubmit} className="space-y-5 rounded-xl p-6" style={{ background: '#242938', border: '1px solid #2e3446' }}>
+      <form onSubmit={handleSubmit} className="space-y-5 rounded-xl p-6" style={{ background: palette.cardBg, border: `1px solid ${palette.border}` }}>
         {/* Title */}
         <div>
           <label style={labelStyle}>Title *</label>
@@ -92,7 +94,7 @@ export default function NewBlogPostPage() {
         <div>
           <label style={labelStyle}>Slug *</label>
           <input name="slug" value={form.slug} onChange={handleChange} required placeholder="url-friendly-slug" style={inputStyle} />
-          <p className="text-xs mt-1" style={{ color: '#8892a4' }}>Auto-generated from title. Must be unique.</p>
+          <p className="text-xs mt-1" style={{ color: palette.textSecondary }}>Auto-generated from title. Must be unique.</p>
         </div>
 
         {/* Excerpt */}
@@ -131,13 +133,13 @@ export default function NewBlogPostPage() {
         <div>
           <label style={labelStyle}>Content *</label>
           <textarea name="content" value={form.content} onChange={handleChange} required rows={12} placeholder="Write your blog post content here..." style={{ ...inputStyle, resize: 'vertical', fontFamily: 'monospace' }} />
-          <p className="text-xs mt-1" style={{ color: '#8892a4' }}>Each line break becomes a new paragraph on the public site.</p>
+          <p className="text-xs mt-1" style={{ color: palette.textSecondary }}>Each line break becomes a new paragraph on the public site.</p>
         </div>
 
         {/* Featured */}
         <div className="flex items-center gap-3">
-          <input type="checkbox" id="isFeatured" checked={form.isFeatured} onChange={handleCheckbox} className="w-4 h-4 rounded" style={{ accentColor: '#c9a84c' }} />
-          <label htmlFor="isFeatured" className="text-sm cursor-pointer" style={{ color: '#e6edf3' }}>Mark as featured post</label>
+          <input type="checkbox" id="isFeatured" checked={form.isFeatured} onChange={handleCheckbox} className="w-4 h-4 rounded" style={{ accentColor: palette.gold }} />
+          <label htmlFor="isFeatured" className="text-sm cursor-pointer" style={{ color: palette.textPrimary }}>Mark as featured post</label>
         </div>
 
         {error && <p className="text-sm" style={{ color: '#e74c3c' }}>{error}</p>}
@@ -147,14 +149,14 @@ export default function NewBlogPostPage() {
             type="submit"
             disabled={submitting}
             className="px-6 py-2.5 rounded-lg text-sm font-semibold transition-opacity hover:opacity-80 disabled:opacity-50"
-            style={{ background: '#c9a84c', color: '#1a1f2e' }}
+            style={{ background: palette.gold, color: palette.pageBg }}
           >
             {submitting ? 'Publishing…' : 'Publish Post'}
           </button>
           <Link
             href="/admin/blogs"
             className="px-6 py-2.5 rounded-lg text-sm font-semibold transition-opacity hover:opacity-70"
-            style={{ background: '#1a1f2e', border: '1px solid #2e3446', color: '#8892a4' }}
+            style={{ background: palette.inputBg, border: `1px solid ${palette.border}`, color: palette.textSecondary }}
           >
             Cancel
           </Link>

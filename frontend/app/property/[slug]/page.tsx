@@ -38,10 +38,10 @@ export default async function PropertySlugPage({
     return (
       <main className="min-h-screen pt-32 pb-20 px-4" style={{ background: 'var(--bg-primary)' }}>
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-3xl sm:text-4xl font-bold text-white mb-2">
+          <h1 className="text-3xl sm:text-4xl font-bold t-heading mb-2">
             {typeLabels[slug] || slug}
           </h1>
-          <p className="text-gray-400 mb-8">{result.total} properties found</p>
+          <p className="t-secondary mb-8">{result.total} properties found</p>
           <PropertyGrid
             properties={result.data}
             total={result.total}

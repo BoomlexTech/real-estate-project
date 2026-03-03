@@ -117,8 +117,8 @@ export default function StatCard({
             >
               {prefix}{count.toLocaleString()}{suffix}
             </p>
-            <p className="text-white text-xs sm:text-sm font-light tracking-wide mb-1">{title}</p>
-            <p className="text-[10px] sm:text-[11px] tracking-widest leading-relaxed" style={{ color: '#94A3B8' }}>
+            <p className="t-heading text-xs sm:text-sm font-light tracking-wide mb-1">{title}</p>
+            <p className="text-[10px] sm:text-[11px] tracking-widest leading-relaxed t-secondary">
               {subtitle}
             </p>
           </div>

@@ -68,7 +68,7 @@ export default function SignupPage() {
           <button
             onClick={() => router.push('/login')}
             className="inline-block px-8 py-3 rounded-lg text-sm font-semibold transition-opacity hover:opacity-90"
-            style={{ background: '#c9a84c', color: '#1a1f2e' }}
+            style={{ background: 'var(--gold)', color: 'var(--bg-primary)' }}
           >
             Go to Login
           </button>
@@ -82,7 +82,7 @@ export default function SignupPage() {
       <div className="w-full max-w-lg">
         {/* Brand */}
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold" style={{ color: '#c9a84c' }}>Awtad Real Estate</h1>
+          <h1 className="text-3xl font-bold" style={{ color: 'var(--gold)' }}>Awtad Real Estate</h1>
           <p className="mt-1 text-sm" style={{ color: 'var(--text-secondary)' }}>Agent Application</p>
         </div>
 
@@ -257,14 +257,14 @@ export default function SignupPage() {
               type="submit"
               disabled={isSubmitting}
               className="w-full rounded-lg py-3 text-sm font-semibold transition-opacity disabled:opacity-60"
-              style={{ background: '#c9a84c', color: '#1a1f2e' }}
+              style={{ background: 'var(--gold)', color: 'var(--bg-primary)' }}
             >
               {isSubmitting ? 'Submitting…' : 'Submit Application'}
             </button>
 
             <p className="text-center text-sm" style={{ color: 'var(--text-secondary)' }}>
               Already have an account?{' '}
-              <a href="/login" className="font-medium hover:underline" style={{ color: '#c9a84c' }}>
+              <a href="/login" className="font-medium hover:underline" style={{ color: 'var(--gold)' }}>
                 Sign In
               </a>
             </p>

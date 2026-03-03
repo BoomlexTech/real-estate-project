@@ -14,8 +14,8 @@ export default async function BlogPage() {
   return (
     <main className="min-h-screen pt-32 pb-20 px-4" style={{ background: 'var(--bg-primary)' }}>
       <div className="max-w-7xl mx-auto">
-        <h1 className="font-serif text-3xl sm:text-4xl font-light text-white mb-2 leading-tight">Blog & Insights</h1>
-        <p className="text-gray-400 mb-10">Stay updated with the latest Dubai real estate news</p>
+        <h1 className="font-serif text-3xl sm:text-4xl font-light t-heading mb-2 leading-tight">Blog &amp; Insights</h1>
+        <p className="t-secondary mb-10">Stay updated with the latest Dubai real estate news</p>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {posts.map((post) => (
@@ -33,16 +33,16 @@ export default async function BlogPage() {
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
-                <span className="absolute top-3 left-3 px-3 py-1 text-xs font-semibold rounded-full" style={{ background: '#c9a84c', color: '#1a1f2e' }}>
+                <span className="absolute top-3 left-3 px-3 py-1 text-xs font-semibold rounded-full badge-gold">
                   {post.category}
                 </span>
               </div>
               <div className="p-5">
-                <h3 className="text-white font-bold text-lg group-hover:text-yellow-400 transition-colors line-clamp-2">
+                <h3 className="t-heading font-bold text-lg group-hover:text-yellow-400 transition-colors line-clamp-2">
                   {post.title}
                 </h3>
-                <p className="text-gray-400 text-sm mt-2 line-clamp-2">{post.excerpt}</p>
-                <div className="flex justify-between items-center mt-4 text-xs text-gray-500">
+                <p className="t-secondary text-sm mt-2 line-clamp-2">{post.excerpt}</p>
+                <div className="flex justify-between items-center mt-4 text-xs t-dim">
                   <span>{post.author}</span>
                   <span>{new Date(post.publishedAt).toLocaleDateString()}</span>
                 </div>

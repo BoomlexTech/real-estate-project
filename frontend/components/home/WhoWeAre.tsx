@@ -64,7 +64,7 @@ const services = [
 
 export default function WhoWeAre() {
   return (
-    <div className="relative overflow-hidden" style={{ background: '#0A0E1A' }}>
+    <div className="relative overflow-hidden" style={{ background: 'var(--bg-primary)' }}>
       {/* Stats Section */}
       <section className="relative z-10 pt-10 pb-0 px-4">
         <div className="max-w-7xl mx-auto">
@@ -144,7 +144,7 @@ export default function WhoWeAre() {
                 Who We Are
               </p>
               <span className="section-divider mb-6" />
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light text-white mb-8 leading-[1.1]">
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light t-heading mb-8 leading-[1.1]">
                 Navigating Dubai&apos;s{' '}
                 <span style={{ color: '#C9A96E' }}>Real Estate</span>{' '}
                 with Precision
@@ -172,7 +172,7 @@ export default function WhoWeAre() {
                     <p className="font-serif text-2xl font-light mb-3" style={{ color: 'rgba(201,169,110,0.35)' }}>
                       {svc.label}
                     </p>
-                    <h4 className="text-white text-sm font-light tracking-wide mb-2">{svc.title}</h4>
+                    <h4 className="t-heading text-sm font-light tracking-wide mb-2">{svc.title}</h4>
                     <p className="text-xs leading-relaxed" style={{ color: 'rgba(148,163,184,0.65)' }}>{svc.desc}</p>
                   </motion.div>
                 ))}

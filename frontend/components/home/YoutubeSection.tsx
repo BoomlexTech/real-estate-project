@@ -76,7 +76,7 @@ function VideoCard({ video }: { video: (typeof videos)[0] }) {
                 className="w-14 h-14 rounded-full flex items-center justify-center transition-transform duration-200 group-hover:scale-110 shadow-lg"
                 style={{ background: '#C9A96E' }}
               >
-                <Play className="w-6 h-6 fill-current" style={{ color: '#1a1f2e', marginLeft: '2px' }} />
+                <Play className="w-6 h-6 fill-current" style={{ color: 'var(--bg-primary)', marginLeft: '2px' }} />
               </div>
             </button>
           </>
@@ -84,7 +84,7 @@ function VideoCard({ video }: { video: (typeof videos)[0] }) {
       </div>
 
       <div className="px-4 py-3 flex flex-col flex-1">
-        <p className="text-white text-sm font-semibold leading-snug line-clamp-2">{video.title}</p>
+        <p className="t-heading text-sm font-semibold leading-snug line-clamp-2">{video.title}</p>
         <p className="text-xs mt-1.5" style={{ color: '#C9A96E' }}>{video.location}</p>
       </div>
     </div>
@@ -129,10 +129,10 @@ export default function YoutubeSection() {
           <p className="text-[10px] tracking-[0.28em] uppercase" style={{ color: '#C9A96E' }}>
             Property Tours
           </p>
-          <h2 className="font-serif text-3xl sm:text-4xl font-light text-white leading-tight">
+          <h2 className="font-serif text-3xl sm:text-4xl font-light t-heading leading-tight">
             Explore Dubai Real Estate
           </h2>
-          <p className="text-gray-400 text-sm max-w-xl">
+          <p className="t-secondary text-sm max-w-xl">
             Watch exclusive video tours of Dubai&apos;s most sought-after properties — from waterfront apartments to luxury villas.
           </p>
 
@@ -141,7 +141,7 @@ export default function YoutubeSection() {
             <button
               onClick={prev}
               disabled={!canPrev}
-              className="w-10 h-10 rounded-full flex items-center justify-center text-white transition disabled:opacity-30"
+              className="w-10 h-10 rounded-full flex items-center justify-center t-heading transition disabled:opacity-30"
               style={{ border: '1px solid rgba(201,168,76,0.45)' }}
             >
               <ChevronLeft className="w-5 h-5" />
@@ -149,7 +149,7 @@ export default function YoutubeSection() {
             <button
               onClick={next}
               disabled={!canNext}
-              className="w-10 h-10 rounded-full flex items-center justify-center text-white transition disabled:opacity-30"
+              className="w-10 h-10 rounded-full flex items-center justify-center t-heading transition disabled:opacity-30"
               style={{ border: '1px solid rgba(201,168,76,0.45)' }}
             >
               <ChevronRight className="w-5 h-5" />

@@ -13,8 +13,8 @@ export default async function DevelopersPage() {
   return (
     <main className="min-h-screen pt-32 pb-20 px-4" style={{ background: 'var(--bg-primary)' }}>
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-3xl sm:text-4xl font-bold text-white mb-2">Top Developers in Dubai</h1>
-        <p className="text-gray-400 mb-10">Explore projects from the region&apos;s leading developers</p>
+        <h1 className="text-3xl sm:text-4xl font-bold t-heading mb-2">Top Developers in Dubai</h1>
+        <p className="t-secondary mb-10">Explore projects from the region&apos;s leading developers</p>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {developers.map((dev) => (
@@ -29,11 +29,11 @@ export default async function DevelopersPage() {
                   <Image src={dev.logo} alt={dev.name} fill className="object-cover" sizes="64px" />
                 )}
               </div>
-              <h3 className="text-white text-lg font-bold group-hover:text-yellow-400 transition-colors">
+              <h3 className="t-heading text-lg font-bold group-hover:text-yellow-400 transition-colors">
                 {dev.name}
               </h3>
-              <p className="text-gray-400 text-sm mt-1 line-clamp-2">{dev.description}</p>
-              <p className="text-sm mt-3" style={{ color: '#c9a84c' }}>
+              <p className="t-secondary text-sm mt-1 line-clamp-2">{dev.description}</p>
+              <p className="text-sm mt-3 t-accent">
                 {dev.properties} Projects
               </p>
             </Link>

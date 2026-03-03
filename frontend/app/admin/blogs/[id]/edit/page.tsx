@@ -5,12 +5,14 @@ import { useRouter, useParams } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 import { getAdminBlogPost, updateBlogPost, AdminBlogPost } from '@/lib/adminApi';
+import { useTheme } from '@/contexts/ThemeContext';
 
 const CATEGORIES = ['Market Insights', 'Investment', 'Lifestyle', 'News', 'Tips & Guides'];
 
 export default function EditBlogPostPage() {
   const router = useRouter();
   const { id } = useParams<{ id: string }>();
+  const { palette } = useTheme();
 
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
@@ -73,9 +75,9 @@ export default function EditBlogPostPage() {
   };
 
   const inputStyle = {
-    background: '#1a1f2e',
-    border: '1px solid #2e3446',
-    color: '#e6edf3',
+    background: palette.inputBg,
+    border: `1px solid ${palette.border}`,
+    color: palette.textPrimary,
     borderRadius: 8,
     padding: '8px 12px',
     width: '100%',
@@ -83,28 +85,28 @@ export default function EditBlogPostPage() {
     outline: 'none',
   } as React.CSSProperties;
 
-  const labelStyle = { color: '#8892a4', fontSize: 12, fontWeight: 600, textTransform: 'uppercase' as const, letterSpacing: '0.06em', display: 'block', marginBottom: 6 };
+  const labelStyle = { color: palette.textSecondary, fontSize: 12, fontWeight: 600, textTransform: 'uppercase' as const, letterSpacing: '0.06em', display: 'block', marginBottom: 6 };
 
   return (
     <div className="max-w-3xl">
       <div className="mb-6 flex items-center gap-3">
-        <Link href="/admin/blogs" className="flex items-center gap-1.5 text-sm hover:opacity-70 transition-opacity" style={{ color: '#8892a4' }}>
+        <Link href="/admin/blogs" className="flex items-center gap-1.5 text-sm hover:opacity-70 transition-opacity" style={{ color: palette.textSecondary }}>
           <ArrowLeft size={15} /> Back
         </Link>
-        <span style={{ color: '#2e3446' }}>|</span>
-        <h1 className="text-2xl font-bold" style={{ color: '#e6edf3' }}>Edit Blog Post</h1>
+        <span style={{ color: palette.border }}>|</span>
+        <h1 className="text-2xl font-bold" style={{ color: palette.textPrimary }}>Edit Blog Post</h1>
       </div>
 
       {loading ? (
-        <div className="flex items-center justify-center h-48 rounded-xl" style={{ background: '#242938', border: '1px solid #2e3446' }}>
-          <div className="w-7 h-7 border-2 rounded-full animate-spin" style={{ borderColor: '#c9a84c', borderTopColor: 'transparent' }} />
+        <div className="flex items-center justify-center h-48 rounded-xl" style={{ background: palette.cardBg, border: `1px solid ${palette.border}` }}>
+          <div className="w-7 h-7 border-2 rounded-full animate-spin" style={{ borderColor: palette.gold, borderTopColor: 'transparent' }} />
         </div>
       ) : error && !form.title ? (
-        <div className="flex items-center justify-center h-48 rounded-xl" style={{ background: '#242938', border: '1px solid #2e3446' }}>
+        <div className="flex items-center justify-center h-48 rounded-xl" style={{ background: palette.cardBg, border: `1px solid ${palette.border}` }}>
           <p className="text-sm" style={{ color: '#e74c3c' }}>{error}</p>
         </div>
       ) : (
-        <form onSubmit={handleSubmit} className="space-y-5 rounded-xl p-6" style={{ background: '#242938', border: '1px solid #2e3446' }}>
+        <form onSubmit={handleSubmit} className="space-y-5 rounded-xl p-6" style={{ background: palette.cardBg, border: `1px solid ${palette.border}` }}>
           {/* Title */}
           <div>
             <label style={labelStyle}>Title *</label>
@@ -115,7 +117,7 @@ export default function EditBlogPostPage() {
           <div>
             <label style={labelStyle}>Slug *</label>
             <input name="slug" value={form.slug} onChange={handleChange} required placeholder="url-friendly-slug" style={inputStyle} />
-            <p className="text-xs mt-1" style={{ color: '#8892a4' }}>Changing the slug will break existing links to this post.</p>
+            <p className="text-xs mt-1" style={{ color: palette.textSecondary }}>Changing the slug will break existing links to this post.</p>
           </div>
 
           {/* Excerpt */}
@@ -158,8 +160,8 @@ export default function EditBlogPostPage() {
 
           {/* Featured */}
           <div className="flex items-center gap-3">
-            <input type="checkbox" id="isFeatured" checked={form.isFeatured} onChange={handleCheckbox} className="w-4 h-4 rounded" style={{ accentColor: '#c9a84c' }} />
-            <label htmlFor="isFeatured" className="text-sm cursor-pointer" style={{ color: '#e6edf3' }}>Mark as featured post</label>
+            <input type="checkbox" id="isFeatured" checked={form.isFeatured} onChange={handleCheckbox} className="w-4 h-4 rounded" style={{ accentColor: palette.gold }} />
+            <label htmlFor="isFeatured" className="text-sm cursor-pointer" style={{ color: palette.textPrimary }}>Mark as featured post</label>
           </div>
 
           {error && <p className="text-sm" style={{ color: '#e74c3c' }}>{error}</p>}
@@ -169,14 +171,14 @@ export default function EditBlogPostPage() {
               type="submit"
               disabled={submitting}
               className="px-6 py-2.5 rounded-lg text-sm font-semibold transition-opacity hover:opacity-80 disabled:opacity-50"
-              style={{ background: '#c9a84c', color: '#1a1f2e' }}
+              style={{ background: palette.gold, color: palette.pageBg }}
             >
               {submitting ? 'Saving…' : 'Save Changes'}
             </button>
             <Link
               href="/admin/blogs"
               className="px-6 py-2.5 rounded-lg text-sm font-semibold transition-opacity hover:opacity-70"
-              style={{ background: '#1a1f2e', border: '1px solid #2e3446', color: '#8892a4' }}
+              style={{ background: palette.inputBg, border: `1px solid ${palette.border}`, color: palette.textSecondary }}
             >
               Cancel
             </Link>

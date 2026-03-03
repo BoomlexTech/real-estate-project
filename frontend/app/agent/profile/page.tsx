@@ -6,9 +6,11 @@ import { updateProfile, UpdateProfilePayload } from '@/lib/agentApi';
 import { Save, Loader2, CheckCircle, AlertCircle, Upload, User } from 'lucide-react';
 import { CldUploadWidget } from 'next-cloudinary';
 import api from '@/lib/api';
+import { useTheme } from '@/contexts/ThemeContext';
 
 export default function AgentProfilePage() {
     const { user } = useAuth();
+    const { palette } = useTheme();
     const [loading, setLoading] = useState(true);
     const [saving, setSaving] = useState(false);
     const [feedback, setFeedback] = useState<{ type: 'success' | 'error'; msg: string } | null>(null);
@@ -86,26 +88,26 @@ export default function AgentProfilePage() {
     if (loading) {
         return (
             <div className="flex items-center justify-center py-20">
-                <Loader2 className="w-6 h-6 animate-spin" style={{ color: '#c9a84c' }} />
+                <Loader2 className="w-6 h-6 animate-spin" style={{ color: palette.gold }} />
             </div>
         );
     }
 
     const inputStyle = {
-        background: '#1a1f2e',
-        border: '1px solid #2e3446',
-        color: '#e6edf3',
+        background: palette.inputBg,
+        border: `1px solid ${palette.border}`,
+        color: palette.textPrimary,
     };
 
     return (
         <div className="max-w-2xl">
-            <h1 className="text-2xl font-bold mb-1" style={{ color: '#e6edf3' }}>My Profile</h1>
-            <p className="text-sm mb-8" style={{ color: '#8892a4' }}>Update your personal info and photo</p>
+            <h1 className="text-2xl font-bold mb-1" style={{ color: palette.textPrimary }}>My Profile</h1>
+            <p className="text-sm mb-8" style={{ color: palette.textSecondary }}>Update your personal info and photo</p>
 
             <div className="space-y-5">
                 {/* Name */}
                 <div>
-                    <label className="block text-sm font-medium mb-1.5" style={{ color: '#c9d1d9' }}>Full Name</label>
+                    <label className="block text-sm font-medium mb-1.5" style={{ color: palette.textPrimary }}>Full Name</label>
                     <input
                         type="text"
                         value={form.name}
@@ -117,7 +119,7 @@ export default function AgentProfilePage() {
 
                 {/* Phone */}
                 <div>
-                    <label className="block text-sm font-medium mb-1.5" style={{ color: '#c9d1d9' }}>Phone Number</label>
+                    <label className="block text-sm font-medium mb-1.5" style={{ color: palette.textPrimary }}>Phone Number</label>
                     <input
                         type="text"
                         value={form.phone}
@@ -130,7 +132,7 @@ export default function AgentProfilePage() {
 
                 {/* WhatsApp Link */}
                 <div>
-                    <label className="block text-sm font-medium mb-1.5" style={{ color: '#c9d1d9' }}>WhatsApp Link</label>
+                    <label className="block text-sm font-medium mb-1.5" style={{ color: palette.textPrimary }}>WhatsApp Link</label>
                     <input
                         type="url"
                         value={form.whatsapp}
@@ -139,21 +141,21 @@ export default function AgentProfilePage() {
                         className="w-full rounded-lg px-4 py-3 text-sm outline-none"
                         style={inputStyle}
                     />
-                    <p className="text-xs mt-1" style={{ color: '#8892a4' }}>Leave blank to use the company default WhatsApp</p>
+                    <p className="text-xs mt-1" style={{ color: palette.textSecondary }}>Leave blank to use the company default WhatsApp</p>
                 </div>
 
                 {/* Profile Photo */}
                 <div>
-                    <label className="block text-sm font-medium mb-3" style={{ color: '#c9d1d9' }}>Profile Photo</label>
+                    <label className="block text-sm font-medium mb-3" style={{ color: palette.textPrimary }}>Profile Photo</label>
                     <div className="flex items-start gap-4">
                         {/* Circular avatar preview */}
                         <div
                             className="w-20 h-20 rounded-full overflow-hidden shrink-0 flex items-center justify-center"
-                            style={{ background: '#2e3446', border: '2px solid #c9a84c' }}
+                            style={{ background: palette.border, border: `2px solid ${palette.gold}` }}
                         >
                             {form.photo
                                 ? <img src={form.photo} alt="Profile" className="w-full h-full object-cover" />
-                                : <User size={32} style={{ color: '#3a4058' }} />}
+                                : <User size={32} style={{ color: palette.textDim }} />}
                         </div>
                         <div className="flex-1 space-y-2">
                             {/* Cloudinary upload button */}
@@ -170,7 +172,7 @@ export default function AgentProfilePage() {
                                         type="button"
                                         onClick={() => open()}
                                         className="flex items-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium transition-opacity hover:opacity-90"
-                                        style={{ background: '#c9a84c', color: '#1a1f2e' }}
+                                        style={{ background: palette.gold, color: '#1a1f2e' }}
                                     >
                                         <Upload size={16} />
                                         Upload Photo
@@ -186,14 +188,14 @@ export default function AgentProfilePage() {
                                 className="w-full rounded-lg px-4 py-3 text-sm outline-none"
                                 style={inputStyle}
                             />
-                            <p className="text-xs" style={{ color: '#8892a4' }}>Upload from your device or paste a direct URL</p>
+                            <p className="text-xs" style={{ color: palette.textSecondary }}>Upload from your device or paste a direct URL</p>
                         </div>
                     </div>
                 </div>
 
                 {/* Languages */}
                 <div>
-                    <label className="block text-sm font-medium mb-1.5" style={{ color: '#c9d1d9' }}>Languages</label>
+                    <label className="block text-sm font-medium mb-1.5" style={{ color: palette.textPrimary }}>Languages</label>
                     <input
                         type="text"
                         value={form.languages}
@@ -202,12 +204,12 @@ export default function AgentProfilePage() {
                         className="w-full rounded-lg px-4 py-3 text-sm outline-none"
                         style={inputStyle}
                     />
-                    <p className="text-xs mt-1" style={{ color: '#8892a4' }}>Comma-separated list of languages you speak</p>
+                    <p className="text-xs mt-1" style={{ color: palette.textSecondary }}>Comma-separated list of languages you speak</p>
                 </div>
 
                 {/* Specialization */}
                 <div>
-                    <label className="block text-sm font-medium mb-1.5" style={{ color: '#c9d1d9' }}>Specialization</label>
+                    <label className="block text-sm font-medium mb-1.5" style={{ color: palette.textPrimary }}>Specialization</label>
                     <input
                         type="text"
                         value={form.specialization}
@@ -220,7 +222,7 @@ export default function AgentProfilePage() {
 
                 {/* Bio */}
                 <div>
-                    <label className="block text-sm font-medium mb-1.5" style={{ color: '#c9d1d9' }}>Bio</label>
+                    <label className="block text-sm font-medium mb-1.5" style={{ color: palette.textPrimary }}>Bio</label>
                     <textarea
                         value={form.bio}
                         onChange={(e) => handleChange('bio', e.target.value)}
@@ -251,7 +253,7 @@ export default function AgentProfilePage() {
                     onClick={handleSave}
                     disabled={saving}
                     className="flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold transition-opacity disabled:opacity-60"
-                    style={{ background: '#c9a84c', color: '#1a1f2e' }}
+                    style={{ background: palette.gold, color: '#1a1f2e' }}
                 >
                     {saving ? <Loader2 size={16} className="animate-spin" /> : <Save size={16} />}
                     {saving ? 'Saving…' : 'Save Profile'}

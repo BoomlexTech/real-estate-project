@@ -43,7 +43,7 @@ export default function DeveloperSpotlight() {
               Our Partners
             </p>
             <span className="section-divider mx-auto mb-5" />
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light text-white leading-[1.08]">
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light t-heading leading-[1.08]">
               Top Developers<br />
               <span style={{ color: '#C9A96E' }}>In Dubai</span>
             </h2>
@@ -89,7 +89,7 @@ export default function DeveloperSpotlight() {
               >
                 <motion.div
                   className="w-24 h-24 lg:w-28 lg:h-28 rounded-full relative overflow-hidden flex items-center justify-center text-xl lg:text-3xl font-light mb-2"
-                  style={{ border: '1px solid rgba(201,169,110,0.28)', background: '#111827' }}
+                  style={{ border: '1px solid rgba(201,169,110,0.28)', background: 'var(--bg-card)' }}
                   animate={{
                     boxShadow: [
                       '0 0 0px rgba(201,169,110,0)',
@@ -124,11 +124,11 @@ export default function DeveloperSpotlight() {
                 </motion.div>
                 <div>
                   <p
-                    className="text-white text-xs tracking-wide font-light transition-colors group-hover:text-gold whitespace-normal"
+                    className="t-heading text-xs tracking-wide font-light transition-colors group-hover:text-gold whitespace-normal"
                   >
                     {dev.name}
                   </p>
-                  <p className="text-[10px] tracking-[0.08em] mt-1" style={{ color: '#94A3B8' }}>
+                  <p className="text-[10px] tracking-[0.08em] mt-1 t-secondary">
                     {dev.properties}+ Projects
                   </p>
                 </div>

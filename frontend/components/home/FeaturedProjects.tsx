@@ -37,7 +37,7 @@ export default function FeaturedProjects() {
                         Explore
                     </p>
                     <span className="section-divider mx-auto" />
-                    <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light text-white leading-[1.08]">
+                    <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light t-heading leading-[1.08]">
                         Featured Projects<br />
                         <span style={{ color: '#C9A96E' }}>In Dubai</span>
                     </h2>
@@ -47,7 +47,7 @@ export default function FeaturedProjects() {
                         <button
                             onClick={() => setStartIdx((p) => Math.max(0, p - 1))}
                             disabled={!canPrev}
-                            className="w-10 h-10 flex items-center justify-center text-white text-base transition-all disabled:opacity-25"
+                            className="w-10 h-10 flex items-center justify-center t-heading text-base transition-all disabled:opacity-25"
                             style={{ border: '1px solid rgba(201,169,110,0.38)', borderRadius: '6px' }}
                         >
                             ←
@@ -55,7 +55,7 @@ export default function FeaturedProjects() {
                         <button
                             onClick={() => setStartIdx((p) => Math.min(projects.length - visible, p + 1))}
                             disabled={!canNext}
-                            className="w-10 h-10 flex items-center justify-center text-white text-base transition-all disabled:opacity-25"
+                            className="w-10 h-10 flex items-center justify-center t-heading text-base transition-all disabled:opacity-25"
                             style={{ border: '1px solid rgba(201,169,110,0.38)', borderRadius: '6px' }}
                         >
                             →

@@ -4,9 +4,11 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import PropertyForm, { PropertyFormValues } from '@/components/agent/PropertyForm';
 import { createProperty, PropertyPayload } from '@/lib/agentApi';
+import { useTheme } from '@/contexts/ThemeContext';
 
 export default function NewPropertyPage() {
   const router = useRouter();
+  const { palette } = useTheme();
   const [serverError, setServerError] = useState('');
 
   const handleSubmit = async (payload: PropertyPayload) => {
@@ -35,8 +37,8 @@ export default function NewPropertyPage() {
   return (
     <div>
       <div className="mb-6">
-        <h1 className="text-2xl font-bold" style={{ color: '#e6edf3' }}>Add New Property</h1>
-        <p className="text-sm mt-1" style={{ color: '#8892a4' }}>Fill in the details to list a new property</p>
+        <h1 className="text-2xl font-bold" style={{ color: palette.textPrimary }}>Add New Property</h1>
+        <p className="text-sm mt-1" style={{ color: palette.textSecondary }}>Fill in the details to list a new property</p>
       </div>
 
       <div className="max-w-3xl">

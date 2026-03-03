@@ -20,7 +20,7 @@ export default function BankMarquee() {
     <div
       className="relative overflow-hidden py-3"
       style={{
-        background: '#0A0E1A',
+        background: 'var(--bg-primary)',
         borderTop: '1px solid rgba(201,169,110,0.35)',
         borderBottom: '1px solid rgba(201,169,110,0.35)',
         boxShadow: '0 0 24px rgba(201,169,110,0.12), inset 0 1px 0 rgba(201,169,110,0.08), inset 0 -1px 0 rgba(201,169,110,0.08)',
@@ -37,11 +37,11 @@ export default function BankMarquee() {
       {/* Edge fade masks */}
       <div
         className="absolute left-0 top-0 bottom-0 w-24 pointer-events-none z-10"
-        style={{ background: 'linear-gradient(to right, #0A0E1A, transparent)' }}
+        style={{ background: 'linear-gradient(to right, var(--bg-primary), transparent)' }}
       />
       <div
         className="absolute right-0 top-0 bottom-0 w-24 pointer-events-none z-10"
-        style={{ background: 'linear-gradient(to left, #0A0E1A, transparent)' }}
+        style={{ background: 'linear-gradient(to left, var(--bg-primary), transparent)' }}
       />
 
       <div className="relative flex whitespace-nowrap overflow-hidden">

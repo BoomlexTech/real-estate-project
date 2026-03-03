@@ -64,7 +64,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             className="fixed top-0 right-0 h-full z-50 lg:hidden flex flex-col"
             style={{
               width: 'min(85vw, 360px)',
-              background: '#0A0E1A',
+              background: 'var(--bg-primary)',
               borderLeft: '1px solid rgba(201,169,110,0.2)',
             }}
           >
@@ -152,7 +152,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 }}
                 onMouseEnter={e => {
                   (e.currentTarget as HTMLElement).style.background = '#C9A96E';
-                  (e.currentTarget as HTMLElement).style.color = '#0A0E1A';
+                  (e.currentTarget as HTMLElement).style.color = 'var(--bg-primary)';
                 }}
                 onMouseLeave={e => {
                   (e.currentTarget as HTMLElement).style.background = 'transparent';

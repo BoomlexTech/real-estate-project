@@ -4,10 +4,12 @@ import { useEffect, useState } from 'react';
 import { useRouter, useParams } from 'next/navigation';
 import PropertyForm, { PropertyFormValues } from '@/components/agent/PropertyForm';
 import { getPropertyById, updateProperty, PropertyPayload, AgentProperty } from '@/lib/agentApi';
+import { useTheme } from '@/contexts/ThemeContext';
 
 export default function EditPropertyPage() {
   const { id } = useParams<{ id: string }>();
   const router = useRouter();
+  const { palette } = useTheme();
   const [property, setProperty] = useState<AgentProperty | null>(null);
   const [loading, setLoading] = useState(true);
   const [fetchError, setFetchError] = useState('');
@@ -35,7 +37,7 @@ export default function EditPropertyPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-64">
-        <div className="w-8 h-8 border-2 rounded-full animate-spin" style={{ borderColor: '#c9a84c', borderTopColor: 'transparent' }} />
+        <div className="w-8 h-8 border-2 rounded-full animate-spin" style={{ borderColor: palette.gold, borderTopColor: 'transparent' }} />
       </div>
     );
   }
@@ -71,8 +73,8 @@ export default function EditPropertyPage() {
   return (
     <div>
       <div className="mb-6">
-        <h1 className="text-2xl font-bold" style={{ color: '#e6edf3' }}>Edit Property</h1>
-        <p className="text-sm mt-1 truncate max-w-md" style={{ color: '#8892a4' }}>{property.title}</p>
+        <h1 className="text-2xl font-bold" style={{ color: palette.textPrimary }}>Edit Property</h1>
+        <p className="text-sm mt-1 truncate max-w-md" style={{ color: palette.textSecondary }}>{property.title}</p>
       </div>
 
       <div className="max-w-3xl">

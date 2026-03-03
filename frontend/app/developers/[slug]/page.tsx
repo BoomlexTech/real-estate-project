@@ -29,10 +29,10 @@ export default async function DeveloperDetailPage({
             )}
           </div>
           <div>
-            <h1 className="text-3xl font-bold text-white">{developer.name}</h1>
-            <p className="text-gray-400 mt-2 max-w-2xl">{developer.description}</p>
+            <h1 className="text-3xl font-bold t-heading">{developer.name}</h1>
+            <p className="t-secondary mt-2 max-w-2xl">{developer.description}</p>
             {developer.website && (
-              <Link href={developer.website} target="_blank" className="text-sm mt-2 inline-block" style={{ color: '#c9a84c' }}>
+              <Link href={developer.website} target="_blank" className="text-sm mt-2 inline-block t-accent">
                 Visit Website →
               </Link>
             )}
@@ -40,7 +40,7 @@ export default async function DeveloperDetailPage({
         </div>
 
         {/* Properties */}
-        <h2 className="text-2xl font-bold text-white mb-6">Properties by {developer.name}</h2>
+        <h2 className="text-2xl font-bold t-heading mb-6">Properties by {developer.name}</h2>
         {developer.projects.length > 0 ? (
           <PropertyGrid
             properties={developer.projects}
@@ -48,7 +48,7 @@ export default async function DeveloperDetailPage({
             totalPages={1}
           />
         ) : (
-          <p className="text-gray-400">No properties listed yet.</p>
+          <p className="t-secondary">No properties listed yet.</p>
         )}
       </div>
     </main>

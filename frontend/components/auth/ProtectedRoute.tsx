@@ -28,7 +28,7 @@ export default function ProtectedRoute({ role, children }: Props) {
   // Show spinner while resolving auth or while redirecting
   if (loading || !user || user.role !== role) {
     return (
-      <div className="min-h-screen flex items-center justify-center" style={{ background: '#1a1f2e' }}>
+      <div className="min-h-screen flex items-center justify-center" style={{ background: 'var(--bg-primary)' }}>
         <div
           className="w-8 h-8 border-2 rounded-full animate-spin"
           style={{ borderColor: '#c9a84c', borderTopColor: 'transparent' }}

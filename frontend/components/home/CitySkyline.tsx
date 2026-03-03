@@ -232,7 +232,7 @@ export default function CitySkyline() {
   const opacity = useTransform(scrollYProgress, [0, 0.12, 0.85, 1], [0, 1, 1, 0.4]);
 
   return (
-    <div ref={ref} className="relative w-full h-full overflow-hidden" style={{ background: '#0A0E1A' }}>
+    <div ref={ref} className="relative w-full h-full overflow-hidden" style={{ background: 'var(--bg-primary)' }}>
 
       <motion.div
         style={{ opacity }}
