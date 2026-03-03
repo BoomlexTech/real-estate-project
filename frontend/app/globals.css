@@ -27,11 +27,11 @@
   --bg-card: #ffffff;
   --bg-section-alt: #edeae2;
   --bg-warm-tint: #f0ece3;
-  --text-primary: #0A0E1A;
-  --text-body: #2d3748;
-  --text-secondary: #4a5568;
-  --text-dim: #718096;
-  --text-link: #374151;
+  --text-primary: #000000;
+  --text-body: #1a202c;
+  --text-secondary: #2d3748;
+  --text-dim: #4a5568;
+  --text-link: #1a202c;
   --border-color: #d8d4cc;
   --border-gold: rgba(201, 169, 110, 0.45);
   --border-subtle: rgba(0, 0, 0, 0.07);

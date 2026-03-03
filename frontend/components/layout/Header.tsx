@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { Menu, Phone, Facebook, Instagram, Linkedin, Youtube } from 'lucide-react';
 import MobileMenu from './MobileMenu';
 import Logo from '../common/Logo';
-import ThemeToggle from '../common/ThemeToggle';
+// import ThemeToggle from '../common/ThemeToggle';
 import { useTheme } from '@/contexts/ThemeContext';
 
 const navLinks = [
@@ -132,7 +132,7 @@ export default function Header() {
 
           {/* Right side */}
           <div className="flex items-center gap-3">
-            <ThemeToggle />
+            {/* <ThemeToggle /> */}
             <button
               onClick={() => setMobileOpen(true)}
               className="lg:hidden p-2 transition-colors"
