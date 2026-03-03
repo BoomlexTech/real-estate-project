@@ -18,6 +18,9 @@ interface Props {
   property: Property;
 }
 
+const DEFAULT_PHONE = '+971547093295';
+const DEFAULT_WHATSAPP = 'https://api.whatsapp.com/send/?phone=971547093295&text=I%27m+interrested+about+this+property&type=phone_number&app_absent=0';
+
 export default function PropertyDetail({ property }: Props) {
   const [submitted, setSubmitted] = useState(false);
   const [serverError, setServerError] = useState('');
@@ -246,7 +249,7 @@ export default function PropertyDetail({ property }: Props) {
               {/* Contact Buttons */}
               <div className="space-y-2.5">
                 <a
-                  href={`tel:${property.agent.phone}`}
+                  href={`tel:${property.agent?.phone || DEFAULT_PHONE}`}
                   className="flex items-center justify-center gap-2 w-full py-3 rounded-lg font-semibold text-sm transition-colors"
                   style={{ background: '#c9a84c', color: '#1a1f2e' }}
                 >
@@ -254,7 +257,7 @@ export default function PropertyDetail({ property }: Props) {
                   Call Agent
                 </a>
                 <a
-                  href="https://wa.me/971547093295?text=I'm%20interrested%20about%20this%20property"
+                  href={property.agent?.whatsapp || DEFAULT_WHATSAPP}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 w-full py-3 rounded-lg font-semibold text-sm transition-colors"

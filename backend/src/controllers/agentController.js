@@ -51,13 +51,14 @@ const getAgentById = async (req, res, next) => {
 // PUT /api/agents/profile
 const updateProfile = async (req, res, next) => {
     try {
-        const { name, phone, photo, languages, specialization, bio } = req.body;
+        const { name, phone, whatsapp, photo, languages, specialization, bio } = req.body;
 
         const agent = await Agent.findById(req.user._id);
         if (!agent) return res.status(404).json({ success: false, message: 'Agent not found' });
 
         if (name !== undefined) agent.name = name;
         if (phone !== undefined) agent.phone = phone;
+        if (whatsapp !== undefined) agent.whatsapp = whatsapp;
         if (photo !== undefined) agent.photo = photo;
         if (languages !== undefined) agent.languages = Array.isArray(languages) ? languages : [];
         if (specialization !== undefined) agent.specialization = specialization;

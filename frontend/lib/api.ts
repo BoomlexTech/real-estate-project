@@ -65,7 +65,7 @@ function normalizeAgent(a: any): Agent {
     name: a.name || '',
     photo: a.photo || '',
     phone: a.phone || '',
-    whatsapp: a.phone || '',
+    whatsapp: a.whatsapp || a.phone || '',
     email: a.email || '',
     languages: a.languages || [],
     properties: a.propertyCount || a.assignedProperties?.length || 0,

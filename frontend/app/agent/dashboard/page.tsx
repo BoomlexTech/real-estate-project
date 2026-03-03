@@ -2,22 +2,23 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { Building2, PlusCircle, Star } from 'lucide-react';
-import { getMyProperties, MyPropertiesResponse } from '@/lib/agentApi';
+import { Building2, PlusCircle, Star, MessageSquare } from 'lucide-react';
+import { getMyProperties, getMyInquiries, MyPropertiesResponse } from '@/lib/agentApi';
 import { useAuth } from '@/contexts/AuthContext';
 
 export default function AgentDashboardPage() {
   const { user } = useAuth();
-  const [stats, setStats] = useState<{ total: number; featured: number } | null>(null);
+  const [stats, setStats] = useState<{ total: number; featured: number; newInquiries: number } | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getMyProperties(1)
-      .then((res: MyPropertiesResponse) => {
-        const featured = res.data.filter((p) => p.isFeatured).length;
-        setStats({ total: res.total, featured });
+    Promise.all([getMyProperties(1), getMyInquiries(1)])
+      .then(([props, inquiries]: [MyPropertiesResponse, any]) => {
+        const featured = props.data.filter((p) => p.isFeatured).length;
+        const newInquiries = inquiries.data.filter((q: any) => q.status === 'new').length;
+        setStats({ total: props.total, featured, newInquiries });
       })
-      .catch(() => setStats({ total: 0, featured: 0 }))
+      .catch(() => setStats({ total: 0, featured: 0, newInquiries: 0 }))
       .finally(() => setLoading(false));
   }, []);
 
@@ -31,7 +32,7 @@ export default function AgentDashboardPage() {
       </div>
 
       {/* Stat cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
         <div className="rounded-xl p-5" style={{ background: '#242938', border: '1px solid #2e3446' }}>
           <div className="flex items-start justify-between">
             <div>
@@ -60,6 +61,25 @@ export default function AgentDashboardPage() {
             </div>
           </div>
         </div>
+
+        <Link
+          href="/agent/inquiries"
+          className="rounded-xl p-5 transition-opacity hover:opacity-80"
+          style={{ background: '#242938', border: '1px solid #2e3446', display: 'block' }}
+        >
+          <div className="flex items-start justify-between">
+            <div>
+              <p className="text-xs font-medium uppercase tracking-wide" style={{ color: '#8892a4' }}>New Inquiries</p>
+              <p className="text-3xl font-bold mt-1" style={{ color: '#e6edf3' }}>
+                {loading ? '—' : stats?.newInquiries ?? 0}
+              </p>
+              <p className="text-xs mt-1" style={{ color: '#3b82f6' }}>Uncontacted leads</p>
+            </div>
+            <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: 'rgba(59,130,246,0.15)', color: '#3b82f6' }}>
+              <MessageSquare size={20} />
+            </div>
+          </div>
+        </Link>
       </div>
 
       {/* Quick actions */}

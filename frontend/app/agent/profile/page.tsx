@@ -3,7 +3,8 @@
 import { useEffect, useState } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { updateProfile, UpdateProfilePayload } from '@/lib/agentApi';
-import { Save, Loader2, CheckCircle, AlertCircle } from 'lucide-react';
+import { Save, Loader2, CheckCircle, AlertCircle, Upload, User } from 'lucide-react';
+import { CldUploadWidget } from 'next-cloudinary';
 import api from '@/lib/api';
 
 export default function AgentProfilePage() {
@@ -15,6 +16,7 @@ export default function AgentProfilePage() {
     const [form, setForm] = useState({
         name: '',
         phone: '',
+        whatsapp: '',
         photo: '',
         languages: '',
         specialization: '',
@@ -39,6 +41,7 @@ export default function AgentProfilePage() {
                 setForm({
                     name: a.name || '',
                     phone: a.phone || '',
+                    whatsapp: a.whatsapp || '',
                     photo: a.photo || '',
                     languages: (a.languages || []).join(', '),
                     specialization: a.specialization || '',
@@ -65,6 +68,7 @@ export default function AgentProfilePage() {
             const payload: UpdateProfilePayload = {
                 name: form.name,
                 phone: form.phone,
+                whatsapp: form.whatsapp,
                 photo: form.photo,
                 languages: form.languages.split(',').map((l) => l.trim()).filter(Boolean),
                 specialization: form.specialization,
@@ -98,15 +102,6 @@ export default function AgentProfilePage() {
             <h1 className="text-2xl font-bold mb-1" style={{ color: '#e6edf3' }}>My Profile</h1>
             <p className="text-sm mb-8" style={{ color: '#8892a4' }}>Update your personal info and photo</p>
 
-            {/* Photo preview */}
-            {form.photo && (
-                <div className="mb-6">
-                    <div className="w-24 h-24 rounded-full overflow-hidden border-2" style={{ borderColor: '#c9a84c' }}>
-                        <img src={form.photo} alt="Profile" className="w-full h-full object-cover" />
-                    </div>
-                </div>
-            )}
-
             <div className="space-y-5">
                 {/* Name */}
                 <div>
@@ -133,18 +128,67 @@ export default function AgentProfilePage() {
                     />
                 </div>
 
-                {/* Photo URL */}
+                {/* WhatsApp Link */}
                 <div>
-                    <label className="block text-sm font-medium mb-1.5" style={{ color: '#c9d1d9' }}>Photo URL</label>
+                    <label className="block text-sm font-medium mb-1.5" style={{ color: '#c9d1d9' }}>WhatsApp Link</label>
                     <input
                         type="url"
-                        value={form.photo}
-                        onChange={(e) => handleChange('photo', e.target.value)}
-                        placeholder="https://example.com/my-photo.jpg"
+                        value={form.whatsapp}
+                        onChange={(e) => handleChange('whatsapp', e.target.value)}
+                        placeholder="https://wa.me/971540000000"
                         className="w-full rounded-lg px-4 py-3 text-sm outline-none"
                         style={inputStyle}
                     />
-                    <p className="text-xs mt-1" style={{ color: '#8892a4' }}>Paste a direct URL to your profile photo</p>
+                    <p className="text-xs mt-1" style={{ color: '#8892a4' }}>Leave blank to use the company default WhatsApp</p>
+                </div>
+
+                {/* Profile Photo */}
+                <div>
+                    <label className="block text-sm font-medium mb-3" style={{ color: '#c9d1d9' }}>Profile Photo</label>
+                    <div className="flex items-start gap-4">
+                        {/* Circular avatar preview */}
+                        <div
+                            className="w-20 h-20 rounded-full overflow-hidden shrink-0 flex items-center justify-center"
+                            style={{ background: '#2e3446', border: '2px solid #c9a84c' }}
+                        >
+                            {form.photo
+                                ? <img src={form.photo} alt="Profile" className="w-full h-full object-cover" />
+                                : <User size={32} style={{ color: '#3a4058' }} />}
+                        </div>
+                        <div className="flex-1 space-y-2">
+                            {/* Cloudinary upload button */}
+                            <CldUploadWidget
+                                uploadPreset={process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET}
+                                options={{ multiple: false, resourceType: 'image', maxFiles: 1 }}
+                                onSuccess={(result) => {
+                                    const info = result.info as { secure_url?: string } | undefined;
+                                    if (info?.secure_url) handleChange('photo', info.secure_url);
+                                }}
+                            >
+                                {({ open }) => (
+                                    <button
+                                        type="button"
+                                        onClick={() => open()}
+                                        className="flex items-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium transition-opacity hover:opacity-90"
+                                        style={{ background: '#c9a84c', color: '#1a1f2e' }}
+                                    >
+                                        <Upload size={16} />
+                                        Upload Photo
+                                    </button>
+                                )}
+                            </CldUploadWidget>
+                            {/* URL fallback */}
+                            <input
+                                type="url"
+                                value={form.photo}
+                                onChange={(e) => handleChange('photo', e.target.value)}
+                                placeholder="Or paste a photo URL…"
+                                className="w-full rounded-lg px-4 py-3 text-sm outline-none"
+                                style={inputStyle}
+                            />
+                            <p className="text-xs" style={{ color: '#8892a4' }}>Upload from your device or paste a direct URL</p>
+                        </div>
+                    </div>
                 </div>
 
                 {/* Languages */}

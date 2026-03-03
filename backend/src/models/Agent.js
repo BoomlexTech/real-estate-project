@@ -7,6 +7,7 @@ const agentSchema = new mongoose.Schema({
   password: { type: String, required: true, minlength: 6 },
   photo: { type: String, default: '' },
   phone: { type: String, default: '' },
+  whatsapp: { type: String, default: '' },
   languages: [{ type: String }],
   specialization: { type: String, default: '' },
   bio: { type: String, default: '' },

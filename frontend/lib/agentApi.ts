@@ -74,6 +74,7 @@ export async function getPropertyById(id: string): Promise<AgentProperty> {
 export interface UpdateProfilePayload {
   name?: string;
   phone?: string;
+  whatsapp?: string;
   photo?: string;
   languages?: string[];
   specialization?: string;
@@ -83,4 +84,31 @@ export interface UpdateProfilePayload {
 export async function updateProfile(payload: UpdateProfilePayload): Promise<any> {
   const { data } = await api.put('/agents/profile', payload);
   return data;
+}
+
+export interface InquiryItem {
+  _id: string;
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
+  status: 'new' | 'contacted' | 'closed';
+  createdAt: string;
+  property?: { _id: string; title: string; slug: string };
+}
+
+export interface InquiriesResponse {
+  data: InquiryItem[];
+  total: number;
+  page: number;
+  totalPages: number;
+}
+
+export async function getMyInquiries(page = 1): Promise<InquiriesResponse> {
+  const { data } = await api.get('/agents/inquiries', { params: { page, limit: 20 } });
+  return data;
+}
+
+export async function updateMyInquiryStatus(id: string, status: string): Promise<void> {
+  await api.patch(`/agents/inquiries/${id}/status`, { status });
 }
