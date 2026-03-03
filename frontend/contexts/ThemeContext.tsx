@@ -1,7 +1,7 @@
 'use client';
 import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
 
-type Theme = 'dark' | 'light';
+type Theme = 'dark';
 
 // Agent/Admin portal palette — used in inline styles (CSS vars can't override inline)
 const darkPalette = {
@@ -47,13 +47,13 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const stored = localStorage.getItem('theme') as Theme | null;
-    const preferred = stored ?? (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+    const preferred = stored ?? (window.matchMedia('(prefers-color-scheme: light)').matches ? 'dark' : 'dark');
     setTheme(preferred);
     document.documentElement.setAttribute('data-theme', preferred);
   }, []);
 
   const toggle = () => {
-    const next = theme === 'dark' ? 'light' : 'dark';
+    const next = theme === 'dark' ? 'dark' : 'dark';
     setTheme(next);
     localStorage.setItem('theme', next);
     document.documentElement.setAttribute('data-theme', next);
