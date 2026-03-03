@@ -90,7 +90,7 @@ export default function AgentDashboardPage() {
           className="flex items-center gap-4 rounded-xl p-4 transition-opacity hover:opacity-80"
           style={{ background: '#242938', border: '1px solid rgba(201,168,76,0.3)' }}
         >
-          <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(201,168,76,0.15)', color: '#c9a84c' }}>
+          <div className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0" style={{ background: 'rgba(201,168,76,0.15)', color: '#c9a84c' }}>
             <PlusCircle size={20} />
           </div>
           <div>
@@ -104,7 +104,7 @@ export default function AgentDashboardPage() {
           className="flex items-center gap-4 rounded-xl p-4 transition-opacity hover:opacity-80"
           style={{ background: '#242938', border: '1px solid rgba(59,130,246,0.3)' }}
         >
-          <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(59,130,246,0.15)', color: '#3b82f6' }}>
+          <div className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0" style={{ background: 'rgba(59,130,246,0.15)', color: '#3b82f6' }}>
             <Building2 size={20} />
           </div>
           <div>

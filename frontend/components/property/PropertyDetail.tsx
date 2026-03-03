@@ -228,7 +228,7 @@ export default function PropertyDetail({ property }: Props) {
               <h3 className="text-white font-semibold text-sm mb-4">Listed By</h3>
               <div className="flex items-center gap-3 mb-5 pb-5" style={{ borderBottom: '1px solid #3a4058' }}>
                 <div
-                  className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 border"
+                  className="w-12 h-12 rounded-full overflow-hidden shrink-0 border"
                   style={{ background: '#1a1f2e', borderColor: 'rgba(201,168,76,0.3)' }}
                 >
                   {property.agent.photo ? (

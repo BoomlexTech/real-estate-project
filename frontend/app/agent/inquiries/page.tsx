@@ -107,7 +107,7 @@ export default function AgentInquiriesPage() {
                   <select
                     value={q.status}
                     onChange={(e) => handleStatusChange(q._id, e.target.value)}
-                    className="rounded-lg px-3 py-2 text-xs outline-none flex-shrink-0"
+                    className="rounded-lg px-3 py-2 text-xs outline-none shrink-0"
                     style={{ background: '#1a1f2e', border: '1px solid #2e3446', color: '#c9d1d9' }}
                   >
                     <option value="new">New</option>

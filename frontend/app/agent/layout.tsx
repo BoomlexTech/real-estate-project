@@ -86,14 +86,14 @@ export default function AgentLayout({ children }: { children: React.ReactNode })
     <ProtectedRoute role="agent">
       <div className="flex h-screen overflow-hidden" style={{ background: '#1a1f2e' }}>
         {/* Desktop sidebar */}
-        <div className="hidden md:flex flex-col flex-shrink-0" style={{ width: 240 }}>
+        <div className="hidden md:flex flex-col shrink-0" style={{ width: 240 }}>
           {Sidebar}
         </div>
 
         {/* Mobile sidebar overlay */}
         {sidebarOpen && (
           <div className="fixed inset-0 z-40 md:hidden flex">
-            <div className="flex-shrink-0" style={{ width: 240 }}>{Sidebar}</div>
+            <div className="shrink-0" style={{ width: 240 }}>{Sidebar}</div>
             <div
               className="flex-1"
               style={{ background: 'rgba(0,0,0,0.5)' }}
