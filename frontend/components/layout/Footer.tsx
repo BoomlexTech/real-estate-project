@@ -162,7 +162,7 @@ export default function Footer() {
               {['Feefo', 'Google ★★★★★', 'Great Place to Work'].map((badge) => (
                 <span
                   key={badge}
-                  className="text-[10px] px-2 py-1 tracking-[0.1em] rounded"
+                  className="text-[10px] px-2 py-1 tracking-widest rounded"
                   style={{ border: '1px solid rgba(201,169,110,0.18)', color: 'rgba(148,163,184,0.55)', background: 'rgba(201,169,110,0.04)' }}
                 >
                   {badge}
