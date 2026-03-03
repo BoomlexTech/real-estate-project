@@ -13,7 +13,7 @@ export default function Logo({ className = '' }: LogoProps) {
                 alt="Awtad Real Estate and Brokerage"
                 width={140}
                 height={58}
-                className="object-contain h-7 md:h-8 w-auto"
+                className="theme-logo object-contain h-7 md:h-8 w-auto"
                 priority
             />
         </Link>

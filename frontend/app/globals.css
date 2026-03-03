@@ -22,20 +22,20 @@
 
 /* ── Light theme overrides ───────────────────────────── */
 [data-theme="light"] {
-  --bg-primary:     #f4f0e8;
-  --bg-secondary:   #ece8e0;
-  --bg-card:        #ffffff;
+  --bg-primary: #f4f0e8;
+  --bg-secondary: #ece8e0;
+  --bg-card: #ffffff;
   --bg-section-alt: #edeae2;
-  --bg-warm-tint:   #f0ece3;
-  --text-primary:   #0A0E1A;
-  --text-body:      #2d3748;
+  --bg-warm-tint: #f0ece3;
+  --text-primary: #0A0E1A;
+  --text-body: #2d3748;
   --text-secondary: #4a5568;
-  --text-dim:       #718096;
-  --text-link:      #374151;
-  --border-color:   #d8d4cc;
-  --border-gold:    rgba(201,169,110,0.45);
-  --border-subtle:  rgba(0,0,0,0.07);
-  --skeleton-bg:    #ddd8d0;
+  --text-dim: #718096;
+  --text-link: #374151;
+  --border-color: #d8d4cc;
+  --border-gold: rgba(201, 169, 110, 0.45);
+  --border-subtle: rgba(0, 0, 0, 0.07);
+  --skeleton-bg: #ddd8d0;
   --skeleton-shine: #c8c2ba;
 }
 
@@ -98,12 +98,29 @@ body {
 
 /* ── Theme-aware text utilities ─────────────────────── */
 /* Replaces hardcoded text-white / text-gray-* Tailwind classes */
-.t-heading   { color: var(--text-primary); }
-.t-body      { color: var(--text-body); }
-.t-secondary { color: var(--text-secondary); }
-.t-dim       { color: var(--text-dim); }
-.t-link      { color: var(--text-link); }
-.t-accent    { color: var(--gold); }
+.t-heading {
+  color: var(--text-primary);
+}
+
+.t-body {
+  color: var(--text-body);
+}
+
+.t-secondary {
+  color: var(--text-secondary);
+}
+
+.t-dim {
+  color: var(--text-dim);
+}
+
+.t-link {
+  color: var(--text-link);
+}
+
+.t-accent {
+  color: var(--gold);
+}
 
 /* Gold badge — dark text on gold bg, works both modes */
 .badge-gold {
@@ -112,7 +129,9 @@ body {
 }
 
 /* Theme-aware border utility */
-.border-themed { border-color: var(--border-color); }
+.border-themed {
+  border-color: var(--border-color);
+}
 
 /* Glassmorphism — frosted glass card utility */
 .glass-card {
@@ -294,6 +313,7 @@ body {
   color: var(--text-secondary);
   border-color: var(--border-color);
 }
+
 [data-theme="light"] .btn-outline-white:hover {
   background: rgba(0, 0, 0, 0.05);
   border-color: var(--gold);
@@ -371,9 +391,9 @@ body {
 
 [data-theme="light"] .hero-overlay {
   background: linear-gradient(to right,
-    rgba(244,240,232,0.92) 0%,
-    rgba(244,240,232,0.65) 55%,
-    rgba(244,240,232,0.18) 100%);
+      rgba(244, 240, 232, 0.92) 0%,
+      rgba(244, 240, 232, 0.65) 55%,
+      rgba(244, 240, 232, 0.18) 100%);
 }
 
 [data-theme="light"] .property-card-content {
@@ -381,9 +401,9 @@ body {
 }
 
 [data-theme="light"] .card-dark {
-  background: rgba(255,255,255,0.8);
+  background: rgba(255, 255, 255, 0.8);
   border-color: var(--border-gold);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 
 [data-theme="light"] .section-fade-top::before,
@@ -392,7 +412,7 @@ body {
 }
 
 [data-theme="light"] .nav-link {
-  color: rgba(10,14,26,0.6);
+  color: rgba(10, 14, 26, 0.6);
 }
 
 [data-theme="light"] .nav-link:hover {
@@ -400,25 +420,33 @@ body {
 }
 
 [data-theme="light"] .texture-dot-grid {
-  background-image: radial-gradient(circle, rgba(0,0,0,0.05) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
   background-size: 32px 32px;
+}
+
+/* Intelligent invert for white-text logo in light mode */
+/* This specific filter drops lightness to turn white to black, while hue-rotating to keep the gold icon gold-ish */
+[data-theme="light"] .theme-logo {
+  filter: brightness(0) saturate(100%) invert(13%) sepia(8%) saturate(3015%) hue-rotate(185deg) brightness(94%) contrast(92%);
 }
 
 /* Header background helper — referenced in Header.tsx */
 .header-surface {
-  background: rgba(10,14,26,0.82);
-  border-bottom: 1px solid rgba(201,169,110,0.55);
+  background: rgba(10, 14, 26, 0.82);
+  border-bottom: 1px solid rgba(201, 169, 110, 0.55);
 }
+
 .header-surface.scrolled {
-  background: rgba(10,14,26,0.98);
+  background: rgba(10, 14, 26, 0.98);
 }
 
 [data-theme="light"] .header-surface {
-  background: rgba(244,240,232,0.92);
-  border-bottom: 1px solid rgba(201,169,110,0.4);
+  background: rgba(244, 240, 232, 0.92);
+  border-bottom: 1px solid rgba(201, 169, 110, 0.4);
 }
+
 [data-theme="light"] .header-surface.scrolled {
-  background: rgba(244,240,232,0.99);
+  background: rgba(244, 240, 232, 0.99);
 }
 
 /* Property card dual-layer structure — spinning gold glow on hover */
