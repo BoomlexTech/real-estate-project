@@ -61,7 +61,7 @@ export default function PropertyTypes() {
         </motion.div>
 
         {/* Top Row: 3 cards — first one wider */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 mb-5">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-5 mb-5">
           {types.slice(0, 3).map((type, i) => (
             <motion.div
               key={type.label}
@@ -69,7 +69,7 @@ export default function PropertyTypes() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className={`col-span-1 ${i === 0 ? 'sm:col-span-2 lg:col-span-2' : ''} ${i === 2 ? 'lg:col-span-2' : ''}`}
+              className={`col-span-1 ${i === 0 ? 'lg:col-span-2' : ''} ${i === 2 ? 'lg:col-span-2' : ''}`}
             >
               <Link
                 href={type.href}

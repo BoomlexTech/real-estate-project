@@ -20,7 +20,7 @@ export default function BuyPage() {
       {/* Hero */}
       <div className="px-4 py-16 text-center" style={{ background: 'var(--bg-secondary)' }}>
         <p className="text-xs font-semibold uppercase tracking-widest mb-3 t-accent">FOR SALE</p>
-        <h1 className="text-4xl font-bold t-heading mb-4">Buy Property in Dubai</h1>
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold t-heading mb-4">Buy Property in Dubai</h1>
         <p className="t-secondary max-w-xl mx-auto text-sm leading-relaxed">
           Explore thousands of properties for sale across Dubai. From affordable studios to ultra-luxury mansions, find your perfect match.
         </p>
@@ -28,7 +28,7 @@ export default function BuyPage() {
 
       <div className="max-w-7xl mx-auto px-4 py-14">
         <h2 className="text-xl font-bold t-heading mb-6">Browse by Type</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-10">
           {types.map((t) => (
             <Link
               key={t.href}

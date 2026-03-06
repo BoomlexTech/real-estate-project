@@ -21,7 +21,7 @@ export default async function AgentsPage() {
             Our Team
           </p>
           <span className="section-divider mb-5" />
-          <h1 className="font-serif text-4xl sm:text-5xl font-light t-heading leading-tight">
+          <h1 className="font-serif text-2xl sm:text-4xl md:text-5xl font-light t-heading leading-tight">
             Meet Our Agents
           </h1>
           <p className="text-sm tracking-wide mt-3 t-secondary">
@@ -103,7 +103,7 @@ export default async function AgentsPage() {
                   </Link>
                   <a
                     href="tel:+971547093295"
-                    className="w-9 h-9 flex items-center justify-center transition-colors t-accent"
+                    className="w-11 h-11 flex items-center justify-center transition-colors t-accent"
                     style={{ border: '1px solid rgba(201,169,110,0.38)' }}
                     title="Call agent"
                   >

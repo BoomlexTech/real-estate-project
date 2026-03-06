@@ -10,7 +10,7 @@ export default function ReadyToMovePage() {
     <div className="min-h-screen pt-24" style={{ background: 'var(--bg-primary)' }}>
       <div className="px-4 py-16 text-center" style={{ background: 'var(--bg-secondary)' }}>
         <p className="text-xs font-semibold uppercase tracking-widest mb-3 t-accent">IMMEDIATE POSSESSION</p>
-        <h1 className="text-4xl font-bold t-heading mb-4">Ready to Move Properties</h1>
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold t-heading mb-4">Ready to Move Properties</h1>
         <p className="t-secondary max-w-xl mx-auto text-sm leading-relaxed">
           No waiting — move into your new home immediately. Browse our selection of ready-to-move-in properties across Dubai.
         </p>

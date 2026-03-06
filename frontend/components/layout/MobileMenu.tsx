@@ -85,7 +85,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               <Logo />
               <button
                 onClick={onClose}
-                className="w-8 h-8 flex items-center justify-center transition-colors"
+                className="w-11 h-11 flex items-center justify-center transition-colors"
                 style={{ color: 'rgba(255,255,255,0.45)', border: '1px solid rgba(255,255,255,0.12)' }}
                 onMouseEnter={e => {
                   (e.currentTarget as HTMLElement).style.color = '#C9A96E';
@@ -117,7 +117,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                       <>
                         <button
                           onClick={() => setExpandedItem(isExpanded ? null : link.href)}
-                          className="flex items-center justify-between w-full px-6 py-3.5 text-sm tracking-[0.08em] transition-all"
+                          className="flex items-center justify-between w-full px-6 py-3.5 min-h-11 text-sm tracking-[0.08em] transition-all"
                           style={{
                             color: isActive ? '#C9A96E' : 'rgba(255,255,255,0.65)',
                             borderLeft: isActive ? '2px solid #C9A96E' : '2px solid transparent',
@@ -137,7 +137,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                                 key={child.href}
                                 href={child.href}
                                 onClick={onClose}
-                                className="flex items-center pl-10 pr-6 py-3 text-xs tracking-widest transition-colors"
+                                className="flex items-center pl-10 pr-6 py-3.5 min-h-11 text-xs tracking-widest transition-colors"
                                 style={{
                                   color: pathname === child.href ? '#C9A96E' : 'rgba(255,255,255,0.5)',
                                   borderBottom: '1px solid rgba(255,255,255,0.04)',
@@ -153,7 +153,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                       <Link
                         href={link.href}
                         onClick={onClose}
-                        className="flex items-center px-6 py-3.5 text-sm tracking-[0.08em] transition-all"
+                        className="flex items-center px-6 py-3.5 min-h-11 text-sm tracking-[0.08em] transition-all"
                         style={{
                           color: isActive ? '#C9A96E' : 'rgba(255,255,255,0.65)',
                           borderLeft: isActive ? '2px solid #C9A96E' : '2px solid transparent',
@@ -194,7 +194,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               <Link
                 href="/property"
                 onClick={onClose}
-                className="flex items-center justify-center w-full py-2.5 mb-5 text-[11px] tracking-[0.2em] uppercase transition-all"
+                className="flex items-center justify-center w-full py-3.5 mb-5 text-[11px] tracking-[0.2em] uppercase transition-all"
                 style={{
                   border: '1px solid #C9A96E',
                   color: '#C9A96E',
@@ -243,7 +243,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex justify-center items-center w-8 h-8 rounded-full transition-transform hover:scale-110"
+                    className="flex justify-center items-center w-11 h-11 rounded-full transition-transform hover:scale-110"
                     style={{ background: 'rgba(255,255,255,0.05)' }}
                   >
                     <Icon className="w-4 h-4" style={{ color: color }} />

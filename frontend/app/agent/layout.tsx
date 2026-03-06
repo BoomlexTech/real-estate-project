@@ -125,7 +125,7 @@ export default function AgentLayout({ children }: { children: React.ReactNode })
             {/* <ThemeToggle /> */}
           </div>
 
-          <main className="flex-1 overflow-y-auto p-6">{children}</main>
+          <main className="flex-1 overflow-y-auto p-3 sm:p-6">{children}</main>
         </div>
       </div>
     </ProtectedRoute>

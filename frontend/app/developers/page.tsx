@@ -13,7 +13,7 @@ export default async function DevelopersPage() {
   return (
     <main className="min-h-screen pt-32 pb-20 px-4" style={{ background: 'var(--bg-primary)' }}>
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-3xl sm:text-4xl font-bold t-heading mb-2">Top Developers in Dubai</h1>
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold t-heading mb-2">Top Developers in Dubai</h1>
         <p className="t-secondary mb-10">Explore projects from the region&apos;s leading developers</p>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -112,7 +112,7 @@ export default function Footer() {
           </div>
 
           {/* Col 4: Property Types */}
-          <div>
+          <div className="col-span-2 lg:col-span-1">
             <h4 className="t-heading font-light text-xs mb-5 tracking-[0.2em] uppercase" style={{ color: isDark ? 'rgba(255,255,255,0.7)' : 'rgba(10,14,26,0.7)' }}>Popular Projects</h4>
             <ul className="space-y-2">
               {propertyTypes.map((item) => (

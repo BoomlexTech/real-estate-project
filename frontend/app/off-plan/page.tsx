@@ -17,7 +17,7 @@ export default function OffPlanPage() {
     <div className="min-h-screen pt-24" style={{ background: 'var(--bg-primary)' }}>
       <div className="px-4 py-16 text-center" style={{ background: 'var(--bg-secondary)' }}>
         <p className="text-xs font-semibold uppercase tracking-widest mb-3 t-accent">INVEST EARLY</p>
-        <h1 className="text-4xl font-bold t-heading mb-4">Off-Plan Properties in Dubai</h1>
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold t-heading mb-4">Off-Plan Properties in Dubai</h1>
         <p className="t-secondary max-w-xl mx-auto text-sm leading-relaxed">
           Get the best prices before completion. Our off-plan properties come with flexible payment plans from Dubai&apos;s top developers.
         </p>
@@ -25,7 +25,7 @@ export default function OffPlanPage() {
 
       <div className="max-w-7xl mx-auto px-4 py-14">
         {/* Benefits */}
-        <div className="grid sm:grid-cols-3 gap-6 mb-14">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-14">
           {[
             { icon: '💰', title: 'Lower Entry Price', desc: 'Buy at pre-launch prices before the market appreciates.' },
             { icon: '📅', title: 'Flexible Payment Plans', desc: 'Pay in installments during construction — typically 70/30 or 60/40.' },

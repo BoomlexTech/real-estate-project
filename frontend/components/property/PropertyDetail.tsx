@@ -53,10 +53,10 @@ export default function PropertyDetail({ property }: Props) {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 pt-32 pb-16">
+    <div className="max-w-7xl mx-auto px-4 pt-32 pb-28 lg:pb-16">
       <div className="grid lg:grid-cols-3 gap-8">
         {/* Main Content */}
-        <div className="lg:col-span-2 space-y-8">
+        <div className="lg:col-span-2 space-y-6 lg:space-y-8">
           {/* Image Carousel */}
           <div className="space-y-3">
             {/* Main image */}
@@ -139,7 +139,7 @@ export default function PropertyDetail({ property }: Props) {
           <div>
             <div className="flex items-start justify-between flex-wrap gap-3 mb-2">
               <h1 className="text-2xl sm:text-3xl font-bold t-heading">{property.title}</h1>
-              <p className="text-2xl font-bold" style={{ color: 'var(--gold)' }}>{property.priceLabel}</p>
+              <p className="text-xl sm:text-2xl font-bold" style={{ color: 'var(--gold)' }}>{property.priceLabel}</p>
             </div>
             <div className="flex items-center gap-1.5 t-secondary text-sm">
               <MapPin className="w-4 h-4" style={{ color: 'var(--gold)' }} />
@@ -227,6 +227,31 @@ export default function PropertyDetail({ property }: Props) {
             </div>
           </div>
         </div>
+
+      {/* Mobile sticky contact bar */}
+      <div
+        className="fixed bottom-0 left-0 right-0 z-40 lg:hidden flex gap-3 p-4"
+        style={{ background: 'var(--bg-primary)', borderTop: '1px solid var(--border-color)' }}
+      >
+        <a
+          href={`tel:${property.agent?.phone || DEFAULT_PHONE}`}
+          className="flex-1 flex items-center justify-center gap-2 py-3 rounded-lg font-semibold text-sm"
+          style={{ background: 'var(--gold)', color: 'var(--bg-primary)' }}
+          onClick={() => trackEvent('call_click', { source: 'property_detail_mobile', property_id: property.id })}
+        >
+          <Phone className="w-4 h-4" /> Call
+        </a>
+        <a
+          href={property.agent?.whatsapp || DEFAULT_WHATSAPP}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex-1 flex items-center justify-center gap-2 py-3 rounded-lg font-semibold text-sm"
+          style={{ background: 'var(--skeleton-bg)', color: 'var(--text-primary)', border: '1px solid var(--border-gold)' }}
+          onClick={() => trackEvent('whatsapp_click', { source: 'property_detail_mobile', property_id: property.id })}
+        >
+          WhatsApp
+        </a>
+      </div>
 
         {/* Sidebar */}
         <div className="space-y-5">

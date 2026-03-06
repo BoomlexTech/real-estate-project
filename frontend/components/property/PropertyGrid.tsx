@@ -88,7 +88,7 @@ export default function PropertyGrid({ properties, loading, page = 1, totalPages
           <button
             onClick={() => goToPage(page - 1)}
             disabled={page === 1}
-            className="px-4 py-2 rounded-lg text-sm font-medium transition-all disabled:opacity-30"
+            className="px-4 py-2.5 min-h-11 rounded-lg text-sm font-medium transition-all disabled:opacity-30"
             style={{ background: 'var(--skeleton-bg)', color: 'var(--text-secondary)', border: '1px solid var(--border-gold)' }}
           >
             ← Prev
@@ -99,7 +99,7 @@ export default function PropertyGrid({ properties, loading, page = 1, totalPages
               <button
                 key={p}
                 onClick={() => goToPage(p)}
-                className="w-9 h-9 rounded-lg text-sm font-medium transition-all"
+                className="w-11 h-11 rounded-lg text-sm font-medium transition-all"
                 style={{
                   background: p === page ? 'var(--gold)' : 'var(--skeleton-bg)',
                   color: p === page ? 'var(--bg-primary)' : 'var(--text-secondary)',
@@ -113,7 +113,7 @@ export default function PropertyGrid({ properties, loading, page = 1, totalPages
           <button
             onClick={() => goToPage(page + 1)}
             disabled={page === totalPages}
-            className="px-4 py-2 rounded-lg text-sm font-medium transition-all disabled:opacity-30"
+            className="px-4 py-2.5 min-h-11 rounded-lg text-sm font-medium transition-all disabled:opacity-30"
             style={{ background: 'var(--skeleton-bg)', color: 'var(--text-secondary)', border: '1px solid var(--border-gold)' }}
           >
             Next →

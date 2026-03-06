@@ -14,7 +14,7 @@ export default function WhatsAppButton() {
       transition={{ delay: 1.5, type: 'spring', stiffness: 200 }}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
-      className="fixed bottom-6 left-6 z-50 w-14 h-14 rounded-full flex items-center justify-center shadow-2xl"
+      className="fixed bottom-24 left-4 lg:bottom-6 lg:left-6 z-50 w-14 h-14 rounded-full flex items-center justify-center shadow-2xl"
       style={{ background: '#25D366' }}
       aria-label="Chat on WhatsApp"
       onClick={() => trackEvent('whatsapp_click', { source: 'floating_button' })}

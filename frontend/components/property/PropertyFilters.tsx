@@ -97,7 +97,7 @@ export default function PropertyFilters({ onFilterChange }: Props) {
       <div className="lg:hidden mb-4">
         <button
           onClick={() => setShowMobile(!showMobile)}
-          className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium"
+          className="flex items-center gap-2 px-4 py-3 min-h-11 rounded-lg text-sm font-medium"
           style={{ background: 'var(--bg-card)', border: '1px solid var(--border-gold)', color: 'var(--text-primary)' }}
         >
           <SlidersHorizontal className="w-4 h-4" style={{ color: '#c9a84c' }} />
@@ -145,7 +145,7 @@ export default function PropertyFilters({ onFilterChange }: Props) {
                 <button
                   key={s}
                   onClick={() => set('status', val)}
-                  className="px-2.5 py-1 rounded-full text-xs font-medium transition-all"
+                  className="px-2.5 py-1.5 rounded-full text-xs font-medium transition-all"
                   style={{
                     background: active ? 'var(--gold)' : 'var(--bg-secondary)',
                     color: active ? 'var(--bg-primary)' : 'var(--text-secondary)',
@@ -168,7 +168,7 @@ export default function PropertyFilters({ onFilterChange }: Props) {
                 <button
                   key={t.value || 'all'}
                   onClick={() => set('type', t.value)}
-                  className="px-2.5 py-1 rounded-full text-xs font-medium transition-all"
+                  className="px-2.5 py-1.5 rounded-full text-xs font-medium transition-all"
                   style={{
                     background: active ? 'var(--gold)' : 'var(--bg-secondary)',
                     color: active ? 'var(--bg-primary)' : 'var(--text-secondary)',
@@ -191,7 +191,7 @@ export default function PropertyFilters({ onFilterChange }: Props) {
                 <button
                   key={b.value || 'any'}
                   onClick={() => set('bedrooms', b.value)}
-                  className="w-10 h-10 rounded-lg text-xs font-semibold transition-all"
+                  className="w-11 h-11 rounded-lg text-xs font-semibold transition-all"
                   style={{
                     background: active ? 'var(--gold)' : 'var(--bg-secondary)',
                     color: active ? 'var(--bg-primary)' : 'var(--text-secondary)',

@@ -42,7 +42,7 @@ export default async function BlogDetailPage({
         </div>
 
         {/* Title */}
-        <h1 className="text-3xl sm:text-4xl font-bold t-heading mb-6 leading-tight">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold t-heading mb-6 leading-tight">
           {post.title}
         </h1>
 

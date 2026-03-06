@@ -151,7 +151,7 @@ export default function Header() {
             {/* <ThemeToggle /> */}
             <button
               onClick={() => setMobileOpen(true)}
-              className="lg:hidden p-2 transition-colors"
+              className="lg:hidden p-3 transition-colors"
               style={{ color: isDark ? 'rgba(255,255,255,0.7)' : 'rgba(10,14,26,0.7)' }}
             >
               <Menu className="w-5 h-5" />

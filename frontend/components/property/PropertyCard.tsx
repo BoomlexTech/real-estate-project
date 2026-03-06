@@ -193,7 +193,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
 
           {/* Stats */}
           <div
-            className="flex items-center gap-5 text-xs mb-4 pb-4"
+            className="flex items-center gap-5 flex-wrap text-xs mb-4 pb-4"
             style={{ borderBottom: '1px solid var(--border-color)', color: 'var(--text-secondary)' }}
           >
             <div className="flex items-center gap-1.5">
@@ -268,7 +268,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
                   href="https://wa.me/971547093295?text=I'm%20interrested%20about%20this%20property"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-8 h-8 flex items-center justify-center transition-colors hover:bg-white/5"
+                  className="w-10 h-10 flex items-center justify-center transition-colors hover:bg-white/5"
                   style={{ border: '1px solid var(--border-color)', color: 'var(--text-secondary)', borderRadius: '4px' }}
                   title="WhatsApp agent"
                   onClick={() => trackEvent('whatsapp_click', { source: 'property_card', property_id: property.id, agent_name: property.agent!.name })}
@@ -278,7 +278,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
                 </a>
                 <a
                   href={`tel:${property.agent.phone}`}
-                  className="w-8 h-8 flex items-center justify-center transition-colors hover:bg-white/5"
+                  className="w-10 h-10 flex items-center justify-center transition-colors hover:bg-white/5"
                   style={{ border: '1px solid var(--border-color)', color: 'var(--text-secondary)', borderRadius: '4px' }}
                   title="Call agent"
                   onClick={() => trackEvent('call_click', { source: 'property_card', property_id: property.id })}

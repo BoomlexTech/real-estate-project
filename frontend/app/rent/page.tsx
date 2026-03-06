@@ -19,7 +19,7 @@ export default function RentPage() {
     <div className="min-h-screen pt-24" style={{ background: 'var(--bg-primary)' }}>
       <div className="px-4 py-16 text-center" style={{ background: 'var(--bg-secondary)' }}>
         <p className="text-xs font-semibold uppercase tracking-widest mb-3 t-accent">FOR RENT</p>
-        <h1 className="text-4xl font-bold t-heading mb-4">Rent Property in Dubai</h1>
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold t-heading mb-4">Rent Property in Dubai</h1>
         <p className="t-secondary max-w-xl mx-auto text-sm leading-relaxed">
           Find your ideal rental property in Dubai&apos;s most sought-after neighborhoods. Annual and monthly options available.
         </p>
@@ -27,7 +27,7 @@ export default function RentPage() {
 
       <div className="max-w-7xl mx-auto px-4 py-14">
         <h2 className="text-xl font-bold t-heading mb-6">Popular Rental Locations</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-10">
           {locations.map((loc) => (
             <Link
               key={loc.label}
