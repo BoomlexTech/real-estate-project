@@ -22,6 +22,7 @@ export interface PropertyFormValues {
   ppDescription: string;
   images: string[];  // array of image URLs
   amenities: string; // comma-separated
+  brochureUrl: string;
 }
 
 const PROPERTY_TYPES = [
@@ -50,6 +51,7 @@ interface Props {
   onSubmit: (payload: PropertyPayload) => Promise<void>;
   submitLabel?: string;
   serverError?: string;
+  extraStatuses?: string[];
 }
 
 const inputStyle = (hasError?: boolean) => ({
@@ -58,7 +60,7 @@ const inputStyle = (hasError?: boolean) => ({
   color: '#e6edf3',
 });
 
-export default function PropertyForm({ defaultValues, onSubmit, submitLabel = 'Save Property', serverError }: Props) {
+export default function PropertyForm({ defaultValues, onSubmit, submitLabel = 'Save Property', serverError, extraStatuses = [] }: Props) {
   const {
     register,
     handleSubmit,
@@ -86,6 +88,7 @@ export default function PropertyForm({ defaultValues, onSubmit, submitLabel = 'S
       },
       images: values.images ?? [],
       amenities: values.amenities ? values.amenities.split(',').map((s) => s.trim()).filter(Boolean) : [],
+      brochureUrl: values.brochureUrl || '',
     };
     await onSubmit(payload);
   };
@@ -151,6 +154,9 @@ export default function PropertyForm({ defaultValues, onSubmit, submitLabel = 'S
               <option value="">Select status…</option>
               {STATUSES.map((s) => (
                 <option key={s.value} value={s.value}>{s.label}</option>
+              ))}
+              {extraStatuses.map((s) => (
+                <option key={s} value={s}>{s.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())}</option>
               ))}
             </select>
           </Field>
@@ -262,6 +268,17 @@ export default function PropertyForm({ defaultValues, onSubmit, submitLabel = 'S
             {...register('amenities')}
           />
           <p className="mt-1 text-xs" style={{ color: '#8892a4' }}>Separate with commas</p>
+        </Field>
+
+        <Field label="Brochure URL (PDF)">
+          <input
+            type="url"
+            placeholder="https://example.com/brochure.pdf"
+            className={inputCls}
+            style={inputStyle()}
+            {...register('brochureUrl')}
+          />
+          <p className="mt-1 text-xs" style={{ color: '#8892a4' }}>Optional. If set, a Download Brochure button will appear on the property page.</p>
         </Field>
       </Section>
 

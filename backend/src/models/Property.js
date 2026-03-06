@@ -41,6 +41,9 @@ const propertySchema = new mongoose.Schema({
   amenities: [{ type: String }],
   status: { type: String, enum: ['for-sale', 'for-rent', 'sold', 'pending_review'], default: 'for-sale' },
   isFeatured: { type: Boolean, default: false },
+  brochureUrl: { type: String, default: '' },
+  hasPendingChanges: { type: Boolean, default: false },
+  pendingChanges: { type: mongoose.Schema.Types.Mixed, default: null },
 }, { timestamps: true });
 
 propertySchema.index({ 'location.emirate': 1, propertyType: 1, completionStatus: 1, price: 1 });

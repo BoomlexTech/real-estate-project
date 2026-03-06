@@ -1,17 +1,25 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { X, Phone, Mail, Facebook, Instagram, Linkedin, Youtube } from 'lucide-react';
+import { X, Phone, Mail, Facebook, Instagram, Linkedin, Youtube, ChevronDown } from 'lucide-react';
 import Logo from '../common/Logo';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const navLinks = [
-  { label: 'Buy', href: '/buy' },
-  { label: 'Rent', href: '/rent' },
+type NavChild = { label: string; href: string };
+type NavLink = { label: string; href: string; children?: NavChild[] };
+
+const navLinks: NavLink[] = [
   { label: 'Off-Plan', href: '/off-plan' },
-  { label: 'Ready to Move', href: '/ready-to-move' },
+  {
+    label: 'Ready to Move',
+    href: '/ready-to-move',
+    children: [
+      { label: 'Buy', href: '/buy' },
+      { label: 'Rent', href: '/rent' },
+    ],
+  },
   { label: 'Property', href: '/property' },
   { label: 'Developers', href: '/developers' },
   { label: 'Services', href: '/services' },
@@ -35,6 +43,7 @@ interface MobileMenuProps {
 
 export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   const pathname = usePathname();
+  const [expandedItem, setExpandedItem] = useState<string | null>(null);
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? 'hidden' : '';
@@ -94,7 +103,9 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             {/* Nav Links */}
             <nav className="flex-1 overflow-y-auto py-3">
               {navLinks.map((link, i) => {
-                const isActive = pathname === link.href;
+                const isActive = pathname === link.href || link.children?.some(c => pathname === c.href);
+                const isExpanded = expandedItem === link.href;
+
                 return (
                   <motion.div
                     key={link.href}
@@ -102,32 +113,70 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.05 + i * 0.04, duration: 0.28 }}
                   >
-                    <Link
-                      href={link.href}
-                      onClick={onClose}
-                      className="flex items-center px-6 py-3.5 text-sm tracking-[0.08em] transition-all group"
-                      style={{
-                        color: isActive ? '#C9A96E' : 'rgba(255,255,255,0.65)',
-                        borderLeft: isActive ? '2px solid #C9A96E' : '2px solid transparent',
-                        borderBottom: '1px solid rgba(255,255,255,0.05)',
-                      }}
-                      onMouseEnter={e => {
-                        if (!isActive) {
-                          (e.currentTarget as HTMLElement).style.color = '#C9A96E';
-                          (e.currentTarget as HTMLElement).style.borderLeftColor = 'rgba(201,169,110,0.5)';
-                          (e.currentTarget as HTMLElement).style.background = 'rgba(201,169,110,0.04)';
-                        }
-                      }}
-                      onMouseLeave={e => {
-                        if (!isActive) {
-                          (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.65)';
-                          (e.currentTarget as HTMLElement).style.borderLeftColor = 'transparent';
-                          (e.currentTarget as HTMLElement).style.background = 'transparent';
-                        }
-                      }}
-                    >
-                      {link.label}
-                    </Link>
+                    {link.children ? (
+                      <>
+                        <button
+                          onClick={() => setExpandedItem(isExpanded ? null : link.href)}
+                          className="flex items-center justify-between w-full px-6 py-3.5 text-sm tracking-[0.08em] transition-all"
+                          style={{
+                            color: isActive ? '#C9A96E' : 'rgba(255,255,255,0.65)',
+                            borderLeft: isActive ? '2px solid #C9A96E' : '2px solid transparent',
+                            borderBottom: '1px solid rgba(255,255,255,0.05)',
+                          }}
+                        >
+                          {link.label}
+                          <ChevronDown
+                            className="w-3.5 h-3.5 transition-transform duration-200"
+                            style={{ transform: isExpanded ? 'rotate(180deg)' : 'rotate(0deg)' }}
+                          />
+                        </button>
+                        {isExpanded && (
+                          <div style={{ background: 'rgba(201,169,110,0.03)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                            {link.children.map((child) => (
+                              <Link
+                                key={child.href}
+                                href={child.href}
+                                onClick={onClose}
+                                className="flex items-center pl-10 pr-6 py-3 text-xs tracking-widest transition-colors"
+                                style={{
+                                  color: pathname === child.href ? '#C9A96E' : 'rgba(255,255,255,0.5)',
+                                  borderBottom: '1px solid rgba(255,255,255,0.04)',
+                                }}
+                              >
+                                {child.label}
+                              </Link>
+                            ))}
+                          </div>
+                        )}
+                      </>
+                    ) : (
+                      <Link
+                        href={link.href}
+                        onClick={onClose}
+                        className="flex items-center px-6 py-3.5 text-sm tracking-[0.08em] transition-all"
+                        style={{
+                          color: isActive ? '#C9A96E' : 'rgba(255,255,255,0.65)',
+                          borderLeft: isActive ? '2px solid #C9A96E' : '2px solid transparent',
+                          borderBottom: '1px solid rgba(255,255,255,0.05)',
+                        }}
+                        onMouseEnter={e => {
+                          if (!isActive) {
+                            (e.currentTarget as HTMLElement).style.color = '#C9A96E';
+                            (e.currentTarget as HTMLElement).style.borderLeftColor = 'rgba(201,169,110,0.5)';
+                            (e.currentTarget as HTMLElement).style.background = 'rgba(201,169,110,0.04)';
+                          }
+                        }}
+                        onMouseLeave={e => {
+                          if (!isActive) {
+                            (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.65)';
+                            (e.currentTarget as HTMLElement).style.borderLeftColor = 'transparent';
+                            (e.currentTarget as HTMLElement).style.background = 'transparent';
+                          }
+                        }}
+                      >
+                        {link.label}
+                      </Link>
+                    )}
                   </motion.div>
                 );
               })}

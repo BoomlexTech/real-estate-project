@@ -8,6 +8,8 @@ const {
   deleteAgent,
   getAllProperties,
   forceDeleteProperty,
+  approvePropertyChanges,
+  rejectPropertyChanges,
   getInquiries,
   updateInquiryStatus,
   getContactMessages,
@@ -16,7 +18,10 @@ const {
   updatePropertyInquiryStatus,
   getNotifications,
   markNotificationsSeen,
+  approveBlog,
+  rejectBlog,
 } = require('../controllers/adminController');
+const { getSettings, updateSettings } = require('../controllers/settingsController');
 const { getAdminBlogPosts, getBlogPostById, createBlogPost, updateBlogPost, deleteBlogPost } = require('../controllers/blogController');
 const { protect } = require('../middleware/auth');
 const { isAdmin } = require('../middleware/roleAuth');
@@ -36,6 +41,8 @@ router.delete('/agents/:id', deleteAgent);
 // Properties
 router.get('/properties', getAllProperties);
 router.delete('/properties/:id', forceDeleteProperty);
+router.patch('/properties/:id/approve', approvePropertyChanges);
+router.patch('/properties/:id/reject', rejectPropertyChanges);
 
 // Mortgage inquiries
 router.get('/inquiries', getInquiries);
@@ -59,5 +66,11 @@ router.get('/blogs/:id', getBlogPostById);
 router.post('/blogs', createBlogPost);
 router.put('/blogs/:id', updateBlogPost);
 router.delete('/blogs/:id', deleteBlogPost);
+router.patch('/blogs/:id/approve', approveBlog);
+router.patch('/blogs/:id/reject', rejectBlog);
+
+// Site settings
+router.get('/settings', getSettings);
+router.put('/settings', updateSettings);
 
 module.exports = router;

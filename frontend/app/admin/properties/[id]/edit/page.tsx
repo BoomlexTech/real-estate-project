@@ -3,10 +3,14 @@
 import { useEffect, useState } from 'react';
 import { useRouter, useParams } from 'next/navigation';
 import PropertyForm, { PropertyFormValues } from '@/components/agent/PropertyForm';
-import { getPropertyById, updateProperty, PropertyPayload, AgentProperty } from '@/lib/agentApi';
+import { AgentProperty, PropertyPayload } from '@/lib/agentApi';
+import { getAdminPropertyById, updateAdminProperty } from '@/lib/adminApi';
 import { useTheme } from '@/contexts/ThemeContext';
 
-export default function EditPropertyPage() {
+// Admin has an additional 'sold' status option
+const ADMIN_EXTRA_STATUSES = ['sold'];
+
+export default function AdminEditPropertyPage() {
   const { id } = useParams<{ id: string }>();
   const router = useRouter();
   const { palette } = useTheme();
@@ -14,22 +18,19 @@ export default function EditPropertyPage() {
   const [loading, setLoading] = useState(true);
   const [fetchError, setFetchError] = useState('');
   const [serverError, setServerError] = useState('');
-  const [successMessage, setSuccessMessage] = useState('');
 
   useEffect(() => {
-    getPropertyById(id)
+    getAdminPropertyById(id)
       .then(setProperty)
-      .catch(() => setFetchError('Property not found or you do not have access.'))
+      .catch(() => setFetchError('Property not found.'))
       .finally(() => setLoading(false));
   }, [id]);
 
   const handleSubmit = async (payload: PropertyPayload) => {
     setServerError('');
-    setSuccessMessage('');
     try {
-      await updateProperty(id, payload);
-      setSuccessMessage('Your changes have been submitted for admin approval.');
-      setTimeout(() => router.replace('/agent/properties'), 1800);
+      await updateAdminProperty(id, payload);
+      router.replace('/admin/properties');
     } catch (err: any) {
       const msg = err?.response?.data?.message || 'Failed to update property.';
       setServerError(msg);
@@ -78,12 +79,12 @@ export default function EditPropertyPage() {
       <div className="mb-6">
         <h1 className="text-2xl font-bold" style={{ color: palette.textPrimary }}>Edit Property</h1>
         <p className="text-sm mt-1 truncate max-w-md" style={{ color: palette.textSecondary }}>{property.title}</p>
-        {successMessage && (
+        {property.hasPendingChanges && (
           <div
             className="mt-3 px-4 py-2.5 rounded-lg text-sm"
-            style={{ background: 'rgba(34,197,94,0.1)', border: '1px solid rgba(34,197,94,0.3)', color: '#22c55e' }}
+            style={{ background: 'rgba(234,179,8,0.1)', border: '1px solid rgba(234,179,8,0.3)', color: '#eab308' }}
           >
-            {successMessage}
+            This property has pending agent changes awaiting approval.
           </div>
         )}
       </div>
@@ -94,6 +95,7 @@ export default function EditPropertyPage() {
           onSubmit={handleSubmit}
           submitLabel="Save Changes"
           serverError={serverError}
+          extraStatuses={ADMIN_EXTRA_STATUSES}
         />
       </div>
     </div>

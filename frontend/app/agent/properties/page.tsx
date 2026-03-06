@@ -112,9 +112,16 @@ export default function AgentPropertiesPage() {
                       </td>
                       <td className="px-4 py-3 capitalize" style={{ color: palette.textSecondary }}>{prop.propertyType}</td>
                       <td className="px-4 py-3">
-                        <span className="px-2 py-0.5 rounded-full text-xs font-semibold" style={{ background: sc.bg, color: sc.color }}>
-                          {prop.status}
-                        </span>
+                        <div className="flex items-center gap-1.5 flex-wrap">
+                          <span className="px-2 py-0.5 rounded-full text-xs font-semibold" style={{ background: sc.bg, color: sc.color }}>
+                            {prop.status}
+                          </span>
+                          {prop.hasPendingChanges && (
+                            <span className="px-2 py-0.5 rounded-full text-xs font-semibold" style={{ background: 'rgba(234,179,8,0.15)', color: '#eab308' }}>
+                              Changes Pending
+                            </span>
+                          )}
+                        </div>
                       </td>
                       <td className="px-4 py-3 whitespace-nowrap" style={{ color: palette.textPrimary }}>
                         {prop.price ? `AED ${(prop.price / 1_000_000).toFixed(1)}M` : '—'}
