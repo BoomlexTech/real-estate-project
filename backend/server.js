@@ -16,6 +16,7 @@ const blogRoutes = require('./src/routes/blogRoutes');
 const mortgageRoutes = require('./src/routes/mortgageRoutes');
 const statsRoutes = require('./src/routes/statsRoutes');
 const contactRoutes = require('./src/routes/contactRoutes');
+const settingsRoutes = require('./src/routes/settingsRoutes');
 
 const app = express();
 
@@ -39,6 +40,7 @@ app.use('/api/blog', blogRoutes);
 app.use('/api/mortgage', mortgageRoutes);
 app.use('/api/stats', statsRoutes);
 app.use('/api/contact', contactRoutes);
+app.use('/api/settings', settingsRoutes);
 
 // Health check
 app.get('/api/health', (req, res) => {
