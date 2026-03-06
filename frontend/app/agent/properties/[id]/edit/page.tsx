@@ -14,7 +14,6 @@ export default function EditPropertyPage() {
   const [loading, setLoading] = useState(true);
   const [fetchError, setFetchError] = useState('');
   const [serverError, setServerError] = useState('');
-  const [successMessage, setSuccessMessage] = useState('');
 
   useEffect(() => {
     getPropertyById(id)
@@ -25,11 +24,10 @@ export default function EditPropertyPage() {
 
   const handleSubmit = async (payload: PropertyPayload) => {
     setServerError('');
-    setSuccessMessage('');
     try {
       await updateProperty(id, payload);
-      setSuccessMessage('Your changes have been submitted for admin approval.');
-      setTimeout(() => router.replace('/agent/properties'), 1800);
+      router.refresh();
+      router.replace('/agent/properties');
     } catch (err: any) {
       const msg = err?.response?.data?.message || 'Failed to update property.';
       setServerError(msg);
@@ -70,7 +68,6 @@ export default function EditPropertyPage() {
     ppDescription: property.paymentPlan?.description || '',
     images: property.images || [],
     amenities: (property.amenities || []).join(', '),
-    brochureUrl: property.brochureUrl || '',
   };
 
   return (
@@ -78,14 +75,6 @@ export default function EditPropertyPage() {
       <div className="mb-6">
         <h1 className="text-2xl font-bold" style={{ color: palette.textPrimary }}>Edit Property</h1>
         <p className="text-sm mt-1 truncate max-w-md" style={{ color: palette.textSecondary }}>{property.title}</p>
-        {successMessage && (
-          <div
-            className="mt-3 px-4 py-2.5 rounded-lg text-sm"
-            style={{ background: 'rgba(34,197,94,0.1)', border: '1px solid rgba(34,197,94,0.3)', color: '#22c55e' }}
-          >
-            {successMessage}
-          </div>
-        )}
       </div>
 
       <div className="max-w-3xl">

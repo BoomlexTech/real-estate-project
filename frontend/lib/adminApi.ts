@@ -1,5 +1,4 @@
 import api from './api';
-import { AgentProperty, PropertyPayload } from './agentApi';
 
 // ─── Dashboard ────────────────────────────────────────────
 export interface DashboardStats {
@@ -57,21 +56,9 @@ export interface AdminProperty {
   status: string;
   price: number;
   isFeatured: boolean;
-  hasPendingChanges?: boolean;
-  pendingChanges?: Record<string, unknown> | null;
   agent?: { name: string; email: string };
   developer?: { name: string };
   createdAt: string;
-  // Fields needed for pending-change diff display
-  description?: string;
-  bedrooms?: number;
-  bathrooms?: number;
-  squareFt?: number;
-  completionStatus?: string;
-  completionYear?: string | number;
-  location?: { emirate?: string; area?: string };
-  amenities?: string[];
-  brochureUrl?: string;
 }
 
 export interface AdminPropertiesResponse {
@@ -86,35 +73,12 @@ export async function getAdminProperties(page = 1): Promise<AdminPropertiesRespo
   return data;
 }
 
-export async function getAdminPendingProperties(): Promise<AdminProperty[]> {
-  const { data } = await api.get('/admin/properties', { params: { pendingOnly: 'true', limit: 50 } });
-  return data.data;
-}
-
 export async function forceDeleteProperty(id: string): Promise<void> {
   await api.delete(`/admin/properties/${id}`);
 }
 
 export async function toggleFeatured(id: string): Promise<void> {
   await api.patch(`/properties/${id}/feature`);
-}
-
-export async function approvePropertyChanges(id: string): Promise<void> {
-  await api.patch(`/admin/properties/${id}/approve`);
-}
-
-export async function rejectPropertyChanges(id: string): Promise<void> {
-  await api.patch(`/admin/properties/${id}/reject`);
-}
-
-export async function getAdminPropertyById(id: string): Promise<AgentProperty> {
-  const { data } = await api.get(`/properties/id/${id}`);
-  return data.data;
-}
-
-export async function updateAdminProperty(id: string, payload: Partial<PropertyPayload>): Promise<AgentProperty> {
-  const { data } = await api.put(`/properties/${id}`, payload);
-  return data.data;
 }
 
 // ─── Inquiries ────────────────────────────────────────────
@@ -228,8 +192,6 @@ export interface AdminBlogPost {
   isFeatured: boolean;
   publishedAt: string;
   createdAt: string;
-  status?: 'pending' | 'approved';
-  submittedByName?: string;
 }
 
 export interface AdminBlogResponse {
@@ -261,32 +223,4 @@ export async function updateBlogPost(id: string, payload: Partial<Omit<AdminBlog
 
 export async function deleteAdminBlogPost(id: string): Promise<void> {
   await api.delete(`/admin/blogs/${id}`);
-}
-
-export async function getAdminPendingBlogs(): Promise<AdminBlogPost[]> {
-  const { data } = await api.get('/admin/blogs', { params: { pendingOnly: 'true', limit: 50 } });
-  return data.data;
-}
-
-export async function approveBlog(id: string): Promise<void> {
-  await api.patch(`/admin/blogs/${id}/approve`);
-}
-
-export async function rejectBlog(id: string): Promise<void> {
-  await api.patch(`/admin/blogs/${id}/reject`);
-}
-
-// ─── Site Settings ────────────────────────────────────────
-export interface SiteSettings {
-  companyBrochureUrl: string;
-}
-
-export async function getSiteSettings(): Promise<SiteSettings> {
-  const { data } = await api.get('/settings');
-  return data.data;
-}
-
-export async function updateSiteSettings(payload: Partial<SiteSettings>): Promise<SiteSettings> {
-  const { data } = await api.put('/admin/settings', payload);
-  return data.data;
 }

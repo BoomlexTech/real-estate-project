@@ -12,8 +12,6 @@ export interface AgentProperty {
   bathrooms: number;
   squareFt: number;
   isFeatured: boolean;
-  hasPendingChanges?: boolean;
-  brochureUrl?: string;
   images: string[];
   amenities: string[];
   developer?: { name: string } | null;
@@ -52,7 +50,6 @@ export interface PropertyPayload {
   developer?: string | null;  // Developer ObjectId (optional)
   images?: string[];
   amenities?: string[];
-  brochureUrl?: string;
 }
 
 export async function createProperty(payload: PropertyPayload): Promise<AgentProperty> {
@@ -114,51 +111,4 @@ export async function getMyInquiries(page = 1): Promise<InquiriesResponse> {
 
 export async function updateMyInquiryStatus(id: string, status: string): Promise<void> {
   await api.patch(`/agents/inquiries/${id}/status`, { status });
-}
-
-// ─── Agent Blog Posts ─────────────────────────────────────
-
-export interface AgentBlogPost {
-  _id: string;
-  title: string;
-  slug: string;
-  excerpt: string;
-  coverImage: string;
-  author: string;
-  category: string;
-  tags: string[];
-  status: 'pending' | 'approved';
-  submittedByName?: string;
-  createdAt: string;
-}
-
-export interface AgentBlogPayload {
-  title: string;
-  content: string;
-  excerpt?: string;
-  coverImage?: string;
-  author?: string;
-  category?: string;
-  tags?: string[];
-}
-
-export interface AgentBlogResponse {
-  data: AgentBlogPost[];
-  total: number;
-  page: number;
-  totalPages: number;
-}
-
-export async function submitBlogPost(payload: AgentBlogPayload): Promise<AgentBlogPost> {
-  const { data } = await api.post('/blog/submit', payload);
-  return data.data;
-}
-
-export async function getMyBlogPosts(page = 1): Promise<AgentBlogResponse> {
-  const { data } = await api.get('/blog/mine', { params: { page, limit: 20 } });
-  return data;
-}
-
-export async function deleteMyBlogPost(id: string): Promise<void> {
-  await api.delete(`/blog/mine/${id}`);
 }

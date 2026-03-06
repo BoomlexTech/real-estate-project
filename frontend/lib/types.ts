@@ -23,7 +23,6 @@ export interface Property {
   images: string[];
   amenities: string[];
   floorPlan?: string;
-  brochureUrl?: string;
   latitude?: number;
   longitude?: number;
   agent?: Agent;

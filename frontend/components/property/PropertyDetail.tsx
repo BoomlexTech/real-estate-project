@@ -1,11 +1,10 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Bed, Bath, Maximize2, Calendar, CreditCard, Phone, CheckCircle, ChevronLeft, ChevronRight, Download } from 'lucide-react';
+import { MapPin, Bed, Bath, Maximize2, Calendar, CreditCard, Phone, CheckCircle, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Property } from '@/lib/types';
 import { useForm } from 'react-hook-form';
-import { getSiteSettings } from '@/lib/adminApi';
 import { submitPropertyInquiry } from '@/lib/api';
 
 interface ContactForm {
@@ -26,11 +25,6 @@ export default function PropertyDetail({ property }: Props) {
   const [submitted, setSubmitted] = useState(false);
   const [serverError, setServerError] = useState('');
   const [activeImage, setActiveImage] = useState(0);
-  const [companyBrochureUrl, setCompanyBrochureUrl] = useState('');
-
-  useEffect(() => {
-    getSiteSettings().then((s) => setCompanyBrochureUrl(s.companyBrochureUrl)).catch(() => {});
-  }, []);
   const images = property.images ?? [];
   const { register, handleSubmit, formState: { isSubmitting } } = useForm<ContactForm>({
     defaultValues: { message: `I'm interested in ${property.title}. Please contact me.` },
@@ -254,18 +248,6 @@ export default function PropertyDetail({ property }: Props) {
 
               {/* Contact Buttons */}
               <div className="space-y-2.5">
-                {(property.brochureUrl || companyBrochureUrl) && (
-                  <a
-                    href={property.brochureUrl || companyBrochureUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 w-full py-3 rounded-lg font-semibold text-sm transition-colors"
-                    style={{ background: 'var(--skeleton-bg)', color: 'var(--text-primary)', border: '1px solid var(--border-gold)' }}
-                  >
-                    <Download className="w-4 h-4" />
-                    Download Brochure
-                  </a>
-                )}
                 <a
                   href={`tel:${property.agent?.phone || DEFAULT_PHONE}`}
                   className="flex items-center justify-center gap-2 w-full py-3 rounded-lg font-semibold text-sm transition-colors"

@@ -11,9 +11,6 @@ const blogPostSchema = new mongoose.Schema({
   tags: [{ type: String }],
   publishedAt: { type: Date, default: Date.now },
   isFeatured: { type: Boolean, default: false },
-  status: { type: String, enum: ['pending', 'approved'], default: 'approved' },
-  submittedBy: { type: mongoose.Schema.Types.ObjectId, ref: 'Agent', default: null },
-  submittedByName: { type: String, default: '' },
 }, { timestamps: true });
 
 module.exports = mongoose.model('BlogPost', blogPostSchema);

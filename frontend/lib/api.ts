@@ -49,7 +49,6 @@ function normalizeProperty(p: any): Property {
     images: p.images || [],
     amenities: p.amenities || [],
     floorPlan: p.floorPlanImages?.[0] || p.floorPlan,
-    brochureUrl: p.brochureUrl || '',
     latitude: p.location?.coordinates?.lat,
     longitude: p.location?.coordinates?.lng,
     agent: p.agent ? normalizeAgent(p.agent) : undefined,

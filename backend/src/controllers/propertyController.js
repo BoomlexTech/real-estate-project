@@ -172,20 +172,6 @@ const updateProperty = async (req, res, next) => {
     if (!property)
       return res.status(404).json({ success: false, message: 'Property not found' });
 
-    // Agents: stage changes for admin approval instead of applying directly
-    if (req.user.role !== 'admin') {
-      property.pendingChanges = {
-        title, description, price, priceLabel, location, propertyType,
-        bedrooms, bathrooms, squareFt, completionYear, completionStatus,
-        paymentPlan, developer, images, amenities, status,
-      };
-      property.hasPendingChanges = true;
-      property.markModified('pendingChanges');
-      await property.save();
-      return res.json({ success: true, message: 'Changes submitted for admin approval' });
-    }
-
-    // Admin: apply changes directly
     // Rebuild slug only if title changed
     if (title && title !== property.title) {
       let newSlug = makeSlug(title);

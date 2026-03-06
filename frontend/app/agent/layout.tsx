@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { LayoutDashboard, Building2, PlusCircle, LogOut, Menu, User, MessageSquare, FileText } from 'lucide-react';
+import { LayoutDashboard, Building2, PlusCircle, LogOut, Menu, User, MessageSquare } from 'lucide-react';
 import ProtectedRoute from '@/components/auth/ProtectedRoute';
 import { useAuth } from '@/contexts/AuthContext';
 import { useTheme } from '@/contexts/ThemeContext';
@@ -25,7 +25,6 @@ export default function AgentLayout({ children }: { children: React.ReactNode })
     { label: 'Dashboard',     href: '/agent/dashboard',      icon: <LayoutDashboard size={18} /> },
     { label: 'My Properties', href: '/agent/properties',     icon: <Building2 size={18} /> },
     { label: 'Inquiries',     href: '/agent/inquiries',      icon: <MessageSquare size={18} /> },
-    { label: 'My Blogs',      href: '/agent/blogs',          icon: <FileText size={18} /> },
     { label: 'Add Property',  href: '/agent/properties/new', icon: <PlusCircle size={18} /> },
     { label: 'Profile',       href: '/agent/profile',        icon: <User size={18} /> },
   ];
@@ -53,8 +52,7 @@ export default function AgentLayout({ children }: { children: React.ReactNode })
       <nav className="flex-1 px-3 py-4 space-y-1">
         {navItems.map((item) => {
           const active = pathname === item.href ||
-            (item.href === '/agent/properties' && pathname.startsWith('/agent/properties') && pathname !== '/agent/properties/new') ||
-            (item.href === '/agent/blogs' && pathname.startsWith('/agent/blogs'));
+            (item.href === '/agent/properties' && pathname.startsWith('/agent/properties') && pathname !== '/agent/properties/new');
           return (
             <Link
               key={item.href}

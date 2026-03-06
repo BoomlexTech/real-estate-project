@@ -3,25 +3,17 @@
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { Menu, Phone, Facebook, Instagram, Linkedin, Youtube, ChevronDown } from 'lucide-react';
+import { Menu, Phone, Facebook, Instagram, Linkedin, Youtube } from 'lucide-react';
 import MobileMenu from './MobileMenu';
 import Logo from '../common/Logo';
 // import ThemeToggle from '../common/ThemeToggle';
 import { useTheme } from '@/contexts/ThemeContext';
 
-type NavChild = { label: string; href: string };
-type NavLink = { label: string; href: string; children?: NavChild[] };
-
-const navLinks: NavLink[] = [
+const navLinks = [
+  { label: 'BUY', href: '/buy' },
+  { label: 'RENT', href: '/rent' },
   { label: 'OFF-PLAN', href: '/off-plan' },
-  {
-    label: 'READY TO MOVE',
-    href: '/ready-to-move',
-    children: [
-      { label: 'BUY', href: '/buy' },
-      { label: 'RENT', href: '/rent' },
-    ],
-  },
+  { label: 'READY-TO-MOVE', href: '/ready-to-move' },
   { label: 'PROPERTY', href: '/property' },
   { label: 'DEVELOPERS', href: '/developers' },
   { label: 'SERVICES', href: '/services' },
@@ -79,27 +71,47 @@ export default function Header() {
             </a>
           </div>
           <div className="flex items-center gap-6">
-            <div className="flex items-center gap-2">
-              {[
-                { Icon: Facebook, href: 'https://facebook.com', label: 'Facebook', bg: '#1877F2' },
-                { Icon: Instagram, href: 'https://instagram.com', label: 'Instagram', bg: 'linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)' },
-                { Icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn', bg: '#0A66C2' },
-                { Icon: Youtube, href: 'https://youtube.com', label: 'YouTube', bg: '#FF0000' },
-              ].map(({ Icon, href, label, bg }) => (
-                <a
-                  key={href}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center rounded-full text-white text-xs font-medium overflow-hidden transition-all duration-200"
-                  style={{ background: bg, padding: '5px 7px' }}
-                >
-                  <Icon className="w-3.5 h-3.5 shrink-0" />
-                  <span className="max-w-0 group-hover:max-w-20 overflow-hidden whitespace-nowrap transition-all duration-200 group-hover:ml-1.5">
-                    {label}
-                  </span>
-                </a>
-              ))}
+            <div className="flex items-center gap-2.5">
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 px-3 py-1 rounded-full text-white text-xs font-medium transition-opacity hover:opacity-85"
+                style={{ background: '#1877F2' }}
+              >
+                <Facebook className="w-3.5 h-3.5" />
+                Facebook
+              </a>
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 px-3 py-1 rounded-full text-white text-xs font-medium transition-opacity hover:opacity-85"
+                style={{ background: 'linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)' }}
+              >
+                <Instagram className="w-3.5 h-3.5" />
+                Instagram
+              </a>
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 px-3 py-1 rounded-full text-white text-xs font-medium transition-opacity hover:opacity-85"
+                style={{ background: '#0A66C2' }}
+              >
+                <Linkedin className="w-3.5 h-3.5" />
+                LinkedIn
+              </a>
+              <a
+                href="https://youtube.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 px-3 py-1 rounded-full text-white text-xs font-medium transition-opacity hover:opacity-85"
+                style={{ background: '#FF0000' }}
+              >
+                <Youtube className="w-3.5 h-3.5" />
+                YouTube
+              </a>
             </div>
           </div>
         </div>
@@ -111,36 +123,11 @@ export default function Header() {
 
           {/* Desktop Nav Links */}
           <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
-            {navLinks.map((link) =>
-              link.children ? (
-                <div key={link.href} className="relative group">
-                  <Link href={link.href} className="nav-link whitespace-nowrap flex items-center gap-1">
-                    {link.label}
-                    <ChevronDown className="w-3 h-3 transition-transform duration-200 group-hover:rotate-180" />
-                  </Link>
-                  <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                    <div className="rounded-md overflow-hidden shadow-lg" style={{ background: 'var(--bg-primary)', border: '1px solid rgba(201,169,110,0.2)', minWidth: '110px' }}>
-                      {link.children.map((child) => (
-                        <Link
-                          key={child.href}
-                          href={child.href}
-                          className="block px-4 py-2.5 text-xs tracking-widest transition-colors"
-                          style={{ color: 'var(--text-secondary)', borderBottom: '1px solid rgba(201,169,110,0.08)' }}
-                          onMouseEnter={e => (e.currentTarget.style.color = '#C9A96E')}
-                          onMouseLeave={e => (e.currentTarget.style.color = 'var(--text-secondary)')}
-                        >
-                          {child.label}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              ) : (
-                <Link key={link.href} href={link.href} className="nav-link whitespace-nowrap">
-                  {link.label}
-                </Link>
-              )
-            )}
+            {navLinks.map((link) => (
+              <Link key={link.href} href={link.href} className="nav-link whitespace-nowrap">
+                {link.label}
+              </Link>
+            ))}
           </nav>
 
           {/* Right side */}
