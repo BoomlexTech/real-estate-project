@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Search, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { trackEvent } from '@/lib/analytics';
 
 interface Option { label: string; value: string }
 
@@ -95,6 +96,7 @@ export default function PropertySearch() {
     setFilters((f) => ({ ...f, [key]: e.target.value }));
 
   const handleSearch = () => {
+    trackEvent('property_search', { location: filters.location, property_type: filters.type, max_price: filters.price, emirate: filters.emirate, developer: filters.developer, bedrooms: filters.bedrooms, status: filters.status });
     const params = new URLSearchParams();
     if (filters.emirate) params.set('emirate', filters.emirate);
     if (filters.location) params.set('location', filters.location);

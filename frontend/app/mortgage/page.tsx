@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { CheckCircle, Calculator } from 'lucide-react';
+import { trackEvent } from '@/lib/analytics';
 
 interface MortgageCalcState {
   propertyPrice: number;
@@ -56,6 +57,7 @@ function MortgageCalculator() {
             type="range" min={300000} max={20000000} step={100000}
             value={calc.propertyPrice}
             onChange={(e) => setCalc((c) => ({ ...c, propertyPrice: +e.target.value }))}
+            onPointerUp={(e) => trackEvent('mortgage_calculator_interaction', { property_price: +(e.target as HTMLInputElement).value, down_payment_pct: calc.downPaymentPct, interest_rate: calc.interestRate, loan_term: calc.loanTermYears })}
             className="w-full accent-yellow-500"
           />
           <div className="flex justify-between text-xs t-dim mt-1">
@@ -73,6 +75,7 @@ function MortgageCalculator() {
             type="range" min={20} max={80} step={5}
             value={calc.downPaymentPct}
             onChange={(e) => setCalc((c) => ({ ...c, downPaymentPct: +e.target.value }))}
+            onPointerUp={(e) => trackEvent('mortgage_calculator_interaction', { property_price: calc.propertyPrice, down_payment_pct: +(e.target as HTMLInputElement).value, interest_rate: calc.interestRate, loan_term: calc.loanTermYears })}
             className="w-full accent-yellow-500"
           />
           <div className="flex justify-between text-xs t-dim mt-1">
@@ -90,6 +93,7 @@ function MortgageCalculator() {
             type="range" min={2.5} max={8} step={0.25}
             value={calc.interestRate}
             onChange={(e) => setCalc((c) => ({ ...c, interestRate: +e.target.value }))}
+            onPointerUp={(e) => trackEvent('mortgage_calculator_interaction', { property_price: calc.propertyPrice, down_payment_pct: calc.downPaymentPct, interest_rate: +(e.target as HTMLInputElement).value, loan_term: calc.loanTermYears })}
             className="w-full accent-yellow-500"
           />
           <div className="flex justify-between text-xs t-dim mt-1">
@@ -107,6 +111,7 @@ function MortgageCalculator() {
             type="range" min={5} max={25} step={1}
             value={calc.loanTermYears}
             onChange={(e) => setCalc((c) => ({ ...c, loanTermYears: +e.target.value }))}
+            onPointerUp={(e) => trackEvent('mortgage_calculator_interaction', { property_price: calc.propertyPrice, down_payment_pct: calc.downPaymentPct, interest_rate: calc.interestRate, loan_term: +(e.target as HTMLInputElement).value })}
             className="w-full accent-yellow-500"
           />
           <div className="flex justify-between text-xs t-dim mt-1">
@@ -137,7 +142,10 @@ function MortgageCalculator() {
 export default function MortgagePage() {
   const [submitted, setSubmitted] = useState(false);
   const { register, handleSubmit } = useForm<InquiryForm>();
-  const onSubmit = (_data: InquiryForm) => setSubmitted(true);
+  const onSubmit = (data: InquiryForm) => {
+    trackEvent('generate_lead', { lead_type: 'mortgage_preapproval', employment_type: data.employmentType, loan_amount: data.loanAmount });
+    setSubmitted(true);
+  };
 
   return (
     <div className="min-h-screen pt-24" style={{ background: 'var(--bg-primary)' }}>

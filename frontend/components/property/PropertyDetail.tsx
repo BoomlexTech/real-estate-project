@@ -7,6 +7,7 @@ import { Property } from '@/lib/types';
 import { useForm } from 'react-hook-form';
 import { getSiteSettings } from '@/lib/adminApi';
 import { submitPropertyInquiry } from '@/lib/api';
+import { trackEvent } from '@/lib/analytics';
 
 interface ContactForm {
   name: string;
@@ -31,6 +32,10 @@ export default function PropertyDetail({ property }: Props) {
   useEffect(() => {
     getSiteSettings().then((s) => setCompanyBrochureUrl(s.companyBrochureUrl)).catch(() => {});
   }, []);
+
+  useEffect(() => {
+    trackEvent('view_item', { item_id: property.id, item_name: property.title, price: property.price, item_category: property.type, item_variant: property.status, item_list_name: property.emirate });
+  }, [property.id]); // eslint-disable-line react-hooks/exhaustive-deps
   const images = property.images ?? [];
   const { register, handleSubmit, formState: { isSubmitting } } = useForm<ContactForm>({
     defaultValues: { message: `I'm interested in ${property.title}. Please contact me.` },
@@ -41,6 +46,7 @@ export default function PropertyDetail({ property }: Props) {
     try {
       await submitPropertyInquiry(property.id, data);
       setSubmitted(true);
+      trackEvent('generate_lead', { lead_type: 'property_inquiry', property_id: property.id, property_title: property.title });
     } catch {
       setServerError('Failed to send inquiry. Please try again.');
     }
@@ -82,7 +88,7 @@ export default function PropertyDetail({ property }: Props) {
               {images.length > 1 && (
                 <>
                   <button
-                    onClick={() => setActiveImage(i => (i - 1 + images.length) % images.length)}
+                    onClick={() => { const next = (activeImage - 1 + images.length) % images.length; setActiveImage(next); trackEvent('property_image_view', { property_id: property.id, image_index: next, total_images: images.length, navigation_type: 'prev' }); }}
                     className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full flex items-center justify-center transition-opacity hover:opacity-100 opacity-70"
                     style={{ background: 'rgba(0,0,0,0.65)' }}
                     aria-label="Previous photo"
@@ -90,7 +96,7 @@ export default function PropertyDetail({ property }: Props) {
                     <ChevronLeft className="w-5 h-5 text-white" />
                   </button>
                   <button
-                    onClick={() => setActiveImage(i => (i + 1) % images.length)}
+                    onClick={() => { const next = (activeImage + 1) % images.length; setActiveImage(next); trackEvent('property_image_view', { property_id: property.id, image_index: next, total_images: images.length, navigation_type: 'next' }); }}
                     className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full flex items-center justify-center transition-opacity hover:opacity-100 opacity-70"
                     style={{ background: 'rgba(0,0,0,0.65)' }}
                     aria-label="Next photo"
@@ -115,7 +121,7 @@ export default function PropertyDetail({ property }: Props) {
                 {images.map((src, i) => (
                   <button
                     key={i}
-                    onClick={() => setActiveImage(i)}
+                    onClick={() => { setActiveImage(i); trackEvent('property_image_view', { property_id: property.id, image_index: i, total_images: images.length, navigation_type: 'thumbnail' }); }}
                     className="shrink-0 w-20 h-14 rounded-lg overflow-hidden transition-all"
                     style={{
                       border: i === activeImage ? '2px solid var(--gold)' : '2px solid transparent',
@@ -261,6 +267,7 @@ export default function PropertyDetail({ property }: Props) {
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2 w-full py-3 rounded-lg font-semibold text-sm transition-colors"
                     style={{ background: 'var(--skeleton-bg)', color: 'var(--text-primary)', border: '1px solid var(--border-gold)' }}
+                    onClick={() => trackEvent('brochure_download', { property_id: property.id, property_title: property.title })}
                   >
                     <Download className="w-4 h-4" />
                     Download Brochure
@@ -270,6 +277,7 @@ export default function PropertyDetail({ property }: Props) {
                   href={`tel:${property.agent?.phone || DEFAULT_PHONE}`}
                   className="flex items-center justify-center gap-2 w-full py-3 rounded-lg font-semibold text-sm transition-colors"
                   style={{ background: 'var(--gold)', color: 'var(--bg-primary)' }}
+                  onClick={() => trackEvent('call_click', { source: 'property_detail', property_id: property.id })}
                 >
                   <Phone className="w-4 h-4" />
                   Call Agent
@@ -280,6 +288,7 @@ export default function PropertyDetail({ property }: Props) {
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 w-full py-3 rounded-lg font-semibold text-sm transition-colors"
                   style={{ background: 'var(--skeleton-bg)', color: 'var(--text-primary)', border: '1px solid var(--border-gold)' }}
+                  onClick={() => trackEvent('whatsapp_click', { source: 'property_detail', property_id: property.id, agent_name: property.agent?.name })}
                 >
                   WhatsApp Agent
                 </a>

@@ -1,9 +1,11 @@
 'use client';
 
+import { useEffect } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import PropertyCard from './PropertyCard';
 import { Property } from '@/lib/types';
 import { motion } from 'framer-motion';
+import { trackEvent } from '@/lib/analytics';
 
 interface PropertyGridProps {
   properties: Property[];
@@ -31,6 +33,14 @@ function SkeletonCard() {
 export default function PropertyGrid({ properties, loading, page = 1, totalPages = 1, onPageChange }: PropertyGridProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
+
+  useEffect(() => {
+    if (properties.length === 0) return;
+    trackEvent('view_item_list', {
+      item_list_name: 'Search Results',
+      items: properties.map(p => ({ item_id: p.id, item_name: p.title, price: p.price, item_category: p.type, item_variant: p.status })),
+    });
+  }, [properties]); // eslint-disable-line react-hooks/exhaustive-deps
 
   function goToPage(p: number) {
     if (onPageChange) { onPageChange(p); return; }

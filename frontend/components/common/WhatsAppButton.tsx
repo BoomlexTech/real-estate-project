@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { trackEvent } from '@/lib/analytics';
 
 export default function WhatsAppButton() {
   return (
@@ -16,6 +17,7 @@ export default function WhatsAppButton() {
       className="fixed bottom-6 left-6 z-50 w-14 h-14 rounded-full flex items-center justify-center shadow-2xl"
       style={{ background: '#25D366' }}
       aria-label="Chat on WhatsApp"
+      onClick={() => trackEvent('whatsapp_click', { source: 'floating_button' })}
     >
       {/* WhatsApp SVG icon */}
       <svg viewBox="0 0 24 24" fill="white" className="w-7 h-7">

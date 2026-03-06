@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { MapPin, Phone, Mail, CheckCircle } from 'lucide-react';
 import { submitContactMessage } from '@/lib/api';
+import { trackEvent } from '@/lib/analytics';
 
 interface ContactForm {
   name: string;
@@ -29,6 +30,7 @@ export default function ContactPage() {
     try {
       await submitContactMessage(data);
       setSubmitted(true);
+      trackEvent('contact_form_submit', { subject: data.subject });
     } catch {
       setServerError('Failed to send message. Please try again.');
     }

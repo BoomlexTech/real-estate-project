@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { SlidersHorizontal, X } from 'lucide-react';
 import { PropertyFilters as Filters } from '@/lib/types';
+import { trackEvent } from '@/lib/analytics';
 
 // Values must match the propertyType enum in the Property model (hyphen-separated)
 const types: { label: string; value: string }[] = [
@@ -82,6 +83,7 @@ export default function PropertyFilters({ onFilterChange }: Props) {
   };
 
   const set = (key: keyof Filters, value: string | number | undefined) => {
+    trackEvent('filter_applied', { filter_name: key, filter_value: value });
     apply({ ...filters, [key]: value });
   };
 
