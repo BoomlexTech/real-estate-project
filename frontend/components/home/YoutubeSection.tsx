@@ -6,7 +6,7 @@ import { Play, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const videos = [
   {
-    id: 'sMb108EdQ34',
+    id: 'M-j_LvEK2ZA',
     title: 'Creek Waters Residence — Dubai Creek Harbour Tour',
     location: 'Dubai Creek Harbour',
   },

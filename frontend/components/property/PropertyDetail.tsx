@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Bed, Bath, Maximize2, Calendar, CreditCard, Phone, CheckCircle, ChevronLeft, ChevronRight, Download } from 'lucide-react';
+import Link from 'next/link';
 import { Property } from '@/lib/types';
 import { useForm } from 'react-hook-form';
 import { getSiteSettings } from '@/lib/adminApi';
@@ -265,20 +266,24 @@ export default function PropertyDetail({ property }: Props) {
             >
               <h3 className="t-heading font-semibold text-sm mb-4">Listed By</h3>
               <div className="flex items-center gap-3 mb-5 pb-5" style={{ borderBottom: '1px solid var(--border-color)' }}>
-                <div
-                  className="w-12 h-12 rounded-full overflow-hidden shrink-0 border"
-                  style={{ background: 'var(--bg-secondary)', borderColor: 'rgba(201,168,76,0.3)' }}
-                >
-                  {property.agent.photo ? (
-                    <img src={property.agent.photo} alt={property.agent.name} className="w-full h-full object-cover" />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center text-lg font-bold" style={{ color: 'var(--gold)' }}>
-                      {property.agent.name.charAt(0).toUpperCase()}
-                    </div>
-                  )}
-                </div>
+                <Link href={`/agents/${property.agent.id}`} className="shrink-0">
+                  <div
+                    className="w-12 h-12 rounded-full overflow-hidden border"
+                    style={{ background: 'var(--bg-secondary)', borderColor: 'rgba(201,168,76,0.3)' }}
+                  >
+                    {property.agent.photo ? (
+                      <img src={property.agent.photo} alt={property.agent.name} className="w-full h-full object-cover" />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center text-lg font-bold" style={{ color: 'var(--gold)' }}>
+                        {property.agent.name.charAt(0).toUpperCase()}
+                      </div>
+                    )}
+                  </div>
+                </Link>
                 <div className="flex-1 min-w-0">
-                  <p className="t-heading font-semibold text-sm">{property.agent.name}</p>
+                  <Link href={`/agents/${property.agent.id}`} className="hover:opacity-80 transition-opacity">
+                    <p className="t-heading font-semibold text-sm">{property.agent.name}</p>
+                  </Link>
                   <p className="t-secondary text-xs mt-0.5">{property.agent.properties} properties</p>
                   <p className="t-dim text-xs">{property.agent.languages.join(' · ')}</p>
                 </div>
