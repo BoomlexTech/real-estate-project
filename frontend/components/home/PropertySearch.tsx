@@ -127,8 +127,8 @@ export default function PropertySearch() {
   return (
     <section className="relative z-20 py-16 sm:py-20 px-4">
 
-      {/* Left decorative stats — xl screens and above */}
-      <div className="absolute xl:left-[calc(50%-623px)] 2xl:left-[calc(50%-687px)] top-1/2 -translate-y-1/2 hidden xl:flex flex-col items-center gap-0">
+      {/* Left decorative stats — 1200px screens and above */}
+      <div className="absolute min-[1200px]:left-[calc(50%-590px)] xl:left-[calc(50%-623px)] 2xl:left-[calc(50%-687px)] top-1/2 -translate-y-1/2 hidden min-[1200px]:flex flex-col items-center gap-0">
         <div className="w-px h-10 mb-6" style={{ background: 'linear-gradient(to bottom, transparent, rgba(201,169,110,0.5))' }} />
         {leftStats.map((s, i) => (
           <div key={s.label}>
@@ -144,8 +144,8 @@ export default function PropertySearch() {
         <div className="w-px h-10 mt-6" style={{ background: 'linear-gradient(to bottom, rgba(201,169,110,0.5), transparent)' }} />
       </div>
 
-      {/* Right decorative stats — xl screens and above */}
-      <div className="absolute xl:right-[calc(50%-623px)] 2xl:right-[calc(50%-687px)] top-1/2 -translate-y-1/2 hidden xl:flex flex-col items-center gap-0">
+      {/* Right decorative stats — 1200px screens and above */}
+      <div className="absolute min-[1200px]:right-[calc(50%-590px)] xl:right-[calc(50%-623px)] 2xl:right-[calc(50%-687px)] top-1/2 -translate-y-1/2 hidden min-[1200px]:flex flex-col items-center gap-0">
         <div className="w-px h-10 mb-6" style={{ background: 'linear-gradient(to bottom, transparent, rgba(201,169,110,0.5))' }} />
         {rightStats.map((s, i) => (
           <div key={s.label}>
