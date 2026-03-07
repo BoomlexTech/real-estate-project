@@ -1,5 +1,6 @@
 const Agent = require('../models/Agent');
 const Property = require('../models/Property');
+const { deleteImages } = require('../utils/cloudinary');
 const BlogPost = require('../models/BlogPost');
 const MortgageInquiry = require('../models/MortgageInquiry');
 const ContactMessage = require('../models/ContactMessage');
@@ -364,7 +365,11 @@ const approvePropertyChanges = async (req, res, next) => {
     if (completionStatus !== undefined) property.completionStatus = completionStatus;
     if (paymentPlan !== undefined) property.paymentPlan = paymentPlan;
     if (developer !== undefined) property.developer = developer;
-    if (images !== undefined) property.images = images;
+    if (images !== undefined) {
+      const removed = (property.images || []).filter((u) => !images.includes(u));
+      property.images = images;
+      if (removed.length) deleteImages(removed).catch(() => {});
+    }
     if (amenities !== undefined) property.amenities = amenities;
     if (status !== undefined) property.status = status;
 

@@ -1,4 +1,5 @@
 const Property = require('../models/Property');
+const { deleteImages } = require('../utils/cloudinary');
 
 // Helper — generate a URL-safe slug from a title
 function makeSlug(title) {
@@ -210,7 +211,11 @@ const updateProperty = async (req, res, next) => {
     if (completionStatus !== undefined) property.completionStatus = completionStatus;
     if (paymentPlan !== undefined) property.paymentPlan = paymentPlan;
     if (developer !== undefined) property.developer = developer;
-    if (images !== undefined) property.images = images;
+    if (images !== undefined) {
+      const removed = (property.images || []).filter((u) => !images.includes(u));
+      property.images = images;
+      if (removed.length) deleteImages(removed).catch(() => {});
+    }
     if (amenities !== undefined) property.amenities = amenities;
     if (status !== undefined) property.status = status;
 
@@ -228,6 +233,7 @@ const deleteProperty = async (req, res, next) => {
     if (!property)
       return res.status(404).json({ success: false, message: 'Property not found' });
 
+    if (property.images?.length) deleteImages(property.images).catch(() => {});
     await property.deleteOne();
     res.json({ success: true, message: 'Property deleted' });
   } catch (err) {
