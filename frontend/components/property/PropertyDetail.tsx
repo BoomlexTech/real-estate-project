@@ -138,7 +138,7 @@ export default function PropertyDetail({ property }: Props) {
 
           {/* Title & Price */}
           <div>
-            <div className="flex items-start justify-between flex-wrap gap-3 mb-2">
+            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-2">
               <h1 className="text-2xl sm:text-3xl font-bold t-heading">{property.title}</h1>
               <p className="text-xl sm:text-2xl font-bold" style={{ color: 'var(--gold)' }}>{property.priceLabel}</p>
             </div>
@@ -173,14 +173,14 @@ export default function PropertyDetail({ property }: Props) {
                 <CreditCard className="w-4 h-4" style={{ color: 'var(--gold)' }} />
                 Payment Plan
               </h3>
-              <div className="flex gap-4">
-                <div className="flex-1 rounded-lg p-4 text-center" style={{ background: 'rgba(201,168,76,0.1)', border: '1px solid rgba(201,168,76,0.25)' }}>
+              <div className="flex gap-4 min-w-0">
+                <div className="flex-1 min-w-0 rounded-lg p-4 text-center" style={{ background: 'rgba(201,168,76,0.1)', border: '1px solid rgba(201,168,76,0.25)' }}>
                   <p className="text-2xl font-bold" style={{ color: 'var(--gold)' }}>
                     {typeof property.paymentPlan === 'object' ? property.paymentPlan.downPayment : property.paymentPlan}%
                   </p>
                   <p className="text-xs t-secondary mt-1">During Construction</p>
                 </div>
-                <div className="flex-1 rounded-lg p-4 text-center" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(201,168,76,0.45)' }}>
+                <div className="flex-1 min-w-0 rounded-lg p-4 text-center" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(201,168,76,0.45)' }}>
                   <p className="text-2xl font-bold t-heading">
                     {typeof property.paymentPlan === 'object' ? property.paymentPlan.onCompletion : 100 - parseInt(property.paymentPlan as string)}%
                   </p>
