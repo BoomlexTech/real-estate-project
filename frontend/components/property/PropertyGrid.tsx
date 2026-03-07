@@ -84,7 +84,7 @@ export default function PropertyGrid({ properties, loading, page = 1, totalPages
 
       {/* Pagination */}
       {totalPages > 1 && (
-        <div className="flex items-center justify-center gap-2 mt-10">
+        <div className="flex flex-wrap items-center justify-center gap-2 mt-10">
           <button
             onClick={() => goToPage(page - 1)}
             disabled={page === 1}
