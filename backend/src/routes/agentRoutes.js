@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { getAgents, getAgentById, updateProfile } = require('../controllers/agentController');
+const { getAgents, getAgentById, updateProfile, submitReview } = require('../controllers/agentController');
 const { getMyInquiries, updateMyInquiryStatus } = require('../controllers/propertyInquiryController');
 const { protect } = require('../middleware/auth');
 
@@ -14,5 +14,6 @@ router.patch('/inquiries/:id/status', protect, updateMyInquiryStatus);
 
 // Public — wildcard param last
 router.get('/:id', getAgentById);
+router.post('/:id/reviews', submitReview);
 
 module.exports = router;

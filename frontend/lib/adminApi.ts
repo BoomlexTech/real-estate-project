@@ -276,6 +276,22 @@ export async function rejectBlog(id: string): Promise<void> {
   await api.patch(`/admin/blogs/${id}/reject`);
 }
 
+// ─── Agent Reviews ────────────────────────────────────────
+export interface AgentReview {
+  _id: string;
+  agent: { _id: string; name: string };
+  reviewerName: string;
+  reviewerEmail: string;
+  rating: number;
+  comment: string;
+  createdAt: string;
+}
+
+export async function getAgentReviews(): Promise<AgentReview[]> {
+  const { data } = await api.get('/admin/reviews');
+  return data.data;
+}
+
 // ─── Site Settings ────────────────────────────────────────
 export interface SiteSettings {
   companyBrochureUrl: string;

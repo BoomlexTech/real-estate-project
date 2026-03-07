@@ -187,4 +187,12 @@ export async function submitPropertyInquiry(
   return data;
 }
 
+export async function submitAgentReview(
+  agentId: string,
+  formData: { reviewerName: string; reviewerEmail: string; rating: number; comment: string }
+): Promise<{ success: boolean }> {
+  const { data } = await api.post(`/agents/${agentId}/reviews`, formData);
+  return data;
+}
+
 export default api;

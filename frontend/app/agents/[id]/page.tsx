@@ -2,6 +2,7 @@ import { getAgent } from '@/lib/api';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import PropertyCard from '@/components/property/PropertyCard';
+import AgentReviewForm from '@/components/agent/AgentReviewForm';
 import { Phone, Mail, Globe, MapPin } from 'lucide-react';
 import type { Agent, Property } from '@/lib/types';
 
@@ -147,6 +148,8 @@ export default async function AgentDetailPage({
             </div>
           )}
         </div>
+
+        <AgentReviewForm agentId={id} agentName={agent!.name} />
       </div>
     </main>
   );

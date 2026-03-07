@@ -1,5 +1,6 @@
 const Agent = require('../models/Agent');
 const Property = require('../models/Property');
+const AgentReview = require('../models/AgentReview');
 
 // GET /api/agents
 const getAgents = async (req, res, next) => {
@@ -74,4 +75,24 @@ const updateProfile = async (req, res, next) => {
     }
 };
 
-module.exports = { getAgents, getAgentById, updateProfile };
+// POST /api/agents/:id/reviews
+const submitReview = async (req, res, next) => {
+    try {
+        const { reviewerName, reviewerEmail, rating, comment } = req.body;
+        if (!reviewerName || !reviewerEmail || !rating || !comment) {
+            return res.status(400).json({ success: false, message: 'All fields are required.' });
+        }
+        const review = await AgentReview.create({
+            agent: req.params.id,
+            reviewerName,
+            reviewerEmail,
+            rating: Number(rating),
+            comment,
+        });
+        res.status(201).json({ success: true, data: review });
+    } catch (err) {
+        next(err);
+    }
+};
+
+module.exports = { getAgents, getAgentById, updateProfile, submitReview };

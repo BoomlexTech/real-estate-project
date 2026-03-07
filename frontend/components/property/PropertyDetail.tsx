@@ -7,6 +7,7 @@ import { Property } from '@/lib/types';
 import { useForm } from 'react-hook-form';
 import { getSiteSettings } from '@/lib/adminApi';
 import { submitPropertyInquiry } from '@/lib/api';
+import AgentReviewForm from '@/components/agent/AgentReviewForm';
 import { trackEvent } from '@/lib/analytics';
 
 interface ContactForm {
@@ -348,6 +349,13 @@ export default function PropertyDetail({ property }: Props) {
             </motion.div>
           )}
         </div>
+
+        {/* Agent Review — rendered after sidebar so mobile order is: content → listed by → review */}
+        {property.agent?.id && (
+          <div className="lg:col-span-2">
+            <AgentReviewForm agentId={property.agent.id} agentName={property.agent.name} />
+          </div>
+        )}
       </div>
     </div>
   );

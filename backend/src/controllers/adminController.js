@@ -5,6 +5,7 @@ const MortgageInquiry = require('../models/MortgageInquiry');
 const ContactMessage = require('../models/ContactMessage');
 const PropertyInquiry = require('../models/PropertyInquiry');
 const Notification = require('../models/Notification');
+const AgentReview = require('../models/AgentReview');
 
 // GET /api/admin/dashboard
 // Returns counts for the stats cards
@@ -394,6 +395,20 @@ const rejectPropertyChanges = async (req, res, next) => {
   }
 };
 
+// ─── AGENT REVIEWS ───────────────────────────────────────
+
+// GET /api/admin/reviews
+const getReviews = async (req, res, next) => {
+  try {
+    const reviews = await AgentReview.find()
+      .populate('agent', 'name')
+      .sort({ createdAt: -1 });
+    res.json({ success: true, data: reviews });
+  } catch (err) {
+    next(err);
+  }
+};
+
 // ─── BLOG APPROVALS ──────────────────────────────────────
 
 // PATCH /api/admin/blogs/:id/approve
@@ -441,4 +456,5 @@ module.exports = {
   markNotificationsSeen,
   approveBlog,
   rejectBlog,
+  getReviews,
 };

@@ -20,6 +20,7 @@ const {
   markNotificationsSeen,
   approveBlog,
   rejectBlog,
+  getReviews,
 } = require('../controllers/adminController');
 const { getSettings, updateSettings } = require('../controllers/settingsController');
 const { getAdminBlogPosts, getBlogPostById, createBlogPost, updateBlogPost, deleteBlogPost } = require('../controllers/blogController');
@@ -68,6 +69,9 @@ router.put('/blogs/:id', updateBlogPost);
 router.delete('/blogs/:id', deleteBlogPost);
 router.patch('/blogs/:id/approve', approveBlog);
 router.patch('/blogs/:id/reject', rejectBlog);
+
+// Agent reviews (read-only for admin)
+router.get('/reviews', getReviews);
 
 // Site settings
 router.get('/settings', getSettings);
