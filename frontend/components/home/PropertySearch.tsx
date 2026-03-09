@@ -74,7 +74,7 @@ const bedroomOptions: Option[] = [
 const statusOptions: Option[] = [
   { label: 'Any Status', value: '' },
   { label: 'Off-Plan', value: 'off-plan' },
-  { label: 'Ready to Move', value: 'ready' },
+  { label: 'Ready to Move In', value: 'ready' },
   { label: 'For Sale', value: 'for-sale' },
   { label: 'For Rent', value: 'for-rent' },
 ];

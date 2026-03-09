@@ -58,7 +58,7 @@ const slides: Slide[] = [
   {
     id: 2,
     type: 'property',
-    badge: 'Ready to Move',
+    badge: 'Ready to Move In',
     title: 'Marina Heights Tower',
     subtitle: 'Premium Residences — Dubai Marina',
     location: 'Dubai Marina',
