@@ -33,9 +33,9 @@ export default function MortgageBanner() {
   };
 
   const features = [
-    { icon: <Building2 className="w-4 h-4" />, text: '20+ partner banks & lenders' },
-    { icon: <Percent className="w-4 h-4" />, text: 'Finance your down payment' },
-    { icon: <Banknote className="w-4 h-4" />, text: 'Zero broker fees' },
+    { icon: <Building2 className="w-4 h-4" />, text: '20+ partner banks & lenders worldwide' },
+    { icon: <Percent className="w-4 h-4" />, text: 'Available to international buyers globally' },
+    { icon: <Banknote className="w-4 h-4" />, text: 'Zero broker fees, anywhere in the world' },
   ];
 
   return (
@@ -50,14 +50,14 @@ export default function MortgageBanner() {
             transition={{ duration: 0.6 }}
           >
             <p className="text-[10px] tracking-[0.28em] uppercase mb-4" style={{ color: '#C9A96E' }}>
-              Mortgage Services
+              Global Mortgage Services
             </p>
             <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-light t-heading mb-5 leading-tight">
-              Get Mortgage in Dubai &amp;{' '}
-              <span style={{ color: '#C9A96E' }}>The UAE</span>
+              Mortgage Available{' '}
+              <span style={{ color: '#C9A96E' }}>Worldwide</span>
             </h2>
             <p className="t-secondary text-sm leading-relaxed mb-6">
-              Our dedicated mortgage advisors work with 20+ leading banks to secure the best rates for you. Whether you&apos;re a first-time buyer or seasoned investor, we make the financing process seamless and fast.
+              No matter where you are in the world, our dedicated mortgage advisors work with 20+ leading banks to secure the best rates for your Dubai property. Whether you&apos;re a first-time buyer or an international investor, we make cross-border financing seamless and fast.
             </p>
 
             <a
