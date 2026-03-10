@@ -2,8 +2,8 @@
 
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import Image from 'next/image';
 import { Facebook, Instagram, Linkedin, Youtube, MapPin, Phone, Mail } from 'lucide-react';
+import Logo from '../common/Logo';
 import { useTheme } from '@/contexts/ThemeContext';
 
 const emirates = [
@@ -49,13 +49,7 @@ export default function Footer() {
           {/* Col 1: Logo + Description */}
           <div className="col-span-2 lg:col-span-1">
             <div className="mb-4">
-              <Image
-                src="/final.png"
-                alt="Awtad Real Estate and Brokerage"
-                width={140}
-                height={58}
-                className="object-contain h-10 w-auto"
-              />
+              <Logo />
             </div>
             <p className="text-xs leading-[1.85] mb-5 tracking-wide" style={{ color: 'var(--text-secondary)' }}>
               Dubai&apos;s leading luxury real estate agency. We help clients buy, sell, and invest in premium properties across the UAE.

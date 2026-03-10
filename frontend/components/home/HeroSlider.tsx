@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MapPin } from 'lucide-react';
+import { MapPin, Volume2, VolumeX } from 'lucide-react';
 import Link from 'next/link';
 
 const LOCAL_VIDEO_SRC = '/landing-video.mp4';
@@ -90,6 +90,7 @@ const slides: Slide[] = [
 export default function HeroSlider() {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState<'left' | 'right'>('right');
+  const [muted, setMuted] = useState(true);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const videoRef2 = useRef<HTMLVideoElement>(null);
@@ -196,21 +197,36 @@ export default function HeroSlider() {
         <video
           ref={videoRef}
           src={LOCAL_VIDEO_SRC}
-          muted
+          muted={muted}
           playsInline
           className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
           style={{ pointerEvents: 'none', opacity: slides[current].id === 'video' ? 1 : 0 }}
           onEnded={() => next()}
+          controlsList="nodownload nofullscreen noremoteplayback"
+          onContextMenu={e => e.preventDefault()}
         />
         <video
           ref={videoRef2}
           src={LOCAL_VIDEO_SRC_2}
-          muted
+          muted={muted}
           playsInline
           className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
           style={{ pointerEvents: 'none', opacity: slides[current].id === 'video2' ? 1 : 0 }}
           onEnded={() => next()}
+          controlsList="nodownload nofullscreen noremoteplayback"
+          onContextMenu={e => e.preventDefault()}
         />
+        {/* Mute toggle button */}
+        {isVideoSlide && (
+          <button
+            onClick={() => setMuted(m => !m)}
+            className="absolute bottom-6 right-6 z-20 flex items-center justify-center w-9 h-9 rounded-full transition-opacity hover:opacity-80"
+            style={{ background: 'rgba(0,0,0,0.55)', border: '1px solid rgba(201,169,110,0.4)', color: '#C9A96E' }}
+            aria-label={muted ? 'Unmute' : 'Mute'}
+          >
+            {muted ? <VolumeX size={16} /> : <Volume2 size={16} />}
+          </button>
+        )}
       </div>
 
 

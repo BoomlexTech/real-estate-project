@@ -178,7 +178,7 @@ export default function AgentNewBlogPage() {
           </button>
           <button
             type="button"
-            onClick={() => router.back()}
+            onClick={() => router.push('/agent/blogs')}
             className="px-6 py-2.5 rounded-lg text-sm font-medium transition-opacity hover:opacity-70"
             style={{ background: 'transparent', border: `1px solid ${palette.border}`, color: palette.textSecondary }}
           >
