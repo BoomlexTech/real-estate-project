@@ -183,10 +183,23 @@ export default function Footer() {
             © {currentYear} Awtad Real Estate — All Rights Reserved
           </p>
           <div className="flex items-center gap-6">
-            {['Terms & Conditions', 'Privacy Policy', 'Career'].map((label, i) => (
+            <Link
+              href="/blog"
+              className="text-[10px] tracking-[0.14em] uppercase transition-all px-2.5 py-1 rounded"
+              style={{ color: '#C9A96E', border: '1px solid rgba(201,169,110,0.5)', background: 'rgba(201,169,110,0.08)' }}
+              onMouseEnter={e => { e.currentTarget.style.background = 'rgba(201,169,110,0.18)'; e.currentTarget.style.borderColor = 'rgba(201,169,110,0.8)'; }}
+              onMouseLeave={e => { e.currentTarget.style.background = 'rgba(201,169,110,0.08)'; e.currentTarget.style.borderColor = 'rgba(201,169,110,0.5)'; }}
+            >
+              Blog
+            </Link>
+            {[
+              { label: 'Terms & Conditions', href: '/terms' },
+              { label: 'Privacy Policy', href: '/privacy' },
+              { label: 'Career', href: '/career' },
+            ].map(({ label, href }) => (
               <Link
-                key={i}
-                href={i === 0 ? '/terms' : i === 1 ? '/privacy' : '/career'}
+                key={href}
+                href={href}
                 className="text-[10px] tracking-[0.14em] uppercase transition-colors"
                 style={{ color: 'rgba(148,163,184,0.45)' }}
                 onMouseEnter={e => (e.currentTarget.style.color = 'rgba(201,169,110,0.8)')}
