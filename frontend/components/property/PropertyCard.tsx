@@ -101,7 +101,7 @@ function CardCarousel({ images, type, status }: { images: string[]; type: string
       <div className="absolute top-3 left-3 z-10">
         <span
           className="px-2 py-0.5 text-[10px] tracking-[0.16em] uppercase rounded"
-          style={{ border: '1px solid rgba(201,169,110,0.55)', color: '#C9A96E', background: 'var(--overlay-bg)' }}
+          style={{ background: 'var(--media-badge-bg)', color: '#C9A96E', border: '1px solid rgba(201,169,110,0.55)' }}
         >
           {statusLabels[status] || (status || 'available').toUpperCase()}
         </span>
@@ -111,7 +111,7 @@ function CardCarousel({ images, type, status }: { images: string[]; type: string
       <div className="absolute top-3 right-3 z-10">
         <span
           className="px-2 py-0.5 text-[10px] tracking-[0.12em] uppercase rounded"
-          style={{ border: '1px solid var(--muted-border)', color: 'var(--hero-text)', background: 'var(--overlay-bg)' }}
+          style={{ background: 'var(--media-badge-bg)', color: 'var(--media-badge-text)', border: '1px solid var(--media-badge-border)' }}
         >
           {typeLabels[type] || (type || 'property').toUpperCase()}
         </span>
@@ -128,7 +128,7 @@ function CardCarousel({ images, type, status }: { images: string[]; type: string
               style={{
                 width: i === current ? '18px' : '6px',
                 height: '1px',
-                background: i === current ? '#C9A96E' : 'var(--muted-border)',
+                background: i === current ? '#C9A96E' : 'rgba(255,255,255,0.40)',
               }}
             />
           ))}

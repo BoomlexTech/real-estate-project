@@ -126,7 +126,7 @@ export default function WhoWeAre() {
               <div
                 className="glass-card hidden sm:block absolute -bottom-6 -right-6 px-6 py-5"
               >
-                <p className="font-serif text-3xl font-light" style={{ color: '#C9A96E' }}>11B+</p>
+                <p className="font-serif text-3xl font-light t-heading">11B+</p>
                 <p className="text-[10px] tracking-[0.14em] uppercase mt-1 t-secondary">
                   AED in Sales
                 </p>

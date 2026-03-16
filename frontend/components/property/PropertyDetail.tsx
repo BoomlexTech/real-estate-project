@@ -92,24 +92,24 @@ export default function PropertyDetail({ property }: Props) {
                   <button
                     onClick={() => { const next = (activeImage - 1 + images.length) % images.length; setActiveImage(next); trackEvent('property_image_view', { property_id: property.id, image_index: next, total_images: images.length, navigation_type: 'prev' }); }}
                     className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full flex items-center justify-center transition-opacity hover:opacity-100 opacity-70"
-                    style={{ background: 'var(--overlay-bg)' }}
+                    style={{ background: 'var(--media-badge-bg)' }}
                     aria-label="Previous photo"
                   >
-                    <ChevronLeft className="w-5 h-5 t-heading" />
+                    <ChevronLeft className="w-5 h-5 t-on-media" />
                   </button>
                   <button
                     onClick={() => { const next = (activeImage + 1) % images.length; setActiveImage(next); trackEvent('property_image_view', { property_id: property.id, image_index: next, total_images: images.length, navigation_type: 'next' }); }}
                     className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full flex items-center justify-center transition-opacity hover:opacity-100 opacity-70"
-                    style={{ background: 'var(--overlay-bg)' }}
+                    style={{ background: 'var(--media-badge-bg)' }}
                     aria-label="Next photo"
                   >
-                    <ChevronRight className="w-5 h-5 t-heading" />
+                    <ChevronRight className="w-5 h-5 t-on-media" />
                   </button>
 
                   {/* Counter */}
                   <div
                     className="absolute bottom-3 right-3 px-2.5 py-1 rounded-lg text-xs font-medium"
-                    style={{ background: 'var(--overlay-bg)', color: 'var(--hero-text)' }}
+                    style={{ background: 'var(--media-badge-bg)', color: 'var(--media-badge-text)', border: '1px solid var(--media-badge-border)' }}
                   >
                     {activeImage + 1} / {images.length}
                   </div>

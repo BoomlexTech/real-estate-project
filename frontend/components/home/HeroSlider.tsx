@@ -184,7 +184,7 @@ export default function HeroSlider() {
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
-            background: 'linear-gradient(to right, var(--overlay-bg) 0%, rgba(0,0,0,0.18) 55%, transparent 100%)',
+            background: 'linear-gradient(to right, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.20) 55%, transparent 100%)',
           }}
         />
       )}
@@ -221,7 +221,7 @@ export default function HeroSlider() {
           <button
             onClick={() => setMuted(m => !m)}
             className="absolute bottom-6 right-6 z-20 flex items-center justify-center w-9 h-9 rounded-full transition-opacity hover:opacity-80"
-            style={{ background: 'var(--overlay-bg)', border: '1px solid rgba(201,169,110,0.4)', color: '#C9A96E' }}
+            style={{ background: 'var(--media-badge-bg)', border: '1px solid rgba(201,169,110,0.4)', color: '#C9A96E' }}
             aria-label={muted ? 'Unmute' : 'Mute'}
           >
             {muted ? <VolumeX size={16} /> : <Volume2 size={16} />}
@@ -439,7 +439,7 @@ export default function HeroSlider() {
       <button
         onClick={prev}
         className="absolute left-5 top-1/2 -translate-y-1/2 z-20 w-12 h-12 hidden sm:flex items-center justify-center text-xl transition-all hover:opacity-100 opacity-85"
-        style={{ border: '1px solid var(--muted-border)', background: 'var(--overlay-bg)', backdropFilter: 'blur(4px)', borderRadius: '6px', color: 'white' }}
+        style={{ border: '1px solid var(--media-badge-border)', background: 'var(--media-badge-bg)', backdropFilter: 'blur(4px)', borderRadius: '6px', color: 'var(--media-badge-text)' }}
         aria-label="Previous slide"
       >
         ←
@@ -447,7 +447,7 @@ export default function HeroSlider() {
       <button
         onClick={next}
         className="absolute right-5 top-1/2 -translate-y-1/2 z-20 w-12 h-12 hidden sm:flex items-center justify-center text-xl transition-all hover:opacity-100 opacity-85"
-        style={{ border: '1px solid var(--muted-border)', background: 'var(--overlay-bg)', backdropFilter: 'blur(4px)', borderRadius: '6px', color: 'white' }}
+        style={{ border: '1px solid var(--media-badge-border)', background: 'var(--media-badge-bg)', backdropFilter: 'blur(4px)', borderRadius: '6px', color: 'var(--media-badge-text)' }}
         aria-label="Next slide"
       >
         →

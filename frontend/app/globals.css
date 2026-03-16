@@ -41,6 +41,12 @@
   --hero-text: rgba(255, 255, 255, 0.95);
   --hero-meta: rgba(255, 255, 255, 0.70);
   --footer-muted: rgba(148, 163, 184, 0.50);
+  /* ── Media-layer tokens (text/badges on top of photos) ── */
+  --text-on-media: rgba(255, 255, 255, 0.95);
+  --text-on-media-sub: rgba(255, 255, 255, 0.75);
+  --media-badge-bg: rgba(0, 0, 0, 0.65);
+  --media-badge-text: rgba(255, 255, 255, 0.92);
+  --media-badge-border: rgba(255, 255, 255, 0.18);
 }
 
 /* ── Light theme overrides ───────────────────────────── */
@@ -51,9 +57,9 @@
   --bg-section-alt: #edeae2;
   --bg-warm-tint: #f0ece3;
   --text-primary: #000000;
-  --text-body: #1a202c;
-  --text-secondary: #2d3748;
-  --text-dim: #4a5568;
+  --text-body: #1a1a2e;
+  --text-secondary: #374151;
+  --text-dim: #6b7280;
   --text-link: #1a202c;
   --border-color: #d8d4cc;
   --border-gold: rgba(201, 169, 110, 0.45);
@@ -72,6 +78,13 @@
   --hero-text: rgba(255, 255, 255, 0.95);
   --hero-meta: rgba(255, 255, 255, 0.70);
   --footer-muted: rgba(60, 70, 90, 0.60);
+  --gold-text: #8B6914;
+  /* ── Media-layer tokens (text/badges always over photos) ── */
+  --text-on-media: rgba(255, 255, 255, 0.95);
+  --text-on-media-sub: rgba(255, 255, 255, 0.75);
+  --media-badge-bg: rgba(0, 0, 0, 0.65);
+  --media-badge-text: rgba(255, 255, 255, 0.92);
+  --media-badge-border: rgba(255, 255, 255, 0.18);
 }
 
 @theme inline {
@@ -157,6 +170,21 @@ body {
 
 .t-accent {
   color: var(--gold);
+}
+
+/* ── Media-layer text/badge utilities (elements sitting on top of photos) ── */
+.t-on-media {
+  color: var(--text-on-media);
+}
+
+.t-on-media-sub {
+  color: var(--text-on-media-sub);
+}
+
+.badge-on-media {
+  background: var(--media-badge-bg);
+  color: var(--media-badge-text);
+  border: 1px solid var(--media-badge-border);
 }
 
 /* Gold badge — dark text on gold bg, works both modes */
