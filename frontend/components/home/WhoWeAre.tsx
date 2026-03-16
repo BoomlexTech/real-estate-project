@@ -127,7 +127,7 @@ export default function WhoWeAre() {
                 className="glass-card hidden sm:block absolute -bottom-6 -right-6 px-6 py-5"
               >
                 <p className="font-serif text-3xl font-light" style={{ color: '#C9A96E' }}>11B+</p>
-                <p className="text-[10px] tracking-[0.14em] uppercase mt-1" style={{ color: '#94A3B8' }}>
+                <p className="text-[10px] tracking-[0.14em] uppercase mt-1 t-secondary">
                   AED in Sales
                 </p>
               </div>
@@ -149,7 +149,7 @@ export default function WhoWeAre() {
                 <span style={{ color: '#C9A96E' }}>Real Estate</span>{' '}
                 with Precision
               </h2>
-              <div className="space-y-5 mb-10" style={{ color: '#94A3B8' }}>
+              <div className="space-y-5 mb-10 t-secondary">
                 <p className="text-sm leading-[1.85] tracking-wide">
                   Dubai&apos;s real estate market is one of the most dynamic and fast-paced in the world. With thousands of listings, new developments launching daily, and complex regulatory frameworks, navigating the market without expert guidance can be overwhelming.
                 </p>
@@ -173,7 +173,7 @@ export default function WhoWeAre() {
                       {svc.label}
                     </p>
                     <h4 className="t-heading text-sm font-light tracking-wide mb-2">{svc.title}</h4>
-                    <p className="text-xs leading-relaxed" style={{ color: 'rgba(148,163,184,0.65)' }}>{svc.desc}</p>
+                    <p className="text-xs leading-relaxed t-secondary">{svc.desc}</p>
                   </motion.div>
                 ))}
               </div>

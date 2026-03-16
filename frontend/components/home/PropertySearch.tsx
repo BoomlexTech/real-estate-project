@@ -174,7 +174,7 @@ export default function PropertySearch() {
               <h2 className="font-serif text-3xl sm:text-4xl font-light t-heading mb-2 leading-tight">
                 Find Your Ideal Property
               </h2>
-              <p className="text-xs tracking-[0.08em]" style={{ color: '#94A3B8' }}>
+              <p className="text-xs tracking-[0.08em] t-secondary">
                 Dubai&apos;s finest properties — curated for discerning buyers
               </p>
             </div>

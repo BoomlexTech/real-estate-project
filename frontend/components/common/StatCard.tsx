@@ -108,12 +108,7 @@ export default function StatCard({
           {/* Animated counter */}
           <div>
             <p
-              className="font-serif text-2xl sm:text-3xl font-light leading-tight mb-0.5"
-              style={{
-                background: 'linear-gradient(135deg, #C9A96E 0%, #E8D5A8 50%, #C9A96E 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-              }}
+              className="font-serif text-2xl sm:text-3xl font-light leading-tight mb-0.5 t-heading"
             >
               {prefix}{count.toLocaleString()}{suffix}
             </p>
