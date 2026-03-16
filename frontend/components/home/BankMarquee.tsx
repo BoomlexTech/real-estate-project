@@ -50,18 +50,14 @@ export default function BankMarquee() {
             <div key={i} className="flex items-center">
               <span
                 className="text-xs font-light tracking-[0.2em] uppercase px-6 sm:px-10"
-                style={{
-                  color: '#C9A96E',
-                  textShadow: '0 0 12px rgba(201,169,110,0.6), 0 0 24px rgba(201,169,110,0.3)',
-                }}
+                style={{ color: 'var(--gold-text)' }}
               >
                 {bank}
               </span>
               <span
                 style={{
-                  color: '#C9A96E',
+                  color: 'var(--gold-text)',
                   fontSize: '8px',
-                  textShadow: '0 0 8px rgba(201,169,110,0.8)',
                 }}
               >
                 ◆
