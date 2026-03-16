@@ -26,11 +26,16 @@ export default function AgentDashboardPage() {
 
   return (
     <div>
-      <div className="mb-6">
-        <h1 className="text-2xl font-bold" style={{ color: palette.textPrimary }}>
+      <div className="surface-panel p-5 sm:p-6 mb-6">
+        <h1 className="portal-section-title" style={{ color: palette.textPrimary }}>
           Welcome back{user?.name ? `, ${user.name}` : ''}
         </h1>
-        <p className="text-sm mt-1" style={{ color: palette.textSecondary }}>Here&apos;s your agent portal overview</p>
+        <p className="portal-subtle mt-1">Track listings, respond to leads, and keep your profile and content moving.</p>
+        <div className="info-pills mt-4">
+          <span className="info-pill">{loading ? '...' : stats?.total ?? 0} active listings</span>
+          <span className="info-pill">{loading ? '...' : stats?.newInquiries ?? 0} new inquiries</span>
+          <span className="info-pill">{loading ? '...' : stats?.featured ?? 0} featured listings</span>
+        </div>
       </div>
 
       {/* Stat cards */}

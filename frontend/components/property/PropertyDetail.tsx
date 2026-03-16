@@ -39,6 +39,12 @@ export default function PropertyDetail({ property }: Props) {
     trackEvent('view_item', { item_id: property.id, item_name: property.title, price: property.price, item_category: property.type, item_variant: property.status, item_list_name: property.emirate });
   }, [property.id]); // eslint-disable-line react-hooks/exhaustive-deps
   const images = property.images ?? [];
+  const highlights = [
+    property.status ? `${property.status.replace(/-/g, ' ')} opportunity` : null,
+    property.paymentPlan ? 'Flexible payment structure' : null,
+    property.completionDate ? `Completion ${property.completionDate}` : 'Ready to occupy',
+    property.agent ? `Handled by ${property.agent.name}` : null,
+  ].filter(Boolean) as string[];
   const { register, handleSubmit, formState: { isSubmitting } } = useForm<ContactForm>({
     defaultValues: { message: `I'm interested in ${property.title}. Please contact me.` },
   });
@@ -147,6 +153,11 @@ export default function PropertyDetail({ property }: Props) {
               <MapPin className="w-4 h-4" style={{ color: 'var(--gold)' }} />
               {property.location}, {property.emirate}
             </div>
+            <div className="info-pills mt-4">
+              {highlights.map((highlight) => (
+                <span key={highlight} className="info-pill">{highlight}</span>
+              ))}
+            </div>
           </div>
 
           {/* Stats Grid */}
@@ -195,6 +206,24 @@ export default function PropertyDetail({ property }: Props) {
           <div className="card-dark p-6">
             <h3 className="t-heading font-semibold mb-4">Description</h3>
             <p className="t-secondary text-sm leading-relaxed">{property.description}</p>
+          </div>
+
+          <div className="surface-panel-soft p-6">
+            <h3 className="t-heading font-semibold mb-3">Why this property stands out</h3>
+            <div className="grid sm:grid-cols-3 gap-3 text-sm">
+              <div className="metric-card">
+                <p className="section-kicker mb-2">Lifestyle</p>
+                <p className="t-body">{property.location} with fast access to flagship communities, amenities, and prime transport corridors.</p>
+              </div>
+              <div className="metric-card">
+                <p className="section-kicker mb-2">Investment</p>
+                <p className="t-body">{property.paymentPlan ? 'Structured payment terms make this easier to position for investors and end users.' : 'Positioned as a high-clarity listing with immediate decision-making value.'}</p>
+              </div>
+              <div className="metric-card">
+                <p className="section-kicker mb-2">Support</p>
+                <p className="t-body">Dedicated advisory support, brochure access, and direct call or WhatsApp contact from the detail page.</p>
+              </div>
+            </div>
           </div>
 
           {/* Amenities */}

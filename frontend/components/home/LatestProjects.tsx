@@ -19,33 +19,33 @@ export default function LatestProjects() {
   }, []);
 
   return (
-    <section className="py-16 sm:py-20 lg:py-28 px-4 section-grain texture-dot-grid" style={{ background: 'var(--bg-section-alt)' }}>
+    <section className="section-shell px-4 section-grain texture-dot-grid" style={{ background: 'var(--bg-section-alt)' }}>
       <div className="max-w-7xl mx-auto">
-        {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="flex flex-col items-center text-center mb-8 sm:mb-16 gap-4"
+          className="section-intro"
         >
-          <p className="text-[10px] tracking-[0.28em] uppercase" style={{ color: '#C9A96E' }}>
-            Featured
-          </p>
+          <p className="section-kicker">New To Market</p>
           <span className="section-divider mx-auto" />
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light t-heading leading-[1.08]">
-            Latest Projects<br />
-            <span style={{ color: '#C9A96E' }}>In Dubai</span>
+            Latest Projects
+            <br />
+            <span className="t-accent">In Dubai</span>
           </h2>
+          <p className="page-intro-copy max-w-2xl">
+            Fresh opportunities, newly launched addresses, and current listings worth your attention right now.
+          </p>
           <Link
             href="/property"
-            className="text-[10px] tracking-[0.2em] uppercase transition-colors pb-0.5 whitespace-nowrap"
-            style={{ color: '#C9A96E', borderBottom: '1px solid rgba(201,169,110,0.4)' }}
+            className="text-[10px] tracking-[0.2em] uppercase transition-colors pb-0.5 whitespace-nowrap focus-ring rounded-sm"
+            style={{ color: 'var(--gold-text)', borderBottom: '1px solid rgba(201,169,110,0.4)' }}
           >
-            View All Properties →
+            View All Properties
           </Link>
         </motion.div>
 
-        {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {(isMobile ? properties.slice(0, 3) : properties).map((property, i) => (
             <motion.div

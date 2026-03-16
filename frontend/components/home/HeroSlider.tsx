@@ -184,7 +184,7 @@ export default function HeroSlider() {
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
-            background: 'linear-gradient(to right, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.20) 55%, transparent 100%)',
+            background: 'linear-gradient(to right, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.34) 52%, rgba(0,0,0,0.08) 100%)',
           }}
         />
       )}
@@ -194,6 +194,7 @@ export default function HeroSlider() {
         className="absolute inset-0 bg-black transition-opacity duration-1000"
         style={{ opacity: isVideoSlide ? 1 : 0, pointerEvents: isVideoSlide ? 'auto' : 'none' }}
       >
+        <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.3) 56%, rgba(0,0,0,0.06) 100%)' }} />
         <video
           ref={videoRef}
           src={LOCAL_VIDEO_SRC}

@@ -64,7 +64,7 @@ const services = [
 
 export default function WhoWeAre() {
   return (
-    <div className="relative overflow-hidden" style={{ background: 'var(--bg-primary)' }}>
+    <div className="relative overflow-hidden section-grain" style={{ background: 'var(--bg-primary)' }}>
       {/* Stats Section */}
       <section className="relative z-10 pt-10 pb-0 px-4">
         <div className="max-w-7xl mx-auto">
@@ -87,7 +87,7 @@ export default function WhoWeAre() {
       </section>
 
       {/* Who We Are Section */}
-      <section className="relative z-10 py-10 sm:py-14 lg:py-20 px-4">
+      <section className="relative z-10 section-shell-compact px-4">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 xl:gap-24 items-start">
             {/* Left: Image */}
@@ -109,13 +109,13 @@ export default function WhoWeAre() {
                 />
                 <div
                   className="absolute inset-0"
-                  style={{ background: 'linear-gradient(to top, var(--overlay-bg) 0%, transparent 65%)' }}
+                  style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.76) 0%, rgba(0,0,0,0.16) 52%, transparent 76%)' }}
                 />
                 {/* Badge — bottom left */}
                 <div className="absolute bottom-0 left-0 p-6 z-10">
                   <span
-                    className="px-3 py-1.5 text-[10px] tracking-[0.22em] uppercase"
-                    style={{ border: '1px solid rgba(201,169,110,0.55)', color: '#C9A96E' }}
+                    className="px-3 py-1.5 text-[10px] tracking-[0.22em] uppercase rounded-sm"
+                    style={{ border: '1px solid rgba(201,169,110,0.55)', color: 'var(--gold-text)', background: 'rgba(15, 23, 42, 0.38)' }}
                   >
                     Dubai Real Estate
                   </span>
@@ -140,13 +140,13 @@ export default function WhoWeAre() {
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
             >
-              <p className="text-[10px] tracking-[0.28em] uppercase mb-5" style={{ color: '#C9A96E' }}>
+              <p className="section-kicker mb-5">
                 Who We Are
               </p>
               <span className="section-divider mb-6" />
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light t-heading mb-8 leading-[1.1]">
                 Navigating Dubai&apos;s{' '}
-                <span style={{ color: '#C9A96E' }}>Real Estate</span>{' '}
+                <span className="t-accent">Real Estate</span>{' '}
                 with Precision
               </h2>
               <div className="space-y-5 mb-10 t-secondary">
@@ -167,9 +167,9 @@ export default function WhoWeAre() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.1 + 0.2 }}
-                    className="glass-card p-5 transition-colors"
+                    className="surface-panel-soft p-5 transition-colors"
                   >
-                    <p className="font-serif text-2xl font-light mb-3" style={{ color: 'rgba(0,0,0)' }}>
+                    <p className="font-serif text-2xl font-light mb-3 t-accent">
                       {svc.label}
                     </p>
                     <h4 className="t-heading text-sm font-light tracking-wide mb-2">{svc.title}</h4>

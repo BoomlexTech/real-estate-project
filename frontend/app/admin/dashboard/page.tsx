@@ -61,9 +61,18 @@ export default function AdminDashboardPage() {
 
   return (
     <div>
-      <div className="mb-6">
-        <h1 className="text-2xl font-bold" style={{ color: palette.textPrimary }}>Dashboard</h1>
-        <p className="text-sm mt-1" style={{ color: palette.textSecondary }}>Overview of your portal activity</p>
+      <div className="surface-panel p-5 sm:p-6 mb-6">
+        <div className="flex flex-wrap items-start justify-between gap-4">
+          <div>
+            <h1 className="portal-section-title">Dashboard</h1>
+            <p className="portal-subtle mt-1">Overview of approvals, inquiries, and content work that needs attention today.</p>
+          </div>
+          <div className="info-pills">
+            <span className="info-pill">{stats.pendingAgents} pending agents</span>
+            <span className="info-pill">{stats.pendingInquiries} pending inquiries</span>
+            <span className="info-pill">{stats.unseenNotifications} unseen notifications</span>
+          </div>
+        </div>
       </div>
 
       {/* Stats grid */}

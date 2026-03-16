@@ -38,17 +38,21 @@ export default function PropertyGrid({ properties, loading, page = 1, totalPages
     if (properties.length === 0) return;
     trackEvent('view_item_list', {
       item_list_name: 'Search Results',
-      items: properties.map(p => ({ item_id: p.id, item_name: p.title, price: p.price, item_category: p.type, item_variant: p.status })),
+      items: properties.map((p) => ({ item_id: p.id, item_name: p.title, price: p.price, item_category: p.type, item_variant: p.status })),
     });
   }, [properties]); // eslint-disable-line react-hooks/exhaustive-deps
 
   function goToPage(p: number) {
-    if (onPageChange) { onPageChange(p); return; }
+    if (onPageChange) {
+      onPageChange(p);
+      return;
+    }
     const params = new URLSearchParams(searchParams.toString());
     params.set('page', String(p));
     router.push(`?${params.toString()}`);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
+
   if (loading) {
     return (
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
@@ -59,10 +63,20 @@ export default function PropertyGrid({ properties, loading, page = 1, totalPages
 
   if (!properties.length) {
     return (
-      <div className="text-center py-20">
-        <div className="text-4xl mb-4">🏙️</div>
+      <div className="surface-panel text-center py-14 px-6">
+        <div className="text-4xl mb-4">No results</div>
         <h3 className="t-heading text-lg font-semibold mb-2">No Properties Found</h3>
-        <p className="t-secondary text-sm">Try adjusting your filters to see more results.</p>
+        <p className="t-secondary text-sm max-w-md mx-auto mb-6">
+          Try widening your budget, clearing a few filters, or exploring our featured listings to discover similar opportunities.
+        </p>
+        <div className="flex flex-wrap justify-center gap-3">
+          <button className="btn-gold" onClick={() => router.push('/property')}>
+            Reset Search
+          </button>
+          <button className="btn-outline-white" onClick={() => router.push('/property?sort=featured')}>
+            View Featured
+          </button>
+        </div>
       </div>
     );
   }
@@ -82,16 +96,15 @@ export default function PropertyGrid({ properties, loading, page = 1, totalPages
         ))}
       </div>
 
-      {/* Pagination */}
       {totalPages > 1 && (
         <div className="flex flex-wrap items-center justify-center gap-2 mt-10">
           <button
             onClick={() => goToPage(page - 1)}
             disabled={page === 1}
-            className="px-4 py-2.5 min-h-11 rounded-lg text-sm font-medium transition-all disabled:opacity-30"
+            className="focus-ring px-4 py-2.5 min-h-11 rounded-lg text-sm font-medium transition-all disabled:opacity-30"
             style={{ background: 'var(--skeleton-bg)', color: 'var(--text-secondary)', border: '1px solid var(--border-gold)' }}
           >
-            ← Prev
+            Prev
           </button>
           {Array.from({ length: Math.min(totalPages, 7) }, (_, i) => {
             const p = i + 1;
@@ -99,7 +112,7 @@ export default function PropertyGrid({ properties, loading, page = 1, totalPages
               <button
                 key={p}
                 onClick={() => goToPage(p)}
-                className="w-11 h-11 rounded-lg text-sm font-medium transition-all"
+                className="focus-ring w-11 h-11 rounded-lg text-sm font-medium transition-all"
                 style={{
                   background: p === page ? 'var(--gold)' : 'var(--skeleton-bg)',
                   color: p === page ? 'var(--bg-primary)' : 'var(--text-secondary)',
@@ -113,10 +126,10 @@ export default function PropertyGrid({ properties, loading, page = 1, totalPages
           <button
             onClick={() => goToPage(page + 1)}
             disabled={page === totalPages}
-            className="px-4 py-2.5 min-h-11 rounded-lg text-sm font-medium transition-all disabled:opacity-30"
+            className="focus-ring px-4 py-2.5 min-h-11 rounded-lg text-sm font-medium transition-all disabled:opacity-30"
             style={{ background: 'var(--skeleton-bg)', color: 'var(--text-secondary)', border: '1px solid var(--border-gold)' }}
           >
-            Next →
+            Next
           </button>
         </div>
       )}

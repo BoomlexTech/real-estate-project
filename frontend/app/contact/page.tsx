@@ -44,6 +44,11 @@ export default function ContactPage() {
         <p className="t-secondary max-w-xl mx-auto text-sm">
           Our team of expert consultants is available 7 days a week to answer your questions and guide your property journey.
         </p>
+        <div className="info-pills justify-center mt-6">
+          <span className="info-pill">Response target within 2 business hours</span>
+          <span className="info-pill">Phone, WhatsApp, and email support</span>
+          <span className="info-pill">Advisory for buyers, investors, and agents</span>
+        </div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 py-12">
@@ -59,6 +64,9 @@ export default function ContactPage() {
             ) : (
               <>
                 <h2 className="t-heading font-bold text-lg mb-6">Send Us a Message</h2>
+                <p className="portal-subtle mb-6">
+                  Choose the most relevant subject so the right advisor reaches out faster with useful next steps.
+                </p>
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
@@ -114,6 +122,10 @@ export default function ContactPage() {
                   </div>
                   leasing@awtadrealestate.com
                 </a>
+              </div>
+              <div className="surface-panel-soft mt-5 p-4">
+                <p className="section-kicker mb-2">Best For</p>
+                <p className="t-secondary text-sm">Buying guidance, off-plan launches, rental options, mortgage questions, and investor support.</p>
               </div>
             </div>
 

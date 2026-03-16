@@ -15,6 +15,7 @@
   --bg-primary: #0A0E1A;
   --bg-secondary: #0f1523;
   --bg-card: #111827;
+  --bg-elevated: #151d2f;
   --bg-section-alt: #0D1120;
   --bg-warm-tint: #0E0D18;
   --gold: #C9A96E;
@@ -33,6 +34,7 @@
   --overlay-bg: rgba(0, 0, 0, 0.70);
   --muted-text: rgba(255, 255, 255, 0.45);
   --muted-border: rgba(255, 255, 255, 0.12);
+  --surface-shadow: 0 14px 40px rgba(0, 0, 0, 0.28);
   --footer-bg: #070B15;
   --footer-heading: rgba(255, 255, 255, 0.70);
   --drawer-item-border: rgba(255, 255, 255, 0.05);
@@ -48,6 +50,9 @@
   --media-badge-bg: rgba(0, 0, 0, 0.65);
   --media-badge-text: rgba(255, 255, 255, 0.92);
   --media-badge-border: rgba(255, 255, 255, 0.18);
+  --success: #22c55e;
+  --warning: #d4a73a;
+  --danger: #e0746f;
 }
 
 /* ── Light theme overrides ───────────────────────────── */
@@ -55,6 +60,7 @@
   --bg-primary: #e8e3d8;
   --bg-secondary: #dedad0;
   --bg-card: #f0ece4;
+  --bg-elevated: #f7f2ea;
   --bg-section-alt: #e2ddd4;
   --bg-warm-tint: #e4dfd5;
   --text-primary: #000000;
@@ -70,6 +76,7 @@
   --overlay-bg: rgba(0, 0, 0, 0.50);
   --muted-text: rgba(10, 14, 26, 0.45);
   --muted-border: rgba(10, 14, 26, 0.12);
+  --surface-shadow: 0 16px 34px rgba(46, 36, 20, 0.08);
   --footer-bg: #e0dbd0;
   --footer-heading: rgba(10, 14, 26, 0.70);
   --drawer-item-border: rgba(10, 14, 26, 0.06);
@@ -86,6 +93,9 @@
   --media-badge-bg: rgba(0, 0, 0, 0.65);
   --media-badge-text: rgba(255, 255, 255, 0.92);
   --media-badge-border: rgba(255, 255, 255, 0.18);
+  --success: #157f3d;
+  --warning: #9a6b05;
+  --danger: #b7473f;
 }
 
 @theme inline {
@@ -117,6 +127,7 @@ body {
   background: var(--bg-primary);
   color: var(--text-primary);
   font-family: var(--font-inter), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.55;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -170,7 +181,7 @@ body {
 }
 
 .t-accent {
-  color: var(--gold);
+  color: var(--gold-text);
 }
 
 /* ── Media-layer text/badge utilities (elements sitting on top of photos) ── */
@@ -192,6 +203,128 @@ body {
 .badge-gold {
   background: var(--gold);
   color: var(--bg-primary);
+}
+
+.section-shell {
+  position: relative;
+  padding-block: clamp(4.5rem, 8vw, 7rem);
+}
+
+.section-shell-compact {
+  position: relative;
+  padding-block: clamp(3rem, 6vw, 4.5rem);
+}
+
+.section-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: clamp(2rem, 5vw, 4rem);
+}
+
+.section-kicker {
+  color: var(--gold-text);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.surface-panel {
+  background: color-mix(in srgb, var(--bg-card) 88%, transparent);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  box-shadow: var(--surface-shadow);
+}
+
+.surface-panel-soft {
+  background: color-mix(in srgb, var(--bg-elevated) 92%, transparent);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+}
+
+.info-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.info-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.65rem 0.85rem;
+  min-height: 2.75rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--bg-secondary) 88%, transparent);
+  border: 1px solid var(--border-gold);
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+}
+
+.focus-ring:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.page-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.page-intro-copy {
+  max-width: 42rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+.metric-card {
+  padding: 1.25rem;
+  border-radius: 1rem;
+  background: color-mix(in srgb, var(--bg-card) 90%, transparent);
+  border: 1px solid var(--border-color);
+}
+
+.metric-value {
+  font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.8rem, 3.3vw, 2.6rem);
+  line-height: 1;
+  color: var(--gold-text);
+}
+
+.status-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-color);
+  background: color-mix(in srgb, var(--bg-secondary) 90%, transparent);
+  color: var(--text-secondary);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.status-chip-strong {
+  border-color: var(--border-gold);
+  color: var(--gold-text);
+}
+
+.portal-section-title {
+  color: var(--text-primary);
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.portal-subtle {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
 }
 
 /* Theme-aware border utility */

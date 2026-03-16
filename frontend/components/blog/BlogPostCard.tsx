@@ -26,13 +26,17 @@ export default function BlogPostCard({ post }: { post: BlogPost }) {
         </span>
       </div>
       <div className="p-5">
+        <div className="flex items-center justify-between text-[11px] uppercase tracking-[0.16em] mb-3">
+          <span className="t-accent">{post.category}</span>
+          <span className="t-dim">{new Date(post.publishedAt).toLocaleDateString()}</span>
+        </div>
         <h3 className="t-heading font-bold text-lg group-hover:text-yellow-400 transition-colors line-clamp-2">
           {post.title}
         </h3>
         <p className="t-secondary text-sm mt-2 line-clamp-2">{post.excerpt}</p>
         <div className="flex justify-between items-center mt-4 text-xs t-dim">
           <span>{post.author}</span>
-          <span>{new Date(post.publishedAt).toLocaleDateString()}</span>
+          <span className="t-accent">Read more</span>
         </div>
       </div>
     </Link>

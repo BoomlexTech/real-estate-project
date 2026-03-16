@@ -125,7 +125,7 @@ export default function PropertySearch() {
   ];
 
   return (
-    <section className="relative z-20 py-16 sm:py-20 px-4">
+    <section className="relative z-20 section-shell-compact px-4">
 
       {/* Left decorative stats — 1200px screens and above */}
       <div className="absolute min-[1200px]:left-[calc(50%-590px)] xl:left-[calc(50%-623px)] 2xl:left-[calc(50%-687px)] top-1/2 -translate-y-1/2 hidden min-[1200px]:flex flex-col items-center gap-0">
@@ -133,7 +133,7 @@ export default function PropertySearch() {
         {leftStats.map((s, i) => (
           <div key={s.label}>
             <div className="flex flex-col items-center text-center py-4 px-2">
-              <span className="font-serif text-2xl font-light mb-1" style={{ color: '#C9A96E' }}>{s.value}</span>
+              <span className="font-serif text-2xl font-light mb-1 t-accent">{s.value}</span>
               <span className="text-[10px] tracking-[0.14em] uppercase" style={{ color: 'var(--text-dim)' }}>{s.label}</span>
             </div>
             {i < leftStats.length - 1 && (
@@ -150,7 +150,7 @@ export default function PropertySearch() {
         {rightStats.map((s, i) => (
           <div key={s.label}>
             <div className="flex flex-col items-center text-center py-4 px-2">
-              <span className="font-serif text-2xl font-light mb-1" style={{ color: '#C9A96E' }}>{s.value}</span>
+              <span className="font-serif text-2xl font-light mb-1 t-accent">{s.value}</span>
               <span className="text-[10px] tracking-[0.14em] uppercase" style={{ color: 'var(--text-dim)' }}>{s.label}</span>
             </div>
             {i < rightStats.length - 1 && (
@@ -167,14 +167,14 @@ export default function PropertySearch() {
 
             {/* Heading */}
             <div className="text-center mb-10">
-              <p className="text-[10px] tracking-[0.28em] uppercase mb-4" style={{ color: '#C9A96E' }}>
+              <p className="section-kicker mb-4">
                 Property Search
               </p>
               <span className="section-divider mx-auto mb-5" />
               <h2 className="font-serif text-3xl sm:text-4xl font-light t-heading mb-2 leading-tight">
                 Find Your Ideal Property
               </h2>
-              <p className="text-xs tracking-[0.08em] t-secondary">
+              <p className="text-sm tracking-[0.04em] t-secondary max-w-2xl mx-auto">
                 Dubai&apos;s finest properties — curated for discerning buyers
               </p>
             </div>
@@ -211,8 +211,8 @@ export default function PropertySearch() {
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mt-4">
               <button
                 onClick={() => setExpanded((v) => !v)}
-                className="flex items-center gap-1.5 text-[10px] tracking-[0.18em] uppercase transition-colors self-start"
-                style={{ color: 'rgba(201,169,110,0.75)' }}
+                className="flex items-center gap-1.5 text-[10px] tracking-[0.18em] uppercase transition-colors self-start focus-ring rounded-md"
+                style={{ color: 'var(--gold-text)' }}
               >
                 <motion.span
                   animate={{ rotate: expanded ? 180 : 0 }}
@@ -230,9 +230,9 @@ export default function PropertySearch() {
                 transition={{ type: 'spring', stiffness: 400, damping: 20 }}
                 className="flex items-center justify-center gap-2.5 w-full sm:w-auto"
                 style={{
-                  border: '1px solid #C9A96E',
+                  border: '1px solid var(--gold)',
                   color: 'var(--bg-primary)',
-                  background: '#C9A96E',
+                  background: 'var(--gold)',
                   fontSize: '0.6875rem',
                   fontWeight: 600,
                   letterSpacing: '0.16em',
