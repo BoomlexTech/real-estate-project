@@ -21,7 +21,10 @@ const getProperties = async (req, res, next) => {
 
     const filter = {};
     if (type) filter.propertyType = type;
-    if (bedrooms) filter.bedrooms = Number(bedrooms);
+    if (bedrooms) {
+      const bedroomsNum = Number(bedrooms);
+      filter.bedrooms = bedroomsNum >= 5 ? { $gte: bedroomsNum } : bedroomsNum;
+    }
     if (emirate) filter['location.emirate'] = emirate;
     if (location) filter['location.area'] = { $regex: location, $options: 'i' };
     if (completionStatus) filter.completionStatus = completionStatus;

@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { SlidersHorizontal, X } from 'lucide-react';
 import { PropertyFilters as Filters } from '@/lib/types';
@@ -58,7 +57,7 @@ export default function PropertyFilters({ onFilterChange }: Props) {
   const searchParams = useSearchParams();
   const [showMobile, setShowMobile] = useState(false);
 
-  const [filters, setFilters] = useState<Filters>({
+  const filters: Filters = {
     type: searchParams.get('type') || '',
     bedrooms: searchParams.get('bedrooms') || '',
     emirate: searchParams.get('emirate') || '',
@@ -66,10 +65,9 @@ export default function PropertyFilters({ onFilterChange }: Props) {
     sort: (searchParams.get('sort') as Filters['sort']) || 'featured',
     minPrice: searchParams.get('minPrice') ? Number(searchParams.get('minPrice')) : undefined,
     maxPrice: searchParams.get('maxPrice') ? Number(searchParams.get('maxPrice')) : undefined,
-  });
+  };
 
   const apply = (newFilters: Filters) => {
-    setFilters(newFilters);
     onFilterChange?.(newFilters);
     const params = new URLSearchParams();
     if (newFilters.type) params.set('type', newFilters.type);
