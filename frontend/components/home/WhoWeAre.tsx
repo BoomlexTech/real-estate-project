@@ -169,7 +169,7 @@ export default function WhoWeAre() {
                     transition={{ delay: i * 0.1 + 0.2 }}
                     className="glass-card p-5 transition-colors"
                   >
-                    <p className="font-serif text-2xl font-light mb-3" style={{ color: 'rgba(201,169,110,0.35)' }}>
+                    <p className="font-serif text-2xl font-light mb-3" style={{ color: 'rgba(0,0,0)' }}>
                       {svc.label}
                     </p>
                     <h4 className="t-heading text-sm font-light tracking-wide mb-2">{svc.title}</h4>

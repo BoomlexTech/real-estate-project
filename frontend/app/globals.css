@@ -51,11 +51,11 @@
 
 /* ── Light theme overrides ───────────────────────────── */
 [data-theme="light"] {
-  --bg-primary: #f4f0e8;
-  --bg-secondary: #ece8e0;
-  --bg-card: #ffffff;
-  --bg-section-alt: #edeae2;
-  --bg-warm-tint: #f0ece3;
+  --bg-primary: #e8e3d8;
+  --bg-secondary: #dedad0;
+  --bg-card: #f0ece4;
+  --bg-section-alt: #e2ddd4;
+  --bg-warm-tint: #e4dfd5;
   --text-primary: #000000;
   --text-body: #1a1a2e;
   --text-secondary: #374151;
