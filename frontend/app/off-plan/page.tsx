@@ -49,7 +49,7 @@ export default function OffPlanPage() {
               >
                 <span
                   className="text-xs px-2 py-0.5 rounded font-bold"
-                  style={{ background: '#7c3aed', color: 'white' }}
+                  style={{ background: 'rgba(201,169,110,0.15)', color: '#C9A96E', border: '1px solid rgba(201,169,110,0.45)' }}
                 >
                   OFF-PLAN
                 </span>

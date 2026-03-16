@@ -45,10 +45,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${inter.variable}`}>
+    <html lang="en" className={`${cormorant.variable} ${inter.variable}`} suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://images.pexels.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://images.pexels.com" />
+        <meta name="color-scheme" content="dark light" />
+        <script dangerouslySetInnerHTML={{ __html: `(function(){try{var p=localStorage.getItem('themePreference');var r=(p==='light'||p==='dark')?p:(window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');document.documentElement.setAttribute('data-theme',r);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();` }} />
       </head>
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-KQ96GGVTF0"

@@ -134,7 +134,7 @@ export default function PropertySearch() {
           <div key={s.label}>
             <div className="flex flex-col items-center text-center py-4 px-2">
               <span className="font-serif text-2xl font-light mb-1" style={{ color: '#C9A96E' }}>{s.value}</span>
-              <span className="text-[10px] tracking-[0.14em] uppercase" style={{ color: 'rgba(255,255,255,0.38)' }}>{s.label}</span>
+              <span className="text-[10px] tracking-[0.14em] uppercase" style={{ color: 'var(--text-dim)' }}>{s.label}</span>
             </div>
             {i < leftStats.length - 1 && (
               <div className="w-px h-5 mx-auto" style={{ background: 'rgba(201,169,110,0.2)' }} />
@@ -151,7 +151,7 @@ export default function PropertySearch() {
           <div key={s.label}>
             <div className="flex flex-col items-center text-center py-4 px-2">
               <span className="font-serif text-2xl font-light mb-1" style={{ color: '#C9A96E' }}>{s.value}</span>
-              <span className="text-[10px] tracking-[0.14em] uppercase" style={{ color: 'rgba(255,255,255,0.38)' }}>{s.label}</span>
+              <span className="text-[10px] tracking-[0.14em] uppercase" style={{ color: 'var(--text-dim)' }}>{s.label}</span>
             </div>
             {i < rightStats.length - 1 && (
               <div className="w-px h-5 mx-auto" style={{ background: 'rgba(201,169,110,0.2)' }} />
@@ -171,7 +171,7 @@ export default function PropertySearch() {
                 Property Search
               </p>
               <span className="section-divider mx-auto mb-5" />
-              <h2 className="font-serif text-3xl sm:text-4xl font-light text-white mb-2 leading-tight">
+              <h2 className="font-serif text-3xl sm:text-4xl font-light t-heading mb-2 leading-tight">
                 Find Your Ideal Property
               </h2>
               <p className="text-xs tracking-[0.08em]" style={{ color: '#94A3B8' }}>
@@ -278,7 +278,7 @@ function SelectField({
         }}
       >
         {options.map((opt) => (
-          <option key={opt.value || opt.label} value={opt.value} style={{ background: '#0d1117', color: '#e2c992' }}>
+          <option key={opt.value || opt.label} value={opt.value}>
             {opt.label}
           </option>
         ))}

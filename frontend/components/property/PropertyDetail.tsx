@@ -92,24 +92,24 @@ export default function PropertyDetail({ property }: Props) {
                   <button
                     onClick={() => { const next = (activeImage - 1 + images.length) % images.length; setActiveImage(next); trackEvent('property_image_view', { property_id: property.id, image_index: next, total_images: images.length, navigation_type: 'prev' }); }}
                     className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full flex items-center justify-center transition-opacity hover:opacity-100 opacity-70"
-                    style={{ background: 'rgba(0,0,0,0.65)' }}
+                    style={{ background: 'var(--overlay-bg)' }}
                     aria-label="Previous photo"
                   >
-                    <ChevronLeft className="w-5 h-5 text-white" />
+                    <ChevronLeft className="w-5 h-5 t-heading" />
                   </button>
                   <button
                     onClick={() => { const next = (activeImage + 1) % images.length; setActiveImage(next); trackEvent('property_image_view', { property_id: property.id, image_index: next, total_images: images.length, navigation_type: 'next' }); }}
                     className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full flex items-center justify-center transition-opacity hover:opacity-100 opacity-70"
-                    style={{ background: 'rgba(0,0,0,0.65)' }}
+                    style={{ background: 'var(--overlay-bg)' }}
                     aria-label="Next photo"
                   >
-                    <ChevronRight className="w-5 h-5 text-white" />
+                    <ChevronRight className="w-5 h-5 t-heading" />
                   </button>
 
                   {/* Counter */}
                   <div
                     className="absolute bottom-3 right-3 px-2.5 py-1 rounded-lg text-xs font-medium"
-                    style={{ background: 'rgba(0,0,0,0.6)', color: 'white' }}
+                    style={{ background: 'var(--overlay-bg)', color: 'var(--hero-text)' }}
                   >
                     {activeImage + 1} / {images.length}
                   </div>
@@ -181,7 +181,7 @@ export default function PropertyDetail({ property }: Props) {
                   </p>
                   <p className="text-xs t-secondary mt-1">During Construction</p>
                 </div>
-                <div className="flex-1 min-w-0 rounded-lg p-4 text-center" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(201,168,76,0.45)' }}>
+                <div className="flex-1 min-w-0 rounded-lg p-4 text-center" style={{ background: 'var(--bg-secondary)', border: '1px solid rgba(201,168,76,0.45)' }}>
                   <p className="text-2xl font-bold t-heading">
                     {typeof property.paymentPlan === 'object' ? property.paymentPlan.onCompletion : 100 - parseInt(property.paymentPlan as string)}%
                   </p>

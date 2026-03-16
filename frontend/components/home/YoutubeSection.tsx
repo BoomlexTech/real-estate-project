@@ -65,7 +65,7 @@ function VideoCard({ video }: { video: (typeof videos)[0] }) {
             />
             <div
               className="absolute inset-0"
-              style={{ background: 'linear-gradient(to top, rgba(10,14,26,0.65) 0%, rgba(10,14,26,0.15) 60%)' }}
+              style={{ background: 'linear-gradient(to top, var(--overlay-bg) 0%, transparent 60%)' }}
             />
             <button
               onClick={() => setPlaying(true)}

@@ -20,7 +20,7 @@ import {
 import ProtectedRoute from '@/components/auth/ProtectedRoute';
 import { useAuth } from '@/contexts/AuthContext';
 import { useTheme } from '@/contexts/ThemeContext';
-// import ThemeToggle from '@/components/common/ThemeToggle';
+import ThemeToggle from '@/components/common/ThemeToggle';
 import { getDashboardStats } from '@/lib/adminApi';
 
 interface NavItem {
@@ -104,10 +104,10 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
       {/* Theme + Logout */}
       <div className="px-3 pb-6" style={{ borderTop: `1px solid ${palette.border}`, paddingTop: 16 }}>
-        {/* <div className="flex items-center justify-between px-3 mb-2">
+        <div className="flex items-center justify-between px-3 mb-2">
           <span className="text-xs" style={{ color: palette.textSecondary }}>Theme</span>
           <ThemeToggle />
-        </div> */}
+        </div>
         <button
           onClick={handleLogout}
           className="flex items-center gap-3 w-full px-3 py-2.5 rounded-lg text-sm font-medium transition-colors hover:opacity-80"
@@ -139,7 +139,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             </div>
             <div
               className="flex-1"
-              style={{ background: 'rgba(0,0,0,0.5)' }}
+              style={{ background: 'var(--overlay-bg)' }}
               onClick={() => setSidebarOpen(false)}
             />
           </div>
@@ -156,7 +156,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               <Menu size={22} />
             </button>
             <span className="font-bold text-sm flex-1" style={{ color: palette.gold }}>Awtad Real Estate Admin</span>
-            {/* <ThemeToggle /> */}
+            <ThemeToggle />
           </div>
 
           {/* Scrollable page content */}

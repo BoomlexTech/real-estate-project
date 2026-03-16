@@ -85,14 +85,14 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               <button
                 onClick={onClose}
                 className="w-11 h-11 flex items-center justify-center transition-colors"
-                style={{ color: 'rgba(255,255,255,0.45)', border: '1px solid rgba(255,255,255,0.12)' }}
+                style={{ color: 'var(--muted-text)', border: '1px solid var(--muted-border)' }}
                 onMouseEnter={e => {
                   (e.currentTarget as HTMLElement).style.color = '#C9A96E';
                   (e.currentTarget as HTMLElement).style.borderColor = 'rgba(201,169,110,0.5)';
                 }}
                 onMouseLeave={e => {
-                  (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.45)';
-                  (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.12)';
+                  (e.currentTarget as HTMLElement).style.color = 'var(--muted-text)';
+                  (e.currentTarget as HTMLElement).style.borderColor = 'var(--muted-border)';
                 }}
               >
                 <X className="w-4 h-4" />
@@ -118,9 +118,9 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                           onClick={() => setExpandedItem(isExpanded ? null : link.href)}
                           className="flex items-center justify-between w-full px-6 py-3.5 min-h-11 text-sm tracking-[0.08em] transition-all"
                           style={{
-                            color: isActive ? '#C9A96E' : 'rgba(255,255,255,0.65)',
+                            color: isActive ? '#C9A96E' : 'var(--text-secondary)',
                             borderLeft: isActive ? '2px solid #C9A96E' : '2px solid transparent',
-                            borderBottom: '1px solid rgba(255,255,255,0.05)',
+                            borderBottom: '1px solid var(--drawer-item-border)',
                           }}
                         >
                           {link.label}
@@ -130,7 +130,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                           />
                         </button>
                         {isExpanded && (
-                          <div style={{ background: 'rgba(201,169,110,0.03)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                          <div style={{ background: 'var(--drawer-expanded-bg)', borderBottom: '1px solid var(--drawer-item-border)' }}>
                             {link.children.map((child) => (
                               <Link
                                 key={child.href}
@@ -138,8 +138,8 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                                 onClick={onClose}
                                 className="flex items-center pl-10 pr-6 py-3.5 min-h-11 text-xs tracking-widest transition-colors"
                                 style={{
-                                  color: pathname === child.href ? '#C9A96E' : 'rgba(255,255,255,0.5)',
-                                  borderBottom: '1px solid rgba(255,255,255,0.04)',
+                                  color: pathname === child.href ? '#C9A96E' : 'var(--text-dim)',
+                                  borderBottom: '1px solid var(--drawer-item-subborder)',
                                 }}
                               >
                                 {child.label}
@@ -154,9 +154,9 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                         onClick={onClose}
                         className="flex items-center px-6 py-3.5 min-h-11 text-sm tracking-[0.08em] transition-all"
                         style={{
-                          color: isActive ? '#C9A96E' : 'rgba(255,255,255,0.65)',
+                          color: isActive ? '#C9A96E' : 'var(--text-secondary)',
                           borderLeft: isActive ? '2px solid #C9A96E' : '2px solid transparent',
-                          borderBottom: '1px solid rgba(255,255,255,0.05)',
+                          borderBottom: '1px solid var(--drawer-item-border)',
                         }}
                         onMouseEnter={e => {
                           if (!isActive) {
@@ -167,7 +167,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                         }}
                         onMouseLeave={e => {
                           if (!isActive) {
-                            (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.65)';
+                            (e.currentTarget as HTMLElement).style.color = 'var(--text-secondary)';
                             (e.currentTarget as HTMLElement).style.borderLeftColor = 'transparent';
                             (e.currentTarget as HTMLElement).style.background = 'transparent';
                           }
@@ -215,9 +215,9 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 <a
                   href="tel:+971547093295"
                   className="flex items-center gap-2.5 text-xs transition-colors"
-                  style={{ color: 'rgba(255,255,255,0.45)' }}
+                  style={{ color: 'var(--muted-text)' }}
                   onMouseEnter={e => (e.currentTarget.style.color = '#C9A96E')}
-                  onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.45)')}
+                  onMouseLeave={e => (e.currentTarget.style.color = 'var(--muted-text)')}
                 >
                   <Phone className="w-3 h-3 shrink-0" style={{ color: '#C9A96E' }} />
                   +971 54 709 3295
@@ -225,9 +225,9 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 <a
                   href="mailto:leasing@awtadrealestate.com"
                   className="flex items-center gap-2.5 text-xs transition-colors"
-                  style={{ color: 'rgba(255,255,255,0.45)' }}
+                  style={{ color: 'var(--muted-text)' }}
                   onMouseEnter={e => (e.currentTarget.style.color = '#C9A96E')}
-                  onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.45)')}
+                  onMouseLeave={e => (e.currentTarget.style.color = 'var(--muted-text)')}
                 >
                   <Mail className="w-3 h-3 shrink-0" style={{ color: '#C9A96E' }} />
                   leasing@awtadrealestate.com
@@ -243,7 +243,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex justify-center items-center w-11 h-11 rounded-full transition-transform hover:scale-110"
-                    style={{ background: 'rgba(255,255,255,0.05)' }}
+                    style={{ background: 'var(--social-icon-bg)' }}
                   >
                     <Icon className="w-4 h-4" style={{ color: color }} />
                   </a>

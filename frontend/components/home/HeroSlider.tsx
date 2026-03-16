@@ -184,7 +184,7 @@ export default function HeroSlider() {
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
-            background: 'linear-gradient(to right, rgba(10,14,26,0.72) 0%, rgba(10,14,26,0.35) 55%, rgba(10,14,26,0.08) 100%)',
+            background: 'linear-gradient(to right, var(--overlay-bg) 0%, rgba(0,0,0,0.18) 55%, transparent 100%)',
           }}
         />
       )}
@@ -221,7 +221,7 @@ export default function HeroSlider() {
           <button
             onClick={() => setMuted(m => !m)}
             className="absolute bottom-6 right-6 z-20 flex items-center justify-center w-9 h-9 rounded-full transition-opacity hover:opacity-80"
-            style={{ background: 'rgba(0,0,0,0.55)', border: '1px solid rgba(201,169,110,0.4)', color: '#C9A96E' }}
+            style={{ background: 'var(--overlay-bg)', border: '1px solid rgba(201,169,110,0.4)', color: '#C9A96E' }}
             aria-label={muted ? 'Unmute' : 'Mute'}
           >
             {muted ? <VolumeX size={16} /> : <Volume2 size={16} />}
@@ -265,7 +265,8 @@ export default function HeroSlider() {
                 initial={{ opacity: 0, y: 22 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.14 }}
-                className="font-serif text-5xl sm:text-6xl lg:text-7xl xl:text-[5.5rem] font-light text-white mb-5 leading-[1.04]"
+                className="font-serif text-5xl sm:text-6xl lg:text-7xl xl:text-[5.5rem] font-light mb-5 leading-[1.04]"
+                style={{ color: 'white' }}
               >
                 {slide.title}
               </motion.h1>
@@ -275,7 +276,7 @@ export default function HeroSlider() {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.2 }}
                 className="text-xs sm:text-sm font-light tracking-[0.18em] uppercase mb-10"
-                style={{ color: 'rgba(255,255,255,0.95)' }}
+                style={{ color: 'var(--hero-text)' }}
               >
                 {slide.subtitle}
               </motion.p>
@@ -297,19 +298,19 @@ export default function HeroSlider() {
               >
                 <div className="flex items-center gap-2">
                   <MapPin className="w-3 h-3 shrink-0" style={{ color: '#C9A96E' }} />
-                  <span className="text-xs tracking-[0.08em] text-gray-300">{slide.location}</span>
+                  <span className="text-xs tracking-[0.08em]" style={{ color: 'var(--hero-meta)' }}>{slide.location}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-[10px] tracking-[0.18em] uppercase" style={{ color: '#C9A96E' }}>Plan</span>
-                  <span className="text-xs tracking-[0.08em] text-gray-300">{slide.paymentPlan}</span>
+                  <span className="text-xs tracking-[0.08em]" style={{ color: 'var(--hero-meta)' }}>{slide.paymentPlan}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-[10px] tracking-[0.18em] uppercase" style={{ color: '#C9A96E' }}>Ready</span>
-                  <span className="text-xs tracking-[0.08em] text-gray-300">{slide.completion}</span>
+                  <span className="text-xs tracking-[0.08em]" style={{ color: 'var(--hero-meta)' }}>{slide.completion}</span>
                 </div>
-                <div className="h-4 w-px bg-gray-600" />
+                <div className="h-4 w-px" style={{ background: 'rgba(255,255,255,0.3)' }} />
                 <div>
-                  <span className="text-[10px] tracking-[0.18em] uppercase" style={{ color: 'rgba(255,255,255,0.7)' }}>
+                  <span className="text-[10px] tracking-[0.18em] uppercase" style={{ color: 'var(--hero-meta)' }}>
                     {slide.priceLabel}{' '}
                   </span>
                   <span className="font-serif text-xl sm:text-2xl font-light" style={{ color: '#C9A96E' }}>
@@ -379,13 +380,13 @@ export default function HeroSlider() {
               </span>
             </div>
 
-            <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl xl:text-[5.5rem] font-light text-white mb-5 leading-[1.04]">
+            <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl xl:text-[5.5rem] font-light mb-5 leading-[1.04]" style={{ color: 'white' }}>
               Dubai&apos;s Finest<br />Properties
             </h1>
 
             <p
               className="text-xs sm:text-sm font-light tracking-[0.18em] uppercase mb-10"
-              style={{ color: 'rgba(255,255,255,0.85)' }}
+              style={{ color: 'var(--hero-text)' }}
             >
               Luxury Living — Waterfront · Villas · Penthouses
             </p>
@@ -437,16 +438,16 @@ export default function HeroSlider() {
       {/* Arrow buttons — side arrows hidden on mobile to prevent text overlap */}
       <button
         onClick={prev}
-        className="absolute left-5 top-1/2 -translate-y-1/2 z-20 w-12 h-12 hidden sm:flex items-center justify-center text-white text-xl transition-all hover:opacity-100 opacity-85"
-        style={{ border: '1px solid rgba(255,255,255,0.5)', background: 'rgba(0,0,0,0.3)', backdropFilter: 'blur(4px)', borderRadius: '6px' }}
+        className="absolute left-5 top-1/2 -translate-y-1/2 z-20 w-12 h-12 hidden sm:flex items-center justify-center text-xl transition-all hover:opacity-100 opacity-85"
+        style={{ border: '1px solid var(--muted-border)', background: 'var(--overlay-bg)', backdropFilter: 'blur(4px)', borderRadius: '6px', color: 'white' }}
         aria-label="Previous slide"
       >
         ←
       </button>
       <button
         onClick={next}
-        className="absolute right-5 top-1/2 -translate-y-1/2 z-20 w-12 h-12 hidden sm:flex items-center justify-center text-white text-xl transition-all hover:opacity-100 opacity-85"
-        style={{ border: '1px solid rgba(255,255,255,0.5)', background: 'rgba(0,0,0,0.3)', backdropFilter: 'blur(4px)', borderRadius: '6px' }}
+        className="absolute right-5 top-1/2 -translate-y-1/2 z-20 w-12 h-12 hidden sm:flex items-center justify-center text-xl transition-all hover:opacity-100 opacity-85"
+        style={{ border: '1px solid var(--muted-border)', background: 'var(--overlay-bg)', backdropFilter: 'blur(4px)', borderRadius: '6px', color: 'white' }}
         aria-label="Next slide"
       >
         →

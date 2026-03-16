@@ -1,7 +1,8 @@
 'use client';
 import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
 
-type Theme = 'dark';
+type Theme = 'dark' | 'light';
+type ThemePreference = 'dark' | 'light' | 'system';
 
 // Agent/Admin portal palette — used in inline styles (CSS vars can't override inline)
 const darkPalette = {
@@ -33,6 +34,10 @@ interface ThemeContextType {
   toggle: () => void;
   isDark: boolean;
   palette: typeof darkPalette;
+  themePreference: ThemePreference;
+  resolvedTheme: Theme;
+  setThemePreference: (p: ThemePreference) => void;
+  toggleTheme: () => void;
 }
 
 const ThemeContext = createContext<ThemeContextType>({
@@ -40,31 +45,76 @@ const ThemeContext = createContext<ThemeContextType>({
   toggle: () => {},
   isDark: true,
   palette: darkPalette,
+  themePreference: 'system',
+  resolvedTheme: 'dark',
+  setThemePreference: () => {},
+  toggleTheme: () => {},
 });
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState<Theme>('dark');
+  const [themePreference, setThemePreferenceState] = useState<ThemePreference>('system');
+  const [resolvedTheme, setResolvedTheme] = useState<Theme>('dark'); // safe SSR default
 
   useEffect(() => {
-    const stored = localStorage.getItem('theme') as Theme | null;
-    const preferred = stored ?? (window.matchMedia('(prefers-color-scheme: light)').matches ? 'dark' : 'dark');
-    setTheme(preferred);
-    document.documentElement.setAttribute('data-theme', preferred);
+    const stored = localStorage.getItem('themePreference') as ThemePreference | null;
+    const preference: ThemePreference = stored ?? 'system';
+    setThemePreferenceState(preference);
+
+    const resolve = (pref: ThemePreference): Theme =>
+      pref === 'system'
+        ? (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark')
+        : pref;
+
+    const resolved = resolve(preference);
+    setResolvedTheme(resolved);
+    document.documentElement.setAttribute('data-theme', resolved);
+
+    // React to live OS changes when preference is 'system'
+    const mq = window.matchMedia('(prefers-color-scheme: light)');
+    const onOsChange = () => {
+      const current = (localStorage.getItem('themePreference') as ThemePreference | null) ?? 'system';
+      if (current === 'system') {
+        const next = resolve('system');
+        setResolvedTheme(next);
+        document.documentElement.setAttribute('data-theme', next);
+      }
+    };
+    mq.addEventListener('change', onOsChange);
+    return () => mq.removeEventListener('change', onOsChange);
   }, []);
 
-  const toggle = () => {
-    const next = theme === 'dark' ? 'dark' : 'dark';
-    setTheme(next);
-    localStorage.setItem('theme', next);
-    document.documentElement.setAttribute('data-theme', next);
+  const applyResolved = (pref: ThemePreference) => {
+    const resolved: Theme =
+      pref === 'system'
+        ? (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark')
+        : pref;
+    setResolvedTheme(resolved);
+    document.documentElement.setAttribute('data-theme', resolved);
   };
+
+  const setThemePreference = (pref: ThemePreference) => {
+    setThemePreferenceState(pref);
+    localStorage.setItem('themePreference', pref);
+    applyResolved(pref);
+  };
+
+  const toggleTheme = () => {
+    const next: ThemePreference = resolvedTheme === 'dark' ? 'light' : 'dark';
+    setThemePreference(next);
+  };
+
+  const toggle = toggleTheme; // backward compat
 
   return (
     <ThemeContext.Provider value={{
-      theme,
+      theme: resolvedTheme,
       toggle,
-      isDark: theme === 'dark',
-      palette: theme === 'dark' ? darkPalette : lightPalette,
+      isDark: resolvedTheme === 'dark',
+      palette: resolvedTheme === 'dark' ? darkPalette : lightPalette,
+      themePreference,
+      resolvedTheme,
+      setThemePreference,
+      toggleTheme,
     }}>
       {children}
     </ThemeContext.Provider>

@@ -109,7 +109,7 @@ export default function WhoWeAre() {
                 />
                 <div
                   className="absolute inset-0"
-                  style={{ background: 'linear-gradient(to top, rgba(10,14,26,0.55) 0%, transparent 65%)' }}
+                  style={{ background: 'linear-gradient(to top, var(--overlay-bg) 0%, transparent 65%)' }}
                 />
                 {/* Badge — bottom left */}
                 <div className="absolute bottom-0 left-0 p-6 z-10">

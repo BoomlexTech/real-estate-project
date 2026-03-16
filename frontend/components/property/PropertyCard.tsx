@@ -32,29 +32,17 @@ const typeLabels: Record<string, string> = {
   commercial: 'COMM',
 };
 
-function PlaceholderImage({ type }: { type: string }) {
-  const colors: Record<string, [string, string]> = {
-    apartment: ['#0A0E1A', '#111827'],
-    villa: ['#080f0d', '#0f1a14'],
-    penthouse: ['#0f0a1a', '#1a1127'],
-    townhouse: ['#111008', '#1a1a10'],
-    studio: ['#080f18', '#0f1a27'],
-    mansion: ['#100809', '#1a0f10'],
-    plot: ['#091008', '#0f1a10'],
-    commercial: ['#08090f', '#0f1027'],
-  };
-  const [c1, c2] = colors[type] || colors.apartment;
-
+function PlaceholderImage({ type: _type }: { type: string }) {
   return (
     <div
       className="w-full aspect-video relative overflow-hidden"
-      style={{ background: `linear-gradient(135deg, ${c1} 0%, ${c2} 100%)` }}
+      style={{ background: 'var(--bg-secondary)' }}
     >
       <svg viewBox="0 0 400 225" className="absolute inset-0 w-full h-full opacity-40">
-        <rect x="60" y="40" width="50" height="185" fill="rgba(255,255,255,0.04)" />
-        <rect x="120" y="15" width="80" height="210" fill="rgba(255,255,255,0.06)" />
-        <rect x="210" y="50" width="50" height="175" fill="rgba(255,255,255,0.04)" />
-        <rect x="270" y="30" width="70" height="195" fill="rgba(255,255,255,0.05)" />
+        <rect x="60" y="40" width="50" height="185" fill="rgba(0,0,0,0.06)" />
+        <rect x="120" y="15" width="80" height="210" fill="rgba(0,0,0,0.09)" />
+        <rect x="210" y="50" width="50" height="175" fill="rgba(0,0,0,0.07)" />
+        <rect x="270" y="30" width="70" height="195" fill="rgba(0,0,0,0.08)" />
         {Array.from({ length: 4 }).map((_, r) =>
           Array.from({ length: 3 }).map((_, c) => (
             <rect key={`${r}-${c}`} x={125 + c * 22} y={24 + r * 48} width="12" height="22" fill="rgba(201,169,110,0.22)" />
@@ -106,14 +94,14 @@ function CardCarousel({ images, type, status }: { images: string[]; type: string
       {/* Bottom gradient */}
       <div
         className="absolute inset-0 pointer-events-none"
-        style={{ background: 'linear-gradient(to top, rgba(10,14,26,0.7) 0%, transparent 55%)' }}
+        style={{ background: 'linear-gradient(to top, var(--overlay-bg) 0%, transparent 55%)' }}
       />
 
       {/* Status badge — outline only, no fill */}
       <div className="absolute top-3 left-3 z-10">
         <span
           className="px-2 py-0.5 text-[10px] tracking-[0.16em] uppercase rounded"
-          style={{ border: '1px solid rgba(201,169,110,0.55)', color: '#C9A96E', background: '#000' }}
+          style={{ border: '1px solid rgba(201,169,110,0.55)', color: '#C9A96E', background: 'var(--overlay-bg)' }}
         >
           {statusLabels[status] || (status || 'available').toUpperCase()}
         </span>
@@ -123,7 +111,7 @@ function CardCarousel({ images, type, status }: { images: string[]; type: string
       <div className="absolute top-3 right-3 z-10">
         <span
           className="px-2 py-0.5 text-[10px] tracking-[0.12em] uppercase rounded"
-          style={{ border: '1px solid rgba(255,255,255,0.18)', color: 'rgba(255,255,255,0.85)', background: '#000' }}
+          style={{ border: '1px solid var(--muted-border)', color: 'var(--hero-text)', background: 'var(--overlay-bg)' }}
         >
           {typeLabels[type] || (type || 'property').toUpperCase()}
         </span>
@@ -140,7 +128,7 @@ function CardCarousel({ images, type, status }: { images: string[]; type: string
               style={{
                 width: i === current ? '18px' : '6px',
                 height: '1px',
-                background: i === current ? '#C9A96E' : 'rgba(255,255,255,0.38)',
+                background: i === current ? '#C9A96E' : 'var(--muted-border)',
               }}
             />
           ))}
@@ -227,7 +215,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
               {property.completionDate && (
                 <span
                   className="text-[10px] px-2 py-0.5 tracking-widest uppercase rounded"
-                  style={{ border: '1px solid rgba(255,255,255,0.1)', color: 'rgba(148,163,184,0.65)' }}
+                  style={{ border: '1px solid var(--border-subtle)', color: 'var(--footer-muted)' }}
                 >
                   {property.completionDate}
                 </span>

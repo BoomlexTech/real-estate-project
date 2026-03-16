@@ -29,6 +29,18 @@
   --border-subtle: rgba(255, 255, 255, 0.05);
   --skeleton-bg: #2d3347;
   --skeleton-shine: #3a4058;
+  --overlay-bg: rgba(0, 0, 0, 0.70);
+  --muted-text: rgba(255, 255, 255, 0.45);
+  --muted-border: rgba(255, 255, 255, 0.12);
+  --footer-bg: #070B15;
+  --footer-heading: rgba(255, 255, 255, 0.70);
+  --drawer-item-border: rgba(255, 255, 255, 0.05);
+  --drawer-item-subborder: rgba(255, 255, 255, 0.04);
+  --drawer-expanded-bg: rgba(201, 169, 110, 0.03);
+  --social-icon-bg: rgba(255, 255, 255, 0.05);
+  --hero-text: rgba(255, 255, 255, 0.95);
+  --hero-meta: rgba(255, 255, 255, 0.70);
+  --footer-muted: rgba(148, 163, 184, 0.50);
 }
 
 /* ── Light theme overrides ───────────────────────────── */
@@ -48,6 +60,18 @@
   --border-subtle: rgba(0, 0, 0, 0.07);
   --skeleton-bg: #ddd8d0;
   --skeleton-shine: #c8c2ba;
+  --overlay-bg: rgba(0, 0, 0, 0.50);
+  --muted-text: rgba(10, 14, 26, 0.45);
+  --muted-border: rgba(10, 14, 26, 0.12);
+  --footer-bg: #e0dbd0;
+  --footer-heading: rgba(10, 14, 26, 0.70);
+  --drawer-item-border: rgba(10, 14, 26, 0.06);
+  --drawer-item-subborder: rgba(10, 14, 26, 0.04);
+  --drawer-expanded-bg: rgba(201, 169, 110, 0.04);
+  --social-icon-bg: rgba(10, 14, 26, 0.06);
+  --hero-text: rgba(255, 255, 255, 0.95);
+  --hero-meta: rgba(255, 255, 255, 0.70);
+  --footer-muted: rgba(60, 70, 90, 0.60);
 }
 
 @theme inline {

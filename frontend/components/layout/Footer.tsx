@@ -4,7 +4,6 @@ import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { Facebook, Instagram, Linkedin, Youtube, MapPin, Phone, Mail } from 'lucide-react';
 import Logo from '../common/Logo';
-import { useTheme } from '@/contexts/ThemeContext';
 
 const emirates = [
   { label: 'Properties in Dubai', href: '/property?emirate=dubai' },
@@ -36,13 +35,12 @@ const propertyTypes = [
 
 export default function Footer() {
   const pathname = usePathname();
-  const { isDark } = useTheme();
   const currentYear = new Date().getFullYear();
 
   if (pathname?.startsWith('/admin') || (pathname?.startsWith('/agent') && !pathname?.startsWith('/agents'))) return null;
 
   return (
-    <footer style={{ background: isDark ? '#070B15' : '#e0dbd0', borderTop: '1px solid rgba(201,169,110,0.14)' }}>
+    <footer style={{ background: 'var(--footer-bg)', borderTop: '1px solid rgba(201,169,110,0.14)' }}>
       {/* Main Footer */}
       <div className="max-w-7xl mx-auto px-4 py-8 md:py-14">
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-12">
@@ -79,7 +77,7 @@ export default function Footer() {
 
           {/* Col 2: Popular Emirates */}
           <div>
-            <h4 className="t-heading font-light text-xs mb-5 tracking-[0.2em] uppercase" style={{ color: isDark ? 'rgba(255,255,255,0.7)' : 'rgba(10,14,26,0.7)' }}>Popular Emirates</h4>
+            <h4 className="t-heading font-light text-xs mb-5 tracking-[0.2em] uppercase" style={{ color: 'var(--footer-heading)' }}>Popular Emirates</h4>
             <ul className="space-y-2">
               {emirates.map((item) => (
                 <li key={item.href}>
@@ -93,7 +91,7 @@ export default function Footer() {
 
           {/* Col 3: Developers */}
           <div>
-            <h4 className="t-heading font-light text-xs mb-5 tracking-[0.2em] uppercase" style={{ color: isDark ? 'rgba(255,255,255,0.7)' : 'rgba(10,14,26,0.7)' }}>Developers</h4>
+            <h4 className="t-heading font-light text-xs mb-5 tracking-[0.2em] uppercase" style={{ color: 'var(--footer-heading)' }}>Developers</h4>
             <ul className="space-y-2">
               {developers.map((item) => (
                 <li key={item.href}>
@@ -107,7 +105,7 @@ export default function Footer() {
 
           {/* Col 4: Property Types */}
           <div className="col-span-2 lg:col-span-1">
-            <h4 className="t-heading font-light text-xs mb-5 tracking-[0.2em] uppercase" style={{ color: isDark ? 'rgba(255,255,255,0.7)' : 'rgba(10,14,26,0.7)' }}>Popular Projects</h4>
+            <h4 className="t-heading font-light text-xs mb-5 tracking-[0.2em] uppercase" style={{ color: 'var(--footer-heading)' }}>Popular Projects</h4>
             <ul className="space-y-2">
               {propertyTypes.map((item) => (
                 <li key={item.href}>
@@ -121,7 +119,7 @@ export default function Footer() {
 
           {/* Col 5: Contact */}
           <div className="col-span-2 lg:col-span-1">
-            <h4 className="t-heading font-light text-xs mb-5 tracking-[0.2em] uppercase" style={{ color: isDark ? 'rgba(255,255,255,0.7)' : 'rgba(10,14,26,0.7)' }}>Contact Us</h4>
+            <h4 className="t-heading font-light text-xs mb-5 tracking-[0.2em] uppercase" style={{ color: 'var(--footer-heading)' }}>Contact Us</h4>
             <div className="space-y-4">
               <div className="flex gap-2.5">
                 <MapPin className="w-4 h-4 shrink-0 mt-0.5" style={{ color: '#c9a84c' }} />
@@ -157,7 +155,7 @@ export default function Footer() {
                 <span
                   key={badge}
                   className="text-[10px] px-2 py-1 tracking-widest rounded"
-                  style={{ border: '1px solid rgba(201,169,110,0.18)', color: 'rgba(148,163,184,0.55)', background: 'rgba(201,169,110,0.04)' }}
+                  style={{ border: '1px solid rgba(201,169,110,0.18)', color: 'var(--footer-muted)', background: 'rgba(201,169,110,0.04)' }}
                 >
                   {badge}
                 </span>
@@ -173,7 +171,7 @@ export default function Footer() {
         style={{ borderColor: 'rgba(201,169,110,0.1)' }}
       >
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3">
-          <p className="text-[10px] tracking-[0.12em]" style={{ color: 'rgba(148,163,184,0.5)' }}>
+          <p className="text-[10px] tracking-[0.12em]" style={{ color: 'var(--footer-muted)' }}>
             © {currentYear} Awtad Real Estate — All Rights Reserved
           </p>
           <div className="flex items-center gap-6">
@@ -195,9 +193,9 @@ export default function Footer() {
                 key={href}
                 href={href}
                 className="text-[10px] tracking-[0.14em] uppercase transition-colors"
-                style={{ color: 'rgba(148,163,184,0.45)' }}
+                style={{ color: 'var(--footer-muted)' }}
                 onMouseEnter={e => (e.currentTarget.style.color = 'rgba(201,169,110,0.8)')}
-                onMouseLeave={e => (e.currentTarget.style.color = 'rgba(148,163,184,0.45)')}
+                onMouseLeave={e => (e.currentTarget.style.color = 'var(--footer-muted)')}
               >
                 {label}
               </Link>

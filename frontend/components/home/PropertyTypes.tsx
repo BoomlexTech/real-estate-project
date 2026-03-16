@@ -99,10 +99,10 @@ export default function PropertyTypes() {
                 />
                 {/* Label */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-                  <h3 className="text-white text-xl sm:text-2xl font-bold group-hover:text-gold transition-colors">
+                  <h3 className="text-xl sm:text-2xl font-bold group-hover:text-gold transition-colors" style={{ color: 'white' }}>
                     {type.label}
                   </h3>
-                  <p className="text-gray-300 text-sm mt-1">Great Deals Available</p>
+                  <p className="text-sm mt-1" style={{ color: 'rgba(255,255,255,0.7)' }}>Great Deals Available</p>
                 </div>
               </Link>
             </motion.div>
@@ -147,10 +147,10 @@ export default function PropertyTypes() {
                 />
                 {/* Label */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-                  <h3 className="text-white text-lg sm:text-xl font-bold group-hover:text-gold transition-colors">
+                  <h3 className="text-lg sm:text-xl font-bold group-hover:text-gold transition-colors" style={{ color: 'white' }}>
                     {type.label}
                   </h3>
-                  <p className="text-gray-300 text-sm mt-1">Great Deals Available</p>
+                  <p className="text-sm mt-1" style={{ color: 'rgba(255,255,255,0.7)' }}>Great Deals Available</p>
                 </div>
               </Link>
             </motion.div>
