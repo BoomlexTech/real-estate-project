@@ -50,8 +50,7 @@ export default function Header() {
       <header
         className={`fixed top-0 left-0 right-0 z-30 transition-all duration-400 header-surface${scrolled ? ' scrolled' : ''}`}
         style={{
-          backdropFilter: 'blur(16px)',
-          boxShadow: scrolled ? '0 1px 0 rgba(201,169,110,0.18)' : 'none',
+          boxShadow: scrolled ? '0 1px 0 rgba(201,169,110,0.18)' : 'none'
         }}
       >
         {/* Top Bar */}
