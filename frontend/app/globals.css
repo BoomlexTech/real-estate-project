@@ -611,7 +611,7 @@ body {
 }
 
 [data-theme="light"] .nav-link {
-  color: rgba(10, 14, 26, 0.6);
+  color: rgba(0, 0, 0, 0.85);
 }
 
 [data-theme="light"] .nav-link:hover {
@@ -634,23 +634,42 @@ body {
   filter: brightness(0) saturate(100%) invert(13%) sepia(8%) saturate(3015%) hue-rotate(185deg) brightness(94%) contrast(92%);
 }
 
+.navbar-logo .theme-logo {
+  filter: drop-shadow(0 0 6px rgba(201, 169, 110, 0.9)) drop-shadow(0 0 18px rgba(201, 169, 110, 0.6)) brightness(1.3);
+}
+
+[data-theme="light"] .navbar-logo .theme-logo {
+  filter:
+    drop-shadow(0 0 4px rgba(201, 169, 110, 0.45))
+    drop-shadow(0 0 12px rgba(201, 169, 110, 0.22))
+    drop-shadow(0 2px 6px rgba(10, 14, 26, 0.12))
+    brightness(0)
+    saturate(100%)
+    invert(13%)
+    sepia(8%)
+    saturate(3015%)
+    hue-rotate(185deg)
+    brightness(94%)
+    contrast(92%);
+}
+
 /* Header background helper — referenced in Header.tsx */
 .header-surface {
-  background: rgba(10, 14, 26, 0.82);
+  background: rgba(10, 14, 26, 0.4);
   border-bottom: 1px solid rgba(201, 169, 110, 0.55);
 }
 
 .header-surface.scrolled {
-  background: rgba(10, 14, 26, 0.98);
+  background: rgba(10, 14, 26, 0.52);
 }
 
 [data-theme="light"] .header-surface {
-  background: rgba(244, 240, 232, 0.92);
+  background: rgba(244, 240, 232, 0.4);
   border-bottom: 1px solid rgba(201, 169, 110, 0.4);
 }
 
 [data-theme="light"] .header-surface.scrolled {
-  background: rgba(244, 240, 232, 0.99);
+  background: rgba(244, 240, 232, 0.52);
 }
 
 /* Property card dual-layer structure — spinning gold glow on hover */
