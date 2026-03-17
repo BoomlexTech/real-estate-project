@@ -611,7 +611,7 @@ body {
 }
 
 [data-theme="light"] .nav-link {
-  color: rgba(0, 0, 0, 0.85);
+  color: rgba(0, 0, 0, 0.94);
 }
 
 [data-theme="light"] .nav-link:hover {
@@ -640,17 +640,17 @@ body {
 
 [data-theme="light"] .navbar-logo .theme-logo {
   filter:
-    drop-shadow(0 0 4px rgba(201, 169, 110, 0.45))
-    drop-shadow(0 0 12px rgba(201, 169, 110, 0.22))
-    drop-shadow(0 2px 6px rgba(10, 14, 26, 0.12))
+    drop-shadow(0 0 6px rgba(201, 169, 110, 0.7))
+    drop-shadow(0 0 18px rgba(201, 169, 110, 0.34))
+    drop-shadow(0 3px 8px rgba(10, 14, 26, 0.16))
     brightness(0)
     saturate(100%)
     invert(13%)
     sepia(8%)
     saturate(3015%)
     hue-rotate(185deg)
-    brightness(94%)
-    contrast(92%);
+    brightness(97%)
+    contrast(98%);
 }
 
 /* Header background helper — referenced in Header.tsx */
