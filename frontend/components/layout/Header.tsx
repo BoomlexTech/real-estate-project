@@ -43,7 +43,7 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  if (pathname?.startsWith('/admin') || (pathname?.startsWith('/agent') && !pathname?.startsWith('/agents'))) return null;
+  if (pathname?.startsWith('/admin') || (pathname?.startsWith('/agent') && !pathname?.startsWith('/agents')) || pathname?.startsWith('/sample')) return null;
 
   return (
     <>

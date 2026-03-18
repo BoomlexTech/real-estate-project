@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Awtad Real Estate — Theme 3: Emerald Elite</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --forest:   #0D2818;
+    --forest2:  #142E1E;
+    --forest3:  #1A3D28;
+    --leaf:     #1F4D33;
+    --champagne: #D4AF72;
+    --champ-l:  #E5C886;
+    --cream:    #F5F0E8;
+    --muted:    #7A9E88;
+    --border:   rgba(212,175,114,0.2);
+    --white:    #ffffff;
+  }
+
+  body {
+    background: var(--forest);
+    color: var(--cream);
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── NAVBAR ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 56px; height: 68px;
+    background: rgba(13,40,24,0.88);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+  .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem; font-weight: 600; letter-spacing: 0.18em;
+    color: var(--champagne);
+  }
+  .logo span { color: rgba(245,240,232,0.85); }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    color: rgba(245,240,232,0.65); text-decoration: none;
+    font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+    transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--champagne); }
+  .nav-cta {
+    padding: 9px 22px; background: var(--champagne); color: var(--forest);
+    font-family: 'Inter', sans-serif; font-size: 0.72rem; letter-spacing: 0.1em;
+    text-transform: uppercase; border: none; cursor: pointer; transition: all .2s;
+    font-weight: 600;
+  }
+  .nav-cta:hover { background: var(--champ-l); }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative; min-height: 100vh;
+    display: flex; align-items: center; padding: 120px 56px 80px;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0; z-index: 0;
+    background:
+      radial-gradient(ellipse 60% 55% at 75% 35%, rgba(212,175,114,0.12) 0%, transparent 55%),
+      radial-gradient(ellipse 50% 50% at 15% 80%, rgba(26,61,40,0.6) 0%, transparent 50%),
+      linear-gradient(150deg, #0D2818 0%, #142E1E 50%, #0A1E10 100%);
+  }
+  /* Decorative vertical line */
+  .hero-line {
+    position: absolute; right: 52%; top: 15%; bottom: 15%;
+    width: 1px; background: linear-gradient(to bottom, transparent, var(--border), transparent);
+    z-index: 1;
+  }
+  .hero-content { position: relative; z-index: 2; max-width: 580px; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 14px; border: 1px solid var(--border);
+    font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--champagne); margin-bottom: 28px;
+    background: rgba(212,175,114,0.07);
+  }
+  .hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--champagne); border-radius: 50%; }
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 5.5vw, 5.2rem); font-weight: 300; line-height: 1.08;
+    margin-bottom: 24px;
+  }
+  h1 em { font-style: italic; color: var(--champagne); }
+  .hero-sub {
+    color: var(--muted); font-size: 0.9rem; max-width: 440px;
+    margin-bottom: 40px; line-height: 1.75;
+  }
+  .hero-actions { display: flex; gap: 16px; }
+  .btn-primary {
+    padding: 14px 34px; background: var(--champagne); color: var(--forest);
+    font-family: 'Inter', sans-serif; font-size: 0.75rem;
+    font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+    border: none; cursor: pointer; transition: all .2s;
+  }
+  .btn-primary:hover { background: var(--champ-l); }
+  .btn-outline {
+    padding: 14px 34px; background: transparent;
+    color: rgba(245,240,232,0.8);
+    font-family: 'Inter', sans-serif; font-size: 0.75rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    border: 1px solid rgba(245,240,232,0.25); cursor: pointer; transition: all .2s;
+  }
+  .btn-outline:hover { border-color: var(--champagne); color: var(--champagne); }
+
+  /* ── SEARCH ── */
+  .search-section { background: var(--forest2); padding: 0 56px; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .search-bar { display: flex; max-width: 1100px; margin: 0 auto; }
+  .search-field { flex: 1; display: flex; flex-direction: column; padding: 20px 28px; border-right: 1px solid var(--border); }
+  .search-field label { font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--champagne); margin-bottom: 5px; }
+  .search-field select { background: transparent; border: none; outline: none; color: var(--cream); font-family: 'Inter', sans-serif; font-size: 0.85rem; }
+  .search-field select option { background: var(--forest2); }
+  .search-btn { padding: 0 40px; background: var(--forest3); color: var(--champagne); border: none; font-family: 'Inter', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; border-left: 1px solid var(--border); transition: all .2s; }
+  .search-btn:hover { background: var(--champagne); color: var(--forest); }
+
+  /* ── PROPERTY TYPES ── */
+  .section { padding: 88px 56px; }
+  .section-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--champagne); margin-bottom: 12px; display: flex; align-items: center; gap: 12px; }
+  .section-label::before { content: ''; width: 36px; height: 1px; background: var(--champagne); }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 300; margin-bottom: 52px; }
+  .types-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+  .type-card {
+    background: var(--forest2); padding: 40px 32px;
+    border: 1px solid var(--border);
+    transition: all .3s; cursor: pointer; position: relative; overflow: hidden;
+  }
+  .type-card:hover { background: var(--forest3); }
+  .type-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--champagne), transparent); opacity: 0; transition: opacity .3s; }
+  .type-card:hover::before { opacity: 1; }
+  .type-icon { font-size: 2rem; margin-bottom: 16px; }
+  .type-name { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; color: var(--cream); margin-bottom: 6px; }
+  .type-count { font-size: 0.72rem; color: var(--muted); }
+
+  /* ── STATS ── */
+  .stats-section { padding: 64px 56px; background: var(--leaf); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .stats-inner { display: flex; justify-content: center; max-width: 900px; margin: 0 auto; }
+  .stat { flex: 1; text-align: center; padding: 0 48px; border-right: 1px solid var(--border); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 3.2rem; font-weight: 300; color: var(--champagne); line-height: 1; }
+  .stat-label { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-top: 8px; }
+
+  /* ── FOOTER ── */
+  footer { padding: 48px 56px; background: var(--forest2); border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--champagne); letter-spacing: 0.15em; }
+  .footer-tagline { font-size: 0.75rem; color: var(--muted); margin-top: 4px; }
+  .footer-links { display: flex; gap: 28px; }
+  .footer-links a { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color .2s; }
+  .footer-links a:hover { color: var(--champagne); }
+  .footer-copy { font-size: 0.72rem; color: rgba(245,240,232,0.2); }
+</style>
+</head>
+<body>
+
+<div style="position:fixed;top:0;right:0;background:#D4AF72;color:#0D2818;font-size:0.65rem;font-weight:700;letter-spacing:0.1em;padding:4px 12px;z-index:999;text-transform:uppercase">Theme 3 · Emerald Elite</div>
+
+<nav>
+  <div class="logo">AWTAD <span>REAL ESTATE</span></div>
+  <ul class="nav-links"><li><a href="#">Off-Plan</a></li><li><a href="#">Properties</a></li><li><a href="#">Developers</a></li><li><a href="#">Services</a></li><li><a href="#">About</a></li><li><a href="#">Contact</a></li></ul>
+  <button class="nav-cta">Book Consultation</button>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-line"></div>
+  <div class="hero-content">
+    <div class="hero-badge">500+ Premium Properties · Dubai</div>
+    <h1>Find Your<br/><em>Luxury</em><br/>in Dubai</h1>
+    <p class="hero-sub">From iconic off-plan projects to ready-to-move villas — we connect you with Dubai's finest real estate opportunities.</p>
+    <div class="hero-actions">
+      <button class="btn-primary">Explore Properties</button>
+      <button class="btn-outline">Book a Viewing</button>
+    </div>
+  </div>
+</section>
+
+<div class="search-section">
+  <div class="search-bar">
+    <div class="search-field"><label>Location</label><select><option>Dubai Marina</option><option>Downtown Dubai</option><option>Palm Jumeirah</option></select></div>
+    <div class="search-field"><label>Property Type</label><select><option>Apartment</option><option>Villa</option><option>Penthouse</option><option>Townhouse</option></select></div>
+    <div class="search-field"><label>Price Range</label><select><option>AED 1M – 3M</option><option>AED 3M – 7M</option><option>AED 7M+</option></select></div>
+    <button class="search-btn">Search</button>
+  </div>
+</div>
+
+<section class="section">
+  <div class="section-label">Browse by Type</div>
+  <h2 class="section-title">Every Style of<br/>Dubai Living</h2>
+  <div class="types-grid">
+    <div class="type-card"><div class="type-icon">🏢</div><div class="type-name">Apartment</div><div class="type-count">214 Listings</div></div>
+    <div class="type-card"><div class="type-icon">🏡</div><div class="type-name">Villa</div><div class="type-count">89 Listings</div></div>
+    <div class="type-card"><div class="type-icon">🌆</div><div class="type-name">Penthouse</div><div class="type-count">41 Listings</div></div>
+    <div class="type-card"><div class="type-icon">🏘️</div><div class="type-name">Townhouse</div><div class="type-count">67 Listings</div></div>
+  </div>
+</section>
+
+<div class="stats-section">
+  <div class="stats-inner">
+    <div class="stat"><div class="stat-num">AED 11B</div><div class="stat-label">Total Sales Value</div></div>
+    <div class="stat"><div class="stat-num">500+</div><div class="stat-label">Active Properties</div></div>
+    <div class="stat"><div class="stat-num">15+</div><div class="stat-label">Years in Dubai</div></div>
+  </div>
+</div>
+
+<footer>
+  <div><div class="footer-logo">AWTAD</div><div class="footer-tagline">Dubai's Premier Real Estate Agency</div></div>
+  <div class="footer-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Careers</a><a href="#">Press</a></div>
+  <div class="footer-copy">© 2025 Awtad Real Estate LLC</div>
+</footer>
+
+</body>
+</html>

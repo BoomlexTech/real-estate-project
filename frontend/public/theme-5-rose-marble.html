@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Awtad Real Estate — Theme 5: Obsidian Gold</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* ── DARK MODE (default) ── */
+  :root, [data-theme="dark"] {
+    --bg:         #0E0E0E;
+    --bg2:        #141414;
+    --bg3:        #1A1A1A;
+    --bg-card:    #141414;
+    --gold:       #C9A96E;
+    --gold-l:     #DFBF8A;
+    --gold-d:     #A8813E;
+    --text:       #F5F5F0;
+    --muted:      #888880;
+    --border:     rgba(201,169,110,0.18);
+    --border-s:   rgba(255,255,255,0.06);
+    --nav-bg:     rgba(14,14,14,0.88);
+    --hero-grad:  linear-gradient(160deg, #0E0E0E 0%, #111111 60%, #0A0A0A 100%);
+    --hero-orb:   rgba(201,169,110,0.11);
+    --stats-bg:   #141414;
+    --geo-ring:   rgba(201,169,110,0.2);
+    --geo-ring2:  rgba(201,169,110,0.1);
+    --geo-diamond:rgba(201,169,110,0.25);
+    --btn-out-c:  rgba(245,245,240,0.7);
+    --btn-out-b:  rgba(245,245,240,0.2);
+    --footer-bg:  #0E0E0E;
+    --footer-copy:rgba(245,245,240,0.18);
+    --footer-link:rgba(245,245,240,0.3);
+    --search-bg:  #141414;
+  }
+
+  /* ── LIGHT MODE ── */
+  [data-theme="light"] {
+    --bg:         #F7F4EF;
+    --bg2:        #EEEAE2;
+    --bg3:        #E6E1D7;
+    --bg-card:    #FFFFFF;
+    --gold:       #A8813E;
+    --gold-l:     #C9A96E;
+    --gold-d:     #8A6530;
+    --text:       #1A1612;
+    --muted:      #7A7060;
+    --border:     rgba(168,129,62,0.22);
+    --border-s:   rgba(0,0,0,0.07);
+    --nav-bg:     rgba(247,244,239,0.92);
+    --hero-grad:  linear-gradient(160deg, #F7F4EF 0%, #EEEAE2 55%, #E6E1D7 100%);
+    --hero-orb:   rgba(168,129,62,0.08);
+    --stats-bg:   #EEEAE2;
+    --geo-ring:   rgba(168,129,62,0.22);
+    --geo-ring2:  rgba(168,129,62,0.1);
+    --geo-diamond:rgba(168,129,62,0.2);
+    --btn-out-c:  #3A3020;
+    --btn-out-b:  rgba(58,48,32,0.25);
+    --footer-bg:  #E6E1D7;
+    --footer-copy:rgba(26,22,18,0.28);
+    --footer-link:rgba(26,22,18,0.45);
+    --search-bg:  #EEEAE2;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    overflow-x: hidden;
+    transition: background .3s, color .3s;
+  }
+
+  /* ── THEME TOGGLE ── */
+  .theme-toggle {
+    position: fixed; bottom: 28px; right: 28px; z-index: 200;
+    width: 52px; height: 28px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    cursor: pointer;
+    display: flex; align-items: center; padding: 3px;
+    transition: background .3s;
+  }
+  .theme-toggle-knob {
+    width: 20px; height: 20px; border-radius: 50%;
+    background: var(--gold);
+    transition: transform .3s, background .3s;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; line-height: 1;
+  }
+  [data-theme="light"] .theme-toggle-knob { transform: translateX(24px); }
+  .theme-toggle-label {
+    position: fixed; bottom: 62px; right: 28px; z-index: 200;
+    font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted); text-align: center; width: 52px;
+  }
+
+  /* ── NAVBAR ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 56px; height: 68px;
+    background: var(--nav-bg);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    transition: background .3s, border-color .3s;
+  }
+  .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem; font-weight: 600; letter-spacing: 0.22em;
+    color: var(--text);
+  }
+  .logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 40px; list-style: none; }
+  .nav-links a {
+    color: var(--muted); text-decoration: none;
+    font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase;
+    transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    padding: 10px 26px;
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-family: 'Inter', sans-serif; font-size: 0.7rem;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    cursor: pointer; transition: all .25s;
+  }
+  .nav-cta:hover { background: var(--gold); color: var(--bg); }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative; min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 120px 56px 80px;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0; z-index: 0;
+    background:
+      radial-gradient(ellipse 55% 65% at 85% 25%, var(--hero-orb) 0%, transparent 55%),
+      radial-gradient(ellipse 40% 40% at 5% 85%, var(--hero-orb) 0%, transparent 50%),
+      var(--hero-grad);
+    transition: background .3s;
+  }
+  .hero-geo {
+    position: absolute; right: 7%; top: 50%; transform: translateY(-50%);
+    z-index: 1; pointer-events: none;
+  }
+  .hero-geo-outer {
+    width: 480px; height: 480px;
+    border: 1px solid var(--geo-ring);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    animation: spin 40s linear infinite;
+    transition: border-color .3s;
+  }
+  .hero-geo-inner {
+    width: 360px; height: 360px;
+    border: 1px solid var(--geo-ring2);
+    border-radius: 50%;
+    position: relative;
+    transition: border-color .3s;
+  }
+  .hero-geo-dot {
+    position: absolute; top: -4px; left: 50%; transform: translateX(-50%);
+    width: 8px; height: 8px; background: var(--gold); border-radius: 50%;
+    box-shadow: 0 0 12px var(--gold);
+  }
+  .hero-geo-core {
+    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  }
+  .hero-geo-diamond {
+    width: 120px; height: 120px;
+    border: 1px solid var(--geo-diamond);
+    transform: rotate(45deg);
+    transition: border-color .3s;
+  }
+  @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+  .hero-content { position: relative; z-index: 2; max-width: 600px; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 7px 16px;
+    border: 1px solid var(--border);
+    font-size: 0.67rem; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 32px;
+    background: rgba(201,169,110,0.05);
+    transition: border-color .3s, color .3s;
+  }
+  .hero-badge::before { content: ''; width: 5px; height: 5px; background: var(--gold); border-radius: 50%; box-shadow: 0 0 6px var(--gold); }
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.2rem, 5.8vw, 5.6rem);
+    font-weight: 300; line-height: 1.05; letter-spacing: 0.01em;
+    color: var(--text); margin-bottom: 28px;
+    transition: color .3s;
+  }
+  h1 em { font-style: italic; color: var(--gold); }
+  .hero-rule {
+    width: 48px; height: 1px; background: var(--gold);
+    margin-bottom: 24px; opacity: 0.6;
+  }
+  .hero-sub {
+    color: var(--muted); font-size: 0.88rem;
+    max-width: 420px; margin-bottom: 44px; line-height: 1.8; font-weight: 300;
+    transition: color .3s;
+  }
+  .hero-actions { display: flex; gap: 16px; align-items: center; }
+  .btn-primary {
+    padding: 15px 36px;
+    background: var(--gold); color: var(--bg);
+    font-family: 'Inter', sans-serif; font-size: 0.72rem;
+    font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+    border: none; cursor: pointer; transition: all .25s;
+  }
+  .btn-primary:hover { background: var(--gold-l); }
+  .btn-outline {
+    padding: 15px 36px;
+    background: transparent; color: var(--btn-out-c);
+    font-family: 'Inter', sans-serif; font-size: 0.72rem;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    border: 1px solid var(--btn-out-b); cursor: pointer; transition: all .25s;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* ── SEARCH ── */
+  .search-section {
+    background: var(--search-bg);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 0 56px;
+    transition: background .3s, border-color .3s;
+  }
+  .search-bar { display: flex; max-width: 1100px; margin: 0 auto; }
+  .search-field {
+    flex: 1; display: flex; flex-direction: column;
+    padding: 22px 32px;
+    border-right: 1px solid var(--border-s);
+  }
+  .search-field label {
+    font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 6px;
+  }
+  .search-field select {
+    background: transparent; border: none; outline: none;
+    color: var(--text); font-family: 'Inter', sans-serif;
+    font-size: 0.83rem; font-weight: 300;
+    transition: color .3s;
+  }
+  .search-field select option { background: var(--search-bg); color: var(--text); }
+  .search-btn {
+    padding: 0 44px;
+    background: var(--gold); color: var(--bg);
+    border: none; font-family: 'Inter', sans-serif;
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+    cursor: pointer; transition: background .2s; white-space: nowrap;
+  }
+  .search-btn:hover { background: var(--gold-l); }
+
+  /* ── PROPERTY TYPES ── */
+  .section { padding: 96px 56px; }
+  .section-label {
+    font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 14px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .section-label::before { content: ''; width: 32px; height: 1px; background: var(--gold); }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 3.5vw, 3.2rem); font-weight: 300;
+    color: var(--text); margin-bottom: 56px; line-height: 1.12;
+    transition: color .3s;
+  }
+  .types-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border-s); }
+  .type-card {
+    background: var(--bg-card);
+    padding: 44px 36px;
+    transition: background .3s, transform .3s, box-shadow .3s; cursor: pointer;
+    position: relative; overflow: hidden;
+  }
+  .type-card::before {
+    content: ''; position: absolute; inset: 0; opacity: 0;
+    background: linear-gradient(135deg, rgba(201,169,110,0.06) 0%, transparent 60%);
+    transition: opacity .3s;
+  }
+  .type-card:hover::before { opacity: 1; }
+  .type-card::after {
+    content: ''; position: absolute; left: 0; bottom: 0; width: 100%; height: 1px;
+    background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform .4s ease;
+  }
+  .type-card:hover::after { transform: scaleX(1); }
+  .type-icon { font-size: 1.8rem; margin-bottom: 20px; opacity: 0.9; }
+  .type-name {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 400;
+    color: var(--text); margin-bottom: 8px; letter-spacing: 0.02em; transition: color .3s;
+  }
+  .type-count { font-size: 0.7rem; color: var(--muted); letter-spacing: 0.06em; }
+
+  /* ── STATS ── */
+  .stats-section {
+    padding: 72px 56px;
+    background: var(--stats-bg);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    position: relative; overflow: hidden;
+    transition: background .3s, border-color .3s;
+  }
+  .stats-section::before {
+    content: '';
+    position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    width: 600px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .stats-inner { display: flex; justify-content: center; max-width: 900px; margin: 0 auto; }
+  .stat { flex: 1; text-align: center; padding: 0 52px; border-right: 1px solid var(--border-s); }
+  .stat:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif; font-size: 3.4rem; font-weight: 300;
+    color: var(--gold); line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--muted); margin-top: 10px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 52px 56px;
+    background: var(--footer-bg);
+    border-top: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    transition: background .3s, border-color .3s;
+  }
+  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--text); letter-spacing: 0.2em; transition: color .3s; }
+  .footer-logo span { color: var(--gold); }
+  .footer-tagline { font-size: 0.72rem; color: var(--muted); margin-top: 5px; letter-spacing: 0.04em; }
+  .footer-links { display: flex; gap: 32px; }
+  .footer-links a {
+    font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--footer-link); text-decoration: none; transition: color .2s;
+  }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-copy { font-size: 0.7rem; color: var(--footer-copy); }
+</style>
+</head>
+<body>
+
+<!-- Theme badge -->
+<div id="theme-badge" style="position:fixed;top:0;right:0;background:#C9A96E;color:#0E0E0E;font-size:0.65rem;font-weight:700;letter-spacing:0.1em;padding:4px 12px;z-index:999;text-transform:uppercase">Theme 5 · Obsidian Gold</div>
+
+<!-- Theme toggle -->
+<div class="theme-toggle-label" id="toggle-label">Light</div>
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
+  <div class="theme-toggle-knob" id="toggleKnob">🌙</div>
+</button>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="logo">AWTAD <span>REAL ESTATE</span></div>
+  <ul class="nav-links">
+    <li><a href="#">Off-Plan</a></li>
+    <li><a href="#">Properties</a></li>
+    <li><a href="#">Developers</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+  <button class="nav-cta">Book Consultation</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-geo">
+    <div class="hero-geo-outer">
+      <div class="hero-geo-inner">
+        <div class="hero-geo-dot"></div>
+        <div class="hero-geo-core">
+          <div class="hero-geo-diamond"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge">500+ Premium Properties · Dubai</div>
+    <h1>Find Your<br/><em>Luxury</em><br/>in Dubai</h1>
+    <div class="hero-rule"></div>
+    <p class="hero-sub">From iconic off-plan projects to ready-to-move villas — we connect you with Dubai's finest real estate opportunities.</p>
+    <div class="hero-actions">
+      <button class="btn-primary">Explore Properties</button>
+      <button class="btn-outline">Book a Viewing</button>
+    </div>
+  </div>
+</section>
+
+<!-- SEARCH -->
+<div class="search-section">
+  <div class="search-bar">
+    <div class="search-field">
+      <label>Location</label>
+      <select><option>Dubai Marina</option><option>Downtown Dubai</option><option>Palm Jumeirah</option><option>Business Bay</option></select>
+    </div>
+    <div class="search-field">
+      <label>Property Type</label>
+      <select><option>Apartment</option><option>Villa</option><option>Penthouse</option><option>Townhouse</option></select>
+    </div>
+    <div class="search-field">
+      <label>Price Range</label>
+      <select><option>AED 1M – 3M</option><option>AED 3M – 7M</option><option>AED 7M – 15M</option><option>AED 15M+</option></select>
+    </div>
+    <button class="search-btn">Search</button>
+  </div>
+</div>
+
+<!-- PROPERTY TYPES -->
+<section class="section">
+  <div class="section-label">Browse by Type</div>
+  <h2 class="section-title">Every Style of<br/>Dubai Living</h2>
+  <div class="types-grid">
+    <div class="type-card"><div class="type-icon">🏢</div><div class="type-name">Apartment</div><div class="type-count">214 Listings</div></div>
+    <div class="type-card"><div class="type-icon">🏡</div><div class="type-name">Villa</div><div class="type-count">89 Listings</div></div>
+    <div class="type-card"><div class="type-icon">🌆</div><div class="type-name">Penthouse</div><div class="type-count">41 Listings</div></div>
+    <div class="type-card"><div class="type-icon">🏘️</div><div class="type-name">Townhouse</div><div class="type-count">67 Listings</div></div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-section">
+  <div class="stats-inner">
+    <div class="stat"><div class="stat-num">AED 11B</div><div class="stat-label">Total Sales Value</div></div>
+    <div class="stat"><div class="stat-num">500+</div><div class="stat-label">Active Properties</div></div>
+    <div class="stat"><div class="stat-num">15+</div><div class="stat-label">Years in Dubai</div></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">AWTAD <span>REAL ESTATE</span></div>
+    <div class="footer-tagline">Dubai's Premier Real Estate Agency</div>
+  </div>
+  <div class="footer-links">
+    <a href="#">Privacy</a><a href="#">Terms</a><a href="#">Careers</a><a href="#">Press</a>
+  </div>
+  <div class="footer-copy">© 2025 Awtad Real Estate LLC</div>
+</footer>
+
+<script>
+  const html = document.documentElement;
+  const btn = document.getElementById('themeToggle');
+  const knob = document.getElementById('toggleKnob');
+  const label = document.getElementById('toggle-label');
+
+  btn.addEventListener('click', () => {
+    const isDark = html.getAttribute('data-theme') === 'dark';
+    html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    knob.textContent = isDark ? '☀️' : '🌙';
+    label.textContent = isDark ? 'Dark' : 'Light';
+  });
+</script>
+</body>
+</html>

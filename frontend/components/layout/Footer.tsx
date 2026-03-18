@@ -37,7 +37,7 @@ export default function Footer() {
   const pathname = usePathname();
   const currentYear = new Date().getFullYear();
 
-  if (pathname?.startsWith('/admin') || (pathname?.startsWith('/agent') && !pathname?.startsWith('/agents'))) return null;
+  if (pathname?.startsWith('/admin') || (pathname?.startsWith('/agent') && !pathname?.startsWith('/agents')) || pathname?.startsWith('/sample')) return null;
 
   return (
     <footer style={{ background: 'var(--footer-bg)', borderTop: '1px solid rgba(201,169,110,0.14)' }}>
