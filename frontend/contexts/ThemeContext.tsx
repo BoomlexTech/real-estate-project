@@ -6,27 +6,27 @@ type ThemePreference = 'dark' | 'light' | 'system';
 
 // Agent/Admin portal palette — used in inline styles (CSS vars can't override inline)
 const darkPalette = {
-  pageBg:        '#1a1f2e',
-  cardBg:        '#242938',
-  border:        '#2e3446',
-  borderAccent:  'rgba(201,168,76,0.3)',
-  textPrimary:   '#e6edf3',
-  textSecondary: '#8892a4',
-  textDim:       '#3a4058',
-  inputBg:       '#1a1f2e',
-  gold:          '#c9a84c',
+  pageBg:        '#141928',
+  cardBg:        '#1E2438',
+  border:        '#283248',
+  borderAccent:  'rgba(201,169,110,0.28)',
+  textPrimary:   '#F0ECE4',
+  textSecondary: '#8892A4',
+  textDim:       '#3D4560',
+  inputBg:       '#141928',
+  gold:          '#C9A96E',
 };
 
 const lightPalette = {
-  pageBg:        '#f0f2f7',
-  cardBg:        '#ffffff',
-  border:        '#dde1ee',
-  borderAccent:  'rgba(180,148,60,0.4)',
-  textPrimary:   '#1a1f2e',
-  textSecondary: '#5a6478',
-  textDim:       '#9aa5b8',
-  inputBg:       '#f8f9fc',
-  gold:          '#b8922f',
+  pageBg:        '#F5F0E8',
+  cardBg:        '#FFFFFF',
+  border:        '#DDD5C8',
+  borderAccent:  'rgba(201,169,110,0.38)',
+  textPrimary:   '#0D1120',
+  textSecondary: '#4A5568',
+  textDim:       '#8E9AB0',
+  inputBg:       '#FDFAF5',
+  gold:          '#7B6428',
 };
 
 interface ThemeContextType {

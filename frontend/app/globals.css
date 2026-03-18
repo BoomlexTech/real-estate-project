@@ -14,36 +14,36 @@
 :root {
   --bg-primary: #0A0E1A;
   --bg-secondary: #0f1523;
-  --bg-card: #111827;
-  --bg-elevated: #151d2f;
+  --bg-card: #131926;
+  --bg-elevated: #172035;
   --bg-section-alt: #0D1120;
-  --bg-warm-tint: #0E0D18;
+  --bg-warm-tint: #0C1019;
   --gold: #C9A96E;
   --gold-light: #DFBF8A;
   --gold-text: #C9A96E;
-  --text-primary: #ffffff;
-  --text-body: #D4D0C8;
-  --text-secondary: #94A3B8;
-  --text-dim: #6b7280;
-  --text-link: #d1d5db;
-  --border-color: #1E293B;
+  --text-primary: #F5F2EC;
+  --text-body: #D4CEBB;
+  --text-secondary: #8E9AB0;
+  --text-dim: #5A6478;
+  --text-link: #C8CDD8;
+  --border-color: #1E2A3A;
   --border-gold: rgba(201, 169, 110, 0.28);
   --border-subtle: rgba(255, 255, 255, 0.05);
-  --skeleton-bg: #2d3347;
-  --skeleton-shine: #3a4058;
+  --skeleton-bg: #2A3347;
+  --skeleton-shine: #374055;
   --overlay-bg: rgba(0, 0, 0, 0.70);
-  --muted-text: rgba(255, 255, 255, 0.45);
-  --muted-border: rgba(255, 255, 255, 0.12);
+  --muted-text: rgba(245, 242, 236, 0.45);
+  --muted-border: rgba(245, 242, 236, 0.12);
   --surface-shadow: 0 14px 40px rgba(0, 0, 0, 0.28);
-  --footer-bg: #070B15;
-  --footer-heading: rgba(255, 255, 255, 0.70);
-  --drawer-item-border: rgba(255, 255, 255, 0.05);
-  --drawer-item-subborder: rgba(255, 255, 255, 0.04);
+  --footer-bg: #060A14;
+  --footer-heading: rgba(245, 242, 236, 0.70);
+  --drawer-item-border: rgba(245, 242, 236, 0.05);
+  --drawer-item-subborder: rgba(245, 242, 236, 0.04);
   --drawer-expanded-bg: rgba(201, 169, 110, 0.03);
-  --social-icon-bg: rgba(255, 255, 255, 0.05);
+  --social-icon-bg: rgba(245, 242, 236, 0.05);
   --hero-text: rgba(255, 255, 255, 0.95);
   --hero-meta: rgba(255, 255, 255, 0.70);
-  --footer-muted: rgba(148, 163, 184, 0.50);
+  --footer-muted: rgba(142, 154, 176, 0.55);
   /* ── Media-layer tokens (text/badges on top of photos) ── */
   --text-on-media: rgba(255, 255, 255, 0.95);
   --text-on-media-sub: rgba(255, 255, 255, 0.75);
@@ -57,45 +57,45 @@
 
 /* ── Light theme overrides ───────────────────────────── */
 [data-theme="light"] {
-  --bg-primary: #e8e3d8;
-  --bg-secondary: #dedad0;
-  --bg-card: #f0ece4;
-  --bg-elevated: #f7f2ea;
-  --bg-section-alt: #e2ddd4;
-  --bg-warm-tint: #e4dfd5;
-  --text-primary: #000000;
-  --text-body: #1a1a2e;
-  --text-secondary: #374151;
-  --text-dim: #6b7280;
-  --text-link: #1a202c;
-  --border-color: #d8d4cc;
-  --border-gold: rgba(201, 169, 110, 0.45);
-  --border-subtle: rgba(0, 0, 0, 0.07);
-  --skeleton-bg: #ddd8d0;
-  --skeleton-shine: #c8c2ba;
-  --overlay-bg: rgba(0, 0, 0, 0.50);
-  --muted-text: rgba(10, 14, 26, 0.45);
-  --muted-border: rgba(10, 14, 26, 0.12);
-  --surface-shadow: 0 16px 34px rgba(46, 36, 20, 0.08);
-  --footer-bg: #e0dbd0;
-  --footer-heading: rgba(10, 14, 26, 0.70);
-  --drawer-item-border: rgba(10, 14, 26, 0.06);
-  --drawer-item-subborder: rgba(10, 14, 26, 0.04);
-  --drawer-expanded-bg: rgba(201, 169, 110, 0.04);
-  --social-icon-bg: rgba(10, 14, 26, 0.06);
+  --bg-primary: #FDFAF5;
+  --bg-secondary: #F5F0E8;
+  --bg-card: #FFFFFF;
+  --bg-elevated: #FFFFFF;
+  --bg-section-alt: #EDE8DF;
+  --bg-warm-tint: #FAF7F2;
+  --text-primary: #0D1120;
+  --text-body: #1E2A3A;
+  --text-secondary: #4A5568;
+  --text-dim: #718096;
+  --text-link: #1E2A3A;
+  --border-color: #DDD5C8;
+  --border-gold: rgba(201, 169, 110, 0.40);
+  --border-subtle: rgba(13, 17, 32, 0.06);
+  --skeleton-bg: #E8E0D4;
+  --skeleton-shine: #D6CCBF;
+  --overlay-bg: rgba(13, 17, 32, 0.55);
+  --muted-text: rgba(13, 17, 32, 0.45);
+  --muted-border: rgba(13, 17, 32, 0.10);
+  --surface-shadow: 0 16px 34px rgba(13, 17, 32, 0.07);
+  --footer-bg: #EDE8DF;
+  --footer-heading: rgba(13, 17, 32, 0.75);
+  --drawer-item-border: rgba(13, 17, 32, 0.06);
+  --drawer-item-subborder: rgba(13, 17, 32, 0.04);
+  --drawer-expanded-bg: rgba(201, 169, 110, 0.05);
+  --social-icon-bg: rgba(13, 17, 32, 0.07);
   --hero-text: rgba(255, 255, 255, 0.95);
   --hero-meta: rgba(255, 255, 255, 0.70);
-  --footer-muted: rgba(60, 70, 90, 0.60);
-  --gold-text: #8B6914;
+  --footer-muted: rgba(74, 85, 104, 0.65);
+  --gold-text: #7B6428;
   /* ── Media-layer tokens (text/badges always over photos) ── */
   --text-on-media: rgba(255, 255, 255, 0.95);
   --text-on-media-sub: rgba(255, 255, 255, 0.75);
   --media-badge-bg: rgba(0, 0, 0, 0.65);
   --media-badge-text: rgba(255, 255, 255, 0.92);
   --media-badge-border: rgba(255, 255, 255, 0.18);
-  --success: #157f3d;
-  --warning: #9a6b05;
-  --danger: #b7473f;
+  --success: #166534;
+  --warning: #92600A;
+  --danger: #991B1B;
 }
 
 @theme inline {
@@ -447,7 +447,7 @@ body {
 
 .btn-gold:hover {
   background: var(--gold);
-  color: #0A0E1A;
+  color: #0D1120;
   transform: translateY(-2px);
   box-shadow: 0 0 22px rgba(201, 169, 110, 0.45), 0 4px 16px rgba(201, 169, 110, 0.25);
 }
@@ -590,9 +590,9 @@ body {
 
 [data-theme="light"] .hero-overlay {
   background: linear-gradient(to right,
-      rgba(244, 240, 232, 0.92) 0%,
-      rgba(244, 240, 232, 0.65) 55%,
-      rgba(244, 240, 232, 0.18) 100%);
+      rgba(253, 250, 245, 0.92) 0%,
+      rgba(253, 250, 245, 0.65) 55%,
+      rgba(253, 250, 245, 0.18) 100%);
 }
 
 [data-theme="light"] .property-card-content {
@@ -611,8 +611,8 @@ body {
 }
 
 [data-theme="light"] .nav-link {
-  color: rgba(0, 0, 0, 0.94);
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.28);
+  color: rgba(13, 17, 32, 0.85);
+  text-shadow: none;
 }
 
 [data-theme="light"] .nav-link:hover {
@@ -620,7 +620,7 @@ body {
 }
 
 [data-theme="light"] .texture-dot-grid {
-  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(13, 17, 32, 0.04) 1px, transparent 1px);
   background-size: 32px 32px;
 }
 
@@ -688,12 +688,12 @@ body {
 }
 
 [data-theme="light"] .header-surface {
-  background: rgba(244, 240, 232, 0.4);
-  border-bottom: 1px solid rgba(201, 169, 110, 0.4);
+  background: rgba(253, 250, 245, 0.55);
+  border-bottom: 1px solid rgba(201, 169, 110, 0.35);
 }
 
 [data-theme="light"] .header-surface.scrolled {
-  background: rgba(244, 240, 232, 0.52);
+  background: rgba(253, 250, 245, 0.82);
 }
 
 /* Property card dual-layer structure — spinning gold glow on hover */

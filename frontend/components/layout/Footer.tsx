@@ -66,7 +66,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="w-8 h-8 rounded-full flex items-center justify-center transition-colors"
                   style={{ background: 'var(--border-color)' }}
-                  onMouseEnter={(e) => (e.currentTarget.style.background = '#c9a84c')}
+                  onMouseEnter={(e) => (e.currentTarget.style.background = '#C9A96E')}
                   onMouseLeave={(e) => (e.currentTarget.style.background = 'var(--border-color)')}
                 >
                   <Icon className="w-3.5 h-3.5 t-heading" />
@@ -122,29 +122,29 @@ export default function Footer() {
             <h4 className="t-heading font-light text-xs mb-5 tracking-[0.2em] uppercase" style={{ color: 'var(--footer-heading)' }}>Contact Us</h4>
             <div className="space-y-4">
               <div className="flex gap-2.5">
-                <MapPin className="w-4 h-4 shrink-0 mt-0.5" style={{ color: '#c9a84c' }} />
+                <MapPin className="w-4 h-4 shrink-0 mt-0.5" style={{ color: '#C9A96E' }} />
                 <div>
                   <p className="text-xs leading-relaxed tracking-wide" style={{ color: 'var(--text-secondary)' }}>Office 2301, Vision Tower, Business Bay, PO Box 445372, Dubai, UAE</p>
                 </div>
               </div>
               <div className="hidden md:flex gap-2.5">
-                <MapPin className="w-4 h-4 shrink-0 mt-0.5" style={{ color: '#c9a84c' }} />
+                <MapPin className="w-4 h-4 shrink-0 mt-0.5" style={{ color: '#C9A96E' }} />
                 <div>
                   <p className="text-xs leading-relaxed tracking-wide" style={{ color: 'var(--text-secondary)' }}>Office 1102, Tower B, Prime Business Centre, JVC, Dubai, UAE</p>
                 </div>
               </div>
               <div className="hidden md:flex gap-2.5">
-                <MapPin className="w-4 h-4 shrink-0 mt-0.5" style={{ color: '#c9a84c' }} />
+                <MapPin className="w-4 h-4 shrink-0 mt-0.5" style={{ color: '#C9A96E' }} />
                 <div>
                   <p className="text-xs leading-relaxed tracking-wide" style={{ color: 'var(--text-secondary)' }}>Ground Floor, Namaa Building, Rashideya, Behind Grand Mall, Ajman, UAE</p>
                 </div>
               </div>
               <div className="flex gap-2.5">
-                <Phone className="w-4 h-4 shrink-0" style={{ color: '#c9a84c' }} />
+                <Phone className="w-4 h-4 shrink-0" style={{ color: '#C9A96E' }} />
                 <a href="tel:+971547093295" className="text-xs tracking-wide transition-colors" style={{ color: 'var(--text-secondary)' }}>+971 54 709 3295</a>
               </div>
               <div className="flex gap-2.5">
-                <Mail className="w-4 h-4 shrink-0" style={{ color: '#c9a84c' }} />
+                <Mail className="w-4 h-4 shrink-0" style={{ color: '#C9A96E' }} />
                 <a href="mailto:leasing@awtadrealestate.com" className="text-xs tracking-wide transition-colors" style={{ color: 'var(--text-secondary)' }}>leasing@awtadrealestate.com</a>
               </div>
             </div>
