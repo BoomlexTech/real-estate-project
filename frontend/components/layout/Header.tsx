@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { Menu, Phone, Facebook, Instagram, Linkedin, Youtube, ChevronDown } from 'lucide-react';
 import MobileMenu from './MobileMenu';
 import Logo from '../common/Logo';
-import ThemeToggle from '../common/ThemeToggle';
+import ThemeSwitcher from '../common/ThemeSwitcher';
 import { useTheme } from '@/contexts/ThemeContext';
 import { trackEvent } from '@/lib/analytics';
 
@@ -146,7 +146,7 @@ export default function Header() {
 
           {/* Right side */}
           <div className="flex items-center gap-3">
-            <ThemeToggle />
+            <ThemeSwitcher />
             <button
               onClick={() => setMobileOpen(true)}
               className="lg:hidden p-3 transition-colors"

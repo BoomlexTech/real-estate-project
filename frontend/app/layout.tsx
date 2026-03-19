@@ -50,7 +50,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://images.pexels.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://images.pexels.com" />
         <meta name="color-scheme" content="dark light" />
-        <script dangerouslySetInnerHTML={{ __html: `(function(){try{var p=localStorage.getItem('themePreference');var r=(p==='light'||p==='dark')?p:(window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');document.documentElement.setAttribute('data-theme',r);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();` }} />
+        <script dangerouslySetInnerHTML={{ __html: `(function(){try{var palettes=['midnight-gold','desert-sand','emerald-elite','rose-marble','obsidian-gold','blush-mirage'];var defaults={'midnight-gold':'dark','desert-sand':'light','emerald-elite':'dark','rose-marble':'light','obsidian-gold':'dark','blush-mirage':'light'};var p=localStorage.getItem('themePreference');var m=localStorage.getItem('themeMode');var palette=palettes.indexOf(p)!==-1?p:'midnight-gold';var mode=(m==='dark'||m==='light')?m:defaults[palette];document.documentElement.setAttribute('data-theme',palette+'-'+mode);if(mode==='light')document.documentElement.setAttribute('data-light','');}catch(e){document.documentElement.setAttribute('data-theme','midnight-gold-dark');}})();` }} />
       </head>
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-KQ96GGVTF0"
