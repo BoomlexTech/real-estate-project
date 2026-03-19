@@ -16,12 +16,19 @@ export default function ThemeSwitcher({ className = '' }: { className?: string }
 
   return (
     <div
-      className={`flex items-center gap-2 ${className}`}
+      className={`flex items-center gap-1 ${className}`}
       role="group"
       aria-label="Choose theme"
+      style={{
+        background: isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)',
+        border: '1px solid rgba(201,169,110,0.30)',
+        borderRadius: '999px',
+        padding: '5px 10px',
+        gap: '8px',
+      }}
     >
       {/* Palette swatches */}
-      <div className="flex items-center gap-1.5">
+      <div className="flex items-center" style={{ gap: '7px' }}>
         {THEMES.map((t) => {
           const isActive = activePalette === t.id;
           return (
@@ -32,25 +39,32 @@ export default function ThemeSwitcher({ className = '' }: { className?: string }
               aria-pressed={isActive}
               title={t.label}
               style={{
-                width: isActive ? '13px' : '11px',
-                height: isActive ? '13px' : '11px',
+                width: isActive ? '18px' : '15px',
+                height: isActive ? '18px' : '15px',
                 borderRadius: '50%',
                 background: `conic-gradient(from 135deg, ${t.bg} 50%, ${t.accent} 50%)`,
-                border: '1px solid rgba(201,169,110,0.3)',
-                outline: isActive ? '1.5px solid #C9A96E' : 'none',
+                border: isActive ? '1.5px solid #C9A96E' : '1.5px solid rgba(201,169,110,0.45)',
+                outline: isActive ? '2px solid #C9A96E' : 'none',
                 outlineOffset: '2px',
                 cursor: 'pointer',
                 transition: 'all 0.15s ease',
                 flexShrink: 0,
                 padding: 0,
+                boxShadow: isActive ? '0 0 6px rgba(201,169,110,0.5)' : 'none',
               }}
               onMouseEnter={e => {
                 if (!isActive) {
-                  (e.currentTarget as HTMLButtonElement).style.transform = 'scale(1.2)';
+                  const el = e.currentTarget as HTMLButtonElement;
+                  el.style.transform = 'scale(1.25)';
+                  el.style.border = '1.5px solid rgba(201,169,110,0.8)';
                 }
               }}
               onMouseLeave={e => {
-                (e.currentTarget as HTMLButtonElement).style.transform = 'scale(1)';
+                if (!isActive) {
+                  const el = e.currentTarget as HTMLButtonElement;
+                  el.style.transform = 'scale(1)';
+                  el.style.border = '1.5px solid rgba(201,169,110,0.45)';
+                }
               }}
             />
           );
@@ -58,22 +72,25 @@ export default function ThemeSwitcher({ className = '' }: { className?: string }
       </div>
 
       {/* Divider */}
-      <div style={{ width: '1px', height: '14px', background: 'rgba(201,169,110,0.25)', flexShrink: 0 }} />
+      <div style={{ width: '1px', height: '16px', background: 'rgba(201,169,110,0.35)', flexShrink: 0 }} />
 
       {/* Dark/Light toggle */}
       <button
         onClick={() => setMode(isDark ? 'light' : 'dark')}
         aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-        className="flex items-center justify-center rounded-lg transition-opacity hover:opacity-80"
+        className="flex items-center justify-center transition-all hover:scale-110"
         style={{
-          width: '28px',
-          height: '28px',
+          width: '30px',
+          height: '30px',
+          borderRadius: '50%',
           color: '#C9A96E',
-          background: 'rgba(201,169,110,0.1)',
+          background: 'rgba(201,169,110,0.18)',
+          border: '1.5px solid rgba(201,169,110,0.45)',
           flexShrink: 0,
+          cursor: 'pointer',
         }}
       >
-        {isDark ? <Sun size={14} /> : <Moon size={14} />}
+        {isDark ? <Sun size={15} /> : <Moon size={15} />}
       </button>
     </div>
   );
