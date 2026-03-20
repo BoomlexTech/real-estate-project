@@ -102,17 +102,17 @@ export default function MortgageBanner() {
               {submitted ? (
                 <div className="text-center py-8">
                   <CheckCircle className="w-14 h-14 mx-auto mb-4" style={{ color: '#C9A96E' }} />
-                  <h3 className="text-xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>Thank You!</h3>
-                  <p className="text-sm" style={{ color: 'var(--text-primary)' }}>
+                  <h3 className="text-xl font-bold mb-2" style={{ color: '#1a1a2e' }}>Thank You!</h3>
+                  <p className="text-sm" style={{ color: 'rgba(0,0,0,0.65)' }}>
                     Our mortgage advisor will contact you within 24 hours.
                   </p>
                 </div>
               ) : (
                 <>
-                  <h3 className="text-lg font-bold mb-1" style={{ color: 'var(--text-primary)' }}>
+                  <h3 className="text-lg font-bold mb-1" style={{ color: '#1a1a2e' }}>
                     Find Out How Much You Can Borrow
                   </h3>
-                  <p className="text-xs mb-6" style={{ color: 'var(--text-primary)' }}>In Minutes — No obligation, free consultation</p>
+                  <p className="text-xs mb-6" style={{ color: 'rgba(0,0,0,0.65)' }}>In Minutes — No obligation, free consultation</p>
 
                   <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                     <div>
