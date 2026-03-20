@@ -160,7 +160,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
     <article
       role="link"
       tabIndex={0}
-      className="property-card-wrapper group flex flex-col h-full transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_20px_60px_rgba(0,0,0,0.7),0_0_50px_rgba(201,169,110,0.45),0_0_100px_rgba(201,169,110,0.18)]"
+      className="property-card-wrapper group flex flex-col h-full transition-all duration-500 hover:-translate-y-4 hover:shadow-[0_28px_70px_rgba(0,0,0,0.75),0_0_60px_rgba(201,169,110,0.55),0_0_120px_rgba(201,169,110,0.22)]"
       style={{ '--tw-ring-color': 'rgba(201,169,110,0.3)' } as React.CSSProperties}
       onClick={openProperty}
       onKeyDown={(e) => {
@@ -170,9 +170,9 @@ export default function PropertyCard({ property }: PropertyCardProps) {
         }
       }}
     >
-      <div className="property-card-content glass-card flex flex-col flex-1 overflow-hidden">
+      <div className="property-card-content property-card-white glass-card flex flex-col flex-1 overflow-hidden">
         {/* Image Carousel */}
-        <div className="block overflow-hidden">
+        <div className="property-card-img-wrap block overflow-hidden">
           <CardCarousel
             images={property.images ?? []}
             type={property.type}
@@ -184,14 +184,14 @@ export default function PropertyCard({ property }: PropertyCardProps) {
         <div className="flex flex-col flex-1 p-5">
           {/* Location */}
           <div className="flex items-center gap-1.5 mb-3">
-            <MapPin className="w-3 h-3 shrink-0" style={{ color: 'var(--gold)' }} />
+            <MapPin className="w-3 h-3 shrink-0" style={{ color: '#111111' }} />
             <span className="text-xs tracking-[0.06em]" style={{ color: 'var(--text-secondary)' }}>
               {property.location}, {property.emirate}
             </span>
           </div>
 
           {/* Price — serif, large, light weight */}
-          <p className="font-serif text-2xl font-light mb-1 leading-tight" style={{ color: 'var(--gold)' }}>
+          <p className="property-card-price font-serif text-2xl font-light mb-1 leading-tight" style={{ color: '#111111' }}>
             {property.priceLabel}
           </p>
 
@@ -229,7 +229,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
               {property.paymentPlan && (
                 <span
                   className="text-[10px] px-2 py-0.5 tracking-widest uppercase rounded"
-                  style={{ border: '1px solid var(--border-gold)', color: 'var(--gold)' }}
+                  style={{ border: '1px solid rgba(0,0,0,0.2)', color: '#111111' }}
                 >
                   {typeof property.paymentPlan === 'object'
                     ? `${property.paymentPlan.downPayment}/${property.paymentPlan.onCompletion} Plan`
@@ -239,7 +239,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
               {property.completionDate && (
                 <span
                   className="text-[10px] px-2 py-0.5 tracking-widest uppercase rounded"
-                  style={{ border: '1px solid var(--border-subtle)', color: 'var(--footer-muted)' }}
+                  style={{ border: '1px solid var(--border-subtle)', color: 'var(--text-primary)' }}
                 >
                   {property.completionDate}
                 </span>
@@ -266,7 +266,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
                   {agent.photo ? (
                     <img src={agent.photo} alt={agent.name} className="w-full h-full object-cover" />
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center text-[10px] font-bold" style={{ color: 'var(--gold)' }}>
+                    <div className="w-full h-full flex items-center justify-center text-[10px] font-bold" style={{ color: '#111111' }}>
                       {agent.name.charAt(0).toUpperCase()}
                     </div>
                   )}

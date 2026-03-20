@@ -370,12 +370,20 @@ export default function HeroSlider() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: 'easeOut' }}
             className="max-w-3xl"
-            style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}
+          style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}
           >
             <div className="mb-8">
               <span
                 className="px-3 py-1.5 text-xs tracking-[0.22em] uppercase"
-                style={{ border: '1px solid rgba(201,169,110,0.55)', color: '#C9A96E' }}
+                style={{
+                  background: 'rgba(255, 255, 255, 0.90)',
+                  backdropFilter: 'blur(14px)',
+                  WebkitBackdropFilter: 'blur(14px)',
+                  borderRadius: '6px',
+                  border: '1px solid rgba(255,255,255,0.6)',
+                  color: '#111111',
+                  textShadow: 'none',
+                }}
               >
                 Premium Real Estate
               </span>

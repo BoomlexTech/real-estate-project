@@ -97,9 +97,9 @@ export default function PropertyFilters({ onFilterChange }: Props) {
         <button
           onClick={() => setShowMobile(!showMobile)}
           className="flex items-center gap-2 px-4 py-3 min-h-11 rounded-lg text-sm font-medium"
-          style={{ background: 'var(--bg-card)', border: '1px solid var(--border-gold)', color: 'var(--text-primary)' }}
+          style={{ background: '#FFFFFF', border: '1px solid rgba(0,0,0,0.12)', color: '#111111' }}
         >
-          <SlidersHorizontal className="w-4 h-4" style={{ color: '#c9a84c' }} />
+          <SlidersHorizontal className="w-4 h-4" style={{ color: '#111111' }} />
           Filters {activeCount > 0 && <span className="px-1.5 py-0.5 rounded-full text-xs badge-gold">{activeCount}</span>}
         </button>
       </div>
@@ -107,11 +107,11 @@ export default function PropertyFilters({ onFilterChange }: Props) {
       {/* Sidebar */}
       <div
         className={`${showMobile ? 'block' : 'hidden'} lg:block rounded-xl p-5 space-y-5`}
-        style={{ background: 'var(--bg-card)', border: '1px solid var(--border-gold)' }}
+        style={{ background: '#FFFFFF', border: '1px solid rgba(0,0,0,0.12)' }}
       >
         <div className="flex items-center justify-between">
-          <h3 className="font-semibold text-sm flex items-center gap-2" style={{ color: 'var(--text-primary)' }}>
-            <SlidersHorizontal className="w-4 h-4" style={{ color: '#c9a84c' }} />
+          <h3 className="font-semibold text-sm flex items-center gap-2" style={{ color: '#111111' }}>
+            <SlidersHorizontal className="w-4 h-4" style={{ color: '#111111' }} />
             Filters
           </h3>
           {activeCount > 0 && (
@@ -146,9 +146,9 @@ export default function PropertyFilters({ onFilterChange }: Props) {
                   onClick={() => set('status', val)}
                   className="px-2.5 py-1.5 rounded-full text-xs font-medium transition-all"
                   style={{
-                    background: active ? 'var(--gold)' : 'var(--bg-secondary)',
-                    color: active ? 'var(--bg-primary)' : 'var(--text-secondary)',
-                    border: `1px solid ${active ? 'var(--gold)' : 'var(--border-gold)'}`,
+                    background: active ? '#111111' : '#F5F5F5',
+                    color: active ? '#FFFFFF' : '#555555',
+                    border: `1px solid ${active ? '#111111' : 'rgba(0,0,0,0.15)'}`,
                   }}
                 >
                   {s}
@@ -169,9 +169,9 @@ export default function PropertyFilters({ onFilterChange }: Props) {
                   onClick={() => set('type', t.value)}
                   className="px-2.5 py-1.5 rounded-full text-xs font-medium transition-all"
                   style={{
-                    background: active ? 'var(--gold)' : 'var(--bg-secondary)',
-                    color: active ? 'var(--bg-primary)' : 'var(--text-secondary)',
-                    border: `1px solid ${active ? 'var(--gold)' : 'var(--border-gold)'}`,
+                    background: active ? '#111111' : '#F5F5F5',
+                    color: active ? '#FFFFFF' : '#555555',
+                    border: `1px solid ${active ? '#111111' : 'rgba(0,0,0,0.15)'}`,
                   }}
                 >
                   {t.label}
@@ -192,9 +192,9 @@ export default function PropertyFilters({ onFilterChange }: Props) {
                   onClick={() => set('bedrooms', b.value)}
                   className="w-11 h-11 rounded-lg text-xs font-semibold transition-all"
                   style={{
-                    background: active ? 'var(--gold)' : 'var(--bg-secondary)',
-                    color: active ? 'var(--bg-primary)' : 'var(--text-secondary)',
-                    border: `1px solid ${active ? 'var(--gold)' : 'var(--border-gold)'}`,
+                    background: active ? '#111111' : '#F5F5F5',
+                    color: active ? '#FFFFFF' : '#555555',
+                    border: `1px solid ${active ? '#111111' : 'rgba(0,0,0,0.15)'}`,
                   }}
                 >
                   {b.label}
