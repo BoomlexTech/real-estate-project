@@ -1150,12 +1150,12 @@ body {
 
 /* Header background helper — referenced in Header.tsx */
 .header-surface {
-  background: rgba(10, 14, 26, 0.4);
+  background: rgba(10, 14, 26, 0.88);
   border-bottom: 1px solid rgba(201, 169, 110, 0.55);
 }
 
 .header-surface.scrolled {
-  background: rgba(10, 14, 26, 0.52);
+  background: rgba(10, 14, 26, 0.97);
 }
 
 [data-light] .header-surface {
