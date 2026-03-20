@@ -39,8 +39,8 @@ export default async function AgentDetailPage({
 
         {/* Agent Header Card */}
         <div
-          className="p-8 mb-12"
-          style={{ background: 'var(--bg-card)', border: '1px solid rgba(201,169,110,0.2)' }}
+          className="p-8 mb-12 card-white"
+          style={{ background: '#ffffff', border: '1px solid rgba(201,169,110,0.2)', color: '#1a1a2e' }}
         >
           <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
             {/* Avatar — square */}
@@ -132,8 +132,8 @@ export default async function AgentDetailPage({
 
           {properties!.length === 0 ? (
             <div
-              className="p-12 text-center"
-              style={{ background: 'var(--bg-card)', border: '1px solid rgba(201,169,110,0.15)' }}
+              className="p-12 text-center card-white"
+              style={{ background: '#ffffff', border: '1px solid rgba(201,169,110,0.15)', color: '#1a1a2e' }}
             >
               <p className="text-sm tracking-wide t-secondary">No listings yet</p>
             </div>

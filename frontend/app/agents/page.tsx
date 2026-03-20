@@ -31,8 +31,8 @@ export default async function AgentsPage() {
 
         {agents.length === 0 ? (
           <div
-            className="p-16 text-center"
-            style={{ background: 'var(--bg-card)', border: '1px solid rgba(201,169,110,0.15)' }}
+            className="p-16 text-center card-white"
+            style={{ background: 'var(--bg-card)', border: '1px solid rgba(201,169,110,0.28)' }}
           >
             <p className="font-serif text-xl font-light t-heading mb-2">No agents available</p>
             <p className="text-sm t-secondary">Check back soon.</p>
@@ -44,8 +44,8 @@ export default async function AgentsPage() {
             {agents.map((agent) => (
               <div
                 key={agent.id}
-                className="group relative p-7 transition-colors"
-                style={{ background: 'var(--bg-card)' }}
+                className="group relative p-7 transition-colors card-white"
+                style={{ background: '#ffffff', border: '1px solid rgba(201,169,110,0.28)', color: '#1a1a2e' }}
               >
                 {/* Stretched link covers entire card */}
                 <Link href={`/agents/${agent.id}`} className="absolute inset-0" aria-label={`View ${agent.name}'s profile`} />

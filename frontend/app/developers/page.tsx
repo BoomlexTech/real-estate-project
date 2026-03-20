@@ -21,8 +21,8 @@ export default async function DevelopersPage() {
             <Link
               key={dev.id}
               href={`/developers/${dev.slug}`}
-              className="group block p-6 rounded-2xl transition-all hover:scale-[1.02]"
-              style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)' }}
+              className="group block p-6 rounded-2xl transition-all hover:scale-[1.02] card-white"
+              style={{ background: 'var(--bg-card)', border: '1px solid rgba(201,169,110,0.28)' }}
             >
               <div className="w-16 h-16 rounded-xl overflow-hidden mb-4 relative" style={{ background: 'var(--bg-primary)' }}>
                 {dev.logo && (

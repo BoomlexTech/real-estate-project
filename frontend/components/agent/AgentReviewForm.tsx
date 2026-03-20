@@ -43,8 +43,8 @@ export default function AgentReviewForm({ agentId, agentName }: Props) {
       </h2>
 
       <div
-        className="p-8 max-w-2xl"
-        style={{ background: 'var(--bg-card)', border: '1px solid rgba(201,169,110,0.2)' }}
+        className="p-8 max-w-2xl card-white"
+        style={{ background: '#ffffff', border: '1px solid rgba(201,169,110,0.2)', color: '#1a1a2e' }}
       >
         {submitted ? (
           <div className="flex flex-col items-center text-center py-8 gap-4">

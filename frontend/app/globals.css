@@ -14,7 +14,7 @@
 :root {
   --bg-primary: #0A0E1A;
   --bg-secondary: #0f1523;
-  --bg-card: #131926;
+  --bg-card: #ffffff;
   --bg-elevated: #172035;
   --bg-section-alt: #0D1120;
   --bg-warm-tint: #0C1019;
@@ -59,7 +59,7 @@
 [data-light] {
   --bg-primary: #F5F0E8;
   --bg-secondary: #EDE8DF;
-  --bg-card: #F0EBE2;
+  --bg-card: #ffffff;
   --bg-elevated: #EDE8DF;
   --bg-section-alt: #E3DDD4;
   --bg-warm-tint: #F2EDE5;
@@ -104,7 +104,7 @@
 [data-theme="midnight-gold-dark"] {
   --bg-primary: #0A0E1A;
   --bg-secondary: #0f1523;
-  --bg-card: #131926;
+  --bg-card: #ffffff;
   --bg-elevated: #172035;
   --bg-section-alt: #0D1120;
   --bg-warm-tint: #0C1019;
@@ -143,7 +143,7 @@
 [data-theme="midnight-gold-light"] {
   --bg-primary: #E8EEFF;
   --bg-secondary: #DCE4F8;
-  --bg-card: #E4EBFF;
+  --bg-card: #ffffff;
   --bg-elevated: #DCE4F8;
   --bg-section-alt: #D0DAF5;
   --bg-warm-tint: #E4EAFC;
@@ -182,7 +182,7 @@
 [data-theme="desert-sand-light"] {
   --bg-primary: #EDE5D2;
   --bg-secondary: #E3D9C3;
-  --bg-card: #EAE4D5;
+  --bg-card: #ffffff;
   --bg-elevated: #E3D9C3;
   --bg-section-alt: #D8CEB6;
   --bg-warm-tint: #EAE5D8;
@@ -221,7 +221,7 @@
 [data-theme="desert-sand-dark"] {
   --bg-primary: #1C1208;
   --bg-secondary: #231810;
-  --bg-card: #2A1E0F;
+  --bg-card: #ffffff;
   --bg-elevated: #312516;
   --bg-section-alt: #160E05;
   --bg-warm-tint: #1F1509;
@@ -260,7 +260,7 @@
 [data-theme="emerald-elite-dark"] {
   --bg-primary: #0D2818;
   --bg-secondary: #142E1E;
-  --bg-card: #182F20;
+  --bg-card: #ffffff;
   --bg-elevated: #1E3828;
   --bg-section-alt: #102212;
   --bg-warm-tint: #0F2616;
@@ -299,7 +299,7 @@
 [data-theme="emerald-elite-light"] {
   --bg-primary: #E4F0E8;
   --bg-secondary: #D6EAE0;
-  --bg-card: #DEEAE3;
+  --bg-card: #ffffff;
   --bg-elevated: #D6EAE0;
   --bg-section-alt: #C5E0CF;
   --bg-warm-tint: #DCE9E1;
@@ -338,7 +338,7 @@
 [data-theme="rose-marble-light"] {
   --bg-primary: #F0E8E5;
   --bg-secondary: #E6D8D4;
-  --bg-card: #EBE2DF;
+  --bg-card: #ffffff;
   --bg-elevated: #E6D8D4;
   --bg-section-alt: #DDD0CB;
   --bg-warm-tint: #EDE5E2;
@@ -377,7 +377,7 @@
 [data-theme="rose-marble-dark"] {
   --bg-primary: #150E0D;
   --bg-secondary: #1E1412;
-  --bg-card: #261A18;
+  --bg-card: #ffffff;
   --bg-elevated: #2E2220;
   --bg-section-alt: #100A09;
   --bg-warm-tint: #1A1210;
@@ -416,7 +416,7 @@
 [data-theme="obsidian-gold-dark"] {
   --bg-primary: #0E0E0E;
   --bg-secondary: #141414;
-  --bg-card: #181818;
+  --bg-card: #ffffff;
   --bg-elevated: #1E1E1E;
   --bg-section-alt: #0A0A0A;
   --bg-warm-tint: #111111;
@@ -455,7 +455,7 @@
 [data-theme="obsidian-gold-light"] {
   --bg-primary: #EDEAE3;
   --bg-secondary: #E5E0D8;
-  --bg-card: #E8E4DC;
+  --bg-card: #ffffff;
   --bg-elevated: #E5E0D8;
   --bg-section-alt: #DDD8CE;
   --bg-warm-tint: #E9E5DE;
@@ -494,7 +494,7 @@
 [data-theme="blush-mirage-light"] {
   --bg-primary: #F0EAE7;
   --bg-secondary: #EAE0DB;
-  --bg-card: #EDE5E1;
+  --bg-card: #ffffff;
   --bg-elevated: #EAE0DB;
   --bg-section-alt: #E0D4CE;
   --bg-warm-tint: #EDE6E3;
@@ -533,7 +533,7 @@
 [data-theme="blush-mirage-dark"] {
   --bg-primary: #2B2420;
   --bg-secondary: #352C28;
-  --bg-card: #3D332E;
+  --bg-card: #ffffff;
   --bg-elevated: #453B36;
   --bg-section-alt: #221C18;
   --bg-warm-tint: #2E2622;
@@ -858,25 +858,39 @@ body {
   color: #1a1a1a !important;
 }
 
-/* Dark card */
+/* Card — white background */
 .card-dark {
-  background: rgba(10, 14, 26, 0.6);
-  backdrop-filter: blur(16px) saturate(160%);
-  -webkit-backdrop-filter: blur(16px) saturate(160%);
-  border: 1px solid var(--border-gold);
-  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  background: #ffffff;
+  border: 1px solid rgba(201, 169, 110, 0.28);
   border-radius: 0.75rem;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   transition: box-shadow 0.35s ease, border-color 0.35s ease;
 }
 
 .card-dark:hover {
   border-color: rgba(201, 169, 110, 0.55);
   box-shadow:
-    0 12px 48px rgba(0, 0, 0, 0.55),
-    0 0 30px rgba(201, 169, 110, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    0 8px 32px rgba(0, 0, 0, 0.12),
+    0 0 20px rgba(201, 169, 110, 0.10);
 }
+
+/* Text overrides inside white cards */
+.card-dark .t-heading,
+.card-dark [class*="t-heading"] { color: #1a1a2e !important; }
+.card-dark .t-secondary { color: rgba(0, 0, 0, 0.70) !important; }
+.card-dark .t-dim { color: rgba(0, 0, 0, 0.50) !important; }
+.card-dark .t-link { color: rgba(0, 0, 0, 0.85) !important; }
+.card-dark .t-body { color: rgba(0, 0, 0, 0.75) !important; }
+.card-dark .t-accent { color: #A8842A !important; }
+
+/* Shared white-card text overrides (for inline-styled white bg-card elements) */
+.card-white .t-heading,
+.card-white [class*="t-heading"] { color: #1a1a2e !important; }
+.card-white .t-secondary { color: rgba(0, 0, 0, 0.70) !important; }
+.card-white .t-dim { color: rgba(0, 0, 0, 0.50) !important; }
+.card-white .t-link { color: rgba(0, 0, 0, 0.85) !important; }
+.card-white .t-body { color: rgba(0, 0, 0, 0.75) !important; }
+.card-white .t-accent { color: #A8842A !important; }
 
 /* Gradient overlay for hero */
 .hero-overlay {
@@ -1080,8 +1094,8 @@ body {
 }
 
 [data-light] .card-dark {
-  background: rgba(255, 255, 255, 0.8);
-  border-color: var(--border-gold);
+  background: #ffffff;
+  border-color: rgba(201, 169, 110, 0.28);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 
