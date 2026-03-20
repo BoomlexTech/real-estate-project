@@ -22,7 +22,7 @@ export default function LocationMarquee() {
                     {/* We duplicate the content to create a seamless loop */}
                     {[...locations, ...locations, ...locations, ...locations].map((location, i) => (
                         <div key={i} className="flex items-center">
-                            <span className="text-sm font-light tracking-[0.15em] uppercase px-4 sm:px-8" style={{ color: 'var(--text-primary)' }}>
+                            <span className="text-sm font-light tracking-[0.15em] uppercase px-4 sm:px-8" style={{ color: '#000000' }}>
                                 {location}
                             </span>
                             <span className="text-gold opacity-50 text-xs">◆</span>
