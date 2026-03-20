@@ -56,7 +56,7 @@ export default function MortgageBanner() {
               Mortgage Available{' '}
               <span style={{ color: '#C9A96E' }}>Worldwide</span>
             </h2>
-            <p className="text-sm leading-relaxed mb-6" style={{ color: '#FFFFFF' }}>
+            <p className="text-sm leading-relaxed mb-6" style={{ color: 'var(--text-primary)' }}>
               No matter where you are in the world, our dedicated mortgage advisors work with 20+ leading banks to secure the best rates for your Dubai property. Whether you&apos;re a first-time buyer or an international investor, we make cross-border financing seamless and fast.
             </p>
 
@@ -76,7 +76,7 @@ export default function MortgageBanner() {
                   >
                     {f.icon}
                   </div>
-                  <span className="text-sm" style={{ color: '#FFFFFF' }}>{f.text}</span>
+                  <span className="text-sm" style={{ color: 'var(--text-primary)' }}>{f.text}</span>
                 </div>
               ))}
             </div>
@@ -102,17 +102,17 @@ export default function MortgageBanner() {
               {submitted ? (
                 <div className="text-center py-8">
                   <CheckCircle className="w-14 h-14 mx-auto mb-4" style={{ color: '#C9A96E' }} />
-                  <h3 className="text-xl font-bold mb-2" style={{ color: '#FFFFFF' }}>Thank You!</h3>
-                  <p className="text-sm" style={{ color: '#FFFFFF' }}>
+                  <h3 className="text-xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>Thank You!</h3>
+                  <p className="text-sm" style={{ color: 'var(--text-primary)' }}>
                     Our mortgage advisor will contact you within 24 hours.
                   </p>
                 </div>
               ) : (
                 <>
-                  <h3 className="text-lg font-bold mb-1" style={{ color: '#FFFFFF' }}>
+                  <h3 className="text-lg font-bold mb-1" style={{ color: 'var(--text-primary)' }}>
                     Find Out How Much You Can Borrow
                   </h3>
-                  <p className="text-xs mb-6" style={{ color: '#FFFFFF' }}>In Minutes — No obligation, free consultation</p>
+                  <p className="text-xs mb-6" style={{ color: 'var(--text-primary)' }}>In Minutes — No obligation, free consultation</p>
 
                   <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                     <div>

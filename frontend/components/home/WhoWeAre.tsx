@@ -126,8 +126,8 @@ export default function WhoWeAre() {
               <div
                 className="glass-card hidden sm:block absolute -bottom-6 -right-6 px-6 py-5"
               >
-                <p className="font-serif text-3xl font-light" style={{ color: '#FFFFFF' }}>11B+</p>
-                <p className="text-[10px] tracking-[0.14em] uppercase mt-1" style={{ color: '#FFFFFF' }}>
+                <p className="font-serif text-3xl font-light" style={{ color: 'var(--text-primary)' }}>11B+</p>
+                <p className="text-[10px] tracking-[0.14em] uppercase mt-1" style={{ color: 'var(--text-primary)' }}>
                   AED in Sales
                 </p>
               </div>
@@ -149,7 +149,7 @@ export default function WhoWeAre() {
                 <span className="t-accent">Real Estate</span>{' '}
                 with Precision
               </h2>
-              <div className="space-y-5 mb-10" style={{ color: '#FFFFFF' }}>
+              <div className="space-y-5 mb-10" style={{ color: 'var(--text-primary)' }}>
                 <p className="text-sm leading-[1.85] tracking-wide">
                   Dubai&apos;s real estate market is one of the most dynamic and fast-paced in the world. With thousands of listings, new developments launching daily, and complex regulatory frameworks, navigating the market without expert guidance can be overwhelming.
                 </p>

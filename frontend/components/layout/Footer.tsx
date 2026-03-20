@@ -49,7 +49,7 @@ export default function Footer() {
             <div className="mb-4">
               <Logo />
             </div>
-            <p className="text-xs leading-[1.85] mb-5 tracking-wide" style={{ color: '#FFFFFF' }}>
+            <p className="text-xs leading-[1.85] mb-5 tracking-wide" style={{ color: 'var(--text-primary)' }}>
               Dubai&apos;s leading luxury real estate agency. We help clients buy, sell, and invest in premium properties across the UAE.
             </p>
             <div className="flex gap-3">
@@ -77,11 +77,11 @@ export default function Footer() {
 
           {/* Col 2: Popular Emirates */}
           <div>
-            <h4 className="t-heading font-light text-xs mb-5 tracking-[0.2em] uppercase" style={{ color: '#FFFFFF' }}>Popular Emirates</h4>
+            <h4 className="t-heading font-light text-xs mb-5 tracking-[0.2em] uppercase" style={{ color: 'var(--text-primary)' }}>Popular Emirates</h4>
             <ul className="space-y-2">
               {emirates.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="text-xs tracking-wide transition-colors" style={{ color: '#FFFFFF' }}>
+                  <Link href={item.href} className="text-xs tracking-wide transition-colors" style={{ color: 'var(--text-primary)' }}>
                     {item.label}
                   </Link>
                 </li>
@@ -91,11 +91,11 @@ export default function Footer() {
 
           {/* Col 3: Developers */}
           <div>
-            <h4 className="t-heading font-light text-xs mb-5 tracking-[0.2em] uppercase" style={{ color: '#FFFFFF' }}>Developers</h4>
+            <h4 className="t-heading font-light text-xs mb-5 tracking-[0.2em] uppercase" style={{ color: 'var(--text-primary)' }}>Developers</h4>
             <ul className="space-y-2">
               {developers.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="text-xs tracking-wide transition-colors" style={{ color: '#FFFFFF' }}>
+                  <Link href={item.href} className="text-xs tracking-wide transition-colors" style={{ color: 'var(--text-primary)' }}>
                     {item.label}
                   </Link>
                 </li>
@@ -105,11 +105,11 @@ export default function Footer() {
 
           {/* Col 4: Property Types */}
           <div className="col-span-2 lg:col-span-1">
-            <h4 className="t-heading font-light text-xs mb-5 tracking-[0.2em] uppercase" style={{ color: '#FFFFFF' }}>Popular Projects</h4>
+            <h4 className="t-heading font-light text-xs mb-5 tracking-[0.2em] uppercase" style={{ color: 'var(--text-primary)' }}>Popular Projects</h4>
             <ul className="space-y-2">
               {propertyTypes.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="text-xs tracking-wide transition-colors" style={{ color: '#FFFFFF' }}>
+                  <Link href={item.href} className="text-xs tracking-wide transition-colors" style={{ color: 'var(--text-primary)' }}>
                     {item.label}
                   </Link>
                 </li>
@@ -119,33 +119,33 @@ export default function Footer() {
 
           {/* Col 5: Contact */}
           <div className="col-span-2 lg:col-span-1">
-            <h4 className="t-heading font-light text-xs mb-5 tracking-[0.2em] uppercase" style={{ color: '#FFFFFF' }}>Contact Us</h4>
+            <h4 className="t-heading font-light text-xs mb-5 tracking-[0.2em] uppercase" style={{ color: 'var(--text-primary)' }}>Contact Us</h4>
             <div className="space-y-4">
               <div className="flex gap-2.5">
                 <MapPin className="w-4 h-4 shrink-0 mt-0.5" style={{ color: '#C9A96E' }} />
                 <div>
-                  <p className="text-xs leading-relaxed tracking-wide" style={{ color: '#FFFFFF' }}>Office 2301, Vision Tower, Business Bay, PO Box 445372, Dubai, UAE</p>
+                  <p className="text-xs leading-relaxed tracking-wide" style={{ color: 'var(--text-primary)' }}>Office 2301, Vision Tower, Business Bay, PO Box 445372, Dubai, UAE</p>
                 </div>
               </div>
               <div className="hidden md:flex gap-2.5">
                 <MapPin className="w-4 h-4 shrink-0 mt-0.5" style={{ color: '#C9A96E' }} />
                 <div>
-                  <p className="text-xs leading-relaxed tracking-wide" style={{ color: '#FFFFFF' }}>Office 1102, Tower B, Prime Business Centre, JVC, Dubai, UAE</p>
+                  <p className="text-xs leading-relaxed tracking-wide" style={{ color: 'var(--text-primary)' }}>Office 1102, Tower B, Prime Business Centre, JVC, Dubai, UAE</p>
                 </div>
               </div>
               <div className="hidden md:flex gap-2.5">
                 <MapPin className="w-4 h-4 shrink-0 mt-0.5" style={{ color: '#C9A96E' }} />
                 <div>
-                  <p className="text-xs leading-relaxed tracking-wide" style={{ color: '#FFFFFF' }}>Ground Floor, Namaa Building, Rashideya, Behind Grand Mall, Ajman, UAE</p>
+                  <p className="text-xs leading-relaxed tracking-wide" style={{ color: 'var(--text-primary)' }}>Ground Floor, Namaa Building, Rashideya, Behind Grand Mall, Ajman, UAE</p>
                 </div>
               </div>
               <div className="flex gap-2.5">
                 <Phone className="w-4 h-4 shrink-0" style={{ color: '#C9A96E' }} />
-                <a href="tel:+971547093295" className="text-xs tracking-wide transition-colors" style={{ color: '#FFFFFF' }}>+971 54 709 3295</a>
+                <a href="tel:+971547093295" className="text-xs tracking-wide transition-colors" style={{ color: 'var(--text-primary)' }}>+971 54 709 3295</a>
               </div>
               <div className="flex gap-2.5">
                 <Mail className="w-4 h-4 shrink-0" style={{ color: '#C9A96E' }} />
-                <a href="mailto:leasing@awtadrealestate.com" className="text-xs tracking-wide transition-colors" style={{ color: '#FFFFFF' }}>leasing@awtadrealestate.com</a>
+                <a href="mailto:leasing@awtadrealestate.com" className="text-xs tracking-wide transition-colors" style={{ color: 'var(--text-primary)' }}>leasing@awtadrealestate.com</a>
               </div>
             </div>
 
@@ -171,7 +171,7 @@ export default function Footer() {
         style={{ borderColor: 'rgba(201,169,110,0.1)' }}
       >
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3">
-          <p className="text-[10px] tracking-[0.12em]" style={{ color: '#FFFFFF' }}>
+          <p className="text-[10px] tracking-[0.12em]" style={{ color: 'var(--text-primary)' }}>
             © {currentYear} Awtad Real Estate — All Rights Reserved
           </p>
           <div className="flex items-center gap-6">
@@ -193,9 +193,9 @@ export default function Footer() {
                 key={href}
                 href={href}
                 className="text-[10px] tracking-[0.14em] uppercase transition-colors"
-                style={{ color: '#FFFFFF' }}
+                style={{ color: 'var(--text-primary)' }}
                 onMouseEnter={e => (e.currentTarget.style.color = 'rgba(201,169,110,0.8)')}
-                onMouseLeave={e => (e.currentTarget.style.color = '#FFFFFF')}
+                onMouseLeave={e => (e.currentTarget.style.color = 'var(--text-primary)')}
               >
                 {label}
               </Link>
