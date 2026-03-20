@@ -56,7 +56,7 @@ export default function MortgageBanner() {
               Mortgage Available{' '}
               <span style={{ color: '#C9A96E' }}>Worldwide</span>
             </h2>
-            <p className="t-secondary text-sm leading-relaxed mb-6">
+            <p className="text-sm leading-relaxed mb-6" style={{ color: '#FFFFFF' }}>
               No matter where you are in the world, our dedicated mortgage advisors work with 20+ leading banks to secure the best rates for your Dubai property. Whether you&apos;re a first-time buyer or an international investor, we make cross-border financing seamless and fast.
             </p>
 
@@ -76,7 +76,7 @@ export default function MortgageBanner() {
                   >
                     {f.icon}
                   </div>
-                  <span className="t-secondary text-sm">{f.text}</span>
+                  <span className="text-sm" style={{ color: '#FFFFFF' }}>{f.text}</span>
                 </div>
               ))}
             </div>
@@ -102,17 +102,17 @@ export default function MortgageBanner() {
               {submitted ? (
                 <div className="text-center py-8">
                   <CheckCircle className="w-14 h-14 mx-auto mb-4" style={{ color: '#C9A96E' }} />
-                  <h3 className="t-heading text-xl font-bold mb-2">Thank You!</h3>
-                  <p className="t-secondary text-sm">
+                  <h3 className="text-xl font-bold mb-2" style={{ color: '#FFFFFF' }}>Thank You!</h3>
+                  <p className="text-sm" style={{ color: '#FFFFFF' }}>
                     Our mortgage advisor will contact you within 24 hours.
                   </p>
                 </div>
               ) : (
                 <>
-                  <h3 className="t-heading text-lg font-bold mb-1">
+                  <h3 className="text-lg font-bold mb-1" style={{ color: '#FFFFFF' }}>
                     Find Out How Much You Can Borrow
                   </h3>
-                  <p className="t-secondary text-xs mb-6">In Minutes — No obligation, free consultation</p>
+                  <p className="text-xs mb-6" style={{ color: '#FFFFFF' }}>In Minutes — No obligation, free consultation</p>
 
                   <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                     <div>
@@ -127,7 +127,7 @@ export default function MortgageBanner() {
                     <div className="flex gap-2">
                       <div
                         className="flex items-center gap-1.5 px-3 rounded-md shrink-0 text-sm border"
-                        style={{ background: 'var(--bg-secondary)', backdropFilter: 'blur(8px)', borderColor: 'rgba(201,169,110,0.2)', color: 'var(--text-secondary)' }}
+                        style={{ background: '#FFFFFF', borderColor: 'rgba(0,0,0,0.15)', color: '#111111' }}
                       >
                         🇦🇪 +971
                       </div>

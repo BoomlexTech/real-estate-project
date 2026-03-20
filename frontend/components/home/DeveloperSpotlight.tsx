@@ -79,17 +79,28 @@ export default function DeveloperSpotlight() {
               key={`${dev.id}-${i}`}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: (i % developers.length) * 0.06, ease: 'easeOut' }}
-              className="w-50 sm:w-60 shrink-0"
+              whileHover={{
+                y: -10,
+                scale: 1.04,
+                boxShadow: '0 20px 50px rgba(0,0,0,0.18), 0 0 0 1.5px rgba(201,169,110,0.5), 0 0 30px rgba(201,169,110,0.15)',
+                zIndex: 10,
+              }}
+              transition={{ type: 'spring', stiffness: 350, damping: 22 }}
+              className="w-50 sm:w-60 shrink-0 relative"
             >
               <Link
                 href={`/developers/${dev.slug}`}
-                className="glass-card flex flex-col items-center justify-center text-center gap-3 p-6 h-full transition-colors group"
-                style={{ borderTop: 'none', borderBottom: 'none' }}
+                className="flex flex-col items-center justify-center text-center gap-3 p-6 h-full group transition-all duration-300"
+                style={{
+                  background: '#FFFFFF',
+                  border: '1px solid rgba(0,0,0,0.10)',
+                  borderRadius: '12px',
+                  boxShadow: '0 2px 12px rgba(0,0,0,0.08)',
+                }}
               >
                 <motion.div
                   className="w-24 h-24 lg:w-28 lg:h-28 rounded-full relative overflow-hidden flex items-center justify-center text-xl lg:text-3xl font-light mb-2"
-                  style={{ border: '1px solid rgba(201,169,110,0.28)', background: 'var(--bg-card)' }}
+                  style={{ border: '1px solid rgba(201,169,110,0.28)', background: '#F5F5F5' }}
                   animate={{
                     boxShadow: [
                       '0 0 0px rgba(201,169,110,0)',
@@ -124,11 +135,12 @@ export default function DeveloperSpotlight() {
                 </motion.div>
                 <div>
                   <p
-                    className="t-heading text-xs tracking-wide font-light transition-colors group-hover:text-gold whitespace-normal"
+                    className="text-sm tracking-wide font-medium transition-colors group-hover:text-gold whitespace-normal"
+                    style={{ color: '#000000' }}
                   >
                     {dev.name}
                   </p>
-                  <p className="text-[10px] tracking-[0.08em] mt-1 t-secondary">
+                  <p className="text-xs tracking-[0.08em] mt-1" style={{ color: '#333333' }}>
                     {dev.properties}+ Projects
                   </p>
                 </div>

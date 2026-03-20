@@ -102,7 +102,7 @@ export default function PropertyTypes() {
                   <h3 className="text-xl sm:text-2xl font-bold group-hover:text-gold transition-colors" style={{ color: 'white' }}>
                     {type.label}
                   </h3>
-                  <p className="text-sm mt-1" style={{ color: 'rgba(255,255,255,0.7)' }}>Great Deals Available</p>
+                  <p className="text-sm mt-1" style={{ color: '#FFFFFF' }}>Great Deals Available</p>
                 </div>
               </Link>
             </motion.div>
@@ -150,7 +150,7 @@ export default function PropertyTypes() {
                   <h3 className="text-lg sm:text-xl font-bold group-hover:text-gold transition-colors" style={{ color: 'white' }}>
                     {type.label}
                   </h3>
-                  <p className="text-sm mt-1" style={{ color: 'rgba(255,255,255,0.7)' }}>Great Deals Available</p>
+                  <p className="text-sm mt-1" style={{ color: '#FFFFFF' }}>Great Deals Available</p>
                 </div>
               </Link>
             </motion.div>

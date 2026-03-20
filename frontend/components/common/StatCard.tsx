@@ -73,7 +73,7 @@ export default function StatCard({
       />
 
       {/* Card content */}
-      <div className="relative glass-card h-full p-5 sm:p-8 flex flex-col items-center justify-between text-center gap-3 sm:gap-4">
+      <div className="relative h-full p-5 sm:p-8 flex flex-col items-center justify-between text-center gap-3 sm:gap-4" style={{ background: '#FFFFFF', border: '1px solid rgba(0,0,0,0.10)', borderRadius: '1rem' }}>
         <div className="flex flex-col items-center gap-3 sm:gap-4">
           {/* Icon with continuous pulse glow */}
           <div className="relative">
@@ -108,12 +108,13 @@ export default function StatCard({
           {/* Animated counter */}
           <div>
             <p
-              className="font-serif text-2xl sm:text-3xl font-light leading-tight mb-0.5 t-heading"
+              className="font-serif text-2xl sm:text-3xl font-light leading-tight mb-0.5"
+              style={{ color: '#000000' }}
             >
               {prefix}{count.toLocaleString()}{suffix}
             </p>
-            <p className="t-heading text-xs sm:text-sm font-light tracking-wide mb-1">{title}</p>
-            <p className="text-[10px] sm:text-[11px] tracking-widest leading-relaxed t-secondary">
+            <p className="text-xs sm:text-sm font-light tracking-wide mb-1" style={{ color: '#000000' }}>{title}</p>
+            <p className="text-[10px] sm:text-[11px] tracking-widest leading-relaxed" style={{ color: '#222222' }}>
               {subtitle}
             </p>
           </div>

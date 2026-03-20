@@ -134,7 +134,7 @@ export default function PropertySearch() {
           <div key={s.label}>
             <div className="flex flex-col items-center text-center py-4 px-2">
               <span className="font-serif text-2xl font-light mb-1 t-accent">{s.value}</span>
-              <span className="text-[10px] tracking-[0.14em] uppercase" style={{ color: 'var(--text-dim)' }}>{s.label}</span>
+              <span className="text-[10px] tracking-[0.14em] uppercase" style={{ color: '#FFFFFF' }}>{s.label}</span>
             </div>
             {i < leftStats.length - 1 && (
               <div className="w-px h-5 mx-auto" style={{ background: 'rgba(201,169,110,0.2)' }} />
@@ -151,7 +151,7 @@ export default function PropertySearch() {
           <div key={s.label}>
             <div className="flex flex-col items-center text-center py-4 px-2">
               <span className="font-serif text-2xl font-light mb-1 t-accent">{s.value}</span>
-              <span className="text-[10px] tracking-[0.14em] uppercase" style={{ color: 'var(--text-dim)' }}>{s.label}</span>
+              <span className="text-[10px] tracking-[0.14em] uppercase" style={{ color: '#FFFFFF' }}>{s.label}</span>
             </div>
             {i < rightStats.length - 1 && (
               <div className="w-px h-5 mx-auto" style={{ background: 'rgba(201,169,110,0.2)' }} />
@@ -171,10 +171,10 @@ export default function PropertySearch() {
                 Property Search
               </p>
               <span className="section-divider mx-auto mb-5" />
-              <h2 className="font-serif text-3xl sm:text-4xl font-light t-heading mb-2 leading-tight">
+              <h2 className="font-serif text-3xl sm:text-4xl font-light mb-2 leading-tight" style={{ color: '#FFFFFF' }}>
                 Find Your Ideal Property
               </h2>
-              <p className="text-sm tracking-[0.04em] t-secondary max-w-2xl mx-auto">
+              <p className="text-sm tracking-[0.04em] max-w-2xl mx-auto" style={{ color: '#FFFFFF' }}>
                 Dubai&apos;s finest properties — curated for discerning buyers
               </p>
             </div>

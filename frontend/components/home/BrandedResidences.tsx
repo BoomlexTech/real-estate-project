@@ -44,7 +44,7 @@ export default function BrandedResidences() {
                             Branded Residences<br />
                             <span style={{ color: '#C9A96E' }}>In Dubai</span>
                         </h2>
-                        <p className="text-sm leading-[1.85] tracking-wide mb-8 t-secondary">
+                        <p className="text-sm leading-[1.85] tracking-wide mb-8" style={{ color: '#FFFFFF' }}>
                             Exclusive branded residences from world-renowned luxury names — bespoke design, five-star amenities, unparalleled lifestyle.
                         </p>
                         <Link

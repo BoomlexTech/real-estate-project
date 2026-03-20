@@ -84,7 +84,7 @@ function VideoCard({ video }: { video: (typeof videos)[0] }) {
       </div>
 
       <div className="px-4 py-3 flex flex-col flex-1">
-        <p className="t-heading text-sm font-semibold leading-snug line-clamp-2">{video.title}</p>
+        <p className="text-sm font-semibold leading-snug line-clamp-2" style={{ color: '#FFFFFF' }}>{video.title}</p>
         <p className="text-xs mt-1.5" style={{ color: '#C9A96E' }}>{video.location}</p>
       </div>
     </div>
@@ -132,7 +132,7 @@ export default function YoutubeSection() {
           <h2 className="font-serif text-3xl sm:text-4xl font-light t-heading leading-tight">
             Explore Dubai Real Estate
           </h2>
-          <p className="t-secondary text-sm max-w-xl">
+          <p className="text-sm max-w-xl" style={{ color: '#FFFFFF' }}>
             Watch exclusive video tours of Dubai&apos;s most sought-after properties — from waterfront apartments to luxury villas.
           </p>
 
