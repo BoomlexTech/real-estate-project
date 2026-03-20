@@ -145,14 +145,14 @@ export default function HeroSlider() {
   const slide = slides[current];
 
   const variants = {
-    enter: (dir: 'left' | 'right') => ({ x: dir === 'right' ? 40 : -40, opacity: 0 }),
-    center: { x: 0, opacity: 1 },
-    exit: (dir: 'left' | 'right') => ({ x: dir === 'right' ? -40 : 40, opacity: 0 }),
+    enter: () => ({ opacity: 0 }),
+    center: { opacity: 1 },
+    exit: () => ({ opacity: 0 }),
   };
 
   return (
     <section
-      className="relative h-screen flex items-center overflow-hidden"
+      className="relative h-screen flex items-center overflow-hidden bg-black"
       onTouchStart={(e) => { touchStartX.current = e.touches[0].clientX; }}
       onTouchEnd={(e) => {
         const diff = touchStartX.current - e.changedTouches[0].clientX;
