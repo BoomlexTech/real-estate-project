@@ -146,7 +146,9 @@ export default function Header() {
 
           {/* Right side */}
           <div className="flex items-center gap-3">
-            <ThemeSwitcher />
+            <div className="hidden lg:block">
+              <ThemeSwitcher />
+            </div>
             <button
               onClick={() => setMobileOpen(true)}
               className="lg:hidden p-3 transition-colors"

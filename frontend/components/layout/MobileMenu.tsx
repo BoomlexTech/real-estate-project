@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { X, Phone, Mail, Facebook, Instagram, Linkedin, Youtube, ChevronDown } from 'lucide-react';
 import Logo from '../common/Logo';
+import ThemeSwitcher from '../common/ThemeSwitcher';
 import { motion, AnimatePresence } from 'framer-motion';
 
 type NavChild = { label: string; href: string };
@@ -189,6 +190,12 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               className="px-6 py-5"
               style={{ borderTop: '1px solid rgba(201,169,110,0.15)' }}
             >
+              {/* Theme Switcher */}
+              <div className="mb-5">
+                <p className="text-xs tracking-widest mb-3" style={{ color: 'var(--muted-text)' }}>THEME</p>
+                <ThemeSwitcher />
+              </div>
+
               {/* CTA */}
               <Link
                 href="/property"
