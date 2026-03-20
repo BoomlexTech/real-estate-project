@@ -713,6 +713,17 @@ body {
   border-radius: 1rem;
 }
 
+.card-dark .surface-panel-soft,
+.card-white .surface-panel-soft {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(201, 169, 110, 0.2);
+}
+
+.card-dark .surface-panel-soft .t-secondary,
+.card-white .surface-panel-soft .t-secondary {
+  color: rgba(0, 0, 0, 0.75) !important;
+}
+
 .info-pills {
   display: flex;
   flex-wrap: wrap;
