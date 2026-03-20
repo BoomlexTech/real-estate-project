@@ -849,6 +849,15 @@ body {
     inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
+/* YouTube section cards — solid white background */
+.youtube-card {
+  background: #ffffff !important;
+}
+
+.youtube-card-title {
+  color: #1a1a1a !important;
+}
+
 /* Dark card */
 .card-dark {
   background: rgba(10, 14, 26, 0.6);

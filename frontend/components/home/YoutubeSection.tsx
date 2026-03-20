@@ -45,7 +45,7 @@ function VideoCard({ video }: { video: (typeof videos)[0] }) {
 
   return (
     <div
-      className="glass-card rounded-2xl overflow-hidden flex flex-col h-full"
+      className="glass-card youtube-card rounded-2xl overflow-hidden flex flex-col h-full"
     >
       <div className="relative w-full shrink-0" style={{ paddingTop: '56.25%' }}>
         {playing ? (
@@ -84,7 +84,7 @@ function VideoCard({ video }: { video: (typeof videos)[0] }) {
       </div>
 
       <div className="px-4 py-3 flex flex-col flex-1">
-        <p className="text-sm font-semibold leading-snug line-clamp-2" style={{ color: 'var(--text-primary)' }}>{video.title}</p>
+        <p className="text-sm font-semibold leading-snug line-clamp-2 youtube-card-title" style={{ color: 'var(--text-primary)' }}>{video.title}</p>
         <p className="text-xs mt-1.5" style={{ color: '#C9A96E' }}>{video.location}</p>
       </div>
     </div>
@@ -168,7 +168,7 @@ export default function YoutubeSection() {
               animate="center"
               exit="exit"
               transition={{ duration: 0.4, ease: 'easeInOut' }}
-              className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch"
+              className="youtube-cards grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch"
             >
               {visible.map((video) => (
                 <VideoCard key={video.id} video={video} />

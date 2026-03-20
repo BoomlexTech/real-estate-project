@@ -184,7 +184,7 @@ export default function HeroSlider() {
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
-            background: 'linear-gradient(to right, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.34) 52%, rgba(0,0,0,0.08) 100%)',
+            background: 'linear-gradient(to right, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.55) 50%, rgba(0,0,0,0.15) 100%)',
           }}
         />
       )}
@@ -194,7 +194,7 @@ export default function HeroSlider() {
         className="absolute inset-0 bg-black transition-opacity duration-1000"
         style={{ opacity: isVideoSlide ? 1 : 0, pointerEvents: isVideoSlide ? 'auto' : 'none' }}
       >
-        <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.3) 56%, rgba(0,0,0,0.06) 100%)' }} />
+        <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.52) 55%, rgba(0,0,0,0.12) 100%)' }} />
         <video
           ref={videoRef}
           src={LOCAL_VIDEO_SRC}
@@ -246,7 +246,7 @@ export default function HeroSlider() {
               exit="exit"
               transition={{ duration: 0.65, ease: 'easeInOut' }}
               className="w-full"
-              style={{ textShadow: '0 1px 4px rgba(0,0,0,0.7)' }}
+              style={{ textShadow: '0 1px 6px rgba(0,0,0,0.9), 0 2px 16px rgba(0,0,0,0.6)' }}
             >
               <motion.div
                 initial={{ opacity: 0, y: -8 }}
@@ -256,7 +256,7 @@ export default function HeroSlider() {
               >
                 <span
                   className="px-3 py-1.5 text-xs tracking-[0.22em] uppercase"
-                  style={{ border: '1px solid rgba(201,169,110,0.55)', color: '#C9A96E' }}
+                  style={{ border: '1px solid rgba(201,169,110,0.55)', color: '#C9A96E', background: 'rgba(0,0,0,0.45)', backdropFilter: 'blur(6px)', WebkitBackdropFilter: 'blur(6px)' }}
                 >
                   {slide.badge}
                 </span>
@@ -370,7 +370,7 @@ export default function HeroSlider() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: 'easeOut' }}
             className="max-w-3xl"
-          style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}
+          style={{ textShadow: '0 1px 6px rgba(0,0,0,0.9), 0 2px 16px rgba(0,0,0,0.6)' }}
           >
             <div className="mb-8">
               <span
