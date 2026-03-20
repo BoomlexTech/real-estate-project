@@ -126,9 +126,9 @@ export default function Header() {
                           key={child.href}
                           href={child.href}
                           className="block px-4 py-2.5 text-xs tracking-widest transition-colors"
-                          style={{ color: 'var(--text-secondary)', borderBottom: '1px solid rgba(201,169,110,0.08)' }}
+                          style={{ color: 'var(--text-primary)', borderBottom: '1px solid rgba(201,169,110,0.08)' }}
                           onMouseEnter={e => (e.currentTarget.style.color = '#C9A96E')}
-                          onMouseLeave={e => (e.currentTarget.style.color = 'var(--text-secondary)')}
+                          onMouseLeave={e => (e.currentTarget.style.color = 'var(--text-primary)')}
                         >
                           {child.label}
                         </Link>
