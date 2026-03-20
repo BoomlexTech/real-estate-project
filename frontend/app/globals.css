@@ -1184,21 +1184,21 @@ body {
 
 /* Header background helper — referenced in Header.tsx */
 .header-surface {
-  background: rgba(10, 14, 26, 0.88);
+  background: #0A0E1A;
   border-bottom: 1px solid rgba(201, 169, 110, 0.55);
 }
 
 .header-surface.scrolled {
-  background: rgba(10, 14, 26, 0.97);
+  background: #0A0E1A;
 }
 
 [data-light] .header-surface {
-  background: rgba(253, 250, 245, 0.88);
+  background: #fdfaf5;
   border-bottom: 1px solid rgba(201, 169, 110, 0.35);
 }
 
 [data-light] .header-surface.scrolled {
-  background: rgba(253, 250, 245, 0.97);
+  background: #fdfaf5;
 }
 
 /* Property card dual-layer structure — spinning gold glow on hover */

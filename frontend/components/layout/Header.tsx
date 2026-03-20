@@ -58,7 +58,7 @@ export default function Header() {
           className="hidden md:flex items-center justify-between px-6 py-2 text-xs border-b"
           style={{
             borderColor: 'rgba(201,169,110,0.55)',
-            background: isDark ? 'rgba(10,14,26,0.4)' : 'rgba(253,250,245,0.5)',
+            background: isDark ? '#080b15' : '#f5f0e8',
           }}
         >
           <div className="flex items-center gap-7">
