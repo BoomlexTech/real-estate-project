@@ -123,9 +123,9 @@ export default function ContactPage() {
                   leasing@awtadrealestate.com
                 </a>
               </div>
-              <div className="surface-panel-soft mt-5 p-4">
+              <div className="surface-panel-soft mt-5 p-4" style={{ background: 'rgba(0,0,0,0.55)', borderColor: 'rgba(201,169,110,0.2)' }}>
                 <p className="section-kicker mb-2">Best For</p>
-                <p className="t-secondary text-sm">Buying guidance, off-plan launches, rental options, mortgage questions, and investor support.</p>
+                <p className="text-sm" style={{ color: '#ffffff' }}>Buying guidance, off-plan launches, rental options, mortgage questions, and investor support.</p>
               </div>
             </div>
 

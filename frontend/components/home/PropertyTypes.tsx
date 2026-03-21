@@ -98,7 +98,7 @@ export default function PropertyTypes() {
                   transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut', delay: i * 0.2 }}
                 />
                 {/* Label */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-center" style={{ textShadow: '0 1px 3px rgba(0,0,0,0.9)' }}>
                   <h3 className="text-xl sm:text-2xl font-bold group-hover:text-gold transition-colors" style={{ color: 'white' }}>
                     {type.label}
                   </h3>
@@ -146,7 +146,7 @@ export default function PropertyTypes() {
                   transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut', delay: (i + 3) * 0.2 }}
                 />
                 {/* Label */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-center" style={{ textShadow: '0 1px 3px rgba(0,0,0,0.9)' }}>
                   <h3 className="text-lg sm:text-xl font-bold group-hover:text-gold transition-colors" style={{ color: 'white' }}>
                     {type.label}
                   </h3>

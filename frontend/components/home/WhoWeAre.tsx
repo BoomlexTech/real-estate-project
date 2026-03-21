@@ -115,7 +115,7 @@ export default function WhoWeAre() {
                 <div className="absolute bottom-0 left-0 p-6 z-10">
                   <span
                     className="px-3 py-1.5 text-[10px] tracking-[0.22em] uppercase rounded-sm"
-                    style={{ border: '1px solid rgba(201,169,110,0.55)', color: 'var(--gold-text)', background: 'rgba(15, 23, 42, 0.38)' }}
+                    style={{ border: '1px solid rgba(201,169,110,0.55)', color: 'var(--gold-text)', background: 'rgba(15, 23, 42, 0.38)', textShadow: '0 1px 3px rgba(0,0,0,0.9)' }}
                   >
                     Dubai Real Estate
                   </span>

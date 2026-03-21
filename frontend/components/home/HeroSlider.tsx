@@ -246,7 +246,6 @@ export default function HeroSlider() {
               exit="exit"
               transition={{ duration: 0.65, ease: 'easeInOut' }}
               className="w-full"
-              style={{ textShadow: '0 1px 6px rgba(0,0,0,0.9), 0 2px 16px rgba(0,0,0,0.6)' }}
             >
               <motion.div
                 initial={{ opacity: 0, y: -8 }}
@@ -256,7 +255,7 @@ export default function HeroSlider() {
               >
                 <span
                   className="px-3 py-1.5 text-xs tracking-[0.22em] uppercase"
-                  style={{ border: '1px solid rgba(201,169,110,0.55)', color: '#C9A96E', background: 'rgba(0,0,0,0.45)', backdropFilter: 'blur(6px)', WebkitBackdropFilter: 'blur(6px)' }}
+                  style={{ border: '1px solid rgba(255,255,255,0.4)', color: 'white', background: 'rgba(0,0,0,0.45)', backdropFilter: 'blur(6px)', WebkitBackdropFilter: 'blur(6px)' }}
                 >
                   {slide.badge}
                 </span>
@@ -267,7 +266,7 @@ export default function HeroSlider() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.14 }}
                 className="font-serif text-5xl sm:text-6xl lg:text-7xl xl:text-[5.5rem] font-light mb-5 leading-[1.04]"
-                style={{ color: 'white' }}
+                style={{ color: 'white', textShadow: '0 1px 3px rgba(0,0,0,0.9)' }}
               >
                 {slide.title}
               </motion.h1>
@@ -277,7 +276,7 @@ export default function HeroSlider() {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.2 }}
                 className="text-xs sm:text-sm font-light tracking-[0.18em] uppercase mb-10"
-                style={{ color: 'var(--hero-text)' }}
+                style={{ color: 'white', textShadow: '0 1px 3px rgba(0,0,0,0.9)' }}
               >
                 {slide.subtitle}
               </motion.p>
@@ -298,23 +297,23 @@ export default function HeroSlider() {
                 className="hidden sm:flex flex-wrap items-center gap-6"
               >
                 <div className="flex items-center gap-2">
-                  <MapPin className="w-3 h-3 shrink-0" style={{ color: '#C9A96E' }} />
-                  <span className="text-xs tracking-[0.08em]" style={{ color: 'var(--hero-meta)' }}>{slide.location}</span>
+                  <MapPin className="w-3 h-3 shrink-0" style={{ color: 'white' }} />
+                  <span className="text-xs tracking-[0.08em]" style={{ color: 'white' }}>{slide.location}</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-[10px] tracking-[0.18em] uppercase" style={{ color: '#C9A96E' }}>Plan</span>
-                  <span className="text-xs tracking-[0.08em]" style={{ color: 'var(--hero-meta)' }}>{slide.paymentPlan}</span>
+                  <span className="text-[10px] tracking-[0.18em] uppercase" style={{ color: 'white' }}>Plan</span>
+                  <span className="text-xs tracking-[0.08em]" style={{ color: 'white' }}>{slide.paymentPlan}</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-[10px] tracking-[0.18em] uppercase" style={{ color: '#C9A96E' }}>Ready</span>
-                  <span className="text-xs tracking-[0.08em]" style={{ color: 'var(--hero-meta)' }}>{slide.completion}</span>
+                  <span className="text-[10px] tracking-[0.18em] uppercase" style={{ color: 'white' }}>Ready</span>
+                  <span className="text-xs tracking-[0.08em]" style={{ color: 'white' }}>{slide.completion}</span>
                 </div>
                 <div className="h-4 w-px" style={{ background: 'rgba(255,255,255,0.3)' }} />
                 <div>
-                  <span className="text-[10px] tracking-[0.18em] uppercase" style={{ color: 'var(--hero-meta)' }}>
+                  <span className="text-[10px] tracking-[0.18em] uppercase" style={{ color: 'white' }}>
                     {slide.priceLabel}{' '}
                   </span>
-                  <span className="font-serif text-xl sm:text-2xl font-light" style={{ color: '#C9A96E' }}>
+                  <span className="font-serif text-xl sm:text-2xl font-light" style={{ color: 'white' }}>
                     {slide.price}
                   </span>
                 </div>
@@ -334,25 +333,25 @@ export default function HeroSlider() {
                   href="/property"
                   className="hidden sm:inline-flex items-center text-[10px] tracking-[0.18em] uppercase px-5 py-2.5 font-medium transition-all duration-250"
                   style={{
-                    background: '#C9A96E',
-                    color: 'var(--bg-primary)',
-                    border: '1px solid #C9A96E',
+                    background: '#FFFFFF',
+                    color: '#111111',
+                    border: '1px solid #FFFFFF',
                     borderRadius: '6px',
-                    boxShadow: '0 0 0 rgba(201,169,110,0)',
+                    boxShadow: '0 0 0 rgba(255,255,255,0)',
                     transform: 'translateY(0)',
                   }}
                   onMouseEnter={e => {
                     const el = e.currentTarget as HTMLElement;
-                    el.style.background = '#E8D5A8';
-                    el.style.borderColor = '#E8D5A8';
-                    el.style.boxShadow = '0 0 22px rgba(201,169,110,0.55), 0 6px 18px rgba(201,169,110,0.3)';
+                    el.style.background = '#F0F0F0';
+                    el.style.borderColor = '#F0F0F0';
+                    el.style.boxShadow = '0 0 22px rgba(255,255,255,0.3), 0 6px 18px rgba(255,255,255,0.15)';
                     el.style.transform = 'translateY(-3px) scale(1.04)';
                   }}
                   onMouseLeave={e => {
                     const el = e.currentTarget as HTMLElement;
-                    el.style.background = '#C9A96E';
-                    el.style.borderColor = '#C9A96E';
-                    el.style.boxShadow = '0 0 0 rgba(201,169,110,0)';
+                    el.style.background = '#FFFFFF';
+                    el.style.borderColor = '#FFFFFF';
+                    el.style.boxShadow = '0 0 0 rgba(255,255,255,0)';
                     el.style.transform = 'translateY(0) scale(1)';
                   }}
                 >
@@ -370,7 +369,6 @@ export default function HeroSlider() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: 'easeOut' }}
             className="max-w-3xl"
-          style={{ textShadow: '0 1px 6px rgba(0,0,0,0.9), 0 2px 16px rgba(0,0,0,0.6)' }}
           >
             <div className="mb-8">
               <span
@@ -382,20 +380,19 @@ export default function HeroSlider() {
                   borderRadius: '6px',
                   border: '1px solid rgba(255,255,255,0.6)',
                   color: '#111111',
-                  textShadow: 'none',
                 }}
               >
                 Premium Real Estate
               </span>
             </div>
 
-            <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl xl:text-[5.5rem] font-light mb-5 leading-[1.04]" style={{ color: 'white' }}>
+            <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl xl:text-[5.5rem] font-light mb-5 leading-[1.04]" style={{ color: 'white', textShadow: '0 1px 3px rgba(0,0,0,0.9)' }}>
               Dubai&apos;s Finest<br />Properties
             </h1>
 
             <p
-              className="text-xs sm:text-sm font-light tracking-[0.18em] uppercase mb-10"
-              style={{ color: 'var(--hero-text)' }}
+              className="text-xs sm:text-sm font-normal tracking-[0.18em] uppercase mb-10"
+              style={{ color: 'white', textShadow: '0 1px 3px rgba(0,0,0,1.0)' }}
             >
               Luxury Living — Waterfront · Villas · Penthouses
             </p>
@@ -412,25 +409,25 @@ export default function HeroSlider() {
                 href="/contact"
                 className="inline-flex items-center text-[10px] tracking-[0.18em] uppercase px-5 py-2.5 font-medium transition-all duration-250"
                 style={{
-                  background: '#C9A96E',
-                  color: 'var(--bg-primary)',
-                  border: '1px solid #C9A96E',
+                  background: '#FFFFFF',
+                  color: '#111111',
+                  border: '1px solid #FFFFFF',
                   borderRadius: '6px',
-                  boxShadow: '0 0 0 rgba(201,169,110,0)',
+                  boxShadow: '0 0 0 rgba(255,255,255,0)',
                   transform: 'translateY(0)',
                 }}
                 onMouseEnter={e => {
                   const el = e.currentTarget as HTMLElement;
-                  el.style.background = '#E8D5A8';
-                  el.style.borderColor = '#E8D5A8';
-                  el.style.boxShadow = '0 0 22px rgba(201,169,110,0.55), 0 6px 18px rgba(201,169,110,0.3)';
+                  el.style.background = '#F0F0F0';
+                  el.style.borderColor = '#F0F0F0';
+                  el.style.boxShadow = '0 0 22px rgba(255,255,255,0.3), 0 6px 18px rgba(255,255,255,0.15)';
                   el.style.transform = 'translateY(-3px) scale(1.04)';
                 }}
                 onMouseLeave={e => {
                   const el = e.currentTarget as HTMLElement;
-                  el.style.background = '#C9A96E';
-                  el.style.borderColor = '#C9A96E';
-                  el.style.boxShadow = '0 0 0 rgba(201,169,110,0)';
+                  el.style.background = '#FFFFFF';
+                  el.style.borderColor = '#FFFFFF';
+                  el.style.boxShadow = '0 0 0 rgba(255,255,255,0)';
                   el.style.transform = 'translateY(0) scale(1)';
                 }}
               >

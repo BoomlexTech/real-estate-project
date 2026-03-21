@@ -1,18 +1,16 @@
 'use client';
 import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
 
-export type Palette = 'midnight-gold' | 'desert-sand' | 'emerald-elite' | 'rose-marble' | 'obsidian-gold' | 'blush-mirage';
+export type Palette = 'desert-sand' | 'emerald-elite' | 'blush-mirage' | 'aurora-fusion';
 export type Mode = 'dark' | 'light';
 type Theme = 'dark' | 'light'; // backward compat alias
 
-const VALID_PALETTES: Palette[] = ['midnight-gold', 'desert-sand', 'emerald-elite', 'rose-marble', 'obsidian-gold', 'blush-mirage'];
+const VALID_PALETTES: Palette[] = ['desert-sand', 'emerald-elite', 'blush-mirage', 'aurora-fusion'];
 const DEFAULT_MODE: Record<Palette, Mode> = {
-  'midnight-gold': 'dark',
   'desert-sand':   'light',
-  'emerald-elite': 'dark',
-  'rose-marble':   'light',
-  'obsidian-gold': 'dark',
+  'emerald-elite': 'light',
   'blush-mirage':  'light',
+  'aurora-fusion': 'light',
 };
 
 // Agent/Admin portal palette — used in inline styles (CSS vars can't override inline)
@@ -58,23 +56,23 @@ interface ThemeContextType {
 }
 
 const ThemeContext = createContext<ThemeContextType>({
-  palette: darkPalette,
-  activePalette: 'midnight-gold',
-  mode: 'dark',
+  palette: lightPalette,
+  activePalette: 'aurora-fusion',
+  mode: 'light',
   setPalette: () => {},
   setMode: () => {},
-  theme: 'dark',
-  isDark: true,
+  theme: 'light',
+  isDark: false,
   toggle: () => {},
   toggleTheme: () => {},
-  themePreference: 'midnight-gold',
-  resolvedTheme: 'dark',
+  themePreference: 'aurora-fusion',
+  resolvedTheme: 'light',
   setThemePreference: () => {},
 });
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [activePalette, setPaletteState] = useState<Palette>('midnight-gold');
-  const [mode, setModeState] = useState<Mode>('dark');
+  const [activePalette, setPaletteState] = useState<Palette>('aurora-fusion');
+  const [mode, setModeState] = useState<Mode>('light');
 
   const isDark = mode === 'dark';
 
@@ -92,12 +90,22 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   const setPalette = (p: Palette) => {
     setPaletteState(p);
     localStorage.setItem('themePreference', p);
-    applyTheme(p, mode);
+    if (p === 'aurora-fusion') {
+      const savedAuroraMode = (localStorage.getItem('auroraFusionMode') as Mode | null) ?? 'dark';
+      setModeState(savedAuroraMode);
+      applyTheme(p, savedAuroraMode);
+    } else {
+      setModeState('light');
+      applyTheme(p, 'light');
+    }
   };
 
   const setMode = (m: Mode) => {
     setModeState(m);
     localStorage.setItem('themeMode', m);
+    if (activePalette === 'aurora-fusion') {
+      localStorage.setItem('auroraFusionMode', m);
+    }
     applyTheme(activePalette, m);
   };
 
@@ -107,9 +115,12 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const sp = localStorage.getItem('themePreference') as Palette | null;
-    const sm = localStorage.getItem('themeMode') as Mode | null;
-    const p: Palette = VALID_PALETTES.includes(sp as Palette) ? (sp as Palette) : 'midnight-gold';
-    const m: Mode = sm === 'dark' || sm === 'light' ? sm : DEFAULT_MODE[p];
+    const p: Palette = VALID_PALETTES.includes(sp as Palette) ? (sp as Palette) : 'aurora-fusion';
+    let m: Mode = 'light';
+    if (p === 'aurora-fusion') {
+      const savedAuroraMode = localStorage.getItem('auroraFusionMode') as Mode | null;
+      m = savedAuroraMode === 'dark' || savedAuroraMode === 'light' ? savedAuroraMode : 'dark';
+    }
     setPaletteState(p);
     setModeState(m);
     applyTheme(p, m);
