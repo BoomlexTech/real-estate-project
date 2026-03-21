@@ -110,12 +110,12 @@ export default function Header() {
         </div>
 
         {/* Main Nav */}
-        <div className="flex items-center justify-between px-5 lg:px-8 py-2.5">
+        <div className="flex items-center justify-between px-4 lg:px-6 py-2">
           {/* Logo */}
           <Logo className="navbar-logo" />
 
           {/* Desktop Nav Links */}
-          <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
+          <nav className="hidden xl:flex items-center gap-4 2xl:gap-6">
             {navLinks.map((link) =>
               link.children ? (
                 <div key={link.href} className="relative group">
@@ -149,19 +149,19 @@ export default function Header() {
           </nav>
 
           {/* Right side */}
-          <div className="flex items-center gap-3">
-            <div className="hidden lg:flex items-center gap-2">
+          <div className="flex items-center gap-2">
+            <div className="hidden xl:flex items-center gap-1.5">
               {MODE_OPTIONS.map((opt) => (
                 <button
                   key={opt.id}
                   onClick={() => setMode(opt.id)}
                   title={opt.label}
                   style={{
-                    padding: '4px 10px',
+                    padding: '3px 8px',
                     borderRadius: '999px',
-                    fontSize: '10px',
+                    fontSize: '9px',
                     fontWeight: isDark === (opt.id === 'dark') ? 600 : 400,
-                    letterSpacing: '0.08em',
+                    letterSpacing: '0.07em',
                     cursor: 'pointer',
                     transition: 'all 0.15s ease',
                     border: isDark === (opt.id === 'dark') ? '1.5px solid #C9A96E' : '1.5px solid rgba(201,169,110,0.25)',
@@ -174,12 +174,12 @@ export default function Header() {
                   {opt.label}
                 </button>
               ))}
-              <div style={{ width: '1px', height: '16px', background: 'rgba(201,169,110,0.25)' }} />
+              <div style={{ width: '1px', height: '14px', background: 'rgba(201,169,110,0.25)' }} />
               <ThemeSwitcher />
             </div>
             <button
               onClick={() => setMobileOpen(true)}
-              className="lg:hidden p-3 transition-colors"
+              className="xl:hidden p-2 transition-colors"
               style={{ color: 'var(--text-primary)' }}
             >
               <Menu className="w-5 h-5" />

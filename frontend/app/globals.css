@@ -1173,9 +1173,9 @@ body {
 .nav-link {
   color: #FFFFFF;
   font-family: var(--font-inter), sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.75vw;
   font-weight: 400;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.10em;
   text-transform: uppercase;
   padding: 0.25rem 0;
   transition: color 0.25s ease, text-shadow 0.25s ease, letter-spacing 0.25s ease;
