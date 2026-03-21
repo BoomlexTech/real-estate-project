@@ -8,6 +8,7 @@ import MobileMenu from './MobileMenu';
 import Logo from '../common/Logo';
 import ThemeSwitcher from '../common/ThemeSwitcher';
 import { useTheme } from '@/contexts/ThemeContext';
+import { MODE_OPTIONS } from '../common/ThemeSwitcher';
 import { trackEvent } from '@/lib/analytics';
 
 type NavChild = { label: string; href: string };
@@ -33,7 +34,7 @@ const navLinks: NavLink[] = [
 
 export default function Header() {
   const pathname = usePathname();
-  const { isDark } = useTheme();
+  const { isDark, setMode } = useTheme();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -51,6 +52,9 @@ export default function Header() {
         className={`fixed top-0 left-0 right-0 z-30 transition-all duration-400 header-surface${scrolled ? ' scrolled' : ''}`}
         style={{
           boxShadow: scrolled ? '0 1px 0 rgba(201,169,110,0.18)' : 'none'
+        }}
+        ref={(el) => {
+          if (el) document.documentElement.style.setProperty('--header-height', el.offsetHeight + 'px');
         }}
       >
         {/* Top Bar */}
@@ -146,7 +150,31 @@ export default function Header() {
 
           {/* Right side */}
           <div className="flex items-center gap-3">
-            <div className="hidden lg:block">
+            <div className="hidden lg:flex items-center gap-2">
+              {MODE_OPTIONS.map((opt) => (
+                <button
+                  key={opt.id}
+                  onClick={() => setMode(opt.id)}
+                  title={opt.label}
+                  style={{
+                    padding: '4px 10px',
+                    borderRadius: '999px',
+                    fontSize: '10px',
+                    fontWeight: isDark === (opt.id === 'dark') ? 600 : 400,
+                    letterSpacing: '0.08em',
+                    cursor: 'pointer',
+                    transition: 'all 0.15s ease',
+                    border: isDark === (opt.id === 'dark') ? '1.5px solid #C9A96E' : '1.5px solid rgba(201,169,110,0.25)',
+                    background: isDark === (opt.id === 'dark') ? opt.bg : 'transparent',
+                    color: isDark === (opt.id === 'dark') ? opt.text : 'var(--text-primary)',
+                    boxShadow: isDark === (opt.id === 'dark') ? '0 0 8px rgba(201,169,110,0.25)' : 'none',
+                    outline: 'none',
+                  }}
+                >
+                  {opt.label}
+                </button>
+              ))}
+              <div style={{ width: '1px', height: '16px', background: 'rgba(201,169,110,0.25)' }} />
               <ThemeSwitcher />
             </div>
             <button

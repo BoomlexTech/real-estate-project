@@ -6,12 +6,6 @@ export type Mode = 'dark' | 'light';
 type Theme = 'dark' | 'light'; // backward compat alias
 
 const VALID_PALETTES: Palette[] = ['desert-sand', 'emerald-elite', 'blush-mirage', 'aurora-fusion'];
-const DEFAULT_MODE: Record<Palette, Mode> = {
-  'desert-sand':   'light',
-  'emerald-elite': 'light',
-  'blush-mirage':  'light',
-  'aurora-fusion': 'light',
-};
 
 // Agent/Admin portal palette — used in inline styles (CSS vars can't override inline)
 const darkPalette = {
@@ -72,7 +66,7 @@ const ThemeContext = createContext<ThemeContextType>({
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [activePalette, setPaletteState] = useState<Palette>('aurora-fusion');
-  const [mode, setModeState] = useState<Mode>('light');
+  const [mode, setModeState] = useState<Mode>('dark');
 
   const isDark = mode === 'dark';
 
