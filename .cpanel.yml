@@ -1,16 +1,18 @@
 ---
 deployment:
   tasks:
-    # 1. Set Live Destinations
+    # 1. Define the live destinations
     - export FRONTEND_DEST=/home/awtadrealestate/public_html
     - export BACKEND_DEST=/home/awtadrealestate/public_html/properties.awtadrealestate.com
 
-    # 2. Ensure Backend folder exists
+    # 2. Ensure the backend directory exists
     - /bin/mkdir -p $BACKEND_DEST
 
-    # 3. Deploy Backend (Copies all files including hidden .env)
+    # 3. Deploy Backend
+    # Copies backend/server.js and all other backend files
     - /usr/bin/rsync -av backend/. $BACKEND_DEST
 
-    # 4. Deploy Frontend (IMPORTANT: Includes .next and .env)
-    # The --exclude prevents the frontend from overwriting the backend subfolder
+    # 4. Deploy Frontend
+    # Copies frontend/server.js and the .next folder
+    # Excludes the backend folder so it doesn't overwrite it
     - /usr/bin/rsync -av frontend/. $FRONTEND_DEST --exclude='properties.awtadrealestate.com'
