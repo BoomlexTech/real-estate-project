@@ -16,6 +16,7 @@ import {
   X,
   Settings,
   Star,
+  TrendingUp,
 } from 'lucide-react';
 import ProtectedRoute from '@/components/auth/ProtectedRoute';
 import { useAuth } from '@/contexts/AuthContext';
@@ -58,6 +59,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     { label: 'Property Inquiries', href: '/admin/property-inquiries', icon: <Home size={18} /> },
     { label: 'Blog Posts', href: '/admin/blogs', icon: <BookOpen size={18} /> },
     { label: 'Agent Reviews', href: '/admin/reviews', icon: <Star size={18} /> },
+    { label: 'Analytics', href: '/admin/analytics', icon: <TrendingUp size={18} /> },
     { label: 'Settings', href: '/admin/settings', icon: <Settings size={18} /> },
   ];
 

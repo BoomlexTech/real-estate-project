@@ -292,6 +292,33 @@ export async function getAgentReviews(): Promise<AgentReview[]> {
   return data.data;
 }
 
+// ─── Brochure Analytics ───────────────────────────────────
+export interface BrochureLead {
+  _id: string;
+  name: string;
+  phone: string;
+  email: string;
+  message: string;
+  createdAt: string;
+}
+
+export interface BrochureAnalyticsItem {
+  _id: string;
+  title: string;
+  images: string[];
+  agent?: { _id: string; name: string } | null;
+  leads: BrochureLead[];
+}
+
+export async function getBrochureAnalytics(): Promise<BrochureAnalyticsItem[]> {
+  const { data } = await api.get('/admin/analytics/brochure');
+  return data.data;
+}
+
+export async function deleteAdminBrochureLead(leadId: string): Promise<void> {
+  await api.delete(`/admin/analytics/brochure/leads/${leadId}`);
+}
+
 // ─── Site Settings ────────────────────────────────────────
 export interface SiteSettings {
   companyBrochureUrl: string;

@@ -14,6 +14,7 @@ export interface AgentProperty {
   isFeatured: boolean;
   hasPendingChanges?: boolean;
   brochureUrl?: string;
+  brochureDownloadCount?: number;
   images: string[];
   amenities: string[];
   developer?: { name: string } | null;
@@ -161,4 +162,30 @@ export async function getMyBlogPosts(page = 1): Promise<AgentBlogResponse> {
 
 export async function deleteMyBlogPost(id: string): Promise<void> {
   await api.delete(`/blog/mine/${id}`);
+}
+
+// ─── Agent Brochure Analytics ─────────────────────────────
+export interface AgentBrochureLead {
+  _id: string;
+  name: string;
+  phone: string;
+  email: string;
+  message: string;
+  createdAt: string;
+}
+
+export interface AgentAnalyticsItem {
+  _id: string;
+  title: string;
+  images: string[];
+  leads: AgentBrochureLead[];
+}
+
+export async function getMyPropertiesAnalytics(): Promise<AgentAnalyticsItem[]> {
+  const { data } = await api.get('/properties/mine/analytics');
+  return data.data;
+}
+
+export async function deleteAgentBrochureLead(leadId: string): Promise<void> {
+  await api.delete(`/properties/mine/analytics/leads/${leadId}`);
 }

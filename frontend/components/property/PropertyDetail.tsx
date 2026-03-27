@@ -6,10 +6,11 @@ import { MapPin, Bed, Bath, Maximize2, Calendar, CreditCard, Phone, CheckCircle,
 import Link from 'next/link';
 import { Property } from '@/lib/types';
 import { useForm } from 'react-hook-form';
-import { getSiteSettings } from '@/lib/adminApi';
-import { submitPropertyInquiry } from '@/lib/api';
+import api, { submitPropertyInquiry } from '@/lib/api';
 import AgentReviewForm from '@/components/agent/AgentReviewForm';
 import { trackEvent } from '@/lib/analytics';
+import { generatePropertyBrochure } from '@/lib/pdfBrochure';
+import BrochureLeadModal from '@/components/property/BrochureLeadModal';
 
 interface ContactForm {
   name: string;
@@ -29,11 +30,8 @@ export default function PropertyDetail({ property }: Props) {
   const [submitted, setSubmitted] = useState(false);
   const [serverError, setServerError] = useState('');
   const [activeImage, setActiveImage] = useState(0);
-  const [companyBrochureUrl, setCompanyBrochureUrl] = useState('');
-
-  useEffect(() => {
-    getSiteSettings().then((s) => setCompanyBrochureUrl(s.companyBrochureUrl)).catch(() => {});
-  }, []);
+  const [generatingPdf, setGeneratingPdf] = useState(false);
+  const [showLeadModal, setShowLeadModal] = useState(false);
 
   useEffect(() => {
     trackEvent('view_item', { item_id: property.id, item_name: property.title, price: property.price, item_category: property.type, item_variant: property.status, item_list_name: property.emirate });
@@ -49,6 +47,18 @@ export default function PropertyDetail({ property }: Props) {
     defaultValues: { message: `I'm interested in ${property.title}. Please contact me.` },
   });
 
+  const handleLeadConfirm = async (leadData: { name: string; phone: string; email: string; message: string }) => {
+    setShowLeadModal(false);
+    setGeneratingPdf(true);
+    try {
+      await generatePropertyBrochure(property);
+      api.post(`/properties/${property.id}/brochure-download`, leadData).catch(() => {});
+      trackEvent('brochure_download', { property_id: property.id, property_title: property.title });
+    } finally {
+      setGeneratingPdf(false);
+    }
+  };
+
   const onSubmit = async (data: ContactForm) => {
     setServerError('');
     try {
@@ -61,6 +71,7 @@ export default function PropertyDetail({ property }: Props) {
   };
 
   return (
+    <>
     <div className="max-w-7xl mx-auto px-4 pt-32 pb-28 lg:pb-16">
       <div className="grid lg:grid-cols-3 gap-8">
         {/* Main Content */}
@@ -342,22 +353,18 @@ export default function PropertyDetail({ property }: Props) {
                 </div>
               </div>
 
-              {/* Brochure (if available) */}
-              {(property.brochureUrl || companyBrochureUrl) && (
-                <div className="mb-5">
-                  <a
-                    href={property.brochureUrl || companyBrochureUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 w-full py-3 rounded-lg font-semibold text-sm transition-colors"
-                    style={{ background: 'var(--skeleton-bg)', color: 'var(--text-primary)', border: '1px solid var(--border-gold)' }}
-                    onClick={() => trackEvent('brochure_download', { property_id: property.id, property_title: property.title })}
-                  >
-                    <Download className="w-4 h-4" />
-                    Download Brochure
-                  </a>
-                </div>
-              )}
+              {/* Brochure PDF download */}
+              <div className="mb-5">
+                <button
+                  onClick={() => setShowLeadModal(true)}
+                  disabled={generatingPdf}
+                  className="flex items-center justify-center gap-2 w-full py-3 rounded-lg font-semibold text-sm transition-colors disabled:opacity-60"
+                  style={{ background: 'var(--skeleton-bg)', color: 'var(--text-primary)', border: '1px solid var(--border-gold)' }}
+                >
+                  <Download className="w-4 h-4" />
+                  {generatingPdf ? 'Generating PDF…' : 'Download Brochure'}
+                </button>
+              </div>
 
               {/* Inquiry Form */}
               <div className="mt-6 pt-5" style={{ borderTop: '1px solid var(--border-color)' }}>
@@ -392,5 +399,14 @@ export default function PropertyDetail({ property }: Props) {
         )}
       </div>
     </div>
+
+    {showLeadModal && (
+      <BrochureLeadModal
+        propertyTitle={property.title}
+        onConfirm={handleLeadConfirm}
+        onClose={() => setShowLeadModal(false)}
+      />
+    )}
+    </>
   );
 }

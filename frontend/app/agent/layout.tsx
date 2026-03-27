@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { LayoutDashboard, Building2, PlusCircle, LogOut, Menu, User, MessageSquare, FileText } from 'lucide-react';
+import { LayoutDashboard, Building2, PlusCircle, LogOut, Menu, User, MessageSquare, FileText, TrendingUp } from 'lucide-react';
 import ProtectedRoute from '@/components/auth/ProtectedRoute';
 import { useAuth } from '@/contexts/AuthContext';
 import { useTheme } from '@/contexts/ThemeContext';
@@ -26,6 +26,7 @@ export default function AgentLayout({ children }: { children: React.ReactNode })
     { label: 'My Properties', href: '/agent/properties',     icon: <Building2 size={18} /> },
     { label: 'Inquiries',     href: '/agent/inquiries',      icon: <MessageSquare size={18} /> },
     { label: 'My Blogs',      href: '/agent/blogs',          icon: <FileText size={18} /> },
+    { label: 'Analytics',     href: '/agent/analytics',      icon: <TrendingUp size={18} /> },
     { label: 'Add Property',  href: '/agent/properties/new', icon: <PlusCircle size={18} /> },
     { label: 'Profile',       href: '/agent/profile',        icon: <User size={18} /> },
   ];
