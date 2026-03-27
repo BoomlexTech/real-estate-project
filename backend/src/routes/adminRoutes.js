@@ -21,6 +21,8 @@ const {
   approveBlog,
   rejectBlog,
   getReviews,
+  getBrochureAnalytics,
+  deleteBrochureLead,
 } = require('../controllers/adminController');
 const { getSettings, updateSettings } = require('../controllers/settingsController');
 const { getAdminBlogPosts, getBlogPostById, createBlogPost, updateBlogPost, deleteBlogPost } = require('../controllers/blogController');
@@ -72,6 +74,10 @@ router.patch('/blogs/:id/reject', rejectBlog);
 
 // Agent reviews (read-only for admin)
 router.get('/reviews', getReviews);
+
+// Brochure download analytics
+router.get('/analytics/brochure', getBrochureAnalytics);
+router.delete('/analytics/brochure/leads/:leadId', deleteBrochureLead);
 
 // Site settings
 router.get('/settings', getSettings);

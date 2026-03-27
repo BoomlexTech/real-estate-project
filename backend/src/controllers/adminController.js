@@ -441,6 +441,46 @@ const rejectBlog = async (req, res, next) => {
   }
 };
 
+// GET /api/admin/analytics/brochure  — all properties with their brochure leads
+const getBrochureAnalytics = async (req, res, next) => {
+  try {
+    const BrochureLead = require('../models/BrochureLead');
+
+    const properties = await Property.find({})
+      .select('title images agent createdAt')
+      .populate('agent', 'name')
+      .sort({ createdAt: -1 });
+
+    const propertyIds = properties.map((p) => p._id);
+    const leads = await BrochureLead.find({ property: { $in: propertyIds } }).sort({ createdAt: -1 });
+
+    const leadsMap = {};
+    leads.forEach((l) => {
+      const pid = l.property.toString();
+      if (!leadsMap[pid]) leadsMap[pid] = [];
+      leadsMap[pid].push(l);
+    });
+
+    const data = properties.map((p) => ({ ...p.toObject(), leads: leadsMap[p._id.toString()] || [] }));
+    res.json({ success: true, data });
+  } catch (err) {
+    next(err);
+  }
+};
+
+// DELETE /api/admin/analytics/brochure/leads/:leadId  — admin deletes any lead
+const deleteBrochureLead = async (req, res, next) => {
+  try {
+    const BrochureLead = require('../models/BrochureLead');
+    const lead = await BrochureLead.findById(req.params.leadId);
+    if (!lead) return res.status(404).json({ success: false, message: 'Lead not found' });
+    await lead.deleteOne();
+    res.json({ success: true });
+  } catch (err) {
+    next(err);
+  }
+};
+
 module.exports = {
   getDashboard,
   getAgents,
@@ -462,4 +502,6 @@ module.exports = {
   approveBlog,
   rejectBlog,
   getReviews,
+  getBrochureAnalytics,
+  deleteBrochureLead,
 };

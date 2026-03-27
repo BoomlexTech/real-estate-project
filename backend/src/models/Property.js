@@ -42,6 +42,7 @@ const propertySchema = new mongoose.Schema({
   status: { type: String, enum: ['for-sale', 'for-rent', 'sold', 'pending_review'], default: 'for-sale' },
   isFeatured: { type: Boolean, default: false },
   brochureUrl: { type: String, default: '' },
+  brochureDownloadCount: { type: Number, default: 0 },
   hasPendingChanges: { type: Boolean, default: false },
   pendingChanges: { type: mongoose.Schema.Types.Mixed, default: null },
 }, { timestamps: true });

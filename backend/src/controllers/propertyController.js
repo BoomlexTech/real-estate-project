@@ -281,4 +281,69 @@ const toggleFeatured = async (req, res, next) => {
   }
 };
 
-module.exports = { getProperties, getProperty, getPropertyByObjectId, getMyProperties, createProperty, updateProperty, deleteProperty, toggleFeatured };
+// POST /api/properties/:id/brochure-download  — public, stores lead + increments counter
+const trackBrochureDownload = async (req, res, next) => {
+  try {
+    const { name, email, phone, message } = req.body;
+    if (!name || !email) {
+      return res.status(400).json({ success: false, message: 'Name and email are required' });
+    }
+
+    const property = await Property.findById(req.params.id).select('agent');
+    if (!property) return res.status(404).json({ success: false, message: 'Property not found' });
+
+    const BrochureLead = require('../models/BrochureLead');
+    await Promise.all([
+      BrochureLead.create({ name, email, phone: phone || '', message: message || '', property: req.params.id, agent: property.agent }),
+      Property.findByIdAndUpdate(req.params.id, { $inc: { brochureDownloadCount: 1 } }),
+    ]);
+
+    res.json({ success: true });
+  } catch (err) {
+    next(err);
+  }
+};
+
+// GET /api/properties/mine/analytics  — agent's own properties with their brochure leads
+const getMyPropertiesAnalytics = async (req, res, next) => {
+  try {
+    const BrochureLead = require('../models/BrochureLead');
+
+    const properties = await Property.find({ agent: req.user._id })
+      .select('title images createdAt')
+      .sort({ createdAt: -1 });
+
+    const propertyIds = properties.map((p) => p._id);
+    const leads = await BrochureLead.find({ property: { $in: propertyIds } }).sort({ createdAt: -1 });
+
+    const leadsMap = {};
+    leads.forEach((l) => {
+      const pid = l.property.toString();
+      if (!leadsMap[pid]) leadsMap[pid] = [];
+      leadsMap[pid].push(l);
+    });
+
+    const data = properties.map((p) => ({ ...p.toObject(), leads: leadsMap[p._id.toString()] || [] }));
+    res.json({ success: true, data });
+  } catch (err) {
+    next(err);
+  }
+};
+
+// DELETE /api/properties/mine/analytics/leads/:leadId  — agent deletes a lead (must own the property)
+const deleteMyBrochureLead = async (req, res, next) => {
+  try {
+    const BrochureLead = require('../models/BrochureLead');
+    const lead = await BrochureLead.findById(req.params.leadId).populate('property', 'agent');
+    if (!lead) return res.status(404).json({ success: false, message: 'Lead not found' });
+    if (lead.property?.agent?.toString() !== req.user._id.toString()) {
+      return res.status(403).json({ success: false, message: 'Not authorized' });
+    }
+    await lead.deleteOne();
+    res.json({ success: true });
+  } catch (err) {
+    next(err);
+  }
+};
+
+module.exports = { getProperties, getProperty, getPropertyByObjectId, getMyProperties, createProperty, updateProperty, deleteProperty, toggleFeatured, trackBrochureDownload, getMyPropertiesAnalytics, deleteMyBrochureLead };
