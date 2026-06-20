@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && tsc server.ts --module esnext --moduleResolution node --outDir .",
+    "build": "next build && tsc server.ts --module esnext --moduleResolution node --outDir . --skipLibCheck",
     "start": "node server.js",
     "lint": "eslint"
   },
