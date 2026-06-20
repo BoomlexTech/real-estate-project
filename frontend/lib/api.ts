@@ -10,7 +10,7 @@ import type {
   PaginatedResponse,
 } from './types';
 
-const BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL || (typeof window !== 'undefined' ? '/api' : 'http://localhost:5000/api');
 
 const api = axios.create({
   baseURL: BASE_URL,
